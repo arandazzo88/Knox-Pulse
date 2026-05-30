@@ -1,0 +1,31 @@
+{
+  "name": "Knox Pulse",
+  "short_name": "Knox Pulse",
+  "description": "Knoxville's local rhythm guide \u2014 live music, hidden gems, and events.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#1A1A2E",
+  "theme_color": "#FF6B35",
+  "lang": "en-US",
+  "categories": [
+    "lifestyle",
+    "entertainment",
+    "travel"
+  ],
+  "icons": [
+    {
+      "src": "https://img.icons8.com/fluency/192/lightning-bolt.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://img.icons8.com/fluency/512/lightning-bolt.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
