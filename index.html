@@ -6,14 +6,14 @@
 <meta name="description" content="Knox Pulse — the community guide to things to do in Knoxville, TN and surrounding areas. Discover live music, outdoor adventures, local events, restaurants, hidden gems, and underground happenings. Read reviews, upload photos, and find what's happening this weekend."/>
 <meta name="keywords" content="things to do in Knoxville TN, Knoxville events, Knoxville nightlife, East Tennessee attractions, Knoxville live music, Knoxville hiking, Knoxville hidden gems, Knox County activities"/>
 <meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://knoxpulse.com/"/>
+<link rel="canonical" href="https://www.theknoxpulse.com/"/>
 
 <!-- Open Graph -->
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://knoxpulse.com/"/>
+<meta property="og:url" content="https://www.theknoxpulse.com/"/>
 <meta property="og:title" content="Knox Pulse — Knoxville's Local Rhythm"/>
 <meta property="og:description" content="Discover live music, hidden gems, outdoor adventures, and local events in Knoxville, TN. Community-driven ratings and reviews."/>
-<meta property="og:image" content="https://knoxpulse.com/og-image.jpg"/>
+<meta property="og:image" content="https://www.theknoxpulse.com/og-image.jpg"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Knox Pulse"/>
 
@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Knox Pulse — Knoxville's Local Rhythm"/>
 <meta name="twitter:description" content="Discover live music, hidden gems, outdoor adventures, and local events in Knoxville, TN."/>
-<meta name="twitter:image" content="https://knoxpulse.com/og-image.jpg"/>
+<meta name="twitter:image" content="https://www.theknoxpulse.com/og-image.jpg"/>
 
 <!-- Geo -->
 <meta name="geo.region" content="US-TN"/>
@@ -394,22 +394,62 @@ main { padding: 14px; }
 #admin-pw-gate button{display:block;margin:12px auto 0;padding:10px 28px;
   background:var(--orange);border:none;border-radius:20px;color:#fff;cursor:pointer;font-weight:700;}
 
+
+/* Skip navigation (accessibility) */
+.skip-nav{position:absolute;top:-40px;left:0;background:var(--orange);color:#fff;
+  padding:8px 16px;border-radius:0 0 8px 0;font-weight:700;z-index:9999;transition:top .2s;text-decoration:none;}
+.skip-nav:focus{top:0;}
+
+/* Print styles */
+@media print{
+  header,#search-bar,#filter-panel,#admin-fab,.modal-overlay,#toast{display:none!important;}
+  .card{break-inside:avoid;box-shadow:none;border:1px solid #ccc;}
+  body{background:#fff;color:#000;}
+}
+
 </style>
+
+<!-- PWA -->
+<link rel="manifest" href="/manifest.json"/>
+<meta name="theme-color" content="#FF6B35"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="Knox Pulse"/>
+<link rel="apple-touch-icon" href="https://img.icons8.com/fluency/180/lightning-bolt.png"/>
+
+<!-- Preconnect to external origins -->
+<link rel="preconnect" href="https://www.gstatic.com"/>
+<link rel="preconnect" href="https://firestore.googleapis.com"/>
+<link rel="preconnect" href="https://firebasestorage.googleapis.com"/>
+<link rel="preconnect" href="https://unpkg.com"/>
+<link rel="dns-prefetch" href="https://www.googletagmanager.com"/>
+<link rel="dns-prefetch" href="https://tile.openstreetmap.org"/>
+
+<!-- Google Tag Manager — replace GTM-XXXXXXX with your container ID -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
 </head>
 <body>
 
+<!-- Google Tag Manager (noscript) — replace GTM-XXXXXXX with your container ID -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
 <header>
   <div>
     <h1>⚡ Knox Pulse</h1>
     <p style="margin-left:0;margin-top:2px;font-size:.75rem;color:var(--muted);">Knoxville &amp; Surrounding Areas</p>
   </div>
   <p style="margin-left:auto;font-size:.75rem;color:var(--muted);">Know the rhythm.</p>
-  <button id="organizer-btn" onclick="openOrgModal()">+ Submit Event</button>
+  <button id="organizer-btn" aria-label="Submit a new event" onclick="openOrgModal()">+ Submit Event</button>
 </header>
 
 <div id="search-bar">
-  <input id="search-input" type="text" placeholder="Search places, events, vibes…" oninput="applyFilters()"/>
-  <button id="filter-toggle" onclick="toggleFilters()">⚙ Filters</button>
+  <input id="search-input" type="text" aria-label="Search Knox Pulse listings" placeholder="Search places, events, vibes…" oninput="applyFilters()"/>
+  <button id="filter-toggle" aria-expanded="false" aria-controls="filter-panel" onclick="toggleFilters()">⚙ Filters</button>
   <div id="view-toggle-wrap">
     <button class="view-btn active" id="btn-grid" onclick="setView('grid')">⊞ Grid</button>
     <button class="view-btn" id="btn-map" onclick="setView('map')">🗺 Map</button>
@@ -535,7 +575,7 @@ main { padding: 14px; }
 </div>
 
 <div id="map-container"><div id="map"></div></div>
-<main>
+<main id="main-content">
   <div class="smart-section" id="today-section" style="display:none;">
     <h2>🔥 Happening Today <span id="today-count"></span></h2>
     <div class="grid" id="today-grid"></div>
