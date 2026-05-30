@@ -121,6 +121,7 @@
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -437,6 +438,22 @@ main { padding: 14px; }
 .pac-matched { color:var(--accent) !important; }
 .pac-logo:after { display:none !important; }
 
+
+/* Edit Request */
+.suggest-edit-btn{background:none;border:1px solid var(--border);color:var(--text-2);
+  border-radius:var(--radius-sm);padding:6px 14px;cursor:pointer;font-size:.78rem;
+  font-family:inherit;transition:all .15s;margin-top:8px;}
+.suggest-edit-btn:hover{border-color:var(--accent);color:var(--accent);}
+#edit-modal .modal{max-width:500px;}
+.edit-form label{display:block;font-size:.78rem;color:var(--muted);margin-top:12px;margin-bottom:4px;}
+.edit-form select,.edit-form textarea,.edit-form input{
+  width:100%;padding:9px 12px;border-radius:var(--radius-sm);
+  border:1px solid var(--border);background:var(--surface-2);
+  color:var(--text);font-size:.85rem;font-family:inherit;}
+.edit-form textarea{min-height:80px;resize:vertical;}
+.edit-submit{margin-top:14px;padding:10px 28px;background:var(--accent);border:none;
+  border-radius:var(--radius-sm);color:#fff;cursor:pointer;font-weight:700;font-family:inherit;}
+
 /* ── ADMIN ── */
 #admin-fab{position:fixed;bottom:24px;right:24px;width:48px;height:48px;
   background:var(--orange);border:none;border-radius:50%;color:#fff;font-size:1.4rem;
@@ -740,6 +757,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div id="modal-chips" class="modal-chips"></div>
       <p id="modal-desc" class="modal-desc"></p>
       <div class="share-row" id="share-row"></div>
+      <button class="suggest-edit-btn" onclick="openEditModal()">✏️ Suggest an Edit</button>
       <div class="modal-section">
         <h3>📍 Location &amp; Schedule</h3>
         <p id="modal-loc" style="font-size:.85rem;color:var(--muted);"></p>
@@ -1871,15 +1889,17 @@ function unlockAdmin(){
 }
 
 function adminTab(tab){
-  ['listings','add','community','settings'].forEach(t=>{
+  ['listings','add','community','edits','crawled','settings'].forEach(t=>{
     document.getElementById('atab-'+t).style.display = t===tab?'block':'none';
   });
   document.querySelectorAll('.admin-tab').forEach((btn,i)=>{
-    btn.classList.toggle('active', ['listings','add','community','settings'][i]===tab);
+    btn.classList.toggle('active', ['listings','add','community','edits','crawled','settings'][i]===tab);
   });
   if(tab==='listings') renderAdminListings();
     if(tab==='add') waitForPlaces(initAdminPlaces);
   if(tab==='community') renderAdminCommunity();
+    if(tab==='edits') renderAdminEdits();
+    if(tab==='crawled') renderAdminCrawled();
 }
 
 function renderAdminListings(){
@@ -2212,6 +2232,70 @@ function waitForPlaces(fn, attempts=0) {
   else if (attempts < 30) { setTimeout(() => waitForPlaces(fn, attempts+1), 300); }
 }
 
+
+// ============================================================
+// EMAILJS + EDIT REQUESTS
+// ============================================================
+emailjs.init({ publicKey: 'xhG38R6s4qVF0v9Uy' });
+
+const EMAILJS_SERVICE  = 'service_71t2pqk';
+const EMAILJS_TEMPLATE = 'template_wqtnx38';
+
+function openEditModal(){
+  if(!currentListing) return;
+  document.getElementById('edit-modal-listing').textContent = 'Listing: ' + currentListing.title;
+  document.getElementById('edit-type').value = '';
+  document.getElementById('edit-details').value = '';
+  document.getElementById('edit-contact').value = '';
+  document.getElementById('edit-modal').classList.add('open');
+}
+function closeEditModal(){
+  document.getElementById('edit-modal').classList.remove('open');
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const em = document.getElementById('edit-modal');
+  if(em) em.addEventListener('click', e => { if(e.target===em) closeEditModal(); });
+});
+
+async function submitEditRequest(){
+  if(!currentListing) return;
+  const editType = document.getElementById('edit-type').value;
+  const details  = document.getElementById('edit-details').value.trim();
+  const contact  = document.getElementById('edit-contact').value.trim();
+
+  if(!editType){ showToast('Please select what needs to change.'); return; }
+  if(!details) { showToast('Please describe the correct information.'); return; }
+
+  const request = {
+    listingId:   currentListing.id,
+    listingTitle: currentListing.title,
+    editType,
+    proposedChanges: details,
+    submitterContact: contact || 'Anonymous',
+    status: 'pending',
+    submittedAt: firebase.firestore.FieldValue.serverTimestamp(),
+  };
+
+  try {
+    // Save to Firestore
+    await db.collection('editRequests').add(request);
+
+    // Send email via EmailJS
+    await emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, {
+      listing_title:    currentListing.title,
+      edit_type:        editType,
+      proposed_changes: details,
+      submitter_contact: contact || 'Anonymous',
+    });
+
+    closeEditModal();
+    showToast('Edit request sent — thanks! We review all suggestions.');
+  } catch(e) {
+    console.error('Edit request failed:', e);
+    showToast('Sent locally — email notification may have failed.');
+  }
+}
+
 // On load: check ?event= param to auto-open a shared listing
 (function(){
   const params=new URLSearchParams(window.location.search);
@@ -2248,6 +2332,8 @@ initFromFirestore();
           <button class="admin-tab active" onclick="adminTab('listings')">📍 Listings</button>
           <button class="admin-tab" onclick="adminTab('add')">＋ Add / Edit</button>
           <button class="admin-tab" onclick="adminTab('community')">📥 Submitted</button>
+          <button class="admin-tab" onclick="adminTab('edits')">✏️ Edit Requests</button>
+          <button class="admin-tab" onclick="adminTab('crawled')">🕷 Crawled</button>
           <button class="admin-tab" onclick="adminTab('settings')">🔑 Settings</button>
         </div>
 
@@ -2427,6 +2513,20 @@ initFromFirestore();
           <div id="admin-community-list"></div>
         </div>
 
+
+        <!-- EDIT REQUESTS TAB -->
+        <div id="atab-edits" style="display:none;">
+          <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">
+            Community-submitted edit suggestions. Approve to note as resolved, then update the listing manually.</p>
+          <div id="admin-edits-list"></div>
+        </div>
+
+        <!-- CRAWLED EVENTS TAB -->
+        <div id="atab-crawled" style="display:none;">
+          <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">
+            Events auto-discovered by the weekly crawler. Approve to move to main listings.</p>
+          <div id="admin-crawled-list"></div>
+        </div>
         <!-- SETTINGS TAB -->
         <div id="atab-settings" style="display:none;">
           <div class="admin-form">
@@ -2447,6 +2547,39 @@ initFromFirestore();
           </div>
         </div>
       </div><!-- /admin-content -->
+    </div>
+  </div>
+</div>
+
+
+<!-- EDIT REQUEST MODAL -->
+<div class="modal-overlay" id="edit-modal">
+  <div class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeEditModal()">✕</button>
+      <h2 style="margin-bottom:4px;">✏️ Suggest an Edit</h2>
+      <p id="edit-modal-listing" style="font-size:.82rem;color:var(--muted);margin-bottom:16px;"></p>
+      <div class="edit-form">
+        <label>What needs to change? *</label>
+        <select id="edit-type">
+          <option value="">Select…</option>
+          <option>Title / Name</option>
+          <option>Location / Address</option>
+          <option>Description</option>
+          <option>Schedule / Hours</option>
+          <option>Category</option>
+          <option>Cost</option>
+          <option>Age restrictions</option>
+          <option>Photo</option>
+          <option>This place is permanently closed</option>
+          <option>Other</option>
+        </select>
+        <label>Describe the correct information *</label>
+        <textarea id="edit-details" placeholder="e.g. The address is now 123 Main St, not 456 Oak Ave…"></textarea>
+        <label>Your contact (optional — in case we need to follow up)</label>
+        <input type="text" id="edit-contact" placeholder="Email or Instagram"/>
+        <button class="edit-submit" onclick="submitEditRequest()">Send Edit Request</button>
+      </div>
     </div>
   </div>
 </div>
