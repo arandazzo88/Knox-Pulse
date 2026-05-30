@@ -361,6 +361,24 @@ main { padding: 14px; }
 .share-native{ background:var(--orange); color:#fff; }
 
 
+
+/* Hero sections */
+#hero-sections { background:var(--mid); padding:20px; margin-bottom:0; border-bottom:1px solid #ffffff12; }
+.hero-section { margin-bottom:24px; }
+.hero-section:last-child { margin-bottom:0; }
+.hero-section h2 { font-size:1.1rem; color:var(--orange); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+.count-badge { font-size:.72rem; background:var(--orange); color:#fff; border-radius:10px; padding:2px 8px; }
+.hero-empty { color:var(--muted); font-size:.85rem; padding:16px 0; }
+.link-btn { background:none; border:none; color:var(--orange); cursor:pointer; font-size:.85rem; text-decoration:underline; padding:0; }
+
+/* Section divider */
+.section-divider { display:flex; align-items:center; gap:12px; padding:20px 20px 0; color:var(--muted); font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; }
+.section-divider::before,.section-divider::after { content:''; flex:1; height:1px; background:#ffffff15; }
+
+/* Date picker button */
+#date-toggle { background:var(--card); border:1px solid #ffffff20; color:var(--text); border-radius:20px; padding:8px 12px; cursor:pointer; font-size:1rem; min-height:44px; }
+#date-toggle.active { background:var(--orange); border-color:var(--orange); }
+
 /* ── ADMIN ── */
 #admin-fab{position:fixed;bottom:24px;right:24px;width:48px;height:48px;
   background:var(--orange);border:none;border-radius:50%;color:#fff;font-size:1.4rem;
@@ -470,7 +488,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="filter-group">
       <label>Indoor / Outdoor</label>
       <select id="f-inout" onchange="applyFilters()">
-        <option value="">Both</option><option value="Indoor">Indoor</option><option value="Outdoor">Outdoor</option><option value="Both">Mixed</option>
+        <option value="">Any</option>
+        <option value="Indoor">Indoor</option>
+        <option value="Outdoor">Outdoor</option>
+        <option value="Both">Both / Mixed</option>
       </select>
     </div>
     <div class="filter-group">
@@ -502,11 +523,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="filter-group">
       <label>Ages</label>
       <select id="f-age" onchange="applyFilters()">
-        <option value="">All Ages</option>
-        <option value="All Ages">All Ages</option>
-        <option value="21+">21+</option>
-        <option value="18+">18+</option>
-        <option value="Family">Family-friendly</option>
+        <option value="">Any Age</option>
+        <option value="All Ages">All Ages Welcome</option>
+        <option value="Stroller">Stroller-friendly (infants OK)</option>
+        <option value="Toddler">Toddler-friendly (2–4)</option>
+        <option value="Kids">Kid-friendly (5–12)</option>
+        <option value="Teens">Teen-friendly (13–17)</option>
+        <option value="18+">18+ Only</option>
+        <option value="21+">21+ Only</option>
       </select>
     </div>
     <div class="filter-group">
@@ -529,34 +553,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="tog" data-v="6" onclick="toggleDow(this)">Sat</span>
       </div>
     </div>
-    <div class="filter-group" id="date-picker-wrap">
-      <label>Happening On Date</label>
-      <input type="date" id="f-date" onchange="applyFilters()"/>
-    </div>
     <div class="filter-group">
       <label>Neighborhood / Area</label>
       <select id="f-nbhd" onchange="applyFilters()">
         <option value="">All Areas</option>
-        <optgroup label="── Central ──">
-          <option value="Downtown">Downtown (incl. Old City &amp; Market Square)</option>
-          <option value="Old City">Old City</option>
+        <optgroup label="── Downtown ──">
+          <option value="Downtown">Downtown (all districts)</option>
           <option value="Market Square">Market Square</option>
+          <option value="Gay Street">Gay Street</option>
+          <option value="Old City">Old City</option>
+          <option value="Volunteer Landing">Volunteer Landing</option>
+          <option value="World's Fair Park">World's Fair Park</option>
         </optgroup>
-        <optgroup label="── By Direction ──">
+        <optgroup label="── Inner City ──">
+          <option value="Fort Sanders">Fort Sanders / UT Area</option>
+          <option value="4th &amp; Gill">4th &amp; Gill</option>
+          <option value="Happy Holler">Happy Holler</option>
+          <option value="Mechanicsville">Mechanicsville</option>
+          <option value="Parkridge">Parkridge</option>
+        </optgroup>
+        <optgroup label="── North Knoxville ──">
           <option value="North Knoxville">North Knoxville</option>
-          <option value="South Knoxville">South Knoxville</option>
-          <option value="East Knoxville">East Knoxville</option>
-          <option value="West Knoxville">West Knoxville (all west-side areas)</option>
+          <option value="Fountain City">Fountain City</option>
+          <option value="Norwood">Norwood</option>
+          <option value="Inskip">Inskip</option>
+          <option value="Halls">Halls</option>
+          <option value="Powell">Powell</option>
         </optgroup>
-        <optgroup label="── West-Side Neighborhoods ──">
-          <option value="Farragut">Farragut</option>
-          <option value="Hardin Valley">Hardin Valley</option>
+        <optgroup label="── South Knoxville ──">
+          <option value="South Knoxville">South Knoxville (SoKno)</option>
+          <option value="Old Sevier">Old Sevier</option>
+          <option value="Island Home">Island Home</option>
+          <option value="Vestal">Vestal</option>
+        </optgroup>
+        <optgroup label="── East Knoxville ──">
+          <option value="East Knoxville">East Knoxville</option>
+          <option value="Five Points">Five Points / Magnolia</option>
+          <option value="Parkridge">Burlington / Oakwood</option>
+        </optgroup>
+        <optgroup label="── West Knoxville (Inner) ──">
+          <option value="West Knoxville">West Knoxville</option>
+          <option value="Bearden">Bearden</option>
+          <option value="Sequoyah Hills">Sequoyah Hills</option>
           <option value="Northshore">Northshore</option>
           <option value="Papermill">Papermill</option>
+          <option value="West Hills">West Hills</option>
+          <option value="Cedar Bluff">Cedar Bluff</option>
         </optgroup>
-        <optgroup label="── Other ──">
-          <option value="UT Area">UT Area</option>
+        <optgroup label="── West Knoxville (Outer) ──">
+          <option value="Turkey Creek">Turkey Creek</option>
+          <option value="Farragut">Farragut</option>
+          <option value="Hardin Valley">Hardin Valley</option>
+          <option value="Karns">Karns</option>
+        </optgroup>
+        <optgroup label="── Beyond Knox ──">
           <option value="Smoky Mountains">Smoky Mountains</option>
+          <option value="Maryville">Maryville / Alcoa</option>
+          <option value="Oak Ridge">Oak Ridge</option>
+          <option value="Sevierville">Sevierville / Pigeon Forge</option>
         </optgroup>
       </select>
     </div>
@@ -576,16 +630,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div id="map-container"><div id="map"></div></div>
 <main id="main-content">
-  <div class="smart-section" id="today-section" style="display:none;">
-    <h2>🔥 Happening Today <span id="today-count"></span></h2>
-    <div class="grid" id="today-grid"></div>
+  <!-- HERO: Today & Weekend — always visible, front and centre -->
+  <div id="hero-sections">
+    <div class="smart-section hero-section" id="today-section">
+      <h2>🔥 Happening Today <span id="today-count" class="count-badge"></span></h2>
+      <div class="grid" id="today-grid">
+        <div class="hero-empty">Nothing found for today — check back or <button class="link-btn" onclick="document.getElementById('filter-toggle').click()">browse all listings</button>.</div>
+      </div>
+    </div>
+    <div class="smart-section hero-section" id="weekend-section">
+      <h2>📅 This Weekend <span id="weekend-count" class="count-badge"></span></h2>
+      <div class="grid" id="weekend-grid">
+        <div class="hero-empty">Nothing found this weekend yet.</div>
+      </div>
+    </div>
   </div>
-  <div class="smart-section" id="weekend-section" style="display:none;">
-    <h2>📅 This Weekend <span id="weekend-count"></span></h2>
-    <div class="grid" id="weekend-grid"></div>
+
+  <!-- DIVIDER -->
+  <div class="section-divider">
+    <span>All Listings</span>
   </div>
-  <div class="smart-section">
-    <h2>🗺️ All Listings</h2>
+
+  <div class="smart-section" id="all-listings-section">
     <div class="grid" id="main-grid"></div>
   </div>
   <div id="empty-state" style="display:none;"><p>No listings match your filters.</p></div>
@@ -1200,6 +1266,9 @@ function clearFilters(){
   document.getElementById('f-date').value='';
   document.getElementById('f-underground').value='';
   document.getElementById('f-nbhd').value='';
+  document.getElementById('f-date').value='';
+  document.getElementById('date-picker-bar').style.display='none';
+  document.getElementById('date-toggle').classList.remove('active');
   activeCosts=[]; activeTimes=[]; activeDows=[];
   document.querySelectorAll('.tog').forEach(t=>t.classList.remove('active'));
   applyFilters();
@@ -1236,8 +1305,12 @@ function applyFilters(){
       // Hierarchical: Downtown includes Old City + Market Square
       // West Knoxville includes Farragut, Hardin Valley, Northshore, Papermill
       const NBHD_GROUPS={
-        'Downtown':['Downtown','Old City','Market Square'],
-        'West Knoxville':['West Knoxville','Farragut','Hardin Valley','Northshore','Papermill'],
+        'Downtown':['Downtown','Market Square','Gay Street','Old City','Volunteer Landing',"World's Fair Park"],
+        'West Knoxville':['West Knoxville','Bearden','Sequoyah Hills','Northshore','Papermill','West Hills','Cedar Bluff','Turkey Creek','Farragut','Hardin Valley','Karns'],
+        'North Knoxville':['North Knoxville','Fountain City','Norwood','Inskip','Halls','Powell','Happy Holler','4th & Gill'],
+        'South Knoxville':['South Knoxville','Old Sevier','Island Home','Vestal'],
+        'East Knoxville':['East Knoxville','Five Points','Parkridge','Burlington / Oakwood'],
+        'Fort Sanders':['Fort Sanders','UT Area'],
       };
       const allowed=NBHD_GROUPS[nbhd]||[nbhd];
       if(!allowed.includes(l.neighborhood||'')) return false;
@@ -1291,12 +1364,25 @@ function renderGrid(el, list){
   el.innerHTML=list.map(buildCard).join('')||'';
 }
 
+function toggleDatePicker(){
+  const bar=document.getElementById('date-picker-bar');
+  const btn=document.getElementById('date-toggle');
+  const open=bar.style.display==='none'||bar.style.display==='';
+  bar.style.display=open?'block':'none';
+  btn.classList.toggle('active',open);
+  if(!open){ document.getElementById('f-date').value=''; applyFilters(); }
+}
+
+function clearDate(){
+  document.getElementById('f-date').value='';
+  document.getElementById('date-picker-bar').style.display='none';
+  document.getElementById('date-toggle').classList.remove('active');
+  applyFilters();
+}
+
 function renderSmartSections(){
   const today=todayStr();
   const d=new Date(today+'T12:00:00');
-  const dow=d.getDay();
-  const weekendDays=[5,6,0].includes(dow)?[today]:[];
-  // get this weekend
   const weekendDates=[];
   for(let i=0;i<7;i++){
     const dd=new Date(d); dd.setDate(d.getDate()+i);
@@ -1305,24 +1391,30 @@ function renderSmartSections(){
     }
     if(weekendDates.length>=3) break;
   }
-
   const todayListings=allListings().filter(l=>isHappeningOnDate(l,today));
   const weekendListings=allListings().filter(l=>weekendDates.some(wd=>isHappeningOnDate(l,wd)));
 
-  const ts=document.getElementById('today-section');
-  const ws=document.getElementById('weekend-section');
-
+  // Today — always show section, show empty state if none
+  const todayGrid=document.getElementById('today-grid');
+  const todayCount=document.getElementById('today-count');
   if(todayListings.length){
-    ts.style.display='block';
-    document.getElementById('today-count').textContent=todayListings.length;
-    renderGrid(document.getElementById('today-grid'),todayListings.slice(0,4));
-  } else ts.style.display='none';
+    todayCount.textContent=todayListings.length;
+    renderGrid(todayGrid, todayListings.slice(0,6));
+  } else {
+    todayCount.textContent='';
+    todayGrid.innerHTML='<div class="hero-empty">Nothing on the radar today — check back or browse all listings below.</div>';
+  }
 
+  // Weekend — always show section, show empty state if none
+  const weekendGrid=document.getElementById('weekend-grid');
+  const weekendCount=document.getElementById('weekend-count');
   if(weekendListings.length){
-    ws.style.display='block';
-    document.getElementById('weekend-count').textContent=weekendListings.length;
-    renderGrid(document.getElementById('weekend-grid'),weekendListings.slice(0,4));
-  } else ws.style.display='none';
+    weekendCount.textContent=weekendListings.length;
+    renderGrid(weekendGrid, weekendListings.slice(0,6));
+  } else {
+    weekendCount.textContent='';
+    weekendGrid.innerHTML='<div class="hero-empty">Nothing found this weekend yet — add events via the Submit button.</div>';
+  }
 }
 
 // ============================================================
