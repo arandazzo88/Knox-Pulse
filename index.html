@@ -405,9 +405,17 @@ main { padding: 14px; }
 .section-divider::before,.section-divider::after { content:''; flex:1; height:1px; background:rgba(255,130,0,0.15); }
 
 /* Date picker button */
-#date-toggle { background:var(--card); border:1px solid #ffffff20; color:var(--text); border-radius:20px; padding:8px 12px; cursor:pointer; font-size:1rem; min-height:44px; }
-#date-toggle.active { background:var(--orange); border-color:var(--orange); }
-
+#date-toggle{background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);border-radius:var(--radius-sm);padding:9px 14px;cursor:pointer;font-size:.82rem;font-family:inherit;font-weight:500;transition:all .15s;}
+#date-toggle:hover,#date-toggle.active{border-color:var(--accent);color:var(--accent);}
+#date-picker-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 24px;}
+.dpb-inner{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.dpb-section{display:flex;align-items:center;gap:8px;}
+.dpb-label{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;white-space:nowrap;}
+.dpb-sep{width:1px;height:20px;background:var(--border);flex-shrink:0;}
+#f-date{background:var(--surface-2);border:1px solid var(--border);color:var(--text);border-radius:var(--radius-sm);padding:6px 10px;font-size:.83rem;font-family:inherit;cursor:pointer;}
+#f-date:focus{outline:none;border-color:var(--border-hover);}
+.dpb-clear{margin-left:auto;background:transparent;border:1px solid var(--border);color:var(--text-2);border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:.78rem;font-family:inherit;white-space:nowrap;transition:all .15s;}
+.dpb-clear:hover{border-color:var(--accent);color:var(--accent);}
 
 /* Google Places Autocomplete — dark theme */
 .pac-container {
@@ -545,9 +553,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="search-bar">
   <input id="search-input" type="text" aria-label="Search Knox Pulse listings" placeholder="Search places, events, vibes…" oninput="applyFilters()"/>
   <button id="filter-toggle" aria-expanded="false" aria-controls="filter-panel" onclick="toggleFilters()">⚙ Filters</button>
+  <button id="date-toggle" aria-expanded="false" aria-controls="date-picker-bar" onclick="toggleDatePicker()">📅 Date</button>
   <div id="view-toggle-wrap">
     <button class="view-btn active" id="btn-grid" onclick="setView('grid')">⊞ Grid</button>
     <button class="view-btn" id="btn-map" onclick="setView('map')">🗺 Map</button>
+  </div>
+</div>
+
+<div id="date-picker-bar" style="display:none">
+  <div class="dpb-inner">
+    <div class="dpb-section">
+      <span class="dpb-label">Quick</span>
+      <div class="toggle-group">
+        <span class="tog" onclick="setDateQuick('today')">Today</span>
+        <span class="tog" onclick="setDateQuick('weekend')">This Weekend</span>
+      </div>
+    </div>
+    <div class="dpb-sep"></div>
+    <div class="dpb-section">
+      <span class="dpb-label">Day</span>
+      <div class="toggle-group" id="f-dow">
+        <span class="tog" data-v="0" onclick="toggleDow(this)">Sun</span>
+        <span class="tog" data-v="1" onclick="toggleDow(this)">Mon</span>
+        <span class="tog" data-v="2" onclick="toggleDow(this)">Tue</span>
+        <span class="tog" data-v="3" onclick="toggleDow(this)">Wed</span>
+        <span class="tog" data-v="4" onclick="toggleDow(this)">Thu</span>
+        <span class="tog" data-v="5" onclick="toggleDow(this)">Fri</span>
+        <span class="tog" data-v="6" onclick="toggleDow(this)">Sat</span>
+      </div>
+    </div>
+    <div class="dpb-sep"></div>
+    <div class="dpb-section">
+      <span class="dpb-label">Date</span>
+      <input type="date" id="f-date" onchange="onDatePick()"/>
+    </div>
+    <button class="dpb-clear" onclick="clearDate()">✕ Clear</button>
   </div>
 </div>
 
@@ -627,18 +667,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="tog" data-v="Morning" onclick="toggleTime(this)">🌅 Morning</span>
         <span class="tog" data-v="Afternoon" onclick="toggleTime(this)">☀️ Afternoon</span>
         <span class="tog" data-v="Evening" onclick="toggleTime(this)">🌙 Evening</span>
-      </div>
-    </div>
-    <div class="filter-group">
-      <label>Day of Week</label>
-      <div class="toggle-group" id="f-dow">
-        <span class="tog" data-v="0" onclick="toggleDow(this)">Sun</span>
-        <span class="tog" data-v="1" onclick="toggleDow(this)">Mon</span>
-        <span class="tog" data-v="2" onclick="toggleDow(this)">Tue</span>
-        <span class="tog" data-v="3" onclick="toggleDow(this)">Wed</span>
-        <span class="tog" data-v="4" onclick="toggleDow(this)">Thu</span>
-        <span class="tog" data-v="5" onclick="toggleDow(this)">Fri</span>
-        <span class="tog" data-v="6" onclick="toggleDow(this)">Sat</span>
       </div>
     </div>
     <div class="filter-group">
@@ -1336,6 +1364,8 @@ function toggleDow(el){
   const v=parseInt(el.dataset.v);
   if(activeDows.includes(v)) activeDows=activeDows.filter(x=>x!==v);
   else activeDows.push(v);
+  document.getElementById('f-date').value='';
+  document.getElementById('date-toggle').classList.toggle('active', activeDows.length>0);
   applyFilters();
 }
 
@@ -1349,7 +1379,6 @@ function clearFilters(){
   document.getElementById('f-date').value='';
   const stroller=document.getElementById('f-stroller'); if(stroller) stroller.checked=false;
   document.getElementById('f-nbhd').value='';
-  document.getElementById('f-date').value='';
   document.getElementById('date-picker-bar').style.display='none';
   document.getElementById('date-toggle').classList.remove('active');
   activeCosts=[]; activeTimes=[]; activeDows=[];
@@ -1452,13 +1481,42 @@ function toggleDatePicker(){
   const open=bar.style.display==='none'||bar.style.display==='';
   bar.style.display=open?'block':'none';
   btn.classList.toggle('active',open);
-  if(!open){ document.getElementById('f-date').value=''; applyFilters(); }
+  if(!open){
+    document.getElementById('f-date').value='';
+    activeDows=[];
+    document.querySelectorAll('#f-dow .tog').forEach(t=>t.classList.remove('active'));
+    applyFilters();
+  }
 }
 
 function clearDate(){
   document.getElementById('f-date').value='';
-  document.getElementById('date-picker-bar').style.display='none';
+  activeDows=[];
+  document.querySelectorAll('#f-dow .tog').forEach(t=>t.classList.remove('active'));
   document.getElementById('date-toggle').classList.remove('active');
+  applyFilters();
+}
+
+function onDatePick(){
+  activeDows=[];
+  document.querySelectorAll('#f-dow .tog').forEach(t=>t.classList.remove('active'));
+  document.getElementById('date-toggle').classList.toggle('active',!!document.getElementById('f-date').value);
+  applyFilters();
+}
+
+function setDateQuick(mode){
+  if(mode==='today'){
+    document.getElementById('f-date').value=todayStr();
+    activeDows=[];
+    document.querySelectorAll('#f-dow .tog').forEach(t=>t.classList.remove('active'));
+  } else if(mode==='weekend'){
+    document.getElementById('f-date').value='';
+    activeDows=[5,6,0];
+    document.querySelectorAll('#f-dow .tog').forEach(t=>{
+      t.classList.toggle('active',[5,6,0].includes(parseInt(t.dataset.v)));
+    });
+  }
+  document.getElementById('date-toggle').classList.add('active');
   applyFilters();
 }
 
