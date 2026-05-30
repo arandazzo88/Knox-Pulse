@@ -1,7 +1,7 @@
 {
   "name": "Knox Pulse",
   "short_name": "Knox Pulse",
-  "description": "Knoxville's local rhythm guide \u2014 live music, hidden gems, and events.",
+  "description": "Knoxville's local rhythm guide — live music, hidden gems, and events.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -16,15 +16,9 @@
   ],
   "icons": [
     {
-      "src": "https://img.icons8.com/fluency/192/lightning-bolt.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "https://img.icons8.com/fluency/512/lightning-bolt.png",
-      "sizes": "512x512",
-      "type": "image/png",
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTIwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEyMCIgcng9IjIyIiBmaWxsPSIjMEQwRDBEIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSI0MiIgcj0iMzIiIGZpbGw9IiNGRjgyMDAiLz48ZWxsaXBzZSBjeD0iMzciIGN5PSIzMSIgcng9IjExIiByeT0iNyIgZmlsbD0icmdiYSgyNTUsMjM1LDgwLDAuNCkiLz48cmVjdCB4PSI0NiIgeT0iNzQiIHdpZHRoPSI4IiBoZWlnaHQ9IjE4IiBmaWxsPSIjQjg1QzAwIi8+PHJlY3QgeD0iMzIiIHk9IjkyIiB3aWR0aD0iMzYiIGhlaWdodD0iOCIgcng9IjMiIGZpbGw9IiNCODVDMDAiLz48L3N2Zz4K",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ]
