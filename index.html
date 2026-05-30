@@ -198,6 +198,7 @@ header p{font-size:.75rem;color:var(--muted);margin-left:auto;}
 #organizer-btn:hover{opacity:.88;}
 /* SEARCH */
 #search-bar{display:flex;gap:8px;padding:12px 24px;background:var(--surface);border-bottom:1px solid var(--border);align-items:center;}
+#search-input-wrap{display:flex;gap:8px;flex:1;}
 #search-input{flex:1;padding:9px 16px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface-2);color:var(--text);font-size:.9rem;font-family:inherit;transition:border-color .15s;}
 #search-input:focus{outline:none;border-color:var(--border-hover);}
 #filter-toggle,#date-toggle{background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);border-radius:var(--radius-sm);padding:8px 14px;cursor:pointer;font-size:.82rem;font-family:inherit;font-weight:500;transition:all .15s;height:44px;box-sizing:border-box;}
@@ -310,7 +311,8 @@ main{max-width:1280px;margin:0 auto;padding:24px;}
 /* ── Search bar ── */
 @media (max-width: 640px) {
   #search-bar { padding: 10px 12px; gap: 6px; flex-wrap: wrap; }
-  #search-input { flex: 1 1 100%; font-size: .9rem; }
+  #search-input-wrap { flex: 1 1 100%; }
+  #search-input { font-size: .9rem; }
   #view-toggle-wrap { margin-left: auto; }
 }
 
@@ -587,8 +589,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 
 <div id="search-bar">
-  <input id="search-input" type="text" aria-label="Search Knox Pulse listings" placeholder="Try 'free jazz tonight' or 'hiking this weekend'…" oninput="applyFilters()" onkeydown="if(event.key==='Enter')applyFilters()"/>
-  <button id="search-btn" onclick="applyFilters()" aria-label="Search">🔍</button>
+  <div id="search-input-wrap">
+    <input id="search-input" type="text" aria-label="Search Knox Pulse listings" placeholder="Try 'free jazz tonight' or 'hiking this weekend'…" oninput="applyFilters()" onkeydown="if(event.key==='Enter')applyFilters()"/>
+    <button id="search-btn" onclick="applyFilters()" aria-label="Search">🔍</button>
+  </div>
   <button id="filter-toggle" aria-expanded="false" aria-controls="filter-panel" onclick="toggleFilters()">⚙ Filters</button>
   <button id="date-toggle" aria-expanded="false" aria-controls="date-picker-bar" onclick="toggleDatePicker()">📅 Date</button>
   <div id="view-toggle-wrap">
