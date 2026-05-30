@@ -291,7 +291,7 @@ main{max-width:1280px;margin:0 auto;padding:24px;}
    ========================================================= */
 
 /* ── Touch targets ── */
-.tog, .filter-group select, #filter-toggle, #organizer-btn,
+.tog, .filter-group select, #filter-toggle, #date-toggle, #organizer-btn,
 #apply-filters, #clear-filters, .review-form button, .org-submit {
   min-height: 44px;
   display: inline-flex;
@@ -628,8 +628,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="dpb-sep"></div>
     <div class="dpb-section">
-      <span class="dpb-label">Date</span>
-      <input type="date" id="f-date" onchange="onDatePick()"/>
+      <span class="dpb-label">📅 Pick a date</span>
+      <input type="date" id="f-date" onchange="onDatePick()" title="Choose a specific date"/>
     </div>
     <button class="dpb-clear" onclick="clearDate()">✕ Clear</button>
   </div>
@@ -1656,16 +1656,16 @@ function toggleDatePicker(){
   const isOpen=document.getElementById('date-picker-bar').style.display==='block';
   if(isOpen){
     closeDatePanel();
-    document.getElementById('f-date').value='';
-    activeDows=[];
-    document.querySelectorAll('#f-dow .tog').forEach(t=>t.classList.remove('active'));
-    applyFilters();
     return;
   }
   closeFilterPanel();
   document.getElementById('date-picker-bar').style.display='block';
   document.getElementById('date-toggle').classList.add('active');
   document.getElementById('date-toggle').setAttribute('aria-expanded','true');
+  // Set min date to today so past dates are greyed out
+  if(!document.getElementById('f-date').min){
+    document.getElementById('f-date').min=todayStr();
+  }
 }
 
 function clearDate(){
@@ -2469,23 +2469,22 @@ function openEditModal(){
 function closeEditModal(){
   document.getElementById('edit-modal').classList.remove('open');
 }
-document.addEventListener('DOMContentLoaded', () => {
-  const em = document.getElementById('edit-modal');
-  if(em) em.addEventListener('click', e => { if(e.target===em) closeEditModal(); });
-
-  document.addEventListener('click', e => {
-    const fp  = document.getElementById('filter-panel');
-    const ft  = document.getElementById('filter-toggle');
-    const dpb = document.getElementById('date-picker-bar');
-    const dt  = document.getElementById('date-toggle');
-    if(fp.classList.contains('open') && !fp.contains(e.target) && !ft.contains(e.target)){
-      closeFilterPanel();
-    }
-    if(dpb.style.display==='block' && !dpb.contains(e.target) && !dt.contains(e.target)){
-      closeDatePanel();
-    }
-  });
+// Click-outside: close filter or date panel when user clicks elsewhere
+document.addEventListener('click', e => {
+  const fp  = document.getElementById('filter-panel');
+  const ft  = document.getElementById('filter-toggle');
+  const dpb = document.getElementById('date-picker-bar');
+  const dt  = document.getElementById('date-toggle');
+  if(fp && fp.classList.contains('open') && !fp.contains(e.target) && e.target!==ft && !ft.contains(e.target)){
+    closeFilterPanel();
+  }
+  if(dpb && dpb.style.display==='block' && !dpb.contains(e.target) && e.target!==dt && !dt.contains(e.target)){
+    closeDatePanel();
+  }
 });
+// Edit modal click-outside
+const _em = document.getElementById('edit-modal');
+if(_em) _em.addEventListener('click', e => { if(e.target===_em) closeEditModal(); });
 
 async function submitEditRequest(){
   if(!currentListing) return;
@@ -2537,9 +2536,9 @@ document.getElementById('detail-modal').addEventListener('click',function(e){if(
 document.getElementById('org-modal').addEventListener('click',function(e){if(e.target===this) closeOrgModal();});
 showRecurrenceFields();
 showRecurrenceSubFields();
-applyFilters();
-renderSmartSections();
 initFromFirestore();
+// Render grid immediately from static data; Firestore will refresh once loaded
+setTimeout(function(){ applyFilters(); renderSmartSections(); }, 0);
 </script>
 
 <!-- ADMIN MODAL -->
