@@ -124,6 +124,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3yqeVacl8BCvj0s9YeWkVNZknBFijZ_0&libraries=places&loading=async" async defer></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
@@ -404,6 +405,37 @@ main { padding: 14px; }
 /* Date picker button */
 #date-toggle { background:var(--card); border:1px solid #ffffff20; color:var(--text); border-radius:20px; padding:8px 12px; cursor:pointer; font-size:1rem; min-height:44px; }
 #date-toggle.active { background:var(--orange); border-color:var(--orange); }
+
+
+/* Google Places Autocomplete — dark theme */
+.pac-container {
+  background:var(--surface-2) !important;
+  border:1px solid var(--border-hover) !important;
+  border-radius:var(--radius-sm) !important;
+  box-shadow:0 8px 24px rgba(0,0,0,.5) !important;
+  font-family:'Inter','Segoe UI',sans-serif !important;
+  margin-top:4px;
+}
+.pac-item {
+  padding:8px 12px !important;
+  border-top:1px solid var(--border) !important;
+  color:var(--text-2) !important;
+  font-size:.83rem !important;
+  cursor:pointer;
+  transition:background .15s;
+}
+.pac-item:first-child { border-top:none !important; }
+.pac-item:hover,.pac-item-selected {
+  background:var(--surface-3) !important;
+}
+.pac-item-query {
+  color:var(--text) !important;
+  font-size:.85rem !important;
+  font-weight:600;
+}
+.pac-icon { display:none !important; }
+.pac-matched { color:var(--accent) !important; }
+.pac-logo:after { display:none !important; }
 
 /* ── ADMIN ── */
 #admin-fab{position:fixed;bottom:24px;right:24px;width:48px;height:48px;
@@ -766,7 +798,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <option>Community & Civic</option>
         </select>
         <label>Location / Venue *</label>
-        <input type="text" id="org-loc" placeholder="e.g. The Mill &amp; Mine, 500 W. Jackson Ave"/>
+        <input type="text" id="org-loc" placeholder="Start typing a venue or address…" autocomplete="off"/>
         <label>Description</label>
         <textarea id="org-desc" placeholder="Tell the community about this event…"></textarea>
         <label>Cost Scale</label>
@@ -1604,7 +1636,7 @@ async function submitReview(){
 // ============================================================
 // ORGANIZER PORTAL
 // ============================================================
-function openOrgModal(){document.getElementById('org-modal').classList.add('open');}
+function openOrgModal(){document.getElementById('org-modal').classList.add('open');waitForPlaces(initOrgPlaces);}
 function closeOrgModal(){document.getElementById('org-modal').classList.remove('open');}
 
 function showRecurrenceFields(){
@@ -1846,6 +1878,7 @@ function adminTab(tab){
     btn.classList.toggle('active', ['listings','add','community','settings'][i]===tab);
   });
   if(tab==='listings') renderAdminListings();
+    if(tab==='add') waitForPlaces(initAdminPlaces);
   if(tab==='community') renderAdminCommunity();
 }
 
@@ -2116,6 +2149,69 @@ document.querySelector('header h1').addEventListener('click',()=>{
   }
 });
 
+
+// ============================================================
+// GOOGLE PLACES AUTOCOMPLETE
+// ============================================================
+let orgLocAutocomplete  = null;
+let adminLocAutocomplete = null;
+
+function initOrgPlaces() {
+  const input = document.getElementById('org-loc');
+  if (!input || orgLocAutocomplete || !window.google?.maps?.places) return;
+  orgLocAutocomplete = new google.maps.places.Autocomplete(input, {
+    componentRestrictions: { country: 'us' },
+    fields: ['name', 'formatted_address', 'geometry'],
+    types: ['establishment', 'geocode'],
+    bounds: new google.maps.LatLngBounds(
+      new google.maps.LatLng(35.7, -84.3),   // SW — Knox County area
+      new google.maps.LatLng(36.2, -83.6)    // NE
+    ),
+    strictBounds: false,
+  });
+  orgLocAutocomplete.addListener('place_changed', () => {
+    const place = orgLocAutocomplete.getPlace();
+    if (!place.formatted_address) return;
+    // Build "Venue Name, Address" if name differs from address
+    const name = place.name || '';
+    const addr = place.formatted_address || '';
+    input.value = (name && !addr.startsWith(name)) ? `${name}, ${addr}` : addr;
+  });
+}
+
+function initAdminPlaces() {
+  const input = document.getElementById('af-loc');
+  if (!input || adminLocAutocomplete || !window.google?.maps?.places) return;
+  adminLocAutocomplete = new google.maps.places.Autocomplete(input, {
+    componentRestrictions: { country: 'us' },
+    fields: ['name', 'formatted_address', 'geometry'],
+    types: ['establishment', 'geocode'],
+    bounds: new google.maps.LatLngBounds(
+      new google.maps.LatLng(35.7, -84.3),
+      new google.maps.LatLng(36.2, -83.6)
+    ),
+    strictBounds: false,
+  });
+  adminLocAutocomplete.addListener('place_changed', () => {
+    const place = adminLocAutocomplete.getPlace();
+    if (!place.formatted_address) return;
+    const name = place.name || '';
+    const addr = place.formatted_address || '';
+    input.value = (name && !addr.startsWith(name)) ? `${name}, ${addr}` : addr;
+    // Auto-fill lat/lng for the map pin
+    if (place.geometry?.location) {
+      document.getElementById('af-lat').value = place.geometry.location.lat().toFixed(6);
+      document.getElementById('af-lng').value = place.geometry.location.lng().toFixed(6);
+    }
+  });
+}
+
+// Retry until Maps API is ready (it loads async)
+function waitForPlaces(fn, attempts=0) {
+  if (window.google?.maps?.places) { fn(); }
+  else if (attempts < 30) { setTimeout(() => waitForPlaces(fn, attempts+1), 300); }
+}
+
 // On load: check ?event= param to auto-open a shared listing
 (function(){
   const params=new URLSearchParams(window.location.search);
@@ -2207,7 +2303,7 @@ initFromFirestore();
               </div>
             </div>
             <label>Location / Venue Address</label>
-            <input id="af-loc" placeholder="e.g. 500 W Jackson Ave, Knoxville"/>
+            <input id="af-loc" placeholder="Start typing a venue or address…" autocomplete="off"/>
             <label>Description</label>
             <textarea id="af-desc" placeholder="What makes this worth going to?"></textarea>
             <div class="form-row">
