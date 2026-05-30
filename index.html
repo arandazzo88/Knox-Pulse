@@ -275,9 +275,10 @@ main{max-width:1280px;margin:0 auto;padding:24px;}
 }
 
 /* ── Search bar ── */
-@media (max-width: 480px) {
-  #search-bar { padding: 10px 12px; gap: 8px; }
-  #search-input { font-size: .9rem; }
+@media (max-width: 640px) {
+  #search-bar { padding: 10px 12px; gap: 6px; flex-wrap: wrap; }
+  #search-input { flex: 1 1 100%; font-size: .9rem; }
+  #view-toggle-wrap { margin-left: auto; }
 }
 
 /* ── Filter panel — single column on mobile ── */
@@ -1218,6 +1219,7 @@ let selectedStar = 0;
 let activeCosts = [];
 let activeTimes = [];
 let activeDows = [];
+let ugOnly = false;
 let localReviews = JSON.parse(localStorage.getItem('kp_reviews')||'{}');
 let localPhotos = JSON.parse(localStorage.getItem('kp_photos')||'{}');
 let communityEvents = JSON.parse(localStorage.getItem('kp_events')||'[]');
@@ -1840,6 +1842,8 @@ function setView(v){
       const current=allListings().filter(l=>l.lat&&l.lng);
       renderMapMarkers(current);
     },100);
+  } else {
+    applyFilters();
   }
 }
 
