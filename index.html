@@ -167,8 +167,8 @@ header p{font-size:.75rem;color:var(--muted);margin-left:auto;}
 #search-bar{display:flex;gap:8px;padding:12px 24px;background:var(--surface);border-bottom:1px solid var(--border);align-items:center;}
 #search-input{flex:1;padding:9px 16px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface-2);color:var(--text);font-size:.9rem;font-family:inherit;transition:border-color .15s;}
 #search-input:focus{outline:none;border-color:var(--border-hover);}
-#filter-toggle{background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);border-radius:var(--radius-sm);padding:9px 16px;cursor:pointer;font-size:.82rem;font-family:inherit;font-weight:500;transition:all .15s;}
-#filter-toggle:hover,#filter-toggle.active{border-color:var(--accent);color:var(--accent);}
+#filter-toggle,#date-toggle{background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);border-radius:var(--radius-sm);padding:9px 16px;cursor:pointer;font-size:.82rem;font-family:inherit;font-weight:500;transition:all .15s;}
+#filter-toggle:hover,#filter-toggle.active,#date-toggle:hover,#date-toggle.active{border-color:var(--accent);color:var(--accent);}
 /* FILTER PANEL */
 #filter-panel{background:var(--surface);border-bottom:1px solid var(--border);overflow:hidden;max-height:0;transition:max-height .3s ease;}
 #filter-panel.open{max-height:700px;}
@@ -406,8 +406,6 @@ main { padding: 14px; }
 .section-divider::before,.section-divider::after { content:''; flex:1; height:1px; background:rgba(255,130,0,0.15); }
 
 /* Date picker button */
-#date-toggle{background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);border-radius:var(--radius-sm);padding:9px 14px;cursor:pointer;font-size:.82rem;font-family:inherit;font-weight:500;transition:all .15s;}
-#date-toggle:hover,#date-toggle.active{border-color:var(--accent);color:var(--accent);}
 #date-picker-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 24px;}
 .dpb-inner{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
 .dpb-section{display:flex;align-items:center;gap:8px;}
@@ -1340,11 +1338,23 @@ function allListings(){
 // ============================================================
 // FILTER LOGIC
 // ============================================================
+function closeFilterPanel(){
+  document.getElementById('filter-panel').classList.remove('open');
+  document.getElementById('filter-toggle').classList.remove('active');
+  document.getElementById('filter-toggle').setAttribute('aria-expanded','false');
+}
+function closeDatePanel(){
+  document.getElementById('date-picker-bar').style.display='none';
+  document.getElementById('date-toggle').classList.remove('active');
+  document.getElementById('date-toggle').setAttribute('aria-expanded','false');
+}
 function toggleFilters(){
-  const p=document.getElementById('filter-panel');
-  const btn=document.getElementById('filter-toggle');
-  p.classList.toggle('open');
-  btn.classList.toggle('active');
+  const isOpen=document.getElementById('filter-panel').classList.contains('open');
+  if(isOpen){ closeFilterPanel(); return; }
+  closeDatePanel();
+  document.getElementById('filter-panel').classList.add('open');
+  document.getElementById('filter-toggle').classList.add('active');
+  document.getElementById('filter-toggle').setAttribute('aria-expanded','true');
 }
 
 function toggleCost(el){
@@ -1478,17 +1488,19 @@ function renderGrid(el, list){
 }
 
 function toggleDatePicker(){
-  const bar=document.getElementById('date-picker-bar');
-  const btn=document.getElementById('date-toggle');
-  const open=bar.style.display==='none'||bar.style.display==='';
-  bar.style.display=open?'block':'none';
-  btn.classList.toggle('active',open);
-  if(!open){
+  const isOpen=document.getElementById('date-picker-bar').style.display==='block';
+  if(isOpen){
+    closeDatePanel();
     document.getElementById('f-date').value='';
     activeDows=[];
     document.querySelectorAll('#f-dow .tog').forEach(t=>t.classList.remove('active'));
     applyFilters();
+    return;
   }
+  closeFilterPanel();
+  document.getElementById('date-picker-bar').style.display='block';
+  document.getElementById('date-toggle').classList.add('active');
+  document.getElementById('date-toggle').setAttribute('aria-expanded','true');
 }
 
 function clearDate(){
@@ -2295,6 +2307,19 @@ function closeEditModal(){
 document.addEventListener('DOMContentLoaded', () => {
   const em = document.getElementById('edit-modal');
   if(em) em.addEventListener('click', e => { if(e.target===em) closeEditModal(); });
+
+  document.addEventListener('click', e => {
+    const fp  = document.getElementById('filter-panel');
+    const ft  = document.getElementById('filter-toggle');
+    const dpb = document.getElementById('date-picker-bar');
+    const dt  = document.getElementById('date-toggle');
+    if(fp.classList.contains('open') && !fp.contains(e.target) && !ft.contains(e.target)){
+      closeFilterPanel();
+    }
+    if(dpb.style.display==='block' && !dpb.contains(e.target) && !dt.contains(e.target)){
+      closeDatePanel();
+    }
+  });
 });
 
 async function submitEditRequest(){
