@@ -154,6 +154,39 @@
   --mid:var(--surface);
   --card:var(--surface-2);
 }
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg:#F5F5F7;
+    --surface:#FFFFFF;
+    --surface-2:#EDEDF0;
+    --surface-3:#E3E3E8;
+    --border:rgba(0,0,0,0.1);
+    --border-hover:rgba(0,0,0,0.28);
+    --accent:#D46A00;
+    --accent-dim:rgba(212,106,0,0.1);
+    --accent-glow:0 0 20px rgba(212,106,0,0.18);
+    --text:#111111;
+    --text-2:#555555;
+    --muted:#888888;
+    --gold:#C98A00;
+    --green:#009840;
+    --shadow:0 1px 2px rgba(0,0,0,0.08),0 4px 16px rgba(0,0,0,0.06);
+    --dark:var(--bg);
+    --mid:var(--surface);
+    --card:var(--surface-2);
+  }
+  /* Fix hardcoded dark-only styles */
+  .review-form textarea,
+  .org-form input,.org-form select,.org-form textarea {
+    border:1px solid var(--border) !important;
+    background:var(--surface-2) !important;
+    color:var(--text) !important;
+  }
+  .view-btn { border-color:var(--border) !important; }
+  header { border-bottom-color:rgba(212,106,0,0.2); }
+  .leaflet-popup-content-wrapper { background:var(--surface) !important; color:var(--text) !important; }
+  #map-container { filter:brightness(1) !important; }
+}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',system-ui,sans-serif;min-height:100vh;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;}
 /* HEADER */
@@ -270,7 +303,7 @@ main{max-width:1280px;margin:0 auto;padding:24px;}
 @media (max-width: 480px) {
   header { flex-wrap: wrap; gap: 8px; }
   header h1 { font-size: 1.15rem; }
-  #organizer-btn { width: 100%; text-align: center; }
+  #organizer-btn { padding: 7px 14px; font-size: .78rem; }
   header > p { display: none; }
 }
 
@@ -416,6 +449,13 @@ main { padding: 14px; }
 .dpb-clear{margin-left:auto;background:transparent;border:1px solid var(--border);color:var(--text-2);border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:.78rem;font-family:inherit;white-space:nowrap;transition:all .15s;}
 .dpb-clear:hover{border-color:var(--accent);color:var(--accent);}
 
+/* Intent bar */
+#intent-bar{background:rgba(255,130,0,0.06);border-bottom:1px solid rgba(255,130,0,0.15);padding:7px 24px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+#intent-chips{display:flex;gap:6px;flex-wrap:wrap;flex:1;}
+.intent-chip{background:var(--accent-dim);border:1px solid rgba(255,130,0,0.25);color:var(--accent);border-radius:4px;padding:3px 10px;font-size:.72rem;font-weight:600;letter-spacing:.01em;}
+.intent-clear{background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:.85rem;padding:2px 6px;border-radius:4px;transition:color .15s;}
+.intent-clear:hover{color:var(--text);}
+
 /* Google Places Autocomplete — dark theme */
 .pac-container {
   background:var(--surface-2) !important;
@@ -550,13 +590,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 
 <div id="search-bar">
-  <input id="search-input" type="text" aria-label="Search Knox Pulse listings" placeholder="Search places, events, vibes…" oninput="applyFilters()"/>
+  <input id="search-input" type="text" aria-label="Search Knox Pulse listings" placeholder="Try 'free jazz tonight' or 'hiking this weekend'…" oninput="applyFilters()"/>
   <button id="filter-toggle" aria-expanded="false" aria-controls="filter-panel" onclick="toggleFilters()">⚙ Filters</button>
   <button id="date-toggle" aria-expanded="false" aria-controls="date-picker-bar" onclick="toggleDatePicker()">📅 Date</button>
   <div id="view-toggle-wrap">
     <button class="view-btn active" id="btn-grid" onclick="setView('grid')">⊞ Grid</button>
     <button class="view-btn" id="btn-map" onclick="setView('map')">🗺 Map</button>
   </div>
+</div>
+
+<div id="intent-bar" style="display:none">
+  <span id="intent-chips"></span>
+  <button class="intent-clear" onclick="clearIntentSearch()" title="Clear search">✕</button>
 </div>
 
 <div id="date-picker-bar" style="display:none">
@@ -1398,18 +1443,140 @@ function clearFilters(){
   applyFilters();
 }
 
+// ── Intent Parser ─────────────────────────────────────────────
+const CAT_SIGNALS={
+  'Live Music':['music','concert','band','jazz','bluegrass','country','rock','indie','folk','acoustic','singer','songwriter','live music','open mic','jam session','open jam','orchestra','symphony','choir','ensemble','performance night'],
+  'Outdoor & Nature':['outdoor','outside','hike','hiking','trail','nature','park','kayak','canoe','paddleboard','paddle','camping','camp','climb','climbing','bouldering','greenway','river','lake','mountain','scenic','wildlife','birdwatch'],
+  'Arts & Museums':['art','museum','gallery','exhibit','exhibition','art show','sculpture','pottery','painting','photography','printmaking','craft','ceramics','drawing','installation'],
+  'Theater & Performance':['theater','theatre','play','musical','opera','improv','improvisation','stage','acting','drama','performance','broadway'],
+  'Comedy & Trivia':['comedy','trivia','stand-up','standup','open mic comedy','laugh','comedian','quiz night','bar trivia','pub quiz'],
+  'Dance & Social':['dance','dancing','salsa','tango','swing','ballroom','two-step','line dance','contra dance','social dance','bachata'],
+  'Festivals & Events':['festival','fair','fest','carnival','parade','celebration','block party','street fair','outdoor festival'],
+  'Markets & Local Shopping':['market','farmers market','flea market','artisan','vendor','craft fair','pop-up','shop','shopping','local market','antique','vintage'],
+  'Sports & Recreation':['sports','sport','game','race','run','running','5k','marathon','cycling','biking','bike','swim','swimming','volleyball','basketball','soccer','football','baseball','disc golf','frisbee'],
+  'Fitness & Wellness':['yoga','fitness','workout','gym','meditation','wellness','pilates','aerobics','crossfit','barre','stretching','mindfulness'],
+  'Family Activities':['family','kids','children','child','toddler','youth','all ages','kid-friendly','family-friendly'],
+  'Tours & Experiences':['tour','tours','experience','tasting','wine','whiskey','beer','brewery','distillery','food tour','walking tour','ghost tour','history tour','class','workshop','lesson'],
+  'Film & Cinema':['film','movie','cinema','screening','documentary','film festival'],
+  'Community & Civic':['community','volunteer','civic','charity','nonprofit','fundraiser','meetup','networking','neighborhood'],
+};
+const INTENT_SIGNALS={
+  cost:{
+    free:['free','no cost','no charge','free admission','free entry','no cover','complimentary'],
+    cheap:['cheap','affordable','budget','low cost','inexpensive','discount'],
+    paid:['ticketed','ticket','admission','cover charge','rsvp required'],
+  },
+  time:{
+    morning:['morning','breakfast','brunch','early morning'],
+    afternoon:['afternoon','lunch','midday','daytime'],
+    evening:['evening','tonight','after work','after 5','dinner time'],
+    night:['night','nightlife','late night','midnight','late'],
+  },
+  inout:{
+    outdoor:['outdoor','outside','outdoors','open air','open-air','alfresco','al fresco'],
+    indoor:['indoor','inside','indoors','covered','enclosed'],
+  },
+};
+const DOW_FULL=['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+const DOW_SHORT_=['sun','mon','tue','wed','thu','fri','sat'];
+const STOP_WORDS_=new Set(['a','an','the','is','are','at','in','on','to','for','and','or','of','this','that','with','by','near','from','what','where','when','any','some','all','find','show','me','us','something','want','looking','search','things','thing','stuff','do','going','places','events','happening','tonight','today','weekend','around','here','knoxville','knox','tn','tennessee','tell','about','good','great','best','cool','fun','nice','see','look']);
+
+function parseIntent(q){
+  if(!q) return null;
+  const raw=q.toLowerCase().trim();
+  let rem=raw;
+  const intent={cats:[],cost:null,time:null,inout:null,dows:[],terms:[]};
+
+  // DOW detection
+  DOW_FULL.forEach((d,i)=>{if(rem.includes(d)){intent.dows.push(i);rem=rem.replace(new RegExp(d,'g'),'');}});
+  DOW_SHORT_.forEach((d,i)=>{const re=new RegExp('\\b'+d+'\\b');if(re.test(rem)&&!intent.dows.includes(i)){intent.dows.push(i);rem=rem.replace(re,'');}});
+  if(/this weekend|weekend/.test(rem)){[0,6].forEach(d=>{if(!intent.dows.includes(d))intent.dows.push(d);});rem=rem.replace(/this weekend|weekend/g,'');}
+
+  // Intent signals
+  for(const[lv,phrases]of Object.entries(INTENT_SIGNALS.cost)){if(phrases.some(p=>rem.includes(p))){intent.cost=lv;break;}}
+  for(const[lv,phrases]of Object.entries(INTENT_SIGNALS.time)){if(phrases.some(p=>rem.includes(p))){intent.time=lv;break;}}
+  for(const[lv,phrases]of Object.entries(INTENT_SIGNALS.inout)){if(phrases.some(p=>rem.includes(p))){intent.inout=lv;break;}}
+
+  // Category signals — longer phrases score higher
+  const catHits={};
+  for(const[cat,phrases]of Object.entries(CAT_SIGNALS)){
+    const sorted=[...phrases].sort((a,b)=>b.length-a.length);
+    let score=0;
+    for(const p of sorted){if(raw.includes(p))score+=p.split(' ').length;}
+    if(score>0)catHits[cat]=score;
+  }
+  const top=Object.entries(catHits).sort((a,b)=>b[1]-a[1]);
+  if(top.length){const max=top[0][1];intent.cats=top.filter(([,s])=>s>=max).map(([c])=>c);}
+
+  // Remaining terms for text matching
+  intent.terms=raw.split(/\s+/).filter(w=>w.length>2&&!STOP_WORDS_.has(w));
+
+  const hasSig=intent.cats.length||intent.cost||intent.time||intent.inout||intent.dows.length;
+  return (hasSig||intent.terms.length)?intent:null;
+}
+
+function scoreRelevance(l,terms){
+  let s=0;
+  const txt=(l.title+' '+(l.description||'')+' '+(l.tags||[]).join(' ')).toLowerCase();
+  for(const t of terms){if(l.title.toLowerCase().includes(t))s+=3;else if(txt.includes(t))s+=1;}
+  return s;
+}
+
+const CAT_EMOJI_={'Live Music':'🎵','Outdoor & Nature':'🌿','Arts & Museums':'🎨','Theater & Performance':'🎭','Comedy & Trivia':'😂','Dance & Social':'💃','Festivals & Events':'🎉','Markets & Local Shopping':'🛍','Sports & Recreation':'⚽','Fitness & Wellness':'🧘','Family Activities':'👨‍👩‍👧','Tours & Experiences':'🗺','Film & Cinema':'🎬','Community & Civic':'🤝'};
+
+function updateIntentChips(intent){
+  const bar=document.getElementById('intent-bar');
+  const chips=document.getElementById('intent-chips');
+  if(!intent){bar.style.display='none';chips.innerHTML='';return;}
+  const parts=[];
+  if(intent.cats.length)parts.push(...intent.cats.map(c=>(CAT_EMOJI_[c]||'')+'&nbsp;'+c));
+  if(intent.cost==='free')parts.push('Free');
+  else if(intent.cost==='cheap')parts.push('Budget-friendly');
+  else if(intent.cost==='paid')parts.push('Ticketed');
+  if(intent.time)parts.push({morning:'Morning',afternoon:'Afternoon',evening:'Evening',night:'Nightlife'}[intent.time]||intent.time);
+  if(intent.inout==='outdoor')parts.push('Outdoors');
+  else if(intent.inout==='indoor')parts.push('Indoors');
+  if(intent.dows.length){const names=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];parts.push('📅 '+intent.dows.map(d=>names[d]).join(', '));}
+  if(!parts.length){bar.style.display='none';chips.innerHTML='';return;}
+  chips.innerHTML=parts.map(p=>'<span class="intent-chip">'+p+'</span>').join('');
+  bar.style.display='flex';
+}
+
+function clearIntentSearch(){
+  document.getElementById('search-input').value='';
+  document.getElementById('intent-bar').style.display='none';
+  document.getElementById('intent-chips').innerHTML='';
+  applyFilters();
+}
+// ─────────────────────────────────────────────────────────────
+
 function applyFilters(){
-  const q=(document.getElementById('search-input').value||'').toLowerCase();
+  const q=(document.getElementById('search-input').value||'').trim();
   const cat=document.getElementById('f-cat').value;
   const inout=document.getElementById('f-inout').value;
   const dist=parseInt(document.getElementById('f-dist').value)||9999;
   const season=document.getElementById('f-season').value;
   const age=document.getElementById('f-age').value;
   const dateVal=document.getElementById('f-date').value;
+  const nbhd=document.getElementById('f-nbhd').value;
+  const NBHD_GROUPS={
+    'Downtown':['Downtown','Market Square','Gay Street','Old City','Volunteer Landing',"World's Fair Park"],
+    'West Knoxville':['West Knoxville','Bearden','Sequoyah Hills','Northshore','Papermill','West Hills','Cedar Bluff','Turkey Creek','Farragut','Hardin Valley','Karns'],
+    'North Knoxville':['North Knoxville','Fountain City','Norwood','Inskip','Halls','Powell','Happy Holler','4th & Gill'],
+    'South Knoxville':['South Knoxville','Old Sevier','Island Home','Vestal'],
+    'East Knoxville':['East Knoxville','Five Points','Parkridge','Burlington / Oakwood'],
+    'Fort Sanders':['Fort Sanders','UT Area'],
+  };
+
+  const intent=parseIntent(q);
+  updateIntentChips(intent);
+
+  // Merge panel DOW toggles + intent DOWs
+  const effectiveDows=[...activeDows];
+  if(intent&&intent.dows.length)intent.dows.forEach(d=>{if(!effectiveDows.includes(d))effectiveDows.push(d);});
 
   const filtered=allListings().filter(l=>{
-    if(q && !l.title.toLowerCase().includes(q) && !l.description.toLowerCase().includes(q) &&
-       !(l.tags||[]).some(t=>t.includes(q))) return false;
+    // Panel filters
     if(cat && l.category!==cat) return false;
     if(inout && l.indoorOutdoor!==inout) return false;
     if(l.distanceMiles>dist) return false;
@@ -1417,29 +1584,27 @@ function applyFilters(){
     if(age && l.ageRestrictions!==age) return false;
     if(activeCosts.length && !activeCosts.includes(l.costScale)) return false;
     if(activeTimes.length && !activeTimes.includes(l.timeOfDay)) return false;
-    if(activeDows.length){
-      const dows=l.daysOfWeek||[];
-      if(!activeDows.some(d=>dows.includes(d))) return false;
-    }
+    if(effectiveDows.length){const dows=l.daysOfWeek||[];if(!effectiveDows.some(d=>dows.includes(d)))return false;}
     if(dateVal && !isHappeningOnDate(l,dateVal)) return false;
     if(ugOnly && !l.underground) return false;
-    const nbhd=document.getElementById('f-nbhd').value;
-    if(nbhd){
-      // Hierarchical: Downtown includes Old City + Market Square
-      // West Knoxville includes Farragut, Hardin Valley, Northshore, Papermill
-      const NBHD_GROUPS={
-        'Downtown':['Downtown','Market Square','Gay Street','Old City','Volunteer Landing',"World's Fair Park"],
-        'West Knoxville':['West Knoxville','Bearden','Sequoyah Hills','Northshore','Papermill','West Hills','Cedar Bluff','Turkey Creek','Farragut','Hardin Valley','Karns'],
-        'North Knoxville':['North Knoxville','Fountain City','Norwood','Inskip','Halls','Powell','Happy Holler','4th & Gill'],
-        'South Knoxville':['South Knoxville','Old Sevier','Island Home','Vestal'],
-        'East Knoxville':['East Knoxville','Five Points','Parkridge','Burlington / Oakwood'],
-        'Fort Sanders':['Fort Sanders','UT Area'],
-      };
-      const allowed=NBHD_GROUPS[nbhd]||[nbhd];
-      if(!allowed.includes(l.neighborhood||'')) return false;
+    if(nbhd){const allowed=NBHD_GROUPS[nbhd]||[nbhd];if(!allowed.includes(l.neighborhood||''))return false;}
+
+    // Intent filters
+    if(!intent||!q) return true;
+    if(intent.cats.length && !intent.cats.includes(l.category)) return false;
+    if(intent.cost==='free' && l.costScale!=='Free') return false;
+    if(intent.cost==='paid' && l.costScale==='Free') return false;
+    if(intent.time && l.timeOfDay && l.timeOfDay.toLowerCase()!==intent.time) return false;
+    if(intent.inout && l.indoorOutdoor && l.indoorOutdoor!==intent.inout) return false;
+    // Require text match when no category inferred
+    if(!intent.cats.length && intent.terms.length){
+      const txt=(l.title+' '+(l.description||'')+' '+(l.tags||[]).join(' ')).toLowerCase();
+      if(!intent.terms.some(t=>txt.includes(t))) return false;
     }
     return true;
   });
+
+  if(intent&&intent.terms.length)filtered.sort((a,b)=>scoreRelevance(b,intent.terms)-scoreRelevance(a,intent.terms));
 
   renderGrid(document.getElementById('main-grid'), filtered);
   document.getElementById('empty-state').style.display=filtered.length?'none':'block';
@@ -2372,6 +2537,8 @@ document.getElementById('detail-modal').addEventListener('click',function(e){if(
 document.getElementById('org-modal').addEventListener('click',function(e){if(e.target===this) closeOrgModal();});
 showRecurrenceFields();
 showRecurrenceSubFields();
+applyFilters();
+renderSmartSections();
 initFromFirestore();
 </script>
 
