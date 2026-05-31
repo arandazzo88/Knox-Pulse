@@ -11,7 +11,7 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://www.theknoxpulse.com/"/>
-<meta property="og:title" content="Knox Pulse — Knoxville's Local Rhythm"/>
+<meta property="og:title" content="Knox Pulse — Your Guide to Knoxville's Rhythm"/>
 <meta property="og:description" content="Discover live music, hidden gems, outdoor adventures, and local events in Knoxville, TN. Community-driven ratings and reviews."/>
 <meta property="og:image" content="https://www.theknoxpulse.com/og-image.jpg"/>
 <meta property="og:locale" content="en_US"/>
@@ -19,7 +19,7 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Knox Pulse — Knoxville's Local Rhythm"/>
+<meta name="twitter:title" content="Knox Pulse — Your Guide to Knoxville's Rhythm"/>
 <meta name="twitter:description" content="Discover live music, hidden gems, outdoor adventures, and local events in Knoxville, TN."/>
 <meta name="twitter:image" content="https://www.theknoxpulse.com/og-image.jpg"/>
 
@@ -145,7 +145,7 @@
 }
 </script>
 
-<title>Knox Pulse — Knoxville's Local Rhythm</title>
+<title>Knox Pulse — Your Guide to Knoxville's Rhythm</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -618,9 +618,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header>
   <div>
     <h1><svg width="20" height="24" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="vertical-align:middle;margin-bottom:3px"><circle cx="50" cy="42" r="38" fill="#FF8200"/><ellipse cx="34" cy="28" rx="14" ry="9" fill="rgba(255,235,80,0.4)"/><rect x="45" y="80" width="10" height="26" fill="#B85C00"/><rect x="28" y="106" width="44" height="14" rx="5" fill="#B85C00"/></svg> Knox Pulse</h1>
-    <p style="margin-left:0;margin-top:2px;font-size:.75rem;color:var(--muted);">Knoxville &amp; Surrounding Areas</p>
+    <p style="margin-left:0;margin-top:2px;font-size:.75rem;color:var(--muted);">Your guide to Knoxville's rhythm</p>
   </div>
-  <p style="margin-left:auto;font-size:.75rem;color:var(--muted);">Your guide to Knoxville's rhythm</p>
   <button id="organizer-btn" aria-label="Submit a new event" onclick="openOrgModal()">+ Submit Event</button>
 </header>
 
@@ -1920,6 +1919,7 @@ function buildCard(l){
         <span class="chip ${l.indoorOutdoor==='Indoor'?'chip-indoor':l.indoorOutdoor==='Outdoor'?'chip-outdoor':'chip-indoor'}">${l.indoorOutdoor}</span>
         ${l.ageRestrictions!=='All Ages'?`<span class="chip chip-age">${l.ageRestrictions}</span>`:''}
         ${l.underground?`<span class="chip chip-ug">🔒 Underground</span>`:''}
+        ${l.strollerFriendly?`<span class="chip" style="background:#ffffff15;color:var(--text-2);font-size:.65rem;">🍼 Stroller OK</span>`:''}
         ${l.neighborhood?`<span class="chip chip-dist" style="font-size:.65rem;">${l.neighborhood}</span>`:''}
       </div>
       <div class="card-title">${l.title}</div>
@@ -2553,10 +2553,12 @@ function adminEditListing(id){
   document.getElementById('af-title').value=l.title||'';
   document.getElementById('af-emoji').value=l.emoji||'';
   document.getElementById('af-cat').value=l.category||'Live Music';
+  document.getElementById('af-venuename').value=l.venueName||'';
   document.getElementById('af-nbhd').value=l.neighborhood||'Downtown';
   document.getElementById('af-loc').value=l.location||'';
   document.getElementById('af-desc').value=l.description||'';
   document.getElementById('af-inout').value=l.indoorOutdoor||'Indoor';
+  document.getElementById('af-price').value=l.price||'';
   document.getElementById('af-cost').value=l.costScale||'Free';
   document.getElementById('af-age').value=l.ageRestrictions||'All Ages';
   document.getElementById('af-time').value=l.timeOfDay||'Evening';
@@ -2573,6 +2575,7 @@ function adminEditListing(id){
   document.getElementById('af-email').value=l.email||'';
   document.getElementById('af-ig').value=l.instagram||'';
   if(l.startTime) document.getElementById('af-starttime').value=l.startTime;
+  if(l.endTime) document.getElementById('af-endtime').value=l.endTime;
   if(l.eventDate) document.getElementById('af-date').value=l.eventDate;
   if(l.daysOfWeek){
     document.querySelectorAll('#af-dow-pick .tog').forEach(t=>{
@@ -2634,8 +2637,9 @@ function adminCancelEdit(){
   editingListingId=null;
   document.getElementById('edit-listing-id').value='';
   document.getElementById('add-form-title').textContent='Add New Listing';
-  ['af-title','af-emoji','af-loc','af-desc','af-dist','af-lat','af-lng','af-tags','af-starttime','af-date','af-months','af-annualmonth','af-phone','af-website','af-email','af-ig']
+  ['af-title','af-emoji','af-venuename','af-loc','af-desc','af-price','af-dist','af-lat','af-lng','af-tags','af-starttime','af-endtime','af-date','af-months','af-annualmonth','af-phone','af-website','af-email','af-ig']
     .forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
+  const afPhoto=document.getElementById('af-photo'); if(afPhoto) afPhoto.value='';
   document.querySelectorAll('#af-dow-pick .tog').forEach(t=>t.classList.remove('active'));
   document.getElementById('af-underground').checked=false;
   adminTab('listings');
@@ -2684,8 +2688,10 @@ async function saveAdminListing(){
     emoji:document.getElementById('af-emoji').value||'📍',
     category:document.getElementById('af-cat').value,
     neighborhood:document.getElementById('af-nbhd').value,
+    venueName:document.getElementById('af-venuename').value.trim()||null,
     location:document.getElementById('af-loc').value,
     description:document.getElementById('af-desc').value,
+    price:document.getElementById('af-price').value.trim()||null,
     indoorOutdoor:document.getElementById('af-inout').value,
     costScale:document.getElementById('af-cost').value,
     ageRestrictions:document.getElementById('af-age').value,
@@ -2703,6 +2709,7 @@ async function saveAdminListing(){
     instagram:document.getElementById('af-ig').value.trim().replace(/^@/,'')||null,
     eventType:etype, eventDate, daysOfWeek, recurrenceRule,
     startTime:document.getElementById('af-starttime').value||null,
+    endTime:document.getElementById('af-endtime').value||null,
   };
   if(editId){
     const idx=customListings.findIndex(x=>x.id===editId);
@@ -2718,8 +2725,24 @@ async function saveAdminListing(){
   // Persist to Firestore
   try {
     const {id, ...data} = listing;
-    await db.collection('listings').doc(id).set(data);
+    if(db) await db.collection('listings').doc(id).set(data);
   } catch(e){ console.warn('Listing not saved to Firestore:', e); }
+  // Upload cover photo if provided
+  const photoFile=document.getElementById('af-photo')?.files?.[0];
+  if(photoFile){
+    try {
+      if(storage){
+        const ref=storage.ref(`photos/${listing.id}/${Date.now()}_${photoFile.name}`);
+        await ref.put(photoFile);
+        const url=await ref.getDownloadURL();
+        if(!localPhotos[listing.id]) localPhotos[listing.id]=[];
+        localPhotos[listing.id].unshift(url);
+        localStorage.setItem('kp_photos',JSON.stringify(localPhotos));
+        if(db) await db.collection('photos').add({listingId:listing.id,url,uploadedAt:firebase.firestore.FieldValue.serverTimestamp()});
+        applyFilters();
+      }
+    } catch(e){ console.warn('Admin photo upload failed:',e); }
+  }
 }
 
 function changeAdminPw(){
@@ -3033,17 +3056,21 @@ initFromFirestore();
                 </select>
               </div>
             </div>
+            <label>Venue / Location Name</label>
+            <input id="af-venuename" placeholder="e.g. Market Square, The Mill &amp; Mine"/>
             <label>Location / Venue Address</label>
             <input id="af-loc" placeholder="Start typing a venue or address…" autocomplete="off"/>
             <label>Description</label>
             <textarea id="af-desc" placeholder="What makes this worth going to?"></textarea>
+            <label>Price (free text)</label>
+            <input id="af-price" placeholder="e.g. Free, $10, $5–$15, Donations welcome"/>
             <div class="form-row">
               <div>
                 <label>Indoor / Outdoor</label>
                 <select id="af-inout"><option>Indoor</option><option>Outdoor</option><option>Both</option></select>
               </div>
               <div>
-                <label>Cost</label>
+                <label>Cost Scale</label>
                 <select id="af-cost"><option>Free</option><option>$</option><option>$$</option><option>$$$</option></select>
               </div>
             </div>
@@ -3107,6 +3134,12 @@ initFromFirestore();
                   <input type="time" id="af-starttime"/>
                 </div>
                 <div>
+                  <label>End Time</label>
+                  <input type="time" id="af-endtime"/>
+                </div>
+              </div>
+              <div class="form-row" style="margin-top:10px;">
+                <div>
                   <label>Recurrence Pattern</label>
                   <select id="af-rectype" onchange="adminShowRecurrenceSub()">
                     <option value="weekly">Every week</option>
@@ -3155,6 +3188,8 @@ initFromFirestore();
             <input type="email" id="af-email" placeholder="e.g. info@example.com"/>
             <label>Instagram handle (optional)</label>
             <input type="text" id="af-ig" placeholder="e.g. knoxpulse (no @)"/>
+            <label>Cover Photo (optional)</label>
+            <input type="file" id="af-photo" accept="image/*" style="color:var(--text-2);font-size:.85rem;"/>
             <div>
               <button class="admin-save" onclick="saveAdminListing()">💾 Save Listing</button>
               <button class="admin-cancel" onclick="adminCancelEdit()">Cancel</button>
