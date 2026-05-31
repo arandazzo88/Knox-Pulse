@@ -1612,7 +1612,13 @@ function closeFilterPanel(){
 function applyAndClose(){
   applyFilters();
   closeFilterPanel();
-  document.getElementById('main-content').scrollIntoView({behavior:'smooth',block:'start'});
+  // Wait for panel collapse transition (300ms) before scrolling
+  setTimeout(()=>{
+    const grid=document.getElementById('main-grid');
+    const headerH=document.querySelector('header')?.offsetHeight||60;
+    const top=grid.getBoundingClientRect().top+window.scrollY-headerH-8;
+    window.scrollTo({top,behavior:'smooth'});
+  },320);
 }
 function closeDatePanel(){
   document.getElementById('date-picker-bar').style.display='none';
@@ -1669,7 +1675,12 @@ function clearFilters(){
   document.querySelectorAll('.tog').forEach(t=>t.classList.remove('active'));
   applyFilters();
   closeFilterPanel();
-  document.getElementById('main-content').scrollIntoView({behavior:'smooth',block:'start'});
+  setTimeout(()=>{
+    const grid=document.getElementById('main-grid');
+    const headerH=document.querySelector('header')?.offsetHeight||60;
+    const top=grid.getBoundingClientRect().top+window.scrollY-headerH-8;
+    window.scrollTo({top,behavior:'smooth'});
+  },320);
 }
 
 // ── Intent Parser ─────────────────────────────────────────────
