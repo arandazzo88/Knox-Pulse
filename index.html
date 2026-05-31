@@ -62,7 +62,7 @@
       "@id": "https://www.theknoxpulse.com/#listings",
       "name": "Things To Do in Knoxville, TN",
       "description": "Curated list of events, venues, outdoor activities, and hidden gems in Knoxville and East Tennessee",
-      "numberOfItems": 24,
+      "numberOfItems": 40,
       "itemListElement": [
         {"@type":"ListItem","position":1,"name":"WDVX Blue Plate Special","description":"Free live music every weekday at noon in the heart of downtown Knoxville.","url":"https://www.theknoxpulse.com/?event=wdvx"},
         {"@type":"ListItem","position":2,"name":"Market Square Farmers Market","description":"Vibrant outdoor market with local produce, artisan goods, and live music every Saturday morning.","url":"https://www.theknoxpulse.com/?event=market-sq"},
@@ -1084,62 +1084,265 @@ try {
 // DATA
 // ============================================================
 const LISTINGS = [
+  // --- SPORTS ---
+  {
+    id:'neyland-football', title:'UT Vols Football — Neyland Stadium', category:'Sports & Recreation',
+    location:'1235 Phillip Fulmer Way, Knoxville',
+    venueName:'Neyland Stadium',
+    description:'One of the largest stadiums in the world (101,915 capacity) on the banks of the Tennessee River. Home games on Saturdays in the fall. The Vol Navy tradition has fans arriving by boat.',
+    indoorOutdoor:'Outdoor', distanceMiles:2, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'$$$', price:'$50–$300+', season:'Fall', underground:false, emoji:'🏈',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly-seasonal', days:[6], months:[8,9,10,11]},
+    daysOfWeek:[6], startTime:'12:00',
+    tags:['football','vols','UT','SEC','neyland','college sports']
+  },
+  {
+    id:'vols-basketball', title:'UT Vols Men\'s Basketball — Thompson-Boling Arena', category:'Sports & Recreation',
+    location:'1600 Phillip Fulmer Way, Knoxville',
+    venueName:'Thompson-Boling Arena at Food City Center',
+    description:'SEC basketball in one of the largest on-campus arenas in the country (21,000+ capacity). Home games on weekday evenings and Saturdays, November through March.',
+    indoorOutdoor:'Indoor', distanceMiles:2, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'$$', price:'$20–$80', season:'Fall,Winter', underground:false, emoji:'🏀',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly-seasonal', days:[2,6], months:[10,11,0,1,2]},
+    daysOfWeek:[2,6], startTime:'19:00',
+    tags:['basketball','vols','UT','SEC','college sports']
+  },
+  {
+    id:'women-basketball', title:'Lady Vols Basketball — Thompson-Boling Arena', category:'Sports & Recreation',
+    location:'1600 Phillip Fulmer Way, Knoxville',
+    venueName:'Thompson-Boling Arena at Food City Center',
+    description:"Tennessee's legendary Lady Vols women's basketball program — one of the most decorated in college hoops history. Home games November through March.",
+    indoorOutdoor:'Indoor', distanceMiles:2, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'$$', price:'$15–$60', season:'Fall,Winter', underground:false, emoji:'🏀',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly-seasonal', days:[0,4], months:[10,11,0,1,2]},
+    daysOfWeek:[0,4], startTime:'18:00',
+    tags:['basketball','lady vols','UT','womens sports','college']
+  },
+  {
+    id:'smokies-baseball', title:'Knoxville Smokies Baseball — Covenant Health Park', category:'Sports & Recreation',
+    location:'500 E Jackson Ave, Knoxville',
+    venueName:'Covenant Health Park',
+    description:"Double-A affiliate of the Chicago Cubs, now playing at the brand-new Covenant Health Park in the Magnolia Warehouse District, opened April 2025. 6,355-seat ballpark steps from the Old City.",
+    indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'$', price:'$10–$25', season:'Spring,Summer', underground:false, emoji:'⚾',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly-seasonal', days:[2,3,4,5,6], months:[3,4,5,6,7,8]},
+    daysOfWeek:[2,3,4,5,6], startTime:'19:05',
+    tags:['baseball','smokies','cubs','minor league','sports']
+  },
+  {
+    id:'ice-bears', title:'Knoxville Ice Bears Hockey — Civic Coliseum', category:'Sports & Recreation',
+    location:'500 Howard Baker Jr Ave, Knoxville',
+    venueName:'Knoxville Civic Coliseum',
+    description:'Southern Professional Hockey League action in the 6,500-seat Civic Coliseum. Affordable, loud, and one of the best live sports values in East Tennessee. Home games Friday and Saturday nights, October through March.',
+    indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'$', price:'$15–$30', season:'Fall,Winter', underground:false, emoji:'🏒',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly-seasonal', days:[5,6], months:[9,10,11,0,1,2]},
+    daysOfWeek:[5,6], startTime:'19:30',
+    tags:['hockey','ice bears','SPHL','sports','family']
+  },
   // --- VENUES / ATTRACTIONS ---
   {
     id:'wdvx', title:'WDVX Blue Plate Special', category:'Live Music', location:'301 S Gay St, Knoxville',
-    description:'Free live music every weekday at noon in the heart of downtown. A Knoxville institution featuring bluegrass, folk, country, and Americana artists.',
+    venueName:'Knoxville Visitor Center',
+    description:'Free live music broadcast every weekday at noon from the Knoxville Visitor Center. A beloved institution featuring bluegrass, folk, country, and Americana. On Fridays the show moves to Barley\'s Taproom in the Old City.',
     indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
     costScale:'Free', season:'Year-round', underground:false, emoji:'🎸',
-    eventType:'recurring', daysOfWeek:[1,2,3,4,5], startTime:'12:00',
-    recurrenceRule:{type:'weekly',days:[1,2,3,4,5]},
-    tags:['bluegrass','folk','americana','live music','free']
+    eventType:'recurring', daysOfWeek:[1,2,3,4,6], startTime:'12:00',
+    recurrenceRule:{type:'weekly',days:[1,2,3,4,6]},
+    tags:['bluegrass','folk','americana','live music','free','radio']
+  },
+  {
+    id:'tennessee-theatre', title:'Tennessee Theatre', category:'Theater & Performance', location:'604 S Gay St, Knoxville',
+    description:'A grand 1928 atmospheric movie palace restored as Knoxville\'s premier performing arts venue. Hosts Broadway touring shows, concerts, dance, film screenings, and the Big Ears Festival. ~1,600 capacity.',
+    indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'$$', price:'$25–$100', season:'Year-round', underground:false, emoji:'🎭',
+    eventType:'venue', daysOfWeek:[0,1,2,3,4,5,6],
+    tags:['theatre','broadway','performing arts','historic','downtown']
+  },
+  {
+    id:'bijou-theatre', title:'Bijou Theatre', category:'Theater & Performance', location:'803 S Gay St, Knoxville',
+    description:'Historic 700-capacity intimate venue on Gay Street hosting national touring artists across rock, Americana, folk, and comedy. One of Knoxville\'s most beloved live music rooms.',
+    indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'$$', price:'$20–$60', season:'Year-round', underground:false, emoji:'🎵',
+    eventType:'venue', daysOfWeek:[0,1,2,3,4,5,6],
+    tags:['live music','concerts','venue','historic','downtown','touring']
+  },
+  {
+    id:'mill-and-mine', title:'The Mill & Mine', category:'Live Music', location:'227 W Depot Ave, Knoxville',
+    description:'Converted industrial concert venue near the Old City with 1,200-capacity indoor space plus an 8,000 sq ft outdoor courtyard. State-of-the-art sound, private suites, and a strong touring schedule.',
+    indoorOutdoor:'Both', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'$$', price:'$20–$60', season:'Year-round', underground:false, emoji:'🏭',
+    eventType:'venue', daysOfWeek:[0,1,2,3,4,5,6],
+    tags:['live music','concerts','venue','old city','depot']
+  },
+  {
+    id:'barleys-taproom', title:"Barley's Taproom & Pizzeria", category:'Live Music', location:'200 E Jackson Ave, Knoxville',
+    description:'Old City cornerstone with craft beer on tap and live music nearly every night spanning Americana, blues, bluegrass, and rock. Also hosts the WDVX Blue Plate Special on Fridays.',
+    indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🍺',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[3,4,5,6]},
+    daysOfWeek:[3,4,5,6], startTime:'19:00',
+    tags:['live music','craft beer','bar','old city','americana','blues']
   },
   {
     id:'market-sq', title:'Market Square Farmers Market', category:'Markets & Local Shopping', location:'Market Square, Knoxville',
-    description:'Vibrant outdoor market with local produce, artisan goods, street food, and live music every Saturday morning.',
+    description:'Producer-only open-air market on historic Market Square with ~140 local vendors. Main season (May–Oct): Saturdays 9am–1pm and Wednesdays 10am–1pm. Winter market (Nov–Apr): Saturdays 10am–2pm.',
     indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Morning',
-    costScale:'Free', season:'Spring,Summer,Fall', underground:false, emoji:'🥬',
-    eventType:'recurring', daysOfWeek:[6], startTime:'09:00',
-    recurrenceRule:{type:'weekly',days:[6]},
-    tags:['farmers market','local','fresh food','outdoor']
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🥬',
+    eventType:'recurring', daysOfWeek:[3,6], startTime:'09:00',
+    recurrenceRule:{type:'weekly',days:[3,6]},
+    tags:['farmers market','local','fresh food','outdoor','produce']
   },
   {
-    id:'ijams', title:"Ijams Nature Centre", category:'Outdoor & Nature', location:'2915 Island Home Ave, Knoxville',
-    description:'Beautiful riverside nature preserve with hiking trails, rock climbing, kayak launches, and wildlife. A green oasis minutes from downtown.',
+    id:'marble-city-market', title:'Marble City Market', category:'Markets & Local Shopping', location:'333 W Depot Ave, Knoxville',
+    description:"Knoxville's first large-scale food hall in the historic Regas Square building. 15,000+ sq ft of rotating and permanent restaurant stalls, a full bar, and communal seating in the Depot neighborhood.",
+    indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🍜',
+    eventType:'venue', daysOfWeek:[0,1,2,3,4,5,6], startTime:'11:00',
+    tags:['food hall','restaurants','lunch','dinner','depot']
+  },
+  {
+    id:'ijams', title:'Ijams Nature Centre', category:'Outdoor & Nature', location:'2915 Island Home Ave, Knoxville',
+    description:'275-acre urban wildlife sanctuary with 10 miles of trails, seasonal kayaking at Mead\'s Quarry Lake, rock climbing, and mountain biking. A green oasis 10 minutes from downtown — $5 parking.',
     indoorOutdoor:'Outdoor', distanceMiles:3, ageRestrictions:'All Ages', timeOfDay:'Morning',
     costScale:'Free', season:'Year-round', underground:false, emoji:'🌿',
     eventType:'venue', daysOfWeek:[0,1,2,3,4,5,6],
-    tags:['hiking','nature','climbing','kayak','outdoors']
+    tags:['hiking','nature','climbing','kayak','outdoors','urban wilderness']
   },
   {
-    id:'women-basketball', title:"Lady Vols Basketball at Thompson-Boling", category:'Sports & Recreation', location:'1600 Phillip Fulmer Way, Knoxville',
-    description:"Catch the legendary Tennessee Lady Vols women's basketball team at one of the best venues in college hoops.",
-    indoorOutdoor:'Indoor', distanceMiles:2, ageRestrictions:'All Ages', timeOfDay:'Evening',
-    costScale:'$$', season:'Winter', underground:false, emoji:'🏀',
+    id:'tennessee-riverwalk', title:'Tennessee Riverwalk', category:'Outdoor & Nature', location:'Neyland Dr, Knoxville',
+    venueName:'Volunteer Landing',
+    description:'Paved riverside greenway running 3+ miles along the Tennessee River through downtown past Neyland Stadium and Volunteer Landing. Popular for walking, running, and cycling. Connects to 100+ miles of greenways.',
+    indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Morning',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🚶',
     eventType:'venue', daysOfWeek:[0,1,2,3,4,5,6],
-    tags:['basketball','sports','lady vols','UT','college']
+    tags:['greenway','walking','running','cycling','river','free']
+  },
+  {
+    id:'sunsphere', title:"Sunsphere & World's Fair Park", category:'Tours & Experiences', location:'810 Clinch Ave, Knoxville',
+    description:"Iconic gold globe from the 1982 World's Fair with a free observation deck and sweeping 360° city views. Surrounded by a beautiful park used for concerts, Knox Pride, and the Knoxville Marathon.",
+    indoorOutdoor:'Both', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🌐',
+    eventType:'venue', daysOfWeek:[0,1,2,3,4,5,6],
+    tags:['landmark','history','views','park','free','world\'s fair']
   },
   {
     id:'art-walk', title:'First Friday Art Walk', category:'Arts & Museums', location:'Market Square & Old City, Knoxville',
-    description:'Monthly celebration of local art, galleries, studios, and street performers. Galleries stay open late and many offer free wine.',
+    description:'Monthly celebration of local art on the first Friday of every month. Galleries, studios, and shops stay open late, street performers fill the streets, and many venues offer free wine and food.',
     indoorOutdoor:'Both', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
     costScale:'Free', season:'Year-round', underground:false, emoji:'🎨',
     eventType:'recurring',
     recurrenceRule:{type:'monthly-weekday',weekNum:1,day:5},
     daysOfWeek:[5], startTime:'17:00',
-    tags:['art','galleries','culture','monthly','downtown']
+    tags:['art','galleries','culture','monthly','downtown','free']
   },
   {
-    id:'tennessee-theatre', title:'Tennessee Theatre', category:'Theater & Performance', location:'604 S Gay St, Knoxville',
-    description:"Stunning 1920s movie palace turned performing arts venue. Catch Broadway shows, films, concerts, and dance in a stunning historic setting.",
-    indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
-    costScale:'$$', season:'Year-round', underground:false, emoji:'🎭',
-    eventType:'venue', daysOfWeek:[0,1,2,3,4,5,6],
-    tags:['theatre','broadway','performing arts','historic','downtown']
+    id:'knoxville-museum-art', title:'Knoxville Museum of Art', category:'Arts & Museums', location:'1050 World\'s Fair Park Dr, Knoxville',
+    description:'East Tennessee\'s primary fine art museum, free to the public, adjacent to World\'s Fair Park. Focuses on contemporary and historical Appalachian and Southeast American art with rotating special exhibitions.',
+    indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🖼️',
+    eventType:'venue', daysOfWeek:[2,3,4,5,0], startTime:'10:00',
+    tags:['art','museum','free','gallery','world\'s fair park','appalachian']
+  },
+  {
+    id:'east-tn-history', title:'East Tennessee History Center', category:'Arts & Museums', location:'601 S Gay St, Knoxville',
+    description:'Three floors of permanent and rotating exhibits on Cherokee history, Civil War, early settlement, and regional heritage. Admission free on Sundays. Located on Gay Street downtown.',
+    indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'$', price:'$10 adults · Free Sundays', season:'Year-round', underground:false, emoji:'🏛️',
+    eventType:'venue', daysOfWeek:[1,2,3,4,5,6,0], startTime:'09:00',
+    tags:['history','museum','cherokee','civil war','appalachia','downtown']
+  },
+  {
+    id:'zoo-knoxville', title:'Zoo Knoxville', category:'Family Activities', location:'3500 Knoxville Zoo Dr, Knoxville',
+    description:'Full-service accredited zoo in East Knoxville with large mammals, rare red pandas, reptiles, and birds. Seasonal events include Boo at the Zoo (October) and Holiday Lights. Open daily 9am–5pm.',
+    indoorOutdoor:'Outdoor', distanceMiles:4, ageRestrictions:'All Ages', timeOfDay:'Morning',
+    costScale:'$$', price:'$27 adults · $22 kids/seniors · Under 2 free', season:'Year-round', underground:false, emoji:'🦁',
+    eventType:'venue', daysOfWeek:[0,1,2,3,4,5,6], startTime:'09:00',
+    tags:['zoo','animals','family','kids','red panda','east knoxville']
+  },
+  // --- FESTIVALS ---
+  {
+    id:'big-ears', title:'Big Ears Festival', category:'Festivals & Events', location:'Multiple Venues, Downtown Knoxville',
+    description:'Nationally acclaimed experimental and avant-garde music festival across 20 downtown venues — Tennessee Theatre, Bijou, KMA, and more. ~250 performances over 4 days each March.',
+    indoorOutdoor:'Both', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'$$$', price:'$350+ wristband · Single shows available', season:'Spring', underground:false, emoji:'👂',
+    eventType:'recurring',
+    recurrenceRule:{type:'annual',month:2},
+    daysOfWeek:[3,4,5,6], startTime:'12:00',
+    tags:['festival','jazz','experimental','classical','ambient','annual']
+  },
+  {
+    id:'dogwood-arts', title:'Dogwood Arts Festival', category:'Festivals & Events', location:"World's Fair Park, Knoxville",
+    description:'Three-day outdoor juried art festival in late April at World\'s Fair Park with 100+ artists, live music, a maker market, and hands-on workshops. Part of the broader month-long Dogwood Arts season.',
+    indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'Free', season:'Spring', underground:false, emoji:'🌸',
+    eventType:'recurring',
+    recurrenceRule:{type:'annual',month:3},
+    daysOfWeek:[5,6,0], startTime:'10:00',
+    tags:['festival','spring','art','outdoor','free','juried']
+  },
+  {
+    id:'boomsday', title:'Boomsday — Labor Day Fireworks', category:'Festivals & Events', location:'Neyland Dr, Knoxville',
+    venueName:'Volunteer Landing / Riverfront',
+    description:'One of the largest Labor Day fireworks displays in the Southeast — 150,000–200,000 spectators line the Tennessee River for a 30-minute pyrotechnics show over the water. Free, festive, and unmissable.',
+    indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Fall', underground:false, emoji:'🎆',
+    eventType:'recurring',
+    recurrenceRule:{type:'annual',month:8},
+    daysOfWeek:[0], startTime:'21:30',
+    tags:['fireworks','labor day','festival','free','riverfront','annual']
+  },
+  {
+    id:'tennessee-valley-fair', title:'Tennessee Valley Fair', category:'Festivals & Events', location:'3301 E Magnolia Ave, Knoxville',
+    venueName:'Chilhowee Park',
+    description:'A 100+ year old traditional fair every September at Chilhowee Park. Carnival rides, livestock competitions, midway, food vendors, live music on multiple stages, and grandstand shows. One of the largest fairs in the Southeast.',
+    indoorOutdoor:'Both', distanceMiles:4, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'$', price:'~$12–$15 admission · Rides extra', season:'Fall', underground:false, emoji:'🎡',
+    eventType:'recurring',
+    recurrenceRule:{type:'annual',month:8},
+    daysOfWeek:[0,1,2,3,4,5,6], startTime:'10:00',
+    tags:['fair','carnival','rides','food','live music','annual','family']
+  },
+  {
+    id:'knox-pride', title:'Knox Pride Fest', category:'Festivals & Events', location:"World's Fair Park, Knoxville",
+    description:"Knoxville's annual LGBTQ+ pride celebration at World's Fair Park each June. Live entertainment, vendors, community programming, and a Friday night parade through downtown.",
+    indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'Free', season:'Summer', underground:false, emoji:'🏳️‍🌈',
+    eventType:'recurring',
+    recurrenceRule:{type:'annual',month:5},
+    daysOfWeek:[5,6,0], startTime:'12:00',
+    tags:['pride','LGBTQ','festival','free','annual','community','parade']
+  },
+  {
+    id:'knoxville-marathon', title:'Covenant Health Knoxville Marathon', category:'Community & Civic', location:'Clinch Ave Bridge, Knoxville',
+    venueName:'World\'s Fair Park / Sunsphere',
+    description:'Boston Marathon qualifier in mid-April, starting at the Sunsphere. Offers marathon, half marathon, 4-person relay, 5K, and Kids Run. Course winds through downtown and surrounding neighborhoods.',
+    indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Morning',
+    costScale:'$$', price:'$50–$150 registration', season:'Spring', underground:false, emoji:'🏃',
+    eventType:'recurring',
+    recurrenceRule:{type:'annual',month:3},
+    daysOfWeek:[0], startTime:'07:30',
+    tags:['marathon','running','race','boston qualifier','annual','community']
+  },
+  {
+    id:'summer-concerts', title:'Market Square Summer Concert Series', category:'Live Music', location:'Market Square, Knoxville',
+    description:'Free outdoor concerts on Market Square on Friday evenings throughout the summer. Local and regional acts, food trucks, and a festive family atmosphere in the heart of downtown.',
+    indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Summer', underground:false, emoji:'🎶',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly-seasonal',days:[5],months:[5,6,7]},
+    daysOfWeek:[5], startTime:'18:00',
+    tags:['summer','concerts','free','outdoor','downtown']
   },
   {
     id:'cotton-eyed-joe', title:'Cotton Eyed Joe', category:'Dance & Social', location:'11220 Outlet Dr, Knoxville',
-    description:'Legendary country bar and dance hall. Line dancing, live music, and mechanical bull. The biggest honky tonk in East Tennessee.',
+    description:'The biggest honky tonk in East Tennessee. Line dancing lessons, live country music, a mechanical bull, and dancing until last call. A Knoxville institution for 30+ years.',
     indoorOutdoor:'Indoor', distanceMiles:12, ageRestrictions:'18+', timeOfDay:'Evening',
     costScale:'$', season:'Year-round', underground:false, emoji:'🤠',
     eventType:'recurring',
@@ -1149,7 +1352,7 @@ const LISTINGS = [
   },
   {
     id:'pilot-light', title:'Pilot Light', category:'Live Music', location:'106 E Jackson Ave, Knoxville',
-    description:'Intimate DIY music venue in the Old City. Catch indie, punk, experimental, and underground acts in a no-frills space with great energy.',
+    description:'Beloved DIY venue in the Old City hosting indie, punk, experimental, and underground acts. All-ages, no-frills, and consistently one of Knoxville\'s best rooms for catching emerging talent.',
     indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
     costScale:'$', season:'Year-round', underground:false, emoji:'🎵',
     eventType:'recurring',
@@ -1158,67 +1361,29 @@ const LISTINGS = [
     tags:['indie','punk','DIY','live music','old city']
   },
   {
-    id:'big-ears', title:'Big Ears Festival', category:'Festivals & Events', location:'Multiple Venues, Downtown Knoxville',
-    description:'World-class multi-genre music festival bringing experimental, jazz, classical, and avant-garde artists to intimate historic venues downtown.',
-    indoorOutdoor:'Both', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
-    costScale:'$$$', season:'Spring', underground:false, emoji:'👂',
-    eventType:'recurring',
-    recurrenceRule:{type:'annual',month:2},
-    daysOfWeek:[3,4,5,6], startTime:'12:00',
-    tags:['festival','jazz','experimental','annual','music']
-  },
-  {
-    id:'dogwood-arts', title:'Dogwood Arts Festival', category:'Festivals & Events', location:'Downtown Knoxville',
-    description:'Month-long spring celebration featuring art shows, trail of dogwood blooms, live music, and community events throughout Knoxville.',
-    indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
-    costScale:'Free', season:'Spring', underground:false, emoji:'🌸',
-    eventType:'recurring',
-    recurrenceRule:{type:'annual',month:3},
-    daysOfWeek:[0,1,2,3,4,5,6],
-    tags:['festival','spring','art','outdoor','community']
-  },
-  {
-    id:'saluto', title:'Old City Jazz at Preservation Pub', category:'Live Music', location:'28 Market Square, Knoxville',
-    description:'Multi-story bar with rooftop patio featuring live music almost every night. Famous for local and touring jazz, blues, and folk acts.',
+    id:'saluto', title:'Preservation Pub', category:'Live Music', location:'28 Market Square, Knoxville',
+    description:'Multi-story bar on Market Square with a rooftop patio and live music almost every night — jazz, blues, folk, and rock. One of the most distinctive spots in downtown Knoxville.',
     indoorOutdoor:'Both', distanceMiles:1, ageRestrictions:'21+', timeOfDay:'Evening',
     costScale:'$', season:'Year-round', underground:false, emoji:'🎺',
     eventType:'recurring',
-    recurrenceRule:{type:'weekly',days:[4,5,6]},
-    daysOfWeek:[4,5,6], startTime:'20:00',
-    tags:['jazz','blues','rooftop','bar','live music']
+    recurrenceRule:{type:'weekly',days:[3,4,5,6]},
+    daysOfWeek:[3,4,5,6], startTime:'20:00',
+    tags:['jazz','blues','rooftop','bar','live music','market square']
   },
   {
-    id:'clingmans', title:"Clingman's Dome Sunrise Hike", category:'Outdoor & Nature', location:"Clingman's Dome Rd, GSMNP",
-    description:"Hike to the highest point in the Smokies for a breathtaking sunrise above the clouds. Plan for a 2am departure from Knoxville.",
+    id:'clingmans', title:"Clingmans Dome Sunrise Hike", category:'Outdoor & Nature', location:"Clingmans Dome Rd, Great Smoky Mountains NP",
+    description:'Hike to the highest point in the Smokies (6,643 ft) for a breathtaking sunrise above the clouds. The paved summit trail is 0.5 miles each way. Plan for a 2am departure from Knoxville.',
     indoorOutdoor:'Outdoor', distanceMiles:55, ageRestrictions:'All Ages', timeOfDay:'Morning',
-    costScale:'Free', season:'Summer', underground:false, emoji:'⛰️',
+    costScale:'Free', season:'Spring,Summer,Fall', underground:false, emoji:'⛰️',
     eventType:'venue', daysOfWeek:[0,1,2,3,4,5,6],
     tags:['hiking','sunrise','smokies','mountains','outdoors']
   },
-  {
-    id:'sunsphere', title:'Sunsphere &amp; World\'s Fair Park', category:'Tours & Experiences', location:'810 Clinch Ave, Knoxville',
-    description:'Iconic gold globe from the 1982 World\'s Fair with a free observation deck and sweeping city views. Surrounded by a beautiful park.',
-    indoorOutdoor:'Both', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
-    costScale:'Free', season:'Year-round', underground:false, emoji:'🌐',
-    eventType:'venue', daysOfWeek:[0,1,2,3,4,5,6],
-    tags:['landmark','history','views','park','free']
-  },
-  {
-    id:'summer-concerts', title:'Market Square Summer Concert Series', category:'Live Music', location:'Market Square, Knoxville',
-    description:'Free outdoor concerts every Friday evening in summer on Market Square. Local and regional acts, great food trucks, family atmosphere.',
-    indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
-    costScale:'Free', season:'Summer', underground:false, emoji:'🎶',
-    eventType:'recurring',
-    recurrenceRule:{type:'weekly-seasonal',days:[5],months:[5,6,7]},
-    daysOfWeek:[5], startTime:'18:00',
-    tags:['summer','concerts','free','outdoor','downtown']
-  },
-  // --- UNDERGROUND / LOCAL GEMS ---
+  // --- RECURRING COMMUNITY ---
   {
     id:'silent-disco', title:'Silent Disco at Preservation Pub', category:'Dance & Social', location:'28 Market Square, Knoxville',
     description:'Put on wireless headphones and choose your channel — three DJs, one dance floor, zero speakers. Wild, hilarious, and totally addictive.',
     indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'21+', timeOfDay:'Evening',
-    costScale:'$', season:'Year-round', underground:true, emoji:'🎧',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🎧',
     eventType:'recurring',
     recurrenceRule:{type:'monthly-weekday',weekNum:3,day:6},
     daysOfWeek:[6], startTime:'22:00',
@@ -1226,37 +1391,39 @@ const LISTINGS = [
   },
   {
     id:'honky-tonk-thursday', title:'Honky Tonk Thursday at International', category:'Dance & Social', location:'900 N Central St, Knoxville',
-    description:'$5 cover, cheap beer, and two-step lessons starting at 9pm every Thursday. The real country scene, no tourists.',
+    description:'$5 cover, cheap beer, and two-step lessons starting at 9pm every Thursday. The real country scene in North Knox — no tourists, just locals.',
     indoorOutdoor:'Indoor', distanceMiles:2, ageRestrictions:'21+', timeOfDay:'Evening',
-    costScale:'$', season:'Year-round', underground:true, emoji:'🪗',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🪗',
     eventType:'recurring',
     recurrenceRule:{type:'weekly',days:[4]},
     daysOfWeek:[4], startTime:'21:00',
     tags:['country','two-step','dancing','bar','honky tonk','local']
   },
   {
-    id:'jazz-bistro', title:'Jazz at the Mill &amp; Mine Lounge', category:'Live Music', location:'500 W Jackson Ave, Knoxville',
-    description:'Intimate jazz sessions in the lounge of the Mill &amp; Mine on select Wednesday nights. Rotating local jazz trio, craft cocktails, low-key crowd.',
-    indoorOutdoor:'Indoor', distanceMiles:2, ageRestrictions:'21+', timeOfDay:'Evening',
-    costScale:'$', season:'Year-round', underground:true, emoji:'🎷',
+    id:'jazz-bistro', title:'Jazz at the Mill & Mine Lounge', category:'Live Music', location:'227 W Depot Ave, Knoxville',
+    venueName:'The Mill & Mine',
+    description:'Intimate jazz sessions in the lounge at the Mill & Mine on select Wednesday nights. Rotating local jazz trio, craft cocktails, and a low-key crowd.',
+    indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'21+', timeOfDay:'Evening',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🎷',
     eventType:'recurring',
     recurrenceRule:{type:'monthly-weekday',weekNum:2,day:3},
     daysOfWeek:[3], startTime:'20:00',
     tags:['jazz','lounge','music','cocktails','intimate']
   },
   {
-    id:'rave-old-city', title:'Underground Rave Circuit — Old City', category:'Dance & Social', location:'Rotating Venues, Old City',
-    description:'Rotating underground electronic music events in warehouses and bars around the Old City. Watch local Instagram pages for location reveals 24hrs before.',
+    id:'rave-old-city', title:'Underground Electronic Events — Old City', category:'Dance & Social', location:'Rotating Venues, Old City',
+    description:'Rotating underground electronic music events at warehouses and bars around the Old City. Watch local Instagram pages for location reveals 24 hours before.',
     indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'18+', timeOfDay:'Evening',
     costScale:'$', season:'Year-round', underground:true, emoji:'🔊',
     eventType:'venue', daysOfWeek:[5,6], startTime:'22:00',
-    tags:['rave','EDM','electronic','underground','nightlife','secret']
+    tags:['rave','EDM','electronic','underground','nightlife']
   },
   {
     id:'rooftop-yoga', title:'Rooftop Yoga at The Oliver Hotel', category:'Fitness & Wellness', location:'407 Union Ave, Knoxville',
-    description:'Sunday morning yoga on the rooftop terrace of the Oliver Hotel with city views. $15, BYOM (mat). Sign up via The Oliver website.',
+    venueName:'The Oliver Hotel',
+    description:'Sunday morning yoga on the rooftop terrace of the historic Oliver Hotel with panoramic city views. $15, BYOM. Sign up via The Oliver website.',
     indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Morning',
-    costScale:'$', season:'Spring,Summer,Fall', underground:false, emoji:'🧘',
+    costScale:'$', price:'$15', season:'Spring,Summer,Fall', underground:false, emoji:'🧘',
     eventType:'recurring',
     recurrenceRule:{type:'weekly',days:[0]},
     daysOfWeek:[0], startTime:'09:00',
@@ -1264,7 +1431,7 @@ const LISTINGS = [
   },
   {
     id:'bluegrass-jam', title:'Sunday Bluegrass Jam — Suttree Landing', category:'Live Music', location:'Suttree Landing Park, Knoxville',
-    description:'Informal bluegrass jam session in the park every Sunday afternoon. Bring an instrument or just listen. BYOB, all skill levels welcome.',
+    description:'Informal bluegrass jam session in the park every Sunday afternoon. Bring an instrument or just listen. All skill levels welcome, BYOB.',
     indoorOutdoor:'Outdoor', distanceMiles:2, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
     costScale:'Free', season:'Spring,Summer,Fall', underground:false, emoji:'🪕',
     eventType:'recurring',
@@ -1273,18 +1440,8 @@ const LISTINGS = [
     tags:['bluegrass','jam session','park','outdoor','free','music']
   },
   {
-    id:'midnight-ramble', title:'Midnight Ramble — Market Square', category:'Live Music', location:'Market Square, Knoxville',
-    description:'Late-night acoustic sessions that pop up randomly around Market Square at midnight on warm summer weekends. Follow @midnightrambleknox.',
-    indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
-    costScale:'Free', season:'Summer', underground:true, emoji:'🌙',
-    eventType:'recurring',
-    recurrenceRule:{type:'weekly-seasonal',days:[5,6],months:[5,6,7]},
-    daysOfWeek:[5,6], startTime:'23:30',
-    tags:['acoustic','late night','popup','music','outdoor','summer']
-  },
-  {
     id:'roller-derby', title:'Appalachian Rollergirls — Roller Derby', category:'Sports & Recreation', location:'Knoxville Expo Center',
-    description:"East Tennessee's flat-track roller derby league hosts bouts monthly. Loud, chaotic, and incredibly fun. Very affordable, very local.",
+    description:"East Tennessee's flat-track roller derby league hosts bouts monthly. Loud, chaotic, and incredibly fun. One of Knoxville's most unique and affordable live events.",
     indoorOutdoor:'Indoor', distanceMiles:5, ageRestrictions:'All Ages', timeOfDay:'Evening',
     costScale:'$', season:'Year-round', underground:false, emoji:'⛸️',
     eventType:'recurring',
@@ -1293,65 +1450,92 @@ const LISTINGS = [
     tags:['roller derby','sports','local','unique','monthly']
   },
   {
-    id:'secret-cinema', title:'Secret Cinema Club — Old City', category:'Film & Cinema', location:'Rotating venue, Old City',
-    description:'Monthly underground film screening series showing cult classics, foreign films, and experimental cinema. Location revealed 48hrs before via newsletter.',
-    indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'18+', timeOfDay:'Evening',
-    costScale:'$', season:'Year-round', underground:true, emoji:'🎬',
-    eventType:'recurring',
-    recurrenceRule:{type:'monthly-weekday',weekNum:1,day:3},
-    daysOfWeek:[3], startTime:'20:00',
-    tags:['film','cinema','cult','secret','monthly']
-  },
-  {
     id:'drum-circle', title:'Full Moon Drum Circle — Sequoyah Hills', category:'Community & Civic', location:'Sequoyah Hills Park, Knoxville',
-    description:'Community drum circle and bonfire gathering on the night of every full moon in Sequoyah Hills Park. Free, open, eclectic crowd.',
+    description:'Community drum circle and bonfire gathering on the night of every full moon in Sequoyah Hills Park. Free, open, and welcoming to all.',
     indoorOutdoor:'Outdoor', distanceMiles:4, ageRestrictions:'All Ages', timeOfDay:'Evening',
     costScale:'Free', season:'Spring,Summer,Fall', underground:false, emoji:'🥁',
     eventType:'recurring',
     recurrenceRule:{type:'monthly-weekday',weekNum:1,day:0},
     daysOfWeek:[0,1,2,3,4,5,6], startTime:'20:00',
     tags:['drum circle','bonfire','community','full moon','park','free']
+  },
+  {
+    id:'midnight-ramble', title:'Midnight Ramble — Market Square', category:'Live Music', location:'Market Square, Knoxville',
+    description:'Late-night acoustic sessions that pop up around Market Square at midnight on warm summer weekends.',
+    indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Summer', underground:true, emoji:'🌙',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly-seasonal',days:[5,6],months:[5,6,7]},
+    daysOfWeek:[5,6], startTime:'23:30',
+    tags:['acoustic','late night','popup','music','outdoor','summer']
+  },
+  {
+    id:'secret-cinema', title:'Secret Cinema Club — Old City', category:'Film & Cinema', location:'Rotating venue, Old City',
+    description:'Monthly underground film screening series showing cult classics, foreign films, and experimental cinema. Location revealed 48 hours before via newsletter.',
+    indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'18+', timeOfDay:'Evening',
+    costScale:'$', season:'Year-round', underground:true, emoji:'🎬',
+    eventType:'recurring',
+    recurrenceRule:{type:'monthly-weekday',weekNum:1,day:3},
+    daysOfWeek:[3], startTime:'20:00',
+    tags:['film','cinema','cult','secret','monthly']
   }
 ];
 
 
 // ── Neighborhood + geo data (merged at runtime) ──────────────────────────────
 const LISTING_META = {
-  // Downtown venues (Gay St corridor)
-  'wdvx':            { neighborhood:'Downtown',      lat:35.9633, lng:-83.9183 },
-  'tennessee-theatre':{ neighborhood:'Downtown',     lat:35.9635, lng:-83.9187 },
-  'sunsphere':       { neighborhood:'Downtown',      lat:35.9615, lng:-83.9243 },
-  'rooftop-yoga':    { neighborhood:'Downtown',      lat:35.9649, lng:-83.9196 },
-  'art-walk':        { neighborhood:'Downtown',      lat:35.9655, lng:-83.9180 },
-  'big-ears':        { neighborhood:'Downtown',      lat:35.9648, lng:-83.9186 },
-  'dogwood-arts':    { neighborhood:'Downtown',      lat:35.9655, lng:-83.9180 },
+  // UT / Stadium area
+  'neyland-football':    { neighborhood:'UT Area',        lat:35.9551, lng:-83.9253 },
+  'vols-basketball':     { neighborhood:'UT Area',        lat:35.9507, lng:-83.9377 },
+  'women-basketball':    { neighborhood:'UT Area',        lat:35.9507, lng:-83.9377 },
+  // Downtown Gay St corridor
+  'wdvx':                { neighborhood:'Downtown',       lat:35.9633, lng:-83.9183 },
+  'tennessee-theatre':   { neighborhood:'Downtown',       lat:35.9635, lng:-83.9187 },
+  'bijou-theatre':       { neighborhood:'Downtown',       lat:35.9624, lng:-83.9183 },
+  'sunsphere':           { neighborhood:"World's Fair Park", lat:35.9615, lng:-83.9243 },
+  'rooftop-yoga':        { neighborhood:'Downtown',       lat:35.9649, lng:-83.9196 },
+  'art-walk':            { neighborhood:'Downtown',       lat:35.9655, lng:-83.9180 },
+  'knoxville-museum-art':{ neighborhood:"World's Fair Park", lat:35.9622, lng:-83.9248 },
+  'east-tn-history':     { neighborhood:'Downtown',       lat:35.9631, lng:-83.9193 },
   // Market Square cluster
-  'market-sq':       { neighborhood:'Market Square', lat:35.9660, lng:-83.9185 },
-  'summer-concerts': { neighborhood:'Market Square', lat:35.9660, lng:-83.9185 },
-  'midnight-ramble': { neighborhood:'Market Square', lat:35.9660, lng:-83.9185 },
-  'saluto':          { neighborhood:'Market Square', lat:35.9656, lng:-83.9182 },
-  'silent-disco':    { neighborhood:'Market Square', lat:35.9656, lng:-83.9182 },
-  // Old City cluster (Jackson Ave / Gay St N)
-  'pilot-light':     { neighborhood:'Old City',      lat:35.9671, lng:-83.9143 },
-  'summit-beerworks':{ neighborhood:'Old City',      lat:35.9668, lng:-83.9175 },
-  'jazz-bistro':     { neighborhood:'Old City',      lat:35.9671, lng:-83.9196 },
-  'rave-old-city':   { neighborhood:'Old City',      lat:35.9670, lng:-83.9150 },
-  'fifth-quarter':   { neighborhood:'Old City',      lat:35.9672, lng:-83.9148 },
-  'secret-cinema':   { neighborhood:'Old City',      lat:35.9670, lng:-83.9155 },
+  'market-sq':           { neighborhood:'Market Square',  lat:35.9660, lng:-83.9185 },
+  'summer-concerts':     { neighborhood:'Market Square',  lat:35.9660, lng:-83.9185 },
+  'midnight-ramble':     { neighborhood:'Market Square',  lat:35.9660, lng:-83.9185 },
+  'saluto':              { neighborhood:'Market Square',  lat:35.9656, lng:-83.9182 },
+  'silent-disco':        { neighborhood:'Market Square',  lat:35.9656, lng:-83.9182 },
+  // Old City / Depot district
+  'pilot-light':         { neighborhood:'Old City',       lat:35.9671, lng:-83.9143 },
+  'barleys-taproom':     { neighborhood:'Old City',       lat:35.9671, lng:-83.9149 },
+  'jazz-bistro':         { neighborhood:'Old City',       lat:35.9683, lng:-83.9190 },
+  'mill-and-mine':       { neighborhood:'Old City',       lat:35.9683, lng:-83.9190 },
+  'marble-city-market':  { neighborhood:'Old City',       lat:35.9686, lng:-83.9181 },
+  'smokies-baseball':    { neighborhood:'Old City',       lat:35.9680, lng:-83.9107 },
+  'rave-old-city':       { neighborhood:'Old City',       lat:35.9670, lng:-83.9150 },
+  'secret-cinema':       { neighborhood:'Old City',       lat:35.9670, lng:-83.9155 },
+  // Civic / Coliseum area
+  'ice-bears':           { neighborhood:'Downtown',       lat:35.9652, lng:-83.9060 },
+  // Riverfront / World's Fair
+  'tennessee-riverwalk': { neighborhood:'Downtown',       lat:35.9570, lng:-83.9270 },
+  'boomsday':            { neighborhood:'Downtown',       lat:35.9570, lng:-83.9270 },
+  'big-ears':            { neighborhood:'Downtown',       lat:35.9648, lng:-83.9186 },
+  'dogwood-arts':        { neighborhood:"World's Fair Park", lat:35.9615, lng:-83.9243 },
+  'knox-pride':          { neighborhood:"World's Fair Park", lat:35.9615, lng:-83.9243 },
+  'knoxville-marathon':  { neighborhood:'Downtown',       lat:35.9615, lng:-83.9243 },
   // South Knoxville
-  'ijams':           { neighborhood:'South Knoxville', lat:35.9415, lng:-83.8868 },
-  'bluegrass-jam':   { neighborhood:'South Knoxville', lat:35.9497, lng:-83.9105 },
+  'ijams':               { neighborhood:'South Knoxville',  lat:35.9415, lng:-83.8868 },
+  'bluegrass-jam':       { neighborhood:'South Knoxville',  lat:35.9497, lng:-83.9105 },
+  // East Knoxville
+  'zoo-knoxville':       { neighborhood:'East Knoxville',   lat:35.9836, lng:-83.8754 },
+  'tennessee-valley-fair':{ neighborhood:'East Knoxville',  lat:35.9793, lng:-83.8843 },
   // North Knoxville
-  'honky-tonk-thursday':{ neighborhood:'North Knoxville', lat:35.9839, lng:-83.9367 },
-  'roller-derby':    { neighborhood:'North Knoxville', lat:35.9850, lng:-83.9700 },
-  // West Knoxville (Farragut / Turkey Creek area)
-  'cotton-eyed-joe': { neighborhood:'Farragut',      lat:35.9308, lng:-84.0803 },
+  'honky-tonk-thursday': { neighborhood:'North Knoxville',  lat:35.9839, lng:-83.9367 },
+  'roller-derby':        { neighborhood:'North Knoxville',  lat:35.9850, lng:-83.9700 },
+  // West Knoxville
+  'cotton-eyed-joe':     { neighborhood:'Farragut',         lat:35.9308, lng:-84.0803 },
   // Northshore / Sequoyah Hills
-  'drum-circle':     { neighborhood:'Northshore',    lat:35.9585, lng:-83.9583 },
-  // UT Area
-  'women-basketball':{ neighborhood:'UT Area',       lat:35.9507, lng:-83.9377 },
-  // Far out
-  'clingmans':       { neighborhood:'Smoky Mountains', lat:35.5629, lng:-83.4985 },
+  'drum-circle':         { neighborhood:'Sequoyah Hills',   lat:35.9585, lng:-83.9583 },
+  // Smokies
+  'clingmans':           { neighborhood:'Smoky Mountains',  lat:35.5629, lng:-83.4985 },
 };
 // Merge meta into LISTINGS
 LISTINGS.forEach(l => { if(LISTING_META[l.id]) Object.assign(l, LISTING_META[l.id]); });
