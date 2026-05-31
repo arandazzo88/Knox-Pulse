@@ -255,13 +255,18 @@ main{max-width:1280px;margin:0 auto;padding:24px;}
 .modal-img{width:100%;height:240px;object-fit:cover;background:var(--surface-3);}
 .modal-img-placeholder{width:100%;height:240px;background:var(--surface-3);display:flex;align-items:center;justify-content:center;font-size:4rem;}
 .modal-content{padding:22px;}
-.modal-content h2{font-size:1.2rem;font-weight:700;margin-bottom:6px;letter-spacing:-.01em;}
+.modal-content h2{font-size:1.25rem;font-weight:700;margin-bottom:8px;letter-spacing:-.01em;padding-right:40px;}
 .modal-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;}
 .modal-desc{font-size:.88rem;line-height:1.65;color:var(--text-2);margin-bottom:16px;}
-.modal-close{float:right;background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;line-height:1;padding:2px 4px;}
-.modal-close:hover{color:var(--text);}
+.modal-close{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.5);border:none;color:#fff;font-size:1.2rem;cursor:pointer;line-height:1;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:10;}
+.modal-close:hover{background:rgba(0,0,0,.8);}
+.modal{position:relative;}
 .modal-section{margin-bottom:16px;}
 .modal-section h3{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:8px;}
+#modal-meta{margin-bottom:12px;}
+#modal-loc{font-size:.88rem;color:var(--muted);margin-bottom:3px;}
+#modal-sched{font-size:.88rem;color:var(--orange);font-weight:500;}
+.modal-action-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
 /* PHOTOS */
 .photo-grid{display:flex;flex-wrap:wrap;gap:8px;}
 .photo-thumb{width:80px;height:80px;object-fit:cover;border-radius:8px;cursor:pointer;}
@@ -417,7 +422,7 @@ main { padding: 14px; }
 .map-popup button { background:var(--orange); border:none; color:#fff; border-radius:12px;
   padding:4px 12px; cursor:pointer; font-size:.78rem; }
 /* SHARE */
-.share-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+.share-row { display:flex; gap:8px; flex-wrap:wrap; }
 .share-btn { display:inline-flex; align-items:center; gap:5px; padding:7px 14px;
   border-radius:20px; font-size:.8rem; font-weight:600; cursor:pointer; border:none; }
 .share-copy  { background:#ffffff15; color:var(--text); }
@@ -489,7 +494,7 @@ main { padding: 14px; }
 /* Edit Request */
 .suggest-edit-btn{background:none;border:1px solid var(--border);color:var(--text-2);
   border-radius:var(--radius-sm);padding:6px 14px;cursor:pointer;font-size:.78rem;
-  font-family:inherit;transition:all .15s;margin-top:8px;}
+  font-family:inherit;transition:all .15s;white-space:nowrap;}
 .suggest-edit-btn:hover{border-color:var(--accent);color:var(--accent);}
 #edit-modal .modal{max-width:500px;}
 .edit-form label{display:block;font-size:.78rem;color:var(--muted);margin-top:12px;margin-bottom:4px;}
@@ -818,16 +823,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="modal">
     <div id="modal-img-area"></div>
     <div class="modal-content">
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
       <h2 id="modal-title"></h2>
+      <div id="modal-meta">
+        <p id="modal-loc"></p>
+        <p id="modal-sched"></p>
+      </div>
       <div id="modal-chips" class="modal-chips"></div>
       <p id="modal-desc" class="modal-desc"></p>
-      <div class="share-row" id="share-row"></div>
-      <button class="suggest-edit-btn" onclick="openEditModal()">✏️ Suggest an Edit</button>
-      <div class="modal-section">
-        <h3>📍 Location &amp; Schedule</h3>
-        <p id="modal-loc" style="font-size:.85rem;color:var(--muted);"></p>
-        <p id="modal-sched" style="font-size:.85rem;color:var(--orange);margin-top:4px;"></p>
+      <div id="modal-map-preview" style="display:none;height:180px;border-radius:10px;overflow:hidden;margin-bottom:16px;"></div>
+      <div class="modal-action-row">
+        <div class="share-row" id="share-row"></div>
+        <button class="suggest-edit-btn" onclick="openEditModal()">✏️ Suggest an Edit</button>
       </div>
       <div class="modal-section" id="photos-section">
         <h3>📸 Photos</h3>
@@ -893,10 +900,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <select id="org-inout">
           <option>Indoor</option><option>Outdoor</option><option>Both</option>
         </select>
-        <label>Time of Day</label>
-        <select id="org-time">
-          <option>Evening</option><option>Morning</option><option>Afternoon</option>
-        </select>
+        <label>Start Time</label>
+        <input type="time" id="org-starttime"/>
+        <label>End Time (optional)</label>
+        <input type="time" id="org-endtime"/>
         <label>Event Type *</label>
         <select id="org-etype" onchange="showRecurrenceFields()">
           <option value="one-time">One-time event</option>
@@ -1338,21 +1345,34 @@ function isHappeningOnDate(listing, dateStr){
   }
 }
 
+function formatTime(t){
+  if(!t) return '';
+  const[h,m]=t.split(':').map(Number);
+  const period=h>=12?'pm':'am';
+  const h12=h===0?12:h>12?h-12:h;
+  return h12+(m?':'+String(m).padStart(2,'0'):'')+period;
+}
+
 function getScheduleLabel(l){
-  if(l.eventType==='venue') return 'Open regularly';
-  if(l.eventType==='one-time') return '📅 '+l.eventDate;
-  const r=l.recurrenceRule;
-  if(!r) return '';
-  const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const ordinals=['','1st','2nd','3rd','4th'];
-  switch(r.type){
-    case 'weekly': return '🔁 Every '+(r.days.map(d=>days[d]).join(', '));
-    case 'weekly-seasonal': return '🔁 '+(r.days.map(d=>days[d]).join('/'))+'s in '+(r.months.map(m=>months[m]).join('/'));
-    case 'monthly-weekday': return '📅 '+ordinals[r.weekNum]+' '+days[r.day]+' of each month';
-    case 'annual': return '📅 Annually in '+months[r.month];
-    default: return '';
+  const time=l.startTime?formatTime(l.startTime)+(l.endTime?' – '+formatTime(l.endTime):''):'';
+  let freq='';
+  if(l.eventType==='venue'){freq='Open regularly';}
+  else if(l.eventType==='one-time'){freq='📅 '+l.eventDate;}
+  else{
+    const r=l.recurrenceRule;
+    if(r){
+      const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const ordinals=['','1st','2nd','3rd','4th'];
+      switch(r.type){
+        case 'weekly': freq='🔁 Every '+(r.days.map(d=>days[d]).join(', ')); break;
+        case 'weekly-seasonal': freq='🔁 '+(r.days.map(d=>days[d]).join('/'))+'s in '+(r.months.map(m=>months[m]).join('/')); break;
+        case 'monthly-weekday': freq='📅 '+ordinals[r.weekNum]+' '+days[r.day]+' of each month'; break;
+        case 'annual': freq='📅 Annually in '+months[r.month]; break;
+      }
+    }
   }
+  return [time,freq].filter(Boolean).join(' · ');
 }
 
 function getAvgRating(id){
@@ -1746,14 +1766,14 @@ function openDetail(id){
     : `<div class="modal-img-placeholder">${l.emoji||'📍'}</div>`;
 
   document.getElementById('modal-title').textContent=l.title;
-  document.getElementById('modal-desc').textContent=l.description;
-  document.getElementById('modal-loc').textContent='📍 '+l.location+(l.distanceMiles?' · ~'+l.distanceMiles+' miles from downtown':'');
+  document.getElementById('modal-loc').textContent='📍 '+l.location+(l.distanceMiles?' · '+l.distanceMiles+' mi from downtown':'');
   document.getElementById('modal-sched').textContent=getScheduleLabel(l);
+  document.getElementById('modal-desc').textContent=l.description;
 
   const chips=document.getElementById('modal-chips');
   chips.innerHTML=`
     <span class="chip chip-cat">${l.category}</span>
-    <span class="chip ${l.indoorOutdoor==='Indoor'?'chip-indoor':'chip-outdoor'}">${l.indoorOutdoor}</span>
+    <span class="chip ${l.indoorOutdoor==='Indoor'?'chip-indoor':l.indoorOutdoor==='Outdoor'?'chip-outdoor':'chip-indoor'}">${l.indoorOutdoor}</span>
     ${costChip(l.costScale)}
     <span class="chip chip-age">${l.ageRestrictions}</span>
     ${l.timeOfDay?`<span class="chip chip-time">${l.timeOfDay}</span>`:''}
@@ -1762,17 +1782,37 @@ function openDetail(id){
     ${l.neighborhood?`<span class="chip chip-dist">📍 ${l.neighborhood}</span>`:''}
   `;
 
+  // Map preview
+  const mapDiv=document.getElementById('modal-map-preview');
+  if(l.lat&&l.lng){
+    mapDiv.style.display='block';
+    openDetailMap(l.lat,l.lng,l.title);
+  } else {
+    mapDiv.style.display='none';
+    if(modalMap){modalMap.remove();modalMap=null;}
+  }
+
   renderPhotoGrid(id);
   renderReviews(id);
   resetStars();
 
   buildShareRow(l);
+
+  // Update URL so back button works and links are shareable
+  if(window.location.search!=='?event='+id){
+    history.pushState({event:id},'','?event='+id);
+  }
+
   document.getElementById('detail-modal').classList.add('open');
 }
 
 function closeModal(){
   document.getElementById('detail-modal').classList.remove('open');
   currentListing=null;
+  if(modalMap){modalMap.remove();modalMap=null;}
+  if(window.location.search.includes('event=')){
+    history.replaceState({},'',window.location.pathname);
+  }
 }
 
 // ============================================================
@@ -1908,6 +1948,14 @@ async function submitOrgEvent(){
     }
   }
 
+  const startTime=document.getElementById('org-starttime').value;
+  const endTime=document.getElementById('org-endtime').value;
+  let timeOfDay='Evening';
+  if(startTime){
+    const hr=parseInt(startTime.split(':')[0]);
+    timeOfDay=hr<12?'Morning':hr<17?'Afternoon':'Evening';
+  }
+
   const event={
     id:'org_'+Date.now(),
     title:name,
@@ -1917,7 +1965,9 @@ async function submitOrgEvent(){
     indoorOutdoor:document.getElementById('org-inout').value,
     distanceMiles:5,
     ageRestrictions:document.getElementById('org-age').value,
-    timeOfDay:document.getElementById('org-time').value,
+    timeOfDay,
+    startTime:startTime||null,
+    endTime:endTime||null,
     costScale:document.getElementById('org-cost').value,
     season:'Year-round',
     underground:document.getElementById('org-underground').checked,
@@ -1962,6 +2012,7 @@ function showToast(msg){
 // MAP VIEW
 // ============================================================
 let leafletMap = null;
+let modalMap = null;
 let mapMarkers = [];
 
 function initMap(){
@@ -2000,6 +2051,16 @@ function renderMapMarkers(listings){
   });
 }
 
+function openDetailMap(lat,lng,title){
+  const container=document.getElementById('modal-map-preview');
+  if(!container) return;
+  if(modalMap){modalMap.remove();modalMap=null;}
+  modalMap=L.map(container,{zoomControl:false,attributionControl:false,dragging:false,scrollWheelZoom:false,doubleClickZoom:false}).setView([lat,lng],15);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18}).addTo(modalMap);
+  L.marker([lat,lng]).addTo(modalMap).bindPopup(title);
+  setTimeout(()=>{if(modalMap)modalMap.invalidateSize();},150);
+}
+
 function setView(v){
   const isMap=v==='map';
   document.getElementById('map-container').style.display=isMap?'block':'none';
@@ -2024,22 +2085,21 @@ function setView(v){
 function buildShareRow(listing){
   const el=document.getElementById('share-row');
   if(!el) return;
-  const title=encodeURIComponent(listing.title+' — Knox Pulse');
-  const url=encodeURIComponent(window.location.href.split('?')[0]+'?event='+listing.id);
-  const hasNative=!!navigator.share;
   el.innerHTML=`
-    ${hasNative?`<button class="share-btn share-native" onclick="nativeShare('${listing.id}')">📤 Share</button>`:''}
+    <button class="share-btn share-native" onclick="nativeShare('${listing.id}')">📤 Share</button>
     <button class="share-btn share-copy" onclick="copyLink('${listing.id}')">🔗 Copy Link</button>
-    <button class="share-btn share-x" onclick="window.open('https://x.com/intent/tweet?text=${title}&url=${url}','_blank')">𝕏 Tweet</button>
-    <button class="share-btn share-fb" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${url}','_blank','width=600,height=400')">f Share</button>
   `;
 }
 
 function nativeShare(id){
   const l=allListings().find(x=>x.id===id);
-  if(!l||!navigator.share) return;
-  navigator.share({title:l.title,text:l.description,url:window.location.href.split('?')[0]+'?event='+id})
-    .catch(()=>{});
+  if(!l) return;
+  const url=window.location.href.split('?')[0]+'?event='+id;
+  if(navigator.share){
+    navigator.share({title:l.title,text:l.description,url}).catch(()=>{});
+  } else {
+    copyLink(id);
+  }
 }
 
 function copyLink(id){
@@ -2447,7 +2507,7 @@ function waitForPlaces(fn, attempts=0) {
 // ============================================================
 // EMAILJS + EDIT REQUESTS
 // ============================================================
-emailjs.init({ publicKey: 'xhG38R6s4qVF0v9Uy' });
+try { emailjs.init({ publicKey: 'xhG38R6s4qVF0v9Uy' }); } catch(e) { console.warn('EmailJS not available:', e.message); }
 
 const EMAILJS_SERVICE  = 'service_71t2pqk';
 const EMAILJS_TEMPLATE = 'template_wqtnx38';
@@ -2528,6 +2588,15 @@ async function submitEditRequest(){
 
 document.getElementById('detail-modal').addEventListener('click',function(e){if(e.target===this) closeModal();});
 document.getElementById('org-modal').addEventListener('click',function(e){if(e.target===this) closeOrgModal();});
+// Browser back button closes detail modal
+window.addEventListener('popstate',function(){
+  const modal=document.getElementById('detail-modal');
+  if(modal&&modal.classList.contains('open')){
+    modal.classList.remove('open');
+    currentListing=null;
+    if(modalMap){modalMap.remove();modalMap=null;}
+  }
+});
 showRecurrenceFields();
 showRecurrenceSubFields();
 // Render static listings immediately so grid is never blank
