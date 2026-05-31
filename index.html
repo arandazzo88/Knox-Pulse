@@ -3631,8 +3631,10 @@ window.addEventListener('popstate',function(){
 });
 showRecurrenceFields();
 showRecurrenceSubFields();
-// Initial render from static data so the grid is visible immediately
-try{ applyFilters(); }catch(e){ console.error('initial render failed',e); }
+// Default date filter = today so cards always load
+const _fd=document.getElementById('f-date');
+if(_fd){_fd.value=todayStr();_fd.min=todayStr();}
+applyFilters();
 initFromFirestore();
 </script>
 
