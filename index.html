@@ -958,13 +958,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <option value="recurring">Recurring event</option>
         </select>
         <div id="org-onetime-fields">
-          <label>Event Date *</label>
-          <input type="date" id="org-date"/>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <div style="flex:1;min-width:120px;">
+              <label>Start Date *</label>
+              <input type="date" id="org-date"/>
+            </div>
+            <div style="flex:1;min-width:120px;">
+              <label>End Date (multi-day events)</label>
+              <input type="date" id="org-enddate"/>
+            </div>
+          </div>
         </div>
         <div id="org-recurring-fields" class="recurrence-opts">
           <label>Recurrence Type</label>
           <select id="org-rectype" onchange="showRecurrenceSubFields()">
             <option value="weekly">Weekly (specific days)</option>
+            <option value="weekly-seasonal">Seasonal weekly (certain months only)</option>
             <option value="monthly-weekday">Monthly (e.g. 1st Friday)</option>
             <option value="annual">Annual (once a year)</option>
           </select>
@@ -978,6 +987,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span class="tog" data-v="4" onclick="this.classList.toggle('active')">Thu</span>
               <span class="tog" data-v="5" onclick="this.classList.toggle('active')">Fri</span>
               <span class="tog" data-v="6" onclick="this.classList.toggle('active')">Sat</span>
+            </div>
+          </div>
+          <div id="org-seasonal-months" style="display:none;margin-top:8px;">
+            <label>Active Months</label>
+            <div class="toggle-group" id="org-month-pick" style="flex-wrap:wrap;gap:4px;">
+              <span class="tog" data-v="0" onclick="this.classList.toggle('active')">Jan</span>
+              <span class="tog" data-v="1" onclick="this.classList.toggle('active')">Feb</span>
+              <span class="tog" data-v="2" onclick="this.classList.toggle('active')">Mar</span>
+              <span class="tog" data-v="3" onclick="this.classList.toggle('active')">Apr</span>
+              <span class="tog" data-v="4" onclick="this.classList.toggle('active')">May</span>
+              <span class="tog" data-v="5" onclick="this.classList.toggle('active')">Jun</span>
+              <span class="tog" data-v="6" onclick="this.classList.toggle('active')">Jul</span>
+              <span class="tog" data-v="7" onclick="this.classList.toggle('active')">Aug</span>
+              <span class="tog" data-v="8" onclick="this.classList.toggle('active')">Sep</span>
+              <span class="tog" data-v="9" onclick="this.classList.toggle('active')">Oct</span>
+              <span class="tog" data-v="10" onclick="this.classList.toggle('active')">Nov</span>
+              <span class="tog" data-v="11" onclick="this.classList.toggle('active')">Dec</span>
+            </div>
+            <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap;">
+              <div style="flex:1;min-width:120px;">
+                <label>Season start date (optional)</label>
+                <input type="date" id="org-season-start"/>
+              </div>
+              <div style="flex:1;min-width:120px;">
+                <label>Season end date (optional)</label>
+                <input type="date" id="org-season-end"/>
+              </div>
             </div>
           </div>
           <div id="org-monthly-fields" style="display:none;margin-top:8px;">
@@ -1391,7 +1427,10 @@ async function initFromFirestore(){
 // ============================================================
 function todayStr(){
   const n=new Date();
-  return n.getFullYear()+'-'+(n.getMonth()+1).toString().padStart(2,'0')+'-'+n.getDate().toString().padStart(2,'0');
+  return isoDateStr(n);
+}
+function isoDateStr(d){
+  return d.getFullYear()+'-'+(d.getMonth()+1).toString().padStart(2,'0')+'-'+d.getDate().toString().padStart(2,'0');
 }
 
 function isHappeningOnDate(listing, dateStr){
@@ -1400,12 +1439,21 @@ function isHappeningOnDate(listing, dateStr){
   const dow=d.getDay();
   const dom=d.getDate();
   const month=d.getMonth();
-  if(listing.eventType==='one-time') return listing.eventDate===dateStr;
+  if(listing.eventType==='one-time'){
+    if(listing.eventEndDate) return dateStr>=listing.eventDate && dateStr<=listing.eventEndDate;
+    return listing.eventDate===dateStr;
+  }
   const rule=listing.recurrenceRule;
   if(!rule) return false;
   switch(rule.type){
     case 'weekly': return rule.days.includes(dow);
-    case 'weekly-seasonal': return rule.days.includes(dow)&&rule.months.includes(month);
+    case 'weekly-seasonal': {
+      if(!rule.days.includes(dow)) return false;
+      if(rule.seasonStart && dateStr<rule.seasonStart) return false;
+      if(rule.seasonEnd && dateStr>rule.seasonEnd) return false;
+      if(rule.months && rule.months.length && !rule.months.includes(month)) return false;
+      return true;
+    }
     case 'monthly-weekday':
       if(dow!==rule.day) return false;
       return Math.ceil(dom/7)===rule.weekNum;
@@ -1430,7 +1478,13 @@ function getNextOccurrence(l){
     const dow=d.getDay(),dom=d.getDate(),mo=d.getMonth();
     let hit=false;
     if(r.type==='weekly') hit=r.days.includes(dow);
-    else if(r.type==='weekly-seasonal') hit=r.days.includes(dow)&&r.months.includes(mo);
+    else if(r.type==='weekly-seasonal'){
+      const ds=isoDateStr(d);
+      hit=r.days.includes(dow)
+        &&(!r.months||!r.months.length||r.months.includes(mo))
+        &&(!r.seasonStart||ds>=r.seasonStart)
+        &&(!r.seasonEnd||ds<=r.seasonEnd);
+    }
     else if(r.type==='monthly-weekday') hit=dow===r.day&&Math.ceil(dom/7)===r.weekNum;
     else if(r.type==='annual') hit=mo===r.month&&dom<=7;
     if(hit) return new Date(d);
@@ -1573,8 +1627,9 @@ function getScheduleLabel(l){
   const time=l.startTime?formatTime(l.startTime)+(l.endTime?' – '+formatTime(l.endTime):''):'';
   let freq='';
   if(l.eventType==='venue'){freq='Open regularly';}
-  else if(l.eventType==='one-time'){freq='📅 '+l.eventDate;}
-  else{
+  else if(l.eventType==='one-time'){
+    freq=l.eventEndDate?`📅 ${l.eventDate} – ${l.eventEndDate}`:`📅 ${l.eventDate}`;
+  } else{
     const r=l.recurrenceRule;
     if(r){
       const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
@@ -1582,7 +1637,12 @@ function getScheduleLabel(l){
       const ordinals=['','1st','2nd','3rd','4th'];
       switch(r.type){
         case 'weekly': freq='🔁 Every '+(r.days.map(d=>days[d]).join(', ')); break;
-        case 'weekly-seasonal': freq='🔁 '+(r.days.map(d=>days[d]).join('/'))+'s in '+(r.months.map(m=>months[m]).join('/')); break;
+        case 'weekly-seasonal': {
+          const dayStr=r.days.map(d=>days[d]).join('/');
+          let rangeStr=(r.months&&r.months.length)?r.months.map(m=>months[m]).join('/'):'';
+          if(r.seasonStart||r.seasonEnd) rangeStr=(r.seasonStart||'')+(r.seasonEnd?' – '+r.seasonEnd:'');
+          freq=`🔁 ${dayStr}s · ${rangeStr}`; break;
+        }
         case 'monthly-weekday': freq='📅 '+ordinals[r.weekNum]+' '+days[r.day]+' of each month'; break;
         case 'annual': freq='📅 Annually in '+months[r.month]; break;
       }
@@ -2230,7 +2290,8 @@ function showRecurrenceFields(){
 
 function showRecurrenceSubFields(){
   const v=document.getElementById('org-rectype').value;
-  document.getElementById('org-weekly-days').style.display=v==='weekly'?'block':'none';
+  document.getElementById('org-weekly-days').style.display=(v==='weekly'||v==='weekly-seasonal')?'block':'none';
+  document.getElementById('org-seasonal-months').style.display=v==='weekly-seasonal'?'block':'none';
   document.getElementById('org-monthly-fields').style.display=v==='monthly-weekday'?'block':'none';
   document.getElementById('org-annual-fields').style.display=v==='annual'?'block':'none';
 }
@@ -2245,15 +2306,26 @@ async function submitOrgEvent(){
   let daysOfWeek=[];
   let eventDate=null;
 
+  let eventEndDate=null;
   if(etype==='one-time'){
     eventDate=document.getElementById('org-date').value;
-    if(!eventDate){showToast('Please select a date!');return;}
+    if(!eventDate){showToast('Please select a start date!');return;}
+    eventEndDate=document.getElementById('org-enddate').value||null;
   } else {
     const rt=document.getElementById('org-rectype').value;
     if(rt==='weekly'){
       const picked=[...document.querySelectorAll('#org-dow-pick .tog.active')].map(t=>parseInt(t.dataset.v));
       if(!picked.length){showToast('Select at least one day!');return;}
       recurrenceRule={type:'weekly',days:picked};
+      daysOfWeek=picked;
+    } else if(rt==='weekly-seasonal'){
+      const picked=[...document.querySelectorAll('#org-dow-pick .tog.active')].map(t=>parseInt(t.dataset.v));
+      const months=[...document.querySelectorAll('#org-month-pick .tog.active')].map(t=>parseInt(t.dataset.v));
+      if(!picked.length){showToast('Select at least one day of the week!');return;}
+      if(!months.length){showToast('Select at least one active month!');return;}
+      const seasonStart=document.getElementById('org-season-start').value||null;
+      const seasonEnd=document.getElementById('org-season-end').value||null;
+      recurrenceRule={type:'weekly-seasonal',days:picked,months,...(seasonStart?{seasonStart}:{}),...(seasonEnd?{seasonEnd}:{})};
       daysOfWeek=picked;
     } else if(rt==='monthly-weekday'){
       const wn=parseInt(document.getElementById('org-weeknum').value);
@@ -2305,6 +2377,7 @@ async function submitOrgEvent(){
     emoji:'🎟️',
     eventType:etype,
     eventDate,
+    eventEndDate,
     daysOfWeek,
     recurrenceRule,
     tags:['community']
@@ -2635,6 +2708,7 @@ function adminEditListing(id){
   if(l.startTime) document.getElementById('af-starttime').value=l.startTime;
   if(l.endTime) document.getElementById('af-endtime').value=l.endTime;
   if(l.eventDate) document.getElementById('af-date').value=l.eventDate;
+  if(l.eventEndDate) document.getElementById('af-enddate').value=l.eventEndDate;
   if(l.daysOfWeek){
     document.querySelectorAll('#af-dow-pick .tog').forEach(t=>{
       t.classList.toggle('active', l.daysOfWeek.includes(parseInt(t.dataset.v)));
@@ -2644,8 +2718,12 @@ function adminEditListing(id){
     document.getElementById('af-rectype').value=l.recurrenceRule.type||'weekly';
     if(l.recurrenceRule.weekNum) document.getElementById('af-weeknum').value=l.recurrenceRule.weekNum;
     if(l.recurrenceRule.day!==undefined) document.getElementById('af-mday').value=l.recurrenceRule.day;
-    if(l.recurrenceRule.months) document.getElementById('af-months').value=l.recurrenceRule.months.join(',');
     if(l.recurrenceRule.month!==undefined) document.getElementById('af-annualmonth').value=l.recurrenceRule.month;
+    document.querySelectorAll('#af-month-pick .tog').forEach(t=>{
+      t.classList.toggle('active', (l.recurrenceRule.months||[]).includes(parseInt(t.dataset.v)));
+    });
+    if(l.recurrenceRule.seasonStart) document.getElementById('af-season-start').value=l.recurrenceRule.seasonStart;
+    if(l.recurrenceRule.seasonEnd) document.getElementById('af-season-end').value=l.recurrenceRule.seasonEnd;
   }
   adminShowRecurrence();
 }
@@ -2695,10 +2773,10 @@ function adminCancelEdit(){
   editingListingId=null;
   document.getElementById('edit-listing-id').value='';
   document.getElementById('add-form-title').textContent='Add New Listing';
-  ['af-title','af-emoji','af-venuename','af-loc','af-desc','af-price','af-dist','af-lat','af-lng','af-tags','af-starttime','af-endtime','af-date','af-months','af-annualmonth','af-phone','af-website','af-email','af-ig']
+  ['af-title','af-emoji','af-venuename','af-loc','af-desc','af-price','af-dist','af-lat','af-lng','af-tags','af-starttime','af-endtime','af-date','af-enddate','af-season-start','af-season-end','af-phone','af-website','af-email','af-ig']
     .forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
   const afPhoto=document.getElementById('af-photo'); if(afPhoto) afPhoto.value='';
-  document.querySelectorAll('#af-dow-pick .tog').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('#af-dow-pick .tog, #af-month-pick .tog').forEach(t=>t.classList.remove('active'));
   document.getElementById('af-underground').checked=false;
   adminTab('listings');
 }
@@ -2722,9 +2800,10 @@ async function saveAdminListing(){
   if(!title){showToast('Title is required!');return;}
   const etype=document.getElementById('af-etype').value;
   const rtv=document.getElementById('af-rectype').value;
-  let recurrenceRule=null, daysOfWeek=[], eventDate=null;
+  let recurrenceRule=null, daysOfWeek=[], eventDate=null, eventEndDate=null;
   if(etype==='one-time'){
     eventDate=document.getElementById('af-date').value;
+    eventEndDate=document.getElementById('af-enddate').value||null;
   } else if(etype==='recurring'){
     const picked=[...document.querySelectorAll('#af-dow-pick .tog.active')].map(t=>parseInt(t.dataset.v));
     daysOfWeek=picked;
@@ -2733,8 +2812,10 @@ async function saveAdminListing(){
       weekNum:parseInt(document.getElementById('af-weeknum').value),
       day:parseInt(document.getElementById('af-mday').value)};
     else if(rtv==='weekly-seasonal'){
-      const ms=document.getElementById('af-months').value.split(',').map(x=>parseInt(x.trim())).filter(x=>!isNaN(x));
-      recurrenceRule={type:'weekly-seasonal',days:picked,months:ms};
+      const ms=[...document.querySelectorAll('#af-month-pick .tog.active')].map(t=>parseInt(t.dataset.v));
+      const seasonStart=document.getElementById('af-season-start').value||null;
+      const seasonEnd=document.getElementById('af-season-end').value||null;
+      recurrenceRule={type:'weekly-seasonal',days:picked,months:ms,...(seasonStart?{seasonStart}:{}),...(seasonEnd?{seasonEnd}:{})};
     } else if(rtv==='annual'){
       recurrenceRule={type:'annual',month:parseInt(document.getElementById('af-annualmonth').value)};
     }
@@ -2765,7 +2846,7 @@ async function saveAdminListing(){
     website:document.getElementById('af-website').value.trim()||null,
     email:document.getElementById('af-email').value.trim()||null,
     instagram:document.getElementById('af-ig').value.trim().replace(/^@/,'')||null,
-    eventType:etype, eventDate, daysOfWeek, recurrenceRule,
+    eventType:etype, eventDate, eventEndDate, daysOfWeek, recurrenceRule,
     startTime:document.getElementById('af-starttime').value||null,
     endTime:document.getElementById('af-endtime').value||null,
   };
@@ -3172,8 +3253,10 @@ initFromFirestore();
               <option value="one-time">One-time event</option>
             </select>
             <div id="af-onetime" style="display:none;">
-              <label>Event Date</label>
-              <input type="date" id="af-date"/>
+              <div class="form-row">
+                <div><label>Start Date</label><input type="date" id="af-date"/></div>
+                <div><label>End Date (multi-day)</label><input type="date" id="af-enddate"/></div>
+              </div>
             </div>
             <div id="af-recurring" style="display:none;">
               <label>Days of Week</label>
@@ -3221,13 +3304,35 @@ initFromFirestore();
                   </select>
                 </div>
               </div>
-              <div id="af-seasonal-sub" style="display:none;">
-                <label>Active Months (comma-separated month numbers, 0=Jan)</label>
-                <input id="af-months" placeholder="e.g. 5,6,7 for Jun-Aug"/>
+              <div id="af-seasonal-sub" style="display:none;margin-top:8px;">
+                <label>Active Months</label>
+                <div class="toggle-group" id="af-month-pick" style="flex-wrap:wrap;gap:4px;margin-top:4px;">
+                  <span class="tog" data-v="0" onclick="this.classList.toggle('active')">Jan</span>
+                  <span class="tog" data-v="1" onclick="this.classList.toggle('active')">Feb</span>
+                  <span class="tog" data-v="2" onclick="this.classList.toggle('active')">Mar</span>
+                  <span class="tog" data-v="3" onclick="this.classList.toggle('active')">Apr</span>
+                  <span class="tog" data-v="4" onclick="this.classList.toggle('active')">May</span>
+                  <span class="tog" data-v="5" onclick="this.classList.toggle('active')">Jun</span>
+                  <span class="tog" data-v="6" onclick="this.classList.toggle('active')">Jul</span>
+                  <span class="tog" data-v="7" onclick="this.classList.toggle('active')">Aug</span>
+                  <span class="tog" data-v="8" onclick="this.classList.toggle('active')">Sep</span>
+                  <span class="tog" data-v="9" onclick="this.classList.toggle('active')">Oct</span>
+                  <span class="tog" data-v="10" onclick="this.classList.toggle('active')">Nov</span>
+                  <span class="tog" data-v="11" onclick="this.classList.toggle('active')">Dec</span>
+                </div>
+                <div class="form-row" style="margin-top:8px;">
+                  <div><label>Season start date (optional)</label><input type="date" id="af-season-start"/></div>
+                  <div><label>Season end date (optional)</label><input type="date" id="af-season-end"/></div>
+                </div>
               </div>
-              <div id="af-annual-sub" style="display:none;">
-                <label>Month (0=Jan)</label>
-                <input type="number" id="af-annualmonth" min="0" max="11"/>
+              <div id="af-annual-sub" style="display:none;margin-top:8px;">
+                <label>Month</label>
+                <select id="af-annualmonth">
+                  <option value="0">January</option><option value="1">February</option><option value="2">March</option>
+                  <option value="3">April</option><option value="4">May</option><option value="5">June</option>
+                  <option value="6">July</option><option value="7">August</option><option value="8">September</option>
+                  <option value="9">October</option><option value="10">November</option><option value="11">December</option>
+                </select>
               </div>
             </div>
             <label style="display:flex;align-items:center;gap:8px;margin-top:10px;">

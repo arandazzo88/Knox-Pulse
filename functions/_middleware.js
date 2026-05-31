@@ -128,6 +128,7 @@ function getNextOccurrenceDate(listing) {
   // Search up to 60 days out for next occurrence
   for (let i = 0; i < 60; i++) {
     const d = new Date(now); d.setDate(d.getDate() + i);
+    const ds = isoDate(d);
     const dow = d.getDay();
     const dom = d.getDate();
     const month = d.getMonth();
@@ -136,7 +137,11 @@ function getNextOccurrenceDate(listing) {
       case 'weekly':
         matches = rule.days.includes(dow); break;
       case 'weekly-seasonal':
-        matches = rule.days.includes(dow) && rule.months.includes(month); break;
+        matches = rule.days.includes(dow)
+          && (!rule.months || !rule.months.length || rule.months.includes(month))
+          && (!rule.seasonStart || ds >= rule.seasonStart)
+          && (!rule.seasonEnd || ds <= rule.seasonEnd);
+        break;
       case 'monthly-weekday':
         matches = dow === rule.day && Math.ceil(dom / 7) === rule.weekNum; break;
       case 'annual':
@@ -150,7 +155,18 @@ function getNextOccurrenceDate(listing) {
   return null;
 }
 
+/** Returns end date-time for schema.org/Event endDate. */
 function getEndDate(listing, startDate) {
+  // Multi-day one-time event: end is last day at endTime (or 23:59)
+  if (listing.eventType === 'one-time' && listing.eventEndDate) {
+    const t = listing.endTime || '23:59';
+    return `${listing.eventEndDate}T${t}`;
+  }
+  // Seasonal window: use seasonEnd date if available
+  if (listing.recurrenceRule?.seasonEnd) {
+    const t = listing.endTime || listing.startTime || '23:59';
+    return `${listing.recurrenceRule.seasonEnd}T${t}`;
+  }
   if (!startDate || !listing.endTime) return null;
   return startDate.replace(/T[\d:]+$/, `T${listing.endTime}`);
 }
