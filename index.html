@@ -243,7 +243,8 @@ main{max-width:1280px;margin:0 auto;padding:24px;}
 .chip-time{background:rgba(34,211,238,0.1);color:#67E8F9;border:1px solid rgba(34,211,238,0.2);}
 .schedule-badge{font-size:.7rem;color:var(--text-2);margin-bottom:5px;display:flex;align-items:center;gap:4px;}
 .card-title{font-size:.95rem;font-weight:700;margin-bottom:3px;letter-spacing:-.01em;color:var(--text);}
-.card-loc{font-size:.78rem;color:var(--muted);margin-bottom:6px;}
+.card-loc{font-size:.78rem;color:var(--muted);margin-bottom:2px;}
+.card-price{font-size:.78rem;color:var(--gold);font-weight:600;margin-bottom:6px;}
 .card-desc{font-size:.8rem;color:var(--text-2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .stars{color:var(--gold);font-size:.85rem;}
 .rating-row{display:flex;align-items:center;gap:6px;margin-top:8px;}
@@ -456,18 +457,8 @@ main { padding: 14px; }
 
 
 
-/* Hero sections */
-#hero-sections { background:var(--surface); padding:20px 24px; margin-bottom:0; border-bottom:1px solid var(--border); }
-.hero-section { margin-bottom:24px; }
-.hero-section:last-child { margin-bottom:0; }
-.hero-section h2 { font-size:.82rem; font-weight:700; color:var(--text); margin-bottom:12px; display:flex; align-items:center; gap:8px; text-transform:uppercase; letter-spacing:.07em; }
-.count-badge { font-size:.72rem; background:var(--orange); color:#fff; border-radius:10px; padding:2px 8px; }
-.hero-empty { color:var(--muted); font-size:.85rem; padding:16px 0; }
-.link-btn { background:none; border:none; color:var(--orange); cursor:pointer; font-size:.85rem; text-decoration:underline; padding:0; }
-
-/* Section divider */
-.section-divider { display:flex; align-items:center; gap:12px; padding:20px 20px 0; color:var(--muted); font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; }
-.section-divider::before,.section-divider::after { content:''; flex:1; height:1px; background:rgba(255,130,0,0.15); }
+/* Load-more sentinel */
+#grid-sentinel{height:1px;margin-top:4px;}
 
 /* Date picker button */
 #date-picker-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 24px;}
@@ -822,31 +813,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div id="map-container"><div id="map"></div></div>
 <main id="main-content">
-  <!-- HERO: Today & Weekend — always visible, front and centre -->
-  <div id="hero-sections">
-    <div class="smart-section hero-section" id="today-section">
-      <h2>🔥 Happening Today <span id="today-count" class="count-badge"></span></h2>
-      <div class="grid" id="today-grid">
-        <div class="hero-empty">Nothing found for today — check back or <button class="link-btn" onclick="document.getElementById('filter-toggle').click()">browse all listings</button>.</div>
-      </div>
-    </div>
-    <div class="smart-section hero-section" id="weekend-section">
-      <h2>📅 This Weekend <span id="weekend-count" class="count-badge"></span></h2>
-      <div class="grid" id="weekend-grid">
-        <div class="hero-empty">Nothing found this weekend yet.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- DIVIDER -->
-  <div class="section-divider">
-    <span>All Listings</span>
-  </div>
-
   <div id="no-results-msg" style="display:none;padding:12px 16px;background:var(--surface-2);border-radius:10px;color:var(--muted);font-size:.88rem;margin-bottom:14px;"></div>
-  <div class="smart-section" id="all-listings-section">
-    <div class="grid" id="main-grid"></div>
-  </div>
+  <div class="grid" id="main-grid"></div>
+  <div id="grid-sentinel"></div>
   <div id="empty-state" style="display:none;">
     <div class="empty-icon">🔍</div>
     <p>No events match your filters.</p>
@@ -933,10 +902,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <input type="text" id="org-loc" placeholder="Start typing a venue or address…" autocomplete="off"/>
         <label>Description</label>
         <textarea id="org-desc" placeholder="Tell the community about this event…"></textarea>
-        <label>Cost Scale</label>
-        <select id="org-cost">
-          <option>Free</option><option>$</option><option>$$</option><option>$$$</option>
-        </select>
+        <label>Price</label>
+        <input type="text" id="org-price" placeholder="e.g. Free, $10, $5–$15, Donations welcome"/>
         <label>Ages</label>
         <select id="org-age">
           <option>All Ages</option><option>Infants (0–1)</option><option>Toddlers (2–4)</option><option>Kids (5–12)</option><option>Teens (13–17)</option><option>18+</option><option>21+</option>
@@ -1364,7 +1331,6 @@ async function initFromFirestore(){
     console.warn('Firestore unavailable — using cached data.', err);
   }
   applyFilters();
-  renderSmartSections();
 }
 
 // ============================================================
@@ -1586,8 +1552,24 @@ function starsHtml(n){
   return s;
 }
 
-function costChip(c){
-  return `<span class="chip chip-cost">${c}</span>`;
+function priceDisplay(l){
+  if(l.price) return l.price;
+  if(l.costScale==='Free') return 'Free';
+  if(l.costScale) return l.costScale;
+  return '';
+}
+
+function deriveCostScale(priceText){
+  const t=(priceText||'').toLowerCase().trim();
+  if(!t||t==='free'||t==='0'||t.includes('free')) return 'Free';
+  const nums=t.match(/\d+/g);
+  if(nums){
+    const max=Math.max(...nums.map(Number));
+    if(max<=15) return '$';
+    if(max<=40) return '$$';
+    return '$$$';
+  }
+  return '$';
 }
 
 function allListings(){
@@ -1815,7 +1797,7 @@ function applyFilters(){
     return intent_terms.some(t=>txt.includes(t));
   });
 
-  // Sort
+  // Sort: search relevance > near me > chronological (default)
   if(q && intent_terms.length){
     filtered.sort((a,b)=>scoreRelevance(b,intent_terms)-scoreRelevance(a,intent_terms));
   } else if(sortBy==='nearmefirst'){
@@ -1828,6 +1810,16 @@ function applyFilters(){
     } else {
       requestNearMe();
     }
+  } else {
+    // Default: chronological by next occurrence (soonest first), venues last
+    filtered.sort((a,b)=>{
+      const na=getNextOccurrence(a);
+      const nb=getNextOccurrence(b);
+      if(na&&nb) return na-nb;
+      if(na) return -1;
+      if(nb) return 1;
+      return 0;
+    });
   }
 
   updateFilterBadge();
@@ -1836,6 +1828,7 @@ function applyFilters(){
   const noMsg=document.getElementById('no-results-msg');
   if(q && filtered.length===0){
     const fallback=allListings().filter(passesPanel);
+    fallback.sort((a,b)=>{const na=getNextOccurrence(a),nb=getNextOccurrence(b);if(na&&nb)return na-nb;if(na)return -1;if(nb)return 1;return 0;});
     if(noMsg) noMsg.style.display='block';
     if(noMsg) noMsg.textContent=`No results for "${q}" — showing all events`;
     renderGrid(document.getElementById('main-grid'), fallback);
@@ -1847,8 +1840,7 @@ function applyFilters(){
   }
 
   updateIntentChips(q?intent:null);
-  renderSmartSections();
-  if(document.getElementById('btn-map').classList.contains('active')) renderMapMarkers(filtered);
+  if(document.getElementById('btn-map')&&document.getElementById('btn-map').classList.contains('active')) renderMapMarkers(filtered);
 }
 
 // ============================================================
@@ -1865,20 +1857,23 @@ function buildCard(l){
     ? `<img class="card-img" src="${photos[0]}" alt="${l.title}" loading="lazy"/>`
     : `<div class="card-img-placeholder">${l.emoji||'📍'}</div>`;
 
+  const price=priceDisplay(l);
+  const venueDisplay=l.venueName||(!/^\d/.test((l.location||'').split(',')[0].trim())?(l.location||'').split(',')[0].trim():'');
   return `<div class="card" onclick="openDetail('${l.id}')">
     ${imgHtml}
     <div class="card-body">
       <div class="card-chips">
         <span class="chip chip-cat">${l.category}</span>
         <span class="chip ${l.indoorOutdoor==='Indoor'?'chip-indoor':l.indoorOutdoor==='Outdoor'?'chip-outdoor':'chip-indoor'}">${l.indoorOutdoor}</span>
-        ${costChip(l.costScale)}
         ${l.ageRestrictions!=='All Ages'?`<span class="chip chip-age">${l.ageRestrictions}</span>`:''}
         ${l.underground?`<span class="chip chip-ug">🔒 Underground</span>`:''}
         ${l.neighborhood?`<span class="chip chip-dist" style="font-size:.65rem;">${l.neighborhood}</span>`:''}
       </div>
       ${schedLine?`<div class="next-occ">🗓 ${schedLine}</div>`:''}
       <div class="card-title">${l.title}</div>
+      ${venueDisplay?`<div class="card-loc">🏠 ${venueDisplay}</div>`:''}
       <div class="card-loc">📍 ${l.location}</div>
+      ${price?`<div class="card-price">${price}</div>`:''}
       <div class="card-desc">${l.description}</div>
       <div class="rating-row">
         <span class="stars">${starsHtml(avg)}</span>
@@ -1888,8 +1883,32 @@ function buildCard(l){
   </div>`;
 }
 
+// Infinite scroll state
+let _pageList=[];
+let _pageIdx=0;
+const PAGE_SIZE=15;
+
 function renderGrid(el, list){
-  el.innerHTML=list.map(buildCard).join('')||'';
+  _pageList=list;
+  _pageIdx=0;
+  el.innerHTML='';
+  _renderNextPage(el);
+}
+
+function _renderNextPage(el){
+  if(!el) el=document.getElementById('main-grid');
+  const slice=_pageList.slice(_pageIdx,_pageIdx+PAGE_SIZE);
+  if(!slice.length) return;
+  const frag=document.createDocumentFragment();
+  slice.forEach(l=>{
+    try{
+      const tmp=document.createElement('div');
+      tmp.innerHTML=buildCard(l);
+      frag.appendChild(tmp.firstElementChild);
+    }catch(e){}
+  });
+  el.appendChild(frag);
+  _pageIdx+=slice.length;
 }
 
 function toggleDatePicker(){
@@ -1939,42 +1958,15 @@ function setDateQuick(mode){
   applyFilters();
 }
 
-function renderSmartSections(){
-  const today=todayStr();
-  const d=new Date(today+'T12:00:00');
-  const weekendDates=[];
-  for(let i=0;i<7;i++){
-    const dd=new Date(d); dd.setDate(d.getDate()+i);
-    if([5,6,0].includes(dd.getDay())){
-      weekendDates.push(dd.getFullYear()+'-'+(dd.getMonth()+1).toString().padStart(2,'0')+'-'+dd.getDate().toString().padStart(2,'0'));
-    }
-    if(weekendDates.length>=3) break;
-  }
-  const todayListings=allListings().filter(l=>isHappeningOnDate(l,today));
-  const weekendListings=allListings().filter(l=>weekendDates.some(wd=>isHappeningOnDate(l,wd)));
-
-  // Today — always show section, show empty state if none
-  const todayGrid=document.getElementById('today-grid');
-  const todayCount=document.getElementById('today-count');
-  if(todayListings.length){
-    todayCount.textContent=todayListings.length;
-    renderGrid(todayGrid, todayListings.slice(0,6));
-  } else {
-    todayCount.textContent='';
-    todayGrid.innerHTML='<div class="hero-empty">Nothing on the radar today — check back or browse all listings below.</div>';
-  }
-
-  // Weekend — always show section, show empty state if none
-  const weekendGrid=document.getElementById('weekend-grid');
-  const weekendCount=document.getElementById('weekend-count');
-  if(weekendListings.length){
-    weekendCount.textContent=weekendListings.length;
-    renderGrid(weekendGrid, weekendListings.slice(0,6));
-  } else {
-    weekendCount.textContent='';
-    weekendGrid.innerHTML='<div class="hero-empty">Nothing found this weekend yet — add events via the Submit button.</div>';
-  }
-}
+// Infinite scroll: load more cards as user approaches bottom
+(function(){
+  const sentinel=document.getElementById('grid-sentinel');
+  if(!sentinel||!window.IntersectionObserver) return;
+  const obs=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting) _renderNextPage(document.getElementById('main-grid'));
+  },{rootMargin:'300px'});
+  obs.observe(sentinel);
+})();
 
 // ============================================================
 // DETAIL MODAL
@@ -1993,9 +1985,11 @@ function openDetail(id){
 
   document.getElementById('modal-title').textContent=l.title;
 
-  // Venue name (separate from event title)
+  // Venue name: explicit or extracted from location when it reads as a place name
   const venueEl=document.getElementById('modal-venue');
-  if(l.venueName){venueEl.textContent='🏠 '+l.venueName;venueEl.style.display='';}
+  const locFirst=(l.location||'').split(',')[0].trim();
+  const derivedVenue=l.venueName||(!/^\d/.test(locFirst)?locFirst:'');
+  if(derivedVenue){venueEl.textContent='🏠 '+derivedVenue;venueEl.style.display='';}
   else{venueEl.textContent='';venueEl.style.display='none';}
 
   const locEl=document.getElementById('modal-loc');
@@ -2006,13 +2000,18 @@ function openDetail(id){
     <button class="modal-util-btn" onclick="addToCalendar('${l.id}')">📅 Add to Calendar</button>
   `;
   document.getElementById('modal-sched').textContent=getScheduleLabel(l);
+  const modalPrice=priceDisplay(l);
+  // Show price prominently in meta section
+  let priceEl=document.getElementById('modal-price');
+  if(!priceEl){priceEl=document.createElement('p');priceEl.id='modal-price';document.getElementById('modal-sched').insertAdjacentElement('afterend',priceEl);}
+  if(modalPrice){priceEl.innerHTML=`💰 <strong>${modalPrice}</strong>`;priceEl.style.display='';}
+  else{priceEl.style.display='none';}
   document.getElementById('modal-desc').textContent=l.description;
 
   const chips=document.getElementById('modal-chips');
   chips.innerHTML=`
     <span class="chip chip-cat">${l.category}</span>
     <span class="chip ${l.indoorOutdoor==='Indoor'?'chip-indoor':l.indoorOutdoor==='Outdoor'?'chip-outdoor':'chip-indoor'}">${l.indoorOutdoor}</span>
-    ${costChip(l.costScale)}
     <span class="chip chip-age">${l.ageRestrictions}</span>
     ${l.timeOfDay?`<span class="chip chip-time">${l.timeOfDay}</span>`:''}
     ${l.underground?`<span class="chip chip-ug">🔒 Underground</span>`:''}
@@ -2195,12 +2194,14 @@ async function submitOrgEvent(){
   }
 
   const venueName=(document.getElementById('org-venuename')||{value:''}).value.trim();
+  const priceText=(document.getElementById('org-price')||{value:''}).value.trim();
   const event={
     id:'org_'+Date.now(),
     title:name,
     category:document.getElementById('org-cat').value,
     location:loc,
     venueName:venueName||null,
+    price:priceText||null,
     description:document.getElementById('org-desc').value.trim()||'Community-submitted event.',
     indoorOutdoor:document.getElementById('org-inout').value,
     distanceMiles:5,
@@ -2208,7 +2209,7 @@ async function submitOrgEvent(){
     timeOfDay,
     startTime:startTime||null,
     endTime:endTime||null,
-    costScale:document.getElementById('org-cost').value,
+    costScale:deriveCostScale(priceText),
     season:'Year-round',
     underground:document.getElementById('org-underground').checked,
     emoji:'🎟️',
@@ -2840,20 +2841,8 @@ window.addEventListener('popstate',function(){
 });
 showRecurrenceFields();
 showRecurrenceSubFields();
-// Render static listings immediately so grid is never blank
-(function(){
-  try{
-    const grid=document.getElementById('main-grid');
-    const es=document.getElementById('empty-state');
-    if(grid){
-      const html=[];
-      for(var i=0;i<LISTINGS.length;i++){try{html.push(buildCard(LISTINGS[i]));}catch(e){}}
-      grid.innerHTML=html.join('');
-      if(es) es.style.display=html.length?'none':'block';
-    }
-    renderSmartSections();
-  }catch(e){console.error('initial render failed',e);}
-})();
+// Initial render from static data so the grid is visible immediately
+try{ applyFilters(); }catch(e){ console.error('initial render failed',e); }
 initFromFirestore();
 </script>
 
