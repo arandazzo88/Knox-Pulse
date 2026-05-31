@@ -920,6 +920,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <textarea id="org-desc" placeholder="Tell the community about this event…"></textarea>
         <label>Price</label>
         <input type="text" id="org-price" placeholder="e.g. Free, $10, $5–$15, Donations welcome"/>
+        <label>Phone (optional)</label>
+        <input type="tel" id="org-phone" placeholder="e.g. (865) 555-0123"/>
+        <label>Website (optional)</label>
+        <input type="url" id="org-website" placeholder="e.g. https://example.com"/>
+        <label>Email (optional)</label>
+        <input type="email" id="org-email" placeholder="e.g. info@example.com"/>
+        <label>Instagram (optional)</label>
+        <input type="text" id="org-ig" placeholder="e.g. knoxpulse (no @)"/>
         <label>Ages</label>
         <select id="org-age">
           <option>All Ages</option><option>Infants (0–1)</option><option>Toddlers (2–4)</option><option>Kids (5–12)</option><option>Teens (13–17)</option><option>18+</option><option>21+</option>
@@ -928,6 +936,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <select id="org-inout">
           <option>Indoor</option><option>Outdoor</option><option>Both</option>
         </select>
+        <label style="display:flex;align-items:center;gap:8px;margin-top:8px;text-transform:none;letter-spacing:0;font-size:.85rem;color:var(--text-2);">
+          <input type="checkbox" id="org-stroller" style="width:16px;height:16px;accent-color:var(--accent);"/> 🍼 Stroller accessible (infants/toddlers welcome)
+        </label>
         <label>Start Time</label>
         <input type="time" id="org-starttime"/>
         <label>End Time (optional)</label>
@@ -983,11 +994,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </select>
           </div>
         </div>
-        <label style="display:flex;align-items:center;gap:8px;margin-top:12px;">
-          <input type="checkbox" id="org-underground"/> Mark as Underground (hidden gem / not widely publicized)
-        </label>
-        <label>Organizer Contact (optional)</label>
-        <input type="text" id="org-contact" placeholder="Email or Instagram handle"/>
+        <label>Cover Photo (optional)</label>
+        <input type="file" id="org-photo" accept="image/*" style="color:var(--text-2);font-size:.85rem;"/>
         <button class="org-submit" onclick="submitOrgEvent()">Submit Event</button>
       </div>
     </div>
@@ -1488,7 +1496,7 @@ function updateFilterBadge(){
     document.getElementById('f-nbhd').value,
     document.getElementById('f-date').value,
     sortEl?sortEl.value:'',
-  ].filter(Boolean).length + activeCosts.length + activeTimes.length + activeDows.length;
+  ].filter(Boolean).length + activeCosts.length + activeTimes.length + activeDows.length + (document.getElementById('f-stroller')?.checked?1:0);
   const btn=document.getElementById('filter-toggle');
   btn.textContent=n>0?`⚙ Filters · ${n}`:'⚙ Filters';
   btn.classList.toggle('has-filters',n>0);
@@ -1800,6 +1808,7 @@ function applyFilters(){
   const dateVal=document.getElementById('f-date').value;
   const nbhd=document.getElementById('f-nbhd').value;
   const sortBy=(document.getElementById('f-sort')||{}).value||'';
+  const strollerOnly=document.getElementById('f-stroller')?.checked||false;
   const NBHD_GROUPS={
     'Downtown':['Downtown','Market Square','Gay Street','Old City','Volunteer Landing',"World's Fair Park"],
     'West Knoxville':['West Knoxville','Bearden','Sequoyah Hills','Northshore','Papermill','West Hills','Cedar Bluff','Turkey Creek','Farragut','Hardin Valley','Karns'],
@@ -1827,6 +1836,7 @@ function applyFilters(){
     if(effectiveDows.length){const dows=l.daysOfWeek||[];if(!effectiveDows.some(d=>dows.includes(d)))return false;}
     if(dateVal && !isHappeningOnDate(l,dateVal)) return false;
     if(ugOnly && !l.underground) return false;
+    if(strollerOnly && !l.strollerFriendly) return false;
     if(nbhd){const allowed=NBHD_GROUPS[nbhd]||[nbhd];if(!allowed.includes(l.neighborhood||''))return false;}
     return true;
   };
@@ -2048,6 +2058,22 @@ function openDetail(id){
   else{priceEl.style.display='none';}
   document.getElementById('modal-desc').textContent=l.description;
 
+  // Contact info — injected dynamically, removed when no data
+  let contactEl=document.getElementById('modal-contact');
+  if(!contactEl){
+    contactEl=document.createElement('div');
+    contactEl.id='modal-contact';
+    contactEl.style.cssText='margin-bottom:14px;display:flex;flex-direction:column;gap:6px;';
+    document.getElementById('modal-desc').insertAdjacentElement('afterend',contactEl);
+  }
+  const links=[];
+  if(l.phone) links.push(`<a href="tel:${l.phone.replace(/[^\d+]/g,'')}" style="color:var(--orange);text-decoration:none;font-size:.85rem;">📞 ${l.phone}</a>`);
+  if(l.website) links.push(`<a href="${l.website}" target="_blank" rel="noopener" style="color:var(--orange);text-decoration:none;font-size:.85rem;">🌐 ${l.website.replace(/^https?:\/\//,'')}</a>`);
+  if(l.email) links.push(`<a href="mailto:${l.email}" style="color:var(--orange);text-decoration:none;font-size:.85rem;">✉️ ${l.email}</a>`);
+  if(l.instagram) links.push(`<a href="https://instagram.com/${l.instagram}" target="_blank" rel="noopener" style="color:var(--orange);text-decoration:none;font-size:.85rem;">📸 @${l.instagram}</a>`);
+  contactEl.innerHTML=links.join('');
+  contactEl.style.display=links.length?'flex':'none';
+
   const chips=document.getElementById('modal-chips');
   chips.innerHTML=`
     <span class="chip chip-cat">${l.category}</span>
@@ -2055,6 +2081,7 @@ function openDetail(id){
     <span class="chip chip-age">${l.ageRestrictions}</span>
     ${l.timeOfDay?`<span class="chip chip-time">${l.timeOfDay}</span>`:''}
     ${l.underground?`<span class="chip chip-ug">🔒 Underground</span>`:''}
+    ${l.strollerFriendly?`<span class="chip" style="background:#ffffff15;color:var(--text-2);">🍼 Stroller OK</span>`:''}
     ${l.season?`<span class="chip" style="background:#ffffff15;color:var(--muted);">🌿 ${l.season}</span>`:''}
     ${l.neighborhood?`<span class="chip chip-dist">📍 ${l.neighborhood}</span>`:''}
   `;
@@ -2235,6 +2262,10 @@ async function submitOrgEvent(){
 
   const venueName=(document.getElementById('org-venuename')||{value:''}).value.trim();
   const priceText=(document.getElementById('org-price')||{value:''}).value.trim();
+  const phone=(document.getElementById('org-phone')||{value:''}).value.trim();
+  const website=(document.getElementById('org-website')||{value:''}).value.trim();
+  const email=(document.getElementById('org-email')||{value:''}).value.trim();
+  const ig=(document.getElementById('org-ig')||{value:''}).value.trim().replace(/^@/,'');
   const event={
     id:'org_'+Date.now(),
     title:name,
@@ -2242,6 +2273,10 @@ async function submitOrgEvent(){
     location:loc,
     venueName:venueName||null,
     price:priceText||null,
+    phone:phone||null,
+    website:website||null,
+    email:email||null,
+    instagram:ig||null,
     description:document.getElementById('org-desc').value.trim()||'Community-submitted event.',
     indoorOutdoor:document.getElementById('org-inout').value,
     distanceMiles:5,
@@ -2251,7 +2286,8 @@ async function submitOrgEvent(){
     endTime:endTime||null,
     costScale:deriveCostScale(priceText),
     season:'Year-round',
-    underground:document.getElementById('org-underground').checked,
+    underground:false,
+    strollerFriendly:document.getElementById('org-stroller')?.checked||false,
     emoji:'🎟️',
     eventType:etype,
     eventDate,
@@ -2265,9 +2301,34 @@ async function submitOrgEvent(){
   closeOrgModal();
   applyFilters();
   showToast('Event submitted! 🎉');
+  // Upload cover photo if provided
+  const photoFile=(document.getElementById('org-photo')||{}).files?.[0];
+  if(photoFile){
+    try {
+      if(storage){
+        const ref=storage.ref(`photos/${event.id}/${Date.now()}_${photoFile.name}`);
+        await ref.put(photoFile);
+        const url=await ref.getDownloadURL();
+        if(!localPhotos[event.id]) localPhotos[event.id]=[];
+        localPhotos[event.id].unshift(url);
+        localStorage.setItem('kp_photos',JSON.stringify(localPhotos));
+        if(db) await db.collection('photos').add({listingId:event.id,url,uploadedAt:firebase.firestore.FieldValue.serverTimestamp()});
+      } else {
+        // Store as data URL locally when Firebase Storage unavailable
+        const reader=new FileReader();
+        reader.onload=e=>{
+          if(!localPhotos[event.id]) localPhotos[event.id]=[];
+          localPhotos[event.id].unshift(e.target.result);
+          localStorage.setItem('kp_photos',JSON.stringify(localPhotos));
+          applyFilters();
+        };
+        reader.readAsDataURL(photoFile);
+      }
+    } catch(e){ console.warn('Photo upload failed:',e); }
+  }
   // Persist to Firestore
   try {
-    await db.collection('communityEvents').add({
+    if(db) await db.collection('communityEvents').add({
       ...event,
       submittedAt: firebase.firestore.FieldValue.serverTimestamp()
     });
@@ -2507,6 +2568,10 @@ function adminEditListing(id){
   if(document.getElementById('af-stroller')) document.getElementById('af-stroller').checked=!!l.strollerFriendly;
   document.getElementById('af-underground').checked=!!l.underground;
   document.getElementById('af-tags').value=(l.tags||[]).join(', ');
+  document.getElementById('af-phone').value=l.phone||'';
+  document.getElementById('af-website').value=l.website||'';
+  document.getElementById('af-email').value=l.email||'';
+  document.getElementById('af-ig').value=l.instagram||'';
   if(l.startTime) document.getElementById('af-starttime').value=l.startTime;
   if(l.eventDate) document.getElementById('af-date').value=l.eventDate;
   if(l.daysOfWeek){
@@ -2569,7 +2634,7 @@ function adminCancelEdit(){
   editingListingId=null;
   document.getElementById('edit-listing-id').value='';
   document.getElementById('add-form-title').textContent='Add New Listing';
-  ['af-title','af-emoji','af-loc','af-desc','af-dist','af-lat','af-lng','af-tags','af-starttime','af-date','af-months','af-annualmonth']
+  ['af-title','af-emoji','af-loc','af-desc','af-dist','af-lat','af-lng','af-tags','af-starttime','af-date','af-months','af-annualmonth','af-phone','af-website','af-email','af-ig']
     .forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
   document.querySelectorAll('#af-dow-pick .tog').forEach(t=>t.classList.remove('active'));
   document.getElementById('af-underground').checked=false;
@@ -2632,6 +2697,10 @@ async function saveAdminListing(){
     strollerFriendly:document.getElementById('af-stroller')?.checked||false,
     underground:document.getElementById('af-underground').checked,
     tags:document.getElementById('af-tags').value.split(',').map(t=>t.trim()).filter(Boolean),
+    phone:document.getElementById('af-phone').value.trim()||null,
+    website:document.getElementById('af-website').value.trim()||null,
+    email:document.getElementById('af-email').value.trim()||null,
+    instagram:document.getElementById('af-ig').value.trim().replace(/^@/,'')||null,
     eventType:etype, eventDate, daysOfWeek, recurrenceRule,
     startTime:document.getElementById('af-starttime').value||null,
   };
@@ -3078,6 +3147,14 @@ initFromFirestore();
             </label>
             <label>Tags (comma-separated)</label>
             <input id="af-tags" placeholder="jazz, live music, bar"/>
+            <label>Phone (optional)</label>
+            <input type="tel" id="af-phone" placeholder="e.g. (865) 555-0123"/>
+            <label>Website (optional)</label>
+            <input type="url" id="af-website" placeholder="e.g. https://example.com"/>
+            <label>Email (optional)</label>
+            <input type="email" id="af-email" placeholder="e.g. info@example.com"/>
+            <label>Instagram handle (optional)</label>
+            <input type="text" id="af-ig" placeholder="e.g. knoxpulse (no @)"/>
             <div>
               <button class="admin-save" onclick="saveAdminListing()">💾 Save Listing</button>
               <button class="admin-cancel" onclick="adminCancelEdit()">Cancel</button>
