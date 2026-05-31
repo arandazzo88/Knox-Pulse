@@ -590,7 +590,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div id="search-bar">
   <div id="search-input-wrap">
-    <input id="search-input" type="text" aria-label="Search Knox Pulse listings" placeholder="Try 'free jazz tonight' or 'hiking this weekend'…" oninput="applyFilters()" onkeydown="if(event.key==='Enter')applyFilters()"/>
+    <input id="search-input" type="text" aria-label="Search Knox Pulse listings" placeholder="Try 'free jazz tonight' or 'hiking this weekend'…" onkeydown="if(event.key==='Enter')applyFilters()"/>
     <button id="search-btn" onclick="applyFilters()" aria-label="Search">🔍</button>
   </div>
   <button id="filter-toggle" aria-expanded="false" aria-controls="filter-panel" onclick="toggleFilters()">⚙ Filters</button>
@@ -1590,8 +1590,6 @@ function applyFilters(){
     if(intent.cats.length && !intent.cats.includes(l.category)) return false;
     if(intent.cost==='free' && l.costScale!=='Free') return false;
     if(intent.cost==='paid' && l.costScale==='Free') return false;
-    if(intent.time && l.timeOfDay && l.timeOfDay.toLowerCase()!==intent.time) return false;
-    if(intent.inout && l.indoorOutdoor && l.indoorOutdoor!==intent.inout) return false;
     // Require text match when no category inferred
     if(!intent.cats.length && intent.terms.length){
       const txt=(l.title+' '+(l.description||'')+' '+(l.tags||[]).join(' ')).toLowerCase();
