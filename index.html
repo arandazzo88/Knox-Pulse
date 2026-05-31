@@ -217,7 +217,7 @@ header{background:var(--bg);padding:14px 24px;display:flex;align-items:center;ga
 header h1{font-size:1.2rem;font-weight:700;color:var(--text);letter-spacing:-.01em;}
 header h1 span{color:var(--accent);}
 header p{font-size:.75rem;color:var(--muted);margin-left:auto;}
-#organizer-btn{background:var(--accent);color:#fff;border:none;border-radius:var(--radius-sm);padding:8px 18px;cursor:pointer;font-weight:600;font-size:.82rem;white-space:nowrap;font-family:inherit;transition:opacity .15s;}
+#organizer-btn{background:var(--accent);color:#fff;border:none;border-radius:var(--radius-sm);padding:8px 18px;cursor:pointer;font-weight:600;font-size:.82rem;white-space:nowrap;font-family:inherit;transition:opacity .15s;margin-left:auto;}
 #organizer-btn:hover{opacity:.88;}
 /* SEARCH */
 #search-bar{display:flex;gap:8px;padding:12px 24px;background:var(--surface);border-bottom:1px solid var(--border);align-items:center;}
@@ -696,6 +696,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <option>Tours &amp; Experiences</option>
         <option>Film &amp; Cinema</option>
         <option>Community &amp; Civic</option>
+        <option>Happy Hour &amp; Specials</option>
       </select>
     </div>
     <div class="filter-group">
@@ -922,6 +923,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <option>Tours &amp; Experiences</option>
           <option>Film &amp; Cinema</option>
           <option>Community &amp; Civic</option>
+          <option>Happy Hour &amp; Specials</option>
         </select>
         <label>Venue / Location Name</label>
         <input type="text" id="org-venuename" placeholder="e.g. Market Square, The Mill &amp; Mine"/>
@@ -2024,6 +2026,182 @@ const LISTINGS = [
     recurrenceRule:{type:'monthly-weekday', weekNum:3, day:4},
     daysOfWeek:[4], startTime:'17:30',
     tags:['networking','young professionals','social','monthly','downtown','mixer','free']
+  },
+
+  // ── HAPPY HOUR & SPECIALS ─────────────────────────────────────────────────
+
+  // Bottomless Mimosas
+  {
+    id:'mimosas-knoxville', title:'Bottomless Mimosas Brunch',
+    category:'Happy Hour & Specials',
+    location:'115 Mimosa Ave, Knoxville',
+    description:'Bottomless mimosas ($20) every Saturday and Sunday during brunch at this South Knoxville neighborhood spot. Named for the street it sits on — one of Knoxville\'s dedicated brunch destinations.',
+    indoorOutdoor:'Indoor', distanceMiles:3, ageRestrictions:'21+', timeOfDay:'Morning',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🥂',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[0,6]},
+    daysOfWeek:[0,6], startTime:'10:00',
+    tags:['bottomless mimosas','brunch','weekend','saturday','sunday','south knoxville','mimosas']
+  },
+  {
+    id:'loco-burro-brunch', title:'Sunday Bottomless Mimosa Brunch — Loco Burro',
+    category:'Happy Hour & Specials',
+    location:'7600 Kingston Pike, Knoxville',
+    description:'Every Sunday 10 AM–3 PM, Loco Burro\'s rooftop bar transforms into a brunch destination with bottomless mimosas and a full brunch menu. One of West Knoxville\'s best Sunday brunches with skyline views.',
+    indoorOutdoor:'Both', distanceMiles:5, ageRestrictions:'21+', timeOfDay:'Morning',
+    costScale:'$$', season:'Year-round', underground:false, emoji:'🥂',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[0]},
+    daysOfWeek:[0], startTime:'10:00',
+    tags:['bottomless mimosas','brunch','sunday','west knoxville','rooftop','kingston pike']
+  },
+  {
+    id:'tupelo-honey-mimosa-monday', title:'Mimosa Monday — Tupelo Honey',
+    category:'Happy Hour & Specials',
+    location:'1 Market Sq, Knoxville',
+    description:'$2 off all mimosas every Monday at Tupelo Honey on Market Square — the Southern-inspired kitchen that does brunch right. Plus their famous Hoot & Holler Happy Hour runs Mon–Fri 4–6 PM: ½ off apps, $2 off drinks.',
+    indoorOutdoor:'Indoor', distanceMiles:0.3, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🥂',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[1]},
+    daysOfWeek:[1], startTime:'11:00',
+    tags:['mimosas','monday','market square','brunch','tupelo honey','happy hour','southern']
+  },
+
+  // Brunch Buffets
+  {
+    id:'chesapeakes-sunday-brunch', title:'Sunday Seafood Brunch Buffet — Chesapeake\'s',
+    category:'Happy Hour & Specials',
+    location:'9630 Parkside Dr, Knoxville',
+    description:'Sunday brunch buffet 10:30 AM–2:30 PM: $33 adults, $15 children 12 & under. Fresh seafood bar, bloody mary bar, brunch entrees, and raw bar. One of Knoxville\'s most indulgent weekend experiences. Reservations recommended.',
+    indoorOutdoor:'Indoor', distanceMiles:7, ageRestrictions:'All Ages', timeOfDay:'Morning',
+    costScale:'$$', season:'Year-round', underground:false, emoji:'🦞',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[0]},
+    daysOfWeek:[0], startTime:'10:30',
+    tags:['brunch buffet','sunday','seafood','bloody mary','west knoxville','parkside','splurge']
+  },
+  {
+    id:'seasons-brunch-buffet', title:'Weekend Brunch Buffet — Seasons Bar & Grille',
+    category:'Happy Hour & Specials',
+    location:'11605 Parkside Dr, Knoxville',
+    description:'Saturday and Sunday brunch buffet 11 AM–2:30 PM. $28.95 adults, $15.95 children 6–12, kids 5 & under free. Full spread of brunch classics in a relaxed Farragut-area setting.',
+    indoorOutdoor:'Indoor', distanceMiles:8, ageRestrictions:'All Ages', timeOfDay:'Morning',
+    costScale:'$$', season:'Year-round', underground:false, emoji:'🍳',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[0,6]},
+    daysOfWeek:[0,6], startTime:'11:00',
+    tags:['brunch buffet','weekend','saturday','sunday','farragut','family friendly','parkside']
+  },
+
+  // Top Happy Hours
+  {
+    id:'trailhead-happy-hour', title:'All-Day Happy Hour Monday — Trailhead Beer Market',
+    category:'Happy Hour & Specials',
+    location:'1317 Island Home Ave, Knoxville',
+    description:'$1 off ALL drafts all day Monday — plus daily happy hour Tue–Fri 3–6 PM. South Knoxville\'s best craft beer bar with an enormous tap list and a neighborhood vibe that can\'t be beat.',
+    indoorOutdoor:'Both', distanceMiles:3, ageRestrictions:'21+', timeOfDay:'Afternoon',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🍺',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[1]},
+    daysOfWeek:[1], startTime:'11:00',
+    tags:['happy hour','all day','monday','drafts','craft beer','south knoxville','island home','best value']
+  },
+  {
+    id:'fin-two-happy-hour', title:'$1 Nigiri & Yakitori Happy Hour — Fin Two',
+    category:'Happy Hour & Specials',
+    location:'122 S Central Ave, Knoxville',
+    description:'Mon–Thu 3–5 PM: $1 nigiri and $1 yakitori small plates plus discounted sake, soju, and local brews. One of Knoxville\'s best-value happy hours — Japanese pub food at bar-snack prices in Old City.',
+    indoorOutdoor:'Indoor', distanceMiles:0.8, ageRestrictions:'21+', timeOfDay:'Afternoon',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🍣',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[1,2,3,4]},
+    daysOfWeek:[1,2,3,4], startTime:'15:00', endTime:'17:00',
+    tags:['happy hour','nigiri','yakitori','sake','japanese','old city','weekday','best value']
+  },
+  {
+    id:'sokno-happy-hour', title:'Happy Hour + Free Trivia — SoKno Taco Cantina',
+    category:'Happy Hour & Specials',
+    location:'3701 Sevierville Pike, Knoxville',
+    description:'Mon–Fri 4–7 PM: $5 original cocktails, $4 domestic drafts, $5 craft drafts, $3.50 guac/queso/salsa, $8 nachos. Then stay for FREE trivia 7–9 PM with extended happy hour pricing for trivia players.',
+    indoorOutdoor:'Both', distanceMiles:4, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🌮',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[1,2,3,4,5]},
+    daysOfWeek:[1,2,3,4,5], startTime:'16:00', endTime:'19:00',
+    tags:['happy hour','weekday','tacos','cocktails','south knoxville','trivia','best value']
+  },
+  {
+    id:'tupelo-honey-happy-hour', title:'Hoot & Holler Happy Hour — Tupelo Honey',
+    category:'Happy Hour & Specials',
+    location:'1 Market Sq, Knoxville',
+    description:'Mon–Fri 4–6 PM: ½ off appetizers, $2 off beers & wines, $5 well spirits. Plus daily drink specials: Tini Tuesdays ($3 cocktails), Wine Wednesdays (½ off bottles), Tequila Thursdays ($6 margaritas).',
+    indoorOutdoor:'Indoor', distanceMiles:0.3, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🍹',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[1,2,3,4,5]},
+    daysOfWeek:[1,2,3,4,5], startTime:'16:00', endTime:'18:00',
+    tags:['happy hour','half price apps','weekday','market square','southern food','cocktails']
+  },
+  {
+    id:'balter-happy-hour', title:'Happy Hour — Balter Beerworks',
+    category:'Happy Hour & Specials',
+    location:'Standard St, Knoxville',
+    description:'Mon–Fri 3–6:30 PM: $3 craft beers, $1.50 tacos & sliders, $3 chips & queso, $4 pimento & hummus plates. Knoxville\'s beloved craft brewery in a restored service station — happy hour food here is a steal.',
+    indoorOutdoor:'Both', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🍺',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[1,2,3,4,5]},
+    daysOfWeek:[1,2,3,4,5], startTime:'15:00', endTime:'18:30',
+    tags:['happy hour','craft beer','tacos','sliders','weekday','downtown','brewery','best value']
+  },
+  {
+    id:'the-farmacy-happy-hour', title:'Happy Hour — The Farmacy',
+    category:'Happy Hour & Specials',
+    location:'5018 Kingston Pike, Knoxville',
+    description:'Mon–Fri 4–6 PM: ½ off appetizers, $3 tacos, $10 hot chicken plate, $5 house wines, $3 house drafts, and $2 bubbles. Exceptional food + drink combo deals at this upscale West Knox spot.',
+    indoorOutdoor:'Indoor', distanceMiles:4.5, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🍹',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[1,2,3,4,5]},
+    daysOfWeek:[1,2,3,4,5], startTime:'16:00', endTime:'18:00',
+    tags:['happy hour','half price apps','tacos','west knoxville','kingston pike','weekday']
+  },
+  {
+    id:'marble-city-happy-hour', title:'Happy Hour — Marble City Market',
+    category:'Happy Hour & Specials',
+    location:'333 W Depot Ave, Knoxville',
+    description:'Tue–Wed 5–7 PM, Thu–Fri 4–6 PM: $3 drafts, $3 prosecco, $5 house liquor. Knoxville\'s premier food hall with 11 restaurant concepts and a 40-seat bar — happy hour here means you can try multiple spots for the price of one.',
+    indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🍹',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[2,3,4,5]},
+    daysOfWeek:[2,3,4,5], startTime:'16:00', endTime:'19:00',
+    tags:['happy hour','food hall','draft beer','prosecco','old city','weekday','marble city']
+  },
+  {
+    id:'tern-club-happy-hour', title:'Happy Hour — Tern Club',
+    category:'Happy Hour & Specials',
+    location:'135 S Gay St, Knoxville',
+    description:'Daily until 6 PM: $1 off drafts, house wines & well spirits, plus $8 craft cocktails (mojitos, palomas, tamarind whiskey sours). Stylish downtown bar on Gay Street with one of the best cocktail happy hours in Knoxville.',
+    indoorOutdoor:'Indoor', distanceMiles:0.4, ageRestrictions:'21+', timeOfDay:'Afternoon',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🍹',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[0,1,2,3,4,5,6]},
+    daysOfWeek:[0,1,2,3,4,5,6], startTime:'12:00', endTime:'18:00',
+    tags:['happy hour','daily','gay street','downtown','cocktails','mojito','paloma','craft cocktails']
+  },
+  {
+    id:'redbud-kitchen-happy-hour', title:'Happy Hour — Redbud Kitchen',
+    category:'Happy Hour & Specials',
+    location:'906 Sevier Ave, Knoxville',
+    description:'Mon–Fri 4–7 PM: $5 bites (pickle chips, tots, queso), $5 pours on select wines & craft cocktails, $1 off wine bottles & draft beers. South Knoxville neighborhood gem in the heart of the Old Sevier strip.',
+    indoorOutdoor:'Indoor', distanceMiles:2, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🍹',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[1,2,3,4,5]},
+    daysOfWeek:[1,2,3,4,5], startTime:'16:00', endTime:'19:00',
+    tags:['happy hour','south knoxville','sevier ave','craft cocktails','bites','weekday','neighborhood']
   }
 ];
 
@@ -2143,6 +2321,21 @@ const LISTING_META = {
   'knox-makers-open-house':   { neighborhood:'West Knoxville',   lat:35.9567, lng:-84.0095 },
   'keep-knoxville-beautiful': { neighborhood:'Downtown',         lat:35.9606, lng:-83.9205 },
   'knoxville-young-professionals':{ neighborhood:'Downtown',     lat:35.9649, lng:-83.9186 },
+  // Happy Hour & Specials
+  'mimosas-knoxville':         { neighborhood:'South Knoxville',  lat:35.9490, lng:-83.9052 },
+  'loco-burro-brunch':         { neighborhood:'West Knoxville',   lat:35.9411, lng:-84.0101 },
+  'tupelo-honey-mimosa-monday':{ neighborhood:'Market Square',    lat:35.9656, lng:-83.9182 },
+  'chesapeakes-sunday-brunch': { neighborhood:'West Knoxville',   lat:35.9213, lng:-84.0785 },
+  'seasons-brunch-buffet':     { neighborhood:'Farragut',         lat:35.9086, lng:-84.0790 },
+  'trailhead-happy-hour':      { neighborhood:'South Knoxville',  lat:35.9476, lng:-83.8989 },
+  'fin-two-happy-hour':        { neighborhood:'Old City',         lat:35.9671, lng:-83.9143 },
+  'sokno-happy-hour':          { neighborhood:'South Knoxville',  lat:35.9198, lng:-83.8852 },
+  'tupelo-honey-happy-hour':   { neighborhood:'Market Square',    lat:35.9656, lng:-83.9182 },
+  'balter-happy-hour':         { neighborhood:'Old City',         lat:35.9667, lng:-83.9135 },
+  'the-farmacy-happy-hour':    { neighborhood:'Bearden',          lat:35.9498, lng:-83.9947 },
+  'marble-city-happy-hour':    { neighborhood:'Old City',         lat:35.9686, lng:-83.9181 },
+  'tern-club-happy-hour':      { neighborhood:'Downtown',         lat:35.9631, lng:-83.9193 },
+  'redbud-kitchen-happy-hour': { neighborhood:'South Knoxville',  lat:35.9508, lng:-83.9038 },
 };
 // Merge meta into LISTINGS
 LISTINGS.forEach(l => { if(LISTING_META[l.id]) Object.assign(l, LISTING_META[l.id]); });
@@ -2569,6 +2762,7 @@ const CAT_SIGNALS={
   'Tours & Experiences':['tour','tours','experience','tasting','wine','whiskey','beer','brewery','distillery','food tour','walking tour','ghost tour','history tour','class','workshop','lesson'],
   'Film & Cinema':['film','movie','cinema','screening','documentary','film festival'],
   'Community & Civic':['community','volunteer','civic','charity','nonprofit','fundraiser','meetup','networking','neighborhood'],
+  'Happy Hour & Specials':['happy hour','happy hours','specials','bottomless','mimosas','brunch buffet','half price','half off','2 for 1','two for one','well drinks','house wine','drink specials','food specials','prix fixe','buffet','unlimited','discounted'],
 };
 const INTENT_SIGNALS={
   cost:{
@@ -2632,7 +2826,7 @@ function scoreRelevance(l,terms){
   return s;
 }
 
-const CAT_EMOJI_={'Live Music':'🎵','Dancing':'💃','Karaoke':'🎤','Trivia & Games':'🧠','Comedy':'😂','Festivals & Events':'🎉','Sports & Recreation':'⚽','Outdoor & Nature':'🌿','Arts & Museums':'🎨','Markets':'🛍','Theater & Performance':'🎭','Fitness & Wellness':'🧘','Tours & Experiences':'🗺','Film & Cinema':'🎬','Community & Civic':'🤝'};
+const CAT_EMOJI_={'Live Music':'🎵','Dancing':'💃','Karaoke':'🎤','Trivia & Games':'🧠','Comedy':'😂','Festivals & Events':'🎉','Sports & Recreation':'⚽','Outdoor & Nature':'🌿','Arts & Museums':'🎨','Markets':'🛍','Theater & Performance':'🎭','Fitness & Wellness':'🧘','Tours & Experiences':'🗺','Film & Cinema':'🎬','Community & Civic':'🤝','Happy Hour & Specials':'🍹'};
 
 function updateIntentChips(intent){
   const bar=document.getElementById('intent-bar');
@@ -3999,6 +4193,7 @@ setTimeout(function(){
                   <option>Tours &amp; Experiences</option>
                   <option>Film &amp; Cinema</option>
                   <option>Community &amp; Civic</option>
+                  <option>Happy Hour &amp; Specials</option>
                 </select>
               </div>
               <div>
