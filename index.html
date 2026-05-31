@@ -3358,8 +3358,10 @@ function openAdminModal(){
 function closeAdminModal(){
   document.getElementById('admin-modal').classList.remove('open');
 }
-document.getElementById('admin-modal').addEventListener('click',function(e){
-  if(e.target===this) closeAdminModal();
+// admin-modal is rendered after this script — wire via delegation
+document.addEventListener('click',function(e){
+  const am=document.getElementById('admin-modal');
+  if(am&&e.target===am) closeAdminModal();
 });
 
 function checkAdminPw(){
