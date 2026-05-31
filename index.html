@@ -2032,6 +2032,18 @@ const LISTINGS = [
 
   // Bottomless Mimosas
   {
+    id:'barrelhouse-bottomless', title:'Bottomless Mimosas — Barrelhouse by Gypsy Circus',
+    category:'Happy Hour & Specials',
+    location:'621 Lamar St, Knoxville',
+    description:'Bottomless mimosas at Old North Knox\'s beloved cider and mead taproom. Check their socials for current days, times, and pricing. Same spot as Monday open mic and Thursday trivia — one of the most event-packed venues in the neighborhood.',
+    indoorOutdoor:'Indoor', distanceMiles:1.2, ageRestrictions:'21+', timeOfDay:'Morning',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🥂',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[0]},
+    daysOfWeek:[0], startTime:'11:00',
+    tags:['bottomless mimosas','brunch','sunday','old north knox','cider','mead','gypsy circus']
+  },
+  {
     id:'mimosas-knoxville', title:'Bottomless Mimosas Brunch',
     category:'Happy Hour & Specials',
     location:'115 Mimosa Ave, Knoxville',
@@ -2336,6 +2348,7 @@ const LISTING_META = {
   'marble-city-happy-hour':    { neighborhood:'Old City',         lat:35.9686, lng:-83.9181 },
   'tern-club-happy-hour':      { neighborhood:'Downtown',         lat:35.9631, lng:-83.9193 },
   'redbud-kitchen-happy-hour': { neighborhood:'South Knoxville',  lat:35.9508, lng:-83.9038 },
+  'barrelhouse-bottomless':    { neighborhood:'Old North Knox',   lat:35.9712, lng:-83.9158 },
 };
 // Merge meta into LISTINGS
 LISTINGS.forEach(l => { if(LISTING_META[l.id]) Object.assign(l, LISTING_META[l.id]); });
