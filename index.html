@@ -3629,13 +3629,32 @@ window.addEventListener('popstate',function(){
     if(modalMap){modalMap.remove();modalMap=null;}
   }
 });
-showRecurrenceFields();
-showRecurrenceSubFields();
-// Default date filter = today so cards always load
-const _fd=document.getElementById('f-date');
-if(_fd){_fd.value=todayStr();_fd.min=todayStr();}
-applyFilters();
+try{showRecurrenceFields();}catch(e){}
+try{showRecurrenceSubFields();}catch(e){}
+// Default date filter = today
+try{const _fd=document.getElementById('f-date');if(_fd){_fd.value=todayStr();_fd.min=todayStr();}}catch(e){}
+try{applyFilters();}catch(e){console.error('applyFilters init error:',e);}
 initFromFirestore();
+
+// Hard fallback: if grid is still empty after 500ms, render directly from LISTINGS
+setTimeout(function(){
+  try{
+    const grid=document.getElementById('main-grid');
+    if(!grid||grid.children.length>0) return;
+    const today=new Date(),dow=today.getDay(),mo=today.getMonth();
+    const items=LISTINGS.filter(function(l){
+      if(l.eventType==='venue') return true;
+      const r=l.recurrenceRule; if(!r) return false;
+      if(r.type==='weekly') return r.days.includes(dow);
+      if(r.type==='weekly-seasonal') return r.days.includes(dow)&&(!r.months||!r.months.length||r.months.includes(mo));
+      return true;
+    }).slice(0,15);
+    const html=items.map(function(l){try{return buildCard(l);}catch(e){return '';}}).join('');
+    if(html) grid.innerHTML=html;
+    const wrap=document.getElementById('load-more-wrap');
+    if(wrap) wrap.style.display='none';
+  }catch(e){console.error('fallback render failed:',e);}
+},500);
 </script>
 
 <!-- ADMIN MODAL -->
