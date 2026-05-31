@@ -220,9 +220,6 @@ header p{font-size:.75rem;color:var(--muted);margin-left:auto;}
 #apply-filters{background:var(--accent);border:none;color:#fff;}
 /* MAIN */
 main{max-width:1280px;margin:0 auto;padding:24px;}
-/* SMART SECTIONS */
-.smart-section{margin-bottom:28px;}
-.smart-section h2{font-size:.85rem;font-weight:700;color:var(--text-2);margin-bottom:12px;display:flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.06em;}
 /* GRID */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;}
 /* CARD */
@@ -391,10 +388,6 @@ main{max-width:1280px;margin:0 auto;padding:24px;}
 /* ── Main padding ── */
 main { padding: 14px; }
 @media (min-width: 600px) { main { padding: 20px; } }
-
-/* ── Smart section headings ── */
-.smart-section h2 { font-size: 1rem; }
-@media (min-width: 600px) { .smart-section h2 { font-size: 1.1rem; } }
 
 /* ── Photo grid touch-friendly ── */
 .photo-thumb, .photo-upload-label { width: 70px; height: 70px; }
@@ -604,7 +597,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h1><svg width="20" height="24" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="vertical-align:middle;margin-bottom:3px"><circle cx="50" cy="42" r="38" fill="#FF8200"/><ellipse cx="34" cy="28" rx="14" ry="9" fill="rgba(255,235,80,0.4)"/><rect x="45" y="80" width="10" height="26" fill="#B85C00"/><rect x="28" y="106" width="44" height="14" rx="5" fill="#B85C00"/></svg> Knox Pulse</h1>
     <p style="margin-left:0;margin-top:2px;font-size:.75rem;color:var(--muted);">Knoxville &amp; Surrounding Areas</p>
   </div>
-  <p style="margin-left:auto;font-size:.75rem;color:var(--muted);">Know the rhythm.</p>
+  <p style="margin-left:auto;font-size:.75rem;color:var(--muted);">Your guide to Knoxville's rhythm</p>
   <button id="organizer-btn" aria-label="Submit a new event" onclick="openOrgModal()">+ Submit Event</button>
 </header>
 
@@ -1572,10 +1565,6 @@ function deriveCostScale(priceText){
   return '$';
 }
 
-function allListings(){
-  return [...LISTINGS, ...communityEvents];
-}
-
 // ============================================================
 // FILTER LOGIC
 // ============================================================
@@ -1724,7 +1713,7 @@ const CAT_EMOJI_={'Live Music':'🎵','Outdoor & Nature':'🌿','Arts & Museums'
 function updateIntentChips(intent){
   const bar=document.getElementById('intent-bar');
   const chips=document.getElementById('intent-chips');
-  if(!intent){bar.style.display='none';chips.innerHTML='';return;}
+  if(!intent){if(bar)bar.style.display='none';if(chips)chips.innerHTML='';return;}
   const parts=[];
   if(intent.cats.length)parts.push(...intent.cats.map(c=>(CAT_EMOJI_[c]||'')+'&nbsp;'+c));
   if(intent.cost==='free')parts.push('Free');
@@ -1734,15 +1723,15 @@ function updateIntentChips(intent){
   if(intent.inout==='outdoor')parts.push('Outdoors');
   else if(intent.inout==='indoor')parts.push('Indoors');
   if(intent.dows.length){const names=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];parts.push('📅 '+intent.dows.map(d=>names[d]).join(', '));}
-  if(!parts.length){bar.style.display='none';chips.innerHTML='';return;}
+  if(!parts.length){if(bar)bar.style.display='none';if(chips)chips.innerHTML='';return;}
   chips.innerHTML=parts.map(p=>'<span class="intent-chip">'+p+'</span>').join('');
   bar.style.display='flex';
 }
 
 function clearIntentSearch(){
   document.getElementById('search-input').value='';
-  document.getElementById('intent-bar').style.display='none';
-  document.getElementById('intent-chips').innerHTML='';
+  const _ib=document.getElementById('intent-bar');if(_ib)_ib.style.display='none';
+  const _ic=document.getElementById('intent-chips');if(_ic)_ic.innerHTML='';
   applyFilters();
 }
 // ─────────────────────────────────────────────────────────────
@@ -1891,23 +1880,20 @@ const PAGE_SIZE=15;
 function renderGrid(el, list){
   _pageList=list;
   _pageIdx=0;
-  el.innerHTML='';
-  _renderNextPage(el);
+  if(el) el.innerHTML='';
+  _renderNextPage();
 }
 
-function _renderNextPage(el){
-  if(!el) el=document.getElementById('main-grid');
+function _renderNextPage(){
+  const el=document.getElementById('main-grid');
+  if(!el) return;
   const slice=_pageList.slice(_pageIdx,_pageIdx+PAGE_SIZE);
   if(!slice.length) return;
-  const frag=document.createDocumentFragment();
-  slice.forEach(l=>{
-    try{
-      const tmp=document.createElement('div');
-      tmp.innerHTML=buildCard(l);
-      frag.appendChild(tmp.firstElementChild);
-    }catch(e){}
-  });
-  el.appendChild(frag);
+  const html=[];
+  for(let i=0;i<slice.length;i++){
+    try{html.push(buildCard(slice[i]));}catch(e){console.warn('buildCard error:',e);}
+  }
+  if(html.length) el.insertAdjacentHTML('beforeend',html.join(''));
   _pageIdx+=slice.length;
 }
 
@@ -1963,7 +1949,7 @@ function setDateQuick(mode){
   const sentinel=document.getElementById('grid-sentinel');
   if(!sentinel||!window.IntersectionObserver) return;
   const obs=new IntersectionObserver(entries=>{
-    if(entries[0].isIntersecting) _renderNextPage(document.getElementById('main-grid'));
+    if(entries[0].isIntersecting) _renderNextPage();
   },{rootMargin:'300px'});
   obs.observe(sentinel);
 })();
