@@ -2280,7 +2280,21 @@ async function submitReview(){
 // ORGANIZER PORTAL
 // ============================================================
 function openOrgModal(){document.getElementById('org-modal').classList.add('open');waitForPlaces(initOrgPlaces);}
-function closeOrgModal(){document.getElementById('org-modal').classList.remove('open');}
+function closeOrgModal(){
+  document.getElementById('org-modal').classList.remove('open');
+  ['org-name','org-venuename','org-loc','org-desc','org-price','org-phone','org-website',
+   'org-email','org-ig','org-starttime','org-endtime','org-date','org-enddate',
+   'org-season-start','org-season-end'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value='';
+  });
+  const ph=document.getElementById('org-photo'); if(ph) ph.value='';
+  document.getElementById('org-stroller').checked=false;
+  document.querySelectorAll('#org-dow-pick .tog, #org-month-pick .tog').forEach(t=>t.classList.remove('active'));
+  document.getElementById('org-etype').value='one-time';
+  document.getElementById('org-rectype').value='weekly';
+  showRecurrenceFields();
+  showRecurrenceSubFields();
+}
 
 function showRecurrenceFields(){
   const v=document.getElementById('org-etype').value;
@@ -2647,8 +2661,9 @@ function renderAdminEdits(){
       <div style="font-size:.82rem;color:var(--text);line-height:1.4;white-space:pre-wrap;">${esc(r.proposedChanges)}</div>
       <div style="font-size:.75rem;color:var(--muted);">From: ${esc(r.submitterContact||'Anonymous')}</div>
       <div class="alr-actions" style="gap:8px;">
-        <button class="btn-edit" onclick="resolveEditRequest('${r.docId}')">✓ Mark Resolved</button>
-        <button class="btn-del" onclick="dismissEditRequest('${r.docId}')">✕ Dismiss</button>
+        ${r.docId?`<button class="btn-edit" onclick="resolveEditRequest('${r.docId}')">✓ Mark Resolved</button>
+        <button class="btn-del" onclick="dismissEditRequest('${r.docId}')">✕ Dismiss</button>`
+        :'<span style="font-size:.75rem;color:var(--muted);">Sync required to resolve</span>'}
       </div>
     </div>`).join('');
 }
