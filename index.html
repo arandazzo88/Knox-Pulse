@@ -684,14 +684,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <option>Live Music</option>
         <option>Dancing</option>
         <option>Karaoke</option>
-        <option>Drag Shows</option>
         <option>Trivia &amp; Games</option>
         <option>Comedy</option>
         <option>Festivals &amp; Events</option>
         <option>Sports &amp; Recreation</option>
         <option>Outdoor &amp; Nature</option>
         <option>Arts &amp; Museums</option>
-        <option>Markets &amp; Shopping</option>
+        <option>Markets</option>
         <option>Theater &amp; Performance</option>
         <option>Fitness &amp; Wellness</option>
         <option>Tours &amp; Experiences</option>
@@ -911,14 +910,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <option>Live Music</option>
           <option>Dancing</option>
           <option>Karaoke</option>
-          <option>Drag Shows</option>
           <option>Trivia &amp; Games</option>
           <option>Comedy</option>
           <option>Festivals &amp; Events</option>
           <option>Sports &amp; Recreation</option>
           <option>Outdoor &amp; Nature</option>
           <option>Arts &amp; Museums</option>
-          <option>Markets &amp; Shopping</option>
+          <option>Markets</option>
           <option>Theater &amp; Performance</option>
           <option>Fitness &amp; Wellness</option>
           <option>Tours &amp; Experiences</option>
@@ -1195,7 +1193,7 @@ const LISTINGS = [
     tags:['live music','craft beer','bar','old city','americana','blues']
   },
   {
-    id:'market-sq', title:'Market Square Farmers Market', category:'Markets & Shopping', location:'Market Square, Knoxville',
+    id:'market-sq', title:'Market Square Farmers Market', category:'Markets', location:'Market Square, Knoxville',
     description:'Producer-only open-air market on historic Market Square with ~140 local vendors. Main season (May–Oct): Saturdays 9am–1pm and Wednesdays 10am–1pm. Winter market (Nov–Apr): Saturdays 10am–2pm.',
     indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Morning',
     costScale:'Free', season:'Year-round', underground:false, emoji:'🥬',
@@ -1204,7 +1202,7 @@ const LISTINGS = [
     tags:['farmers market','local','fresh food','outdoor','produce']
   },
   {
-    id:'marble-city-market', title:'Marble City Market', category:'Markets & Shopping', location:'333 W Depot Ave, Knoxville',
+    id:'marble-city-market', title:'Marble City Market', category:'Markets', location:'333 W Depot Ave, Knoxville',
     description:"Knoxville's first large-scale food hall in the historic Regas Square building. 15,000+ sq ft of rotating and permanent restaurant stalls, a full bar, and communal seating in the Depot neighborhood.",
     indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
     costScale:'$', season:'Year-round', underground:false, emoji:'🍜',
@@ -1510,7 +1508,7 @@ const LISTINGS = [
     tags:['jazz','free','outdoor','seasonal','concerts','market square','tuesday']
   },
   {
-    id:'illusions-drag-brunch', title:'Illusions The Drag Brunch', category:'Drag Shows',
+    id:'illusions-drag-brunch', title:'Illusions The Drag Brunch', category:'Theater & Performance',
     location:'6 Market Square, Knoxville',
     description:'Monthly drag show brunch at Market Square featuring celebrity impersonators and tributes to Madonna, Cher, Tina Turner, and more. Brunch cocktails, mimosas, and a full performance included.',
     indoorOutdoor:'Indoor', distanceMiles:0.3, ageRestrictions:'18+', timeOfDay:'Afternoon',
@@ -1604,7 +1602,7 @@ const LISTINGS = [
 
   // ── HAPPY HOLLER / NORTH CENTRAL ──────────────────────────────────────────
   {
-    id:'club-xyz-drag', title:'Divaz & Kingz Drag Show — Club XYZ', category:'Drag Shows',
+    id:'club-xyz-drag', title:'Divaz & Kingz Drag Show — Club XYZ', category:'Theater & Performance',
     location:'1215 N Central St, Knoxville',
     description:'Weekly Thursday drag show at Knoxville\'s iconic LGBTQ+ club in Happy Holler. Happy hour 7–9 PM; drag shows at 11:30 PM and 1 AM. Free on Thursdays. Also performs Fridays and Saturdays.',
     indoorOutdoor:'Indoor', distanceMiles:1.3, ageRestrictions:'21+', timeOfDay:'Night',
@@ -1731,7 +1729,7 @@ const LISTINGS = [
     tags:['karaoke','west knoxville','kingston pike','nightly','bar','singing']
   },
   {
-    id:'core-knoxville', title:'Drag Shows — CORE Knoxville', category:'Drag Shows',
+    id:'core-knoxville', title:'Drag Shows — CORE Knoxville', category:'Theater & Performance',
     location:'7211 Kingston Pike, Knoxville',
     description:'West Knoxville\'s LGBTQ+ bar and grill hosts weekly drag shows Friday through Monday. A welcoming, inclusive neighborhood spot with a full bar and grill open until 3 AM on weekends.',
     indoorOutdoor:'Indoor', distanceMiles:4.5, ageRestrictions:'21+', timeOfDay:'Night',
@@ -2284,15 +2282,14 @@ const CAT_SIGNALS={
   'Live Music':['music','concert','band','jazz','bluegrass','country','rock','indie','folk','acoustic','singer','songwriter','live music','open mic','jam session','open jam','orchestra','symphony','choir','ensemble','performance night'],
   'Dancing':['dancing','dance floor','nightclub','club','disco','two step','line dance','country bar','honky tonk'],
   'Karaoke':['karaoke','sing','singing','karaoke bar','karaoke night'],
-  'Drag Shows':['drag','drag show','drag brunch','lgbtq','queer','pride'],
   'Trivia & Games':['trivia','pub quiz','quiz night','bar trivia','singo','music bingo','bingo'],
   'Comedy':['comedy','stand-up','standup','open mic comedy','laugh','comedian'],
   'Festivals & Events':['festival','fair','fest','carnival','parade','celebration','block party','street fair','outdoor festival'],
   'Sports & Recreation':['sports','sport','game','race','run','running','5k','marathon','cycling','biking','bike','swim','swimming','volleyball','basketball','soccer','football','baseball','disc golf','frisbee'],
   'Outdoor & Nature':['outdoor','outside','hike','hiking','trail','nature','park','kayak','canoe','paddleboard','paddle','camping','camp','climb','climbing','bouldering','greenway','river','lake','mountain','scenic','wildlife','birdwatch'],
   'Arts & Museums':['art','museum','gallery','exhibit','exhibition','art show','sculpture','pottery','painting','photography','printmaking','craft','ceramics','drawing','installation'],
-  'Markets & Shopping':['market','farmers market','flea market','artisan','vendor','craft fair','pop-up','shop','shopping','local market','antique','vintage'],
-  'Theater & Performance':['theater','theatre','play','musical','opera','improv','improvisation','stage','acting','drama','performance','broadway'],
+  'Markets':['market','farmers market','flea market','artisan','vendor','craft fair','pop-up','shop','shopping','local market','antique','vintage'],
+  'Theater & Performance':['theater','theatre','play','musical','opera','improv','improvisation','stage','acting','drama','performance','broadway','drag','drag show','drag brunch'],
   'Fitness & Wellness':['yoga','fitness','workout','gym','meditation','wellness','pilates','aerobics','crossfit','barre','stretching','mindfulness'],
   'Tours & Experiences':['tour','tours','experience','tasting','wine','whiskey','beer','brewery','distillery','food tour','walking tour','ghost tour','history tour','class','workshop','lesson'],
   'Film & Cinema':['film','movie','cinema','screening','documentary','film festival'],
@@ -2360,7 +2357,7 @@ function scoreRelevance(l,terms){
   return s;
 }
 
-const CAT_EMOJI_={'Live Music':'🎵','Dancing':'💃','Karaoke':'🎤','Drag Shows':'👑','Trivia & Games':'🧠','Comedy':'😂','Festivals & Events':'🎉','Sports & Recreation':'⚽','Outdoor & Nature':'🌿','Arts & Museums':'🎨','Markets & Shopping':'🛍','Theater & Performance':'🎭','Fitness & Wellness':'🧘','Tours & Experiences':'🗺','Film & Cinema':'🎬','Community & Civic':'🤝'};
+const CAT_EMOJI_={'Live Music':'🎵','Dancing':'💃','Karaoke':'🎤','Trivia & Games':'🧠','Comedy':'😂','Festivals & Events':'🎉','Sports & Recreation':'⚽','Outdoor & Nature':'🌿','Arts & Museums':'🎨','Markets':'🛍','Theater & Performance':'🎭','Fitness & Wellness':'🧘','Tours & Experiences':'🗺','Film & Cinema':'🎬','Community & Civic':'🤝'};
 
 function updateIntentChips(intent){
   const bar=document.getElementById('intent-bar');
@@ -3713,14 +3710,13 @@ setTimeout(function(){
                   <option>Live Music</option>
                   <option>Dancing</option>
                   <option>Karaoke</option>
-                  <option>Drag Shows</option>
                   <option>Trivia &amp; Games</option>
                   <option>Comedy</option>
                   <option>Festivals &amp; Events</option>
                   <option>Sports &amp; Recreation</option>
                   <option>Outdoor &amp; Nature</option>
                   <option>Arts &amp; Museums</option>
-                  <option>Markets &amp; Shopping</option>
+                  <option>Markets</option>
                   <option>Theater &amp; Performance</option>
                   <option>Fitness &amp; Wellness</option>
                   <option>Tours &amp; Experiences</option>
