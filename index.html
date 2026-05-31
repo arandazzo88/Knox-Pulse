@@ -1467,6 +1467,312 @@ const LISTINGS = [
     recurrenceRule:{type:'monthly-weekday',weekNum:1,day:3},
     daysOfWeek:[3], startTime:'20:00',
     tags:['film','cinema','cult','secret','monthly']
+  },
+
+  // ── DOWNTOWN / GAY ST ──────────────────────────────────────────────────────
+  {
+    id:'knox-box-karaoke', title:'Knox Box Karaoke', category:'Dance & Social',
+    location:'522 S Gay St, Knoxville',
+    description:'Knoxville\'s first all-hours karaoke bar in a cozy basement on Gay Street. Open-stage format (not private rooms) Tuesday through Sunday nights starting at 8 PM. Full bar and grilled cheese menu.',
+    indoorOutdoor:'Indoor', distanceMiles:0.5, ageRestrictions:'21+', timeOfDay:'Night',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🎤',
+    eventType:'venue',
+    recurrenceRule:{type:'weekly', days:[2,3,4,5,6,0]},
+    daysOfWeek:[0,2,3,4,5,6], startTime:'20:00',
+    tags:['karaoke','bar','nightlife','gay street','downtown','singing']
+  },
+  {
+    id:'scruffy-city-comedy', title:'Springboard Open Mic Comedy — Scruffy City Hall', category:'Theater & Performance',
+    location:'32 Market Square, Knoxville',
+    description:'Free weekly open mic comedy night hosted by True Grit Comedy. Sign-ups at 7:30 PM, show at 8 PM through midnight. 7-minute sets, any style. Beginners welcome — no experience needed.',
+    indoorOutdoor:'Indoor', distanceMiles:0.3, ageRestrictions:'21+', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🎭',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[3]},
+    daysOfWeek:[3], startTime:'19:30', endTime:'23:59',
+    tags:['comedy','open mic','stand-up','free','weekly','wednesday','market square']
+  },
+
+  // ── MARKET SQUARE ──────────────────────────────────────────────────────────
+  {
+    id:'jazz-tuesdays-sq', title:'Jazz on the Square — Concerts on the Square', category:'Live Music',
+    location:'Market Square, Knoxville',
+    description:'Free outdoor jazz concerts on Market Square every Tuesday evening in May, June, and September (7–9 PM). Presented by Axle Logistics. Bring a lawn chair — all ages welcome.',
+    indoorOutdoor:'Outdoor', distanceMiles:0.3, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Seasonal', underground:false, emoji:'🎷',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly-seasonal', days:[2], months:[4,5,8]},
+    daysOfWeek:[2], startTime:'19:00', endTime:'21:00',
+    tags:['jazz','free','outdoor','seasonal','concerts','market square','tuesday']
+  },
+  {
+    id:'illusions-drag-brunch', title:'Illusions The Drag Brunch', category:'Dance & Social',
+    location:'6 Market Square, Knoxville',
+    description:'Monthly drag show brunch at Market Square featuring celebrity impersonators and tributes to Madonna, Cher, Tina Turner, and more. Brunch cocktails, mimosas, and a full performance included.',
+    indoorOutdoor:'Indoor', distanceMiles:0.3, ageRestrictions:'18+', timeOfDay:'Afternoon',
+    costScale:'$$', season:'Year-round', underground:false, emoji:'👑',
+    eventType:'recurring',
+    recurrenceRule:{type:'monthly-weekday', weekNum:2, day:6},
+    daysOfWeek:[6], startTime:'11:00',
+    tags:['drag','brunch','lgbtq','performance','monthly','market square','celebrity impersonator']
+  },
+
+  // ── OLD CITY ───────────────────────────────────────────────────────────────
+  {
+    id:'boyds-open-mic', title:'Open Mic Night — Boyd\'s Jig & Reel', category:'Live Music',
+    location:'101 S Central St, Knoxville',
+    description:'Weekly acoustic singer-songwriter open mic at this beloved Old City whisky bar every Wednesday. Sign-ups at 6 PM, show at 7 PM. Up to 20 performers, piano available. Free to attend and perform.',
+    indoorOutdoor:'Indoor', distanceMiles:0.8, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🎸',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[3]},
+    daysOfWeek:[3], startTime:'18:00', endTime:'22:00',
+    tags:['open mic','singer-songwriter','acoustic','free','old city','wednesday','whisky']
+  },
+  {
+    id:'pour-taproom-trivia', title:'Tuesday Trivia — Pour Taproom', category:'Comedy & Trivia',
+    location:'207 W Jackson Ave, Knoxville',
+    description:'Free pub trivia every Tuesday 8–10 PM at this self-pour taproom with 68 rotating digital taps. Hosted by Timeless Entertainment — top 3 teams win gift cards, and players get 15% off their tab.',
+    indoorOutdoor:'Indoor', distanceMiles:0.9, ageRestrictions:'21+', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🧠',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[2]},
+    daysOfWeek:[2], startTime:'20:00', endTime:'22:00',
+    tags:['trivia','pub quiz','old city','tuesday','free','craft beer','self-pour']
+  },
+  {
+    id:'barrelhouse-open-mic', title:'Open Mic Monday — Barrelhouse by Gypsy Circus', category:'Live Music',
+    location:'621 Lamar St, Knoxville',
+    description:'Monday open mic hosted by Chris Marshall at Gypsy Circus\'s cider and mead taproom. Free to play and attend. Also: Singo music bingo Tuesdays and free trivia Thursdays at the same spot.',
+    indoorOutdoor:'Indoor', distanceMiles:1.2, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🎵',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[1]},
+    daysOfWeek:[1], startTime:'18:00',
+    tags:['open mic','monday','free','cidery','old north','music','cider']
+  },
+  {
+    id:'barrelhouse-trivia', title:'Trivia Thursday — Barrelhouse by Gypsy Circus', category:'Comedy & Trivia',
+    location:'621 Lamar St, Knoxville',
+    description:'Free Thursday trivia at this Old North cider and mead taproom, hosted by The Trivia Guys. All ages welcome. Also: open mic Mondays and Singo music bingo Tuesdays — free events every weeknight.',
+    indoorOutdoor:'Indoor', distanceMiles:1.2, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🧠',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[4]},
+    daysOfWeek:[4], startTime:'19:00',
+    tags:['trivia','thursday','free','cidery','old north','pub quiz']
+  },
+
+  // ── FORT SANDERS / UT AREA ─────────────────────────────────────────────────
+  {
+    id:'the-hill-trivia', title:'Trivia Monday — The Hill Bar & Grill', category:'Comedy & Trivia',
+    location:'1105 Forest Ave, Knoxville',
+    description:'Free weekly trivia every Monday at The Hill, a Fort Sanders institution since 2009 known for award-winning wings. Hosted by Challenge Entertainment — top teams win prizes.',
+    indoorOutdoor:'Indoor', distanceMiles:1.2, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🧠',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[1]},
+    daysOfWeek:[1], startTime:'20:00',
+    tags:['trivia','monday','fort sanders','free','college','wings','challenge entertainment']
+  },
+  {
+    id:'cool-beans-trivia', title:'Trivia Tuesday — Cool Beans Bar & Grill', category:'Comedy & Trivia',
+    location:'1817 Lake Ave, Knoxville',
+    description:'Free Tuesday trivia followed by live music at this UT/Fort Sanders neighborhood bar. Hosted by Challenge Entertainment. Also: Singo music bingo on Thursdays with a DJ set after.',
+    indoorOutdoor:'Indoor', distanceMiles:1.5, ageRestrictions:'21+', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🧠',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[2]},
+    daysOfWeek:[2], startTime:'20:00',
+    tags:['trivia','tuesday','fort sanders','free','college','live music','after']
+  },
+  {
+    id:'mellow-mushroom-trivia', title:'Trivia Wednesday — Mellow Mushroom (Cumberland Ave)', category:'Comedy & Trivia',
+    location:'2109 Cumberland Ave, Knoxville',
+    description:'Free weekly trivia at 7 PM at the Cumberland Ave Mellow Mushroom — historic home of Knox Trivia Guys, founded here in 2002. Hosted by Challenge Entertainment. Great pizza + competitive quiz.',
+    indoorOutdoor:'Indoor', distanceMiles:1.8, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🍕',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[3]},
+    daysOfWeek:[3], startTime:'19:00',
+    tags:['trivia','wednesday','cumberland ave','free','strip','pizza','college']
+  },
+
+  // ── HAPPY HOLLER / NORTH CENTRAL ──────────────────────────────────────────
+  {
+    id:'club-xyz-drag', title:'Divaz & Kingz Drag Show — Club XYZ', category:'Dance & Social',
+    location:'1215 N Central St, Knoxville',
+    description:'Weekly Thursday drag show at Knoxville\'s iconic LGBTQ+ club in Happy Holler. Happy hour 7–9 PM; drag shows at 11:30 PM and 1 AM. Free on Thursdays. Also performs Fridays and Saturdays.',
+    indoorOutdoor:'Indoor', distanceMiles:1.3, ageRestrictions:'21+', timeOfDay:'Night',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'👑',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[4]},
+    daysOfWeek:[4], startTime:'23:30',
+    tags:['drag','lgbtq','nightlife','thursday','happy holler','north central','free']
+  },
+  {
+    id:'central-flats-trivia', title:'Trivia Wednesday — Central Flats & Taps', category:'Comedy & Trivia',
+    location:'1204 N Central St, Knoxville',
+    description:'Free weekly trivia at 7 PM at this Happy Holler neighborhood favorite, hosted by Challenge Entertainment. Flatbread pizzas, craft beer, and a comfortable patio right on N Central.',
+    indoorOutdoor:'Indoor', distanceMiles:1.4, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🧠',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[3]},
+    daysOfWeek:[3], startTime:'19:00',
+    tags:['trivia','wednesday','happy holler','north central','free','flatbread']
+  },
+
+  // ── NORTH KNOXVILLE / FOUNTAIN CITY ────────────────────────────────────────
+  {
+    id:'ale-raes-gastropub', title:'Trivia Tue & Comedy Sun — Ale\'Rae\'s GastroPub', category:'Comedy & Trivia',
+    location:'937 N Broadway, Knoxville',
+    description:'Two weekly events at this North Knoxville gastropub: Tuesday trivia at 7 PM (Challenge Entertainment, gift cards for top teams) and free Sunday comedy with Laugh Alive at 7:30 PM featuring local and touring comedians.',
+    indoorOutdoor:'Indoor', distanceMiles:2.5, ageRestrictions:'21+', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'😂',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[0,2]},
+    daysOfWeek:[0,2], startTime:'19:00',
+    tags:['trivia','comedy','stand-up','tuesday','sunday','north knoxville','free','broadway']
+  },
+  {
+    id:'yeehaw-movie-night', title:'Family Movie Night — Yee-Haw Brewing', category:'Film & Cinema',
+    location:'745 N Broadway, Knoxville',
+    description:'Free Tuesday Family Movie Night 6–9 PM at Yee-Haw\'s expansive North Knox beer garden with an outdoor amphitheater, fire pits, and 62 taps. Prince\'s Hot Chicken kitchen on site. All ages welcome.',
+    indoorOutdoor:'Outdoor', distanceMiles:2.3, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🎬',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[2]},
+    daysOfWeek:[2], startTime:'18:00', endTime:'21:00',
+    tags:['movie','family','free','tuesday','north knoxville','brewery','beer garden','outdoor']
+  },
+  {
+    id:'fountain-city-social', title:'Trivia, Bingo & Karaoke — Fountain City Social', category:'Dance & Social',
+    location:'4842 Harvest Mill Way, Knoxville',
+    description:'Voted Best Bar in Knoxville — this 80s-themed cocktail bar packs in weekly events: trivia Wednesdays at 7 PM, music bingo Thursdays, and karaoke dance parties Friday and Saturday nights until midnight.',
+    indoorOutdoor:'Indoor', distanceMiles:5.5, ageRestrictions:'21+', timeOfDay:'Evening',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🕹️',
+    eventType:'venue',
+    recurrenceRule:{type:'weekly', days:[3,4,5,6]},
+    daysOfWeek:[3,4,5,6], startTime:'19:00',
+    tags:['trivia','karaoke','bingo','fountain city','80s','cocktails','best bar']
+  },
+
+  // ── SOUTH KNOXVILLE ────────────────────────────────────────────────────────
+  {
+    id:'sevier-burger-trivia', title:'Trivia Monday — Sevier Ave Burger Co.', category:'Comedy & Trivia',
+    location:'1120 Sevier Ave, Knoxville',
+    description:'Free Monday trivia at 7 PM at this dog-friendly South Knox burger spot. Hosted by Challenge Entertainment — top teams win prizes. Craft beer, smash burgers, and competitive pub quiz vibes.',
+    indoorOutdoor:'Indoor', distanceMiles:1.5, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🍔',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[1]},
+    daysOfWeek:[1], startTime:'19:00',
+    tags:['trivia','monday','south knoxville','free','sevier ave','burgers','dog friendly']
+  },
+  {
+    id:'sokno-taco-singo', title:'Singo Music Bingo — SoKno Taco Cantina', category:'Comedy & Trivia',
+    location:'3701 Sevierville Pike, Knoxville',
+    description:'Free Singo (music bingo) every Monday and Thursday at 7 PM at this South Knox taco cantina, hosted by Challenge Entertainment. Monday specials: $13 domestic pitchers all day and $3 house shots.',
+    indoorOutdoor:'Indoor', distanceMiles:3.0, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🎵',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[1,4]},
+    daysOfWeek:[1,4], startTime:'19:00',
+    tags:['singo','music bingo','monday','thursday','south knoxville','free','tacos']
+  },
+  {
+    id:'hiwire-trivia', title:'Trivia Wednesday — Hi-Wire Brewing', category:'Comedy & Trivia',
+    location:'2020 Barber St, Knoxville',
+    description:'Free Wednesday trivia at 7 PM hosted by Not Rocket Science Trivia at Hi-Wire\'s South Knox taproom. 20+ craft beers, rooftop deck, and arcade games. Gift card prizes for winning teams.',
+    indoorOutdoor:'Indoor', distanceMiles:1.8, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🍺',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[3]},
+    daysOfWeek:[3], startTime:'19:00',
+    tags:['trivia','wednesday','south knoxville','free','brewery','rooftop','craft beer']
+  },
+  {
+    id:'pink-cactus-karaoke', title:'Private Karaoke Rooms — The Pink Cactus', category:'Dance & Social',
+    location:'1147 Sevier Ave, Knoxville',
+    description:'South Knoxville\'s first private karaoke bar with bookable rooms for up to 20 people at $30/hour. Craft cocktails, Latin-inspired bites, and a patio with yard games. Reserve in advance on weekends. Thursday–Sunday.',
+    indoorOutdoor:'Indoor', distanceMiles:1.5, ageRestrictions:'21+', timeOfDay:'Evening',
+    costScale:'$$', season:'Year-round', underground:false, emoji:'🎤',
+    eventType:'venue',
+    recurrenceRule:{type:'weekly', days:[4,5,6,0]},
+    daysOfWeek:[0,4,5,6], startTime:'17:00', endTime:'23:00',
+    tags:['karaoke','private rooms','south knoxville','sevier ave','latin','cocktails','reservation']
+  },
+
+  // ── BEARDEN / WEST KNOXVILLE ──────────────────────────────────────────────
+  {
+    id:'abridged-beer-trivia', title:'Trivia Tuesday — Abridged Beer Company', category:'Comedy & Trivia',
+    location:'100 Lockett Rd, Knoxville',
+    description:'Free weekly trivia every Tuesday at 7 PM at Bearden\'s original brewpub, hosted by Challenge Entertainment. Southern pub fare and rotating craft taps in a neighborhood setting.',
+    indoorOutdoor:'Indoor', distanceMiles:3.5, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🧠',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[2]},
+    daysOfWeek:[2], startTime:'19:00',
+    tags:['trivia','tuesday','bearden','free','brewery','west knoxville']
+  },
+  {
+    id:'bullfeathers-karaoke', title:'Nightly Karaoke — Bullfeathers Karaoke Cafe', category:'Dance & Social',
+    location:'10535 Kingston Pike, Knoxville',
+    description:'West Knoxville\'s dedicated karaoke cafe with open-stage karaoke nightly Tuesday through Saturday starting at 8 PM. Full menu, casual atmosphere — just show up and sing.',
+    indoorOutdoor:'Indoor', distanceMiles:8.0, ageRestrictions:'21+', timeOfDay:'Night',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🎤',
+    eventType:'venue',
+    recurrenceRule:{type:'weekly', days:[2,3,4,5,6]},
+    daysOfWeek:[2,3,4,5,6], startTime:'20:00',
+    tags:['karaoke','west knoxville','kingston pike','nightly','bar','singing']
+  },
+  {
+    id:'core-knoxville', title:'Drag Shows — CORE Knoxville', category:'Dance & Social',
+    location:'7211 Kingston Pike, Knoxville',
+    description:'West Knoxville\'s LGBTQ+ bar and grill hosts weekly drag shows Friday through Monday. A welcoming, inclusive neighborhood spot with a full bar and grill open until 3 AM on weekends.',
+    indoorOutdoor:'Indoor', distanceMiles:4.5, ageRestrictions:'21+', timeOfDay:'Night',
+    costScale:'$', season:'Year-round', underground:false, emoji:'👑',
+    eventType:'venue',
+    recurrenceRule:{type:'weekly', days:[5,6,0,1]},
+    daysOfWeek:[0,1,5,6], startTime:'22:00',
+    tags:['drag','lgbtq','west knoxville','kingston pike','bearden','weekend','inclusive']
+  },
+
+  // ── FARRAGUT / TURKEY CREEK / HARDIN VALLEY ────────────────────────────────
+  {
+    id:'35-north-singo', title:'Singo Tuesday — 35 North Bar & Grill', category:'Comedy & Trivia',
+    location:'11321 Kingston Pike, Knoxville',
+    description:'Free Singo music bingo every Tuesday at 6 PM at this Farragut sports bar with a covered amphitheater courtyard and wood-burning fireplace. Match songs to your bingo card and win prizes.',
+    indoorOutdoor:'Indoor', distanceMiles:12.0, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🎵',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[2]},
+    daysOfWeek:[2], startTime:'18:00',
+    tags:['singo','music bingo','tuesday','farragut','free','west knox','amphitheater']
+  },
+  {
+    id:'xul-beer-trivia', title:'Trivia Wednesday — XUL Beer Company', category:'Comedy & Trivia',
+    location:'10677 Hardin Valley Rd, Knoxville',
+    description:'Free Wednesday trivia at 7 PM hosted by Not Rocket Science Trivia at this Hardin Valley craft brewery near Turkey Creek. Gift card prizes. Relaxed taproom, easy parking.',
+    indoorOutdoor:'Indoor', distanceMiles:11.0, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🍺',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[3]},
+    daysOfWeek:[3], startTime:'19:00',
+    tags:['trivia','wednesday','hardin valley','farragut','free','brewery','turkey creek']
+  },
+
+  // ── NORTHSHORE / CEDAR BLUFF ───────────────────────────────────────────────
+  {
+    id:'tennessee-tap-house', title:'Trivia & Singo — Tennessee Tap House', category:'Comedy & Trivia',
+    location:'350 N Peters Rd, Knoxville',
+    description:'Two free weekly events at this Northshore neighborhood bar: Tuesday trivia 7–9 PM and Sunday Singo music bingo at 7 PM. Thursday through Saturday: live acoustic and band performances.',
+    indoorOutdoor:'Indoor', distanceMiles:6.0, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🧠',
+    eventType:'venue',
+    recurrenceRule:{type:'weekly', days:[0,2]},
+    daysOfWeek:[0,2], startTime:'19:00',
+    tags:['trivia','singo','music bingo','northshore','cedar bluff','tuesday','sunday','free']
   }
 ];
 
@@ -1524,6 +1830,42 @@ const LISTING_META = {
   'drum-circle':         { neighborhood:'Sequoyah Hills',   lat:35.9585, lng:-83.9583 },
   // Smokies
   'clingmans':           { neighborhood:'Smoky Mountains',  lat:35.5629, lng:-83.4985 },
+  // Downtown / Gay St
+  'knox-box-karaoke':    { neighborhood:'Downtown',         lat:35.9599, lng:-83.9193 },
+  'scruffy-city-comedy': { neighborhood:'Market Square',    lat:35.9660, lng:-83.9185 },
+  // Market Square
+  'jazz-tuesdays-sq':    { neighborhood:'Market Square',    lat:35.9660, lng:-83.9185 },
+  'illusions-drag-brunch':{ neighborhood:'Market Square',   lat:35.9660, lng:-83.9188 },
+  // Old City
+  'boyds-open-mic':      { neighborhood:'Old City',         lat:35.9671, lng:-83.9143 },
+  'pour-taproom-trivia': { neighborhood:'Old City',         lat:35.9671, lng:-83.9142 },
+  'barrelhouse-open-mic':{ neighborhood:'Old North Knox',   lat:35.9712, lng:-83.9158 },
+  'barrelhouse-trivia':  { neighborhood:'Old North Knox',   lat:35.9712, lng:-83.9158 },
+  // Fort Sanders / UT
+  'the-hill-trivia':     { neighborhood:'Fort Sanders',     lat:35.9601, lng:-83.9352 },
+  'cool-beans-trivia':   { neighborhood:'Fort Sanders',     lat:35.9600, lng:-83.9385 },
+  'mellow-mushroom-trivia':{ neighborhood:'Fort Sanders',   lat:35.9571, lng:-83.9468 },
+  // Happy Holler / North Central
+  'club-xyz-drag':       { neighborhood:'Happy Holler',     lat:35.9839, lng:-83.9375 },
+  'central-flats-trivia':{ neighborhood:'Happy Holler',     lat:35.9837, lng:-83.9372 },
+  // North Knoxville
+  'ale-raes-gastropub':  { neighborhood:'North Knoxville',  lat:35.9925, lng:-83.9318 },
+  'yeehaw-movie-night':  { neighborhood:'North Knoxville',  lat:35.9900, lng:-83.9320 },
+  'fountain-city-social':{ neighborhood:'Fountain City',    lat:36.0385, lng:-83.9285 },
+  // South Knoxville
+  'sevier-burger-trivia':{ neighborhood:'South Knoxville',  lat:35.9508, lng:-83.9057 },
+  'sokno-taco-singo':    { neighborhood:'South Knoxville',  lat:35.9198, lng:-83.8852 },
+  'hiwire-trivia':       { neighborhood:'South Knoxville',  lat:35.9476, lng:-83.9098 },
+  'pink-cactus-karaoke': { neighborhood:'South Knoxville',  lat:35.9510, lng:-83.9063 },
+  // Bearden / West Knoxville
+  'abridged-beer-trivia':{ neighborhood:'Bearden',          lat:35.9520, lng:-83.9900 },
+  'bullfeathers-karaoke':{ neighborhood:'West Knoxville',   lat:35.9330, lng:-84.0455 },
+  'core-knoxville':      { neighborhood:'Bearden',          lat:35.9373, lng:-84.0130 },
+  // Farragut / Turkey Creek / Hardin Valley
+  '35-north-singo':      { neighborhood:'Farragut',         lat:35.9193, lng:-84.1355 },
+  'xul-beer-trivia':     { neighborhood:'Hardin Valley',    lat:35.9595, lng:-84.1093 },
+  // Northshore / Cedar Bluff
+  'tennessee-tap-house': { neighborhood:'Cedar Bluff',      lat:35.9245, lng:-84.0680 },
 };
 // Merge meta into LISTINGS
 LISTINGS.forEach(l => { if(LISTING_META[l.id]) Object.assign(l, LISTING_META[l.id]); });
