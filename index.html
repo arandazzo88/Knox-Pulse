@@ -2085,10 +2085,7 @@ function setView(v){
 function buildShareRow(listing){
   const el=document.getElementById('share-row');
   if(!el) return;
-  el.innerHTML=`
-    <button class="share-btn share-native" onclick="nativeShare('${listing.id}')">📤 Share</button>
-    <button class="share-btn share-copy" onclick="copyLink('${listing.id}')">🔗 Copy Link</button>
-  `;
+  el.innerHTML=`<button class="share-btn share-native" onclick="nativeShare('${listing.id}')">📤 Share</button>`;
 }
 
 function nativeShare(id){
