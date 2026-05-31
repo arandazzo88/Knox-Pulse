@@ -425,10 +425,36 @@ main { padding: 14px; }
 .share-row { display:flex; gap:8px; flex-wrap:wrap; }
 .share-btn { display:inline-flex; align-items:center; gap:5px; padding:7px 14px;
   border-radius:20px; font-size:.8rem; font-weight:600; cursor:pointer; border:none; }
-.share-copy  { background:#ffffff15; color:var(--text); }
-.share-x     { background:#1a1a1a; color:#fff; }
-.share-fb    { background:#1877f2; color:#fff; }
 .share-native{ background:var(--orange); color:#fff; }
+.modal-util-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;
+  border-radius:20px;font-size:.8rem;font-weight:600;cursor:pointer;border:none;
+  background:#ffffff15;color:var(--text);}
+.modal-util-btn:hover{background:#ffffff25;}
+/* NEXT OCCURRENCE */
+.next-occ{font-size:.72rem;color:var(--orange);font-weight:600;margin-top:4px;}
+/* FILTER BADGE */
+#filter-toggle.has-filters{border-color:var(--accent);color:var(--accent);}
+/* NEAR ME button */
+#nearmebtn{background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);
+  border-radius:var(--radius-sm);padding:8px 14px;cursor:pointer;font-size:.82rem;
+  font-family:inherit;font-weight:500;transition:all .15s;height:44px;box-sizing:border-box;}
+#nearmebtn:hover,#nearmebtn.active{border-color:var(--accent);color:var(--accent);}
+/* INSTALL BANNER */
+#install-banner{display:none;position:fixed;bottom:72px;left:50%;transform:translateX(-50%);
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:12px 16px;align-items:center;gap:10px;z-index:150;box-shadow:0 8px 24px rgba(0,0,0,.5);
+  max-width:90vw;font-size:.85rem;}
+#install-banner button{padding:7px 16px;border-radius:20px;border:none;cursor:pointer;font-weight:600;font-family:inherit;}
+.install-yes{background:var(--orange);color:#fff;}
+.install-no{background:none;color:var(--muted);font-size:.8rem;}
+/* EMPTY STATE */
+#empty-state{text-align:center;padding:60px 20px;color:var(--muted);}
+#empty-state .empty-icon{font-size:2.5rem;margin-bottom:12px;}
+#empty-state p{font-size:1rem;margin-bottom:16px;}
+#empty-state .empty-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+#empty-state .empty-actions button{padding:9px 20px;border-radius:20px;border:none;cursor:pointer;font-weight:600;font-size:.85rem;font-family:inherit;}
+.empty-clear{background:var(--orange);color:#fff;}
+.empty-submit{background:#ffffff15;color:var(--text);}
 
 
 
@@ -600,6 +626,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <button id="filter-toggle" aria-expanded="false" aria-controls="filter-panel" onclick="toggleFilters()">⚙ Filters</button>
   <button id="date-toggle" aria-expanded="false" aria-controls="date-picker-bar" onclick="toggleDatePicker()">📅 Date</button>
+  <button id="nearmebtn" onclick="nearMeSort()" title="Sort by nearest to you">📍 Near Me</button>
   <div id="view-toggle-wrap">
     <button class="view-btn active" id="btn-grid" onclick="setView('grid')">⊞ Grid</button>
     <button class="view-btn" id="btn-map" onclick="setView('map')">🗺 Map</button>
@@ -815,7 +842,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="smart-section" id="all-listings-section">
     <div class="grid" id="main-grid"></div>
   </div>
-  <div id="empty-state" style="display:none;"><p>No listings match your filters.</p></div>
+  <div id="empty-state" style="display:none;">
+    <div class="empty-icon">🔍</div>
+    <p>No events match your filters.</p>
+    <div class="empty-actions">
+      <button class="empty-clear" onclick="clearFilters()">Clear Filters</button>
+      <button class="empty-submit" onclick="openOrgModal()">Submit an Event</button>
+    </div>
+  </div>
 </main>
 
 <!-- DETAIL MODAL -->
@@ -828,6 +862,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div id="modal-meta">
         <p id="modal-loc"></p>
         <p id="modal-sched"></p>
+        <div id="modal-quick-actions" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;"></div>
       </div>
       <div id="modal-chips" class="modal-chips"></div>
       <p id="modal-desc" class="modal-desc"></p>
@@ -967,6 +1002,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <div id="toast"></div>
+<div id="install-banner">
+  <span>📱 Add Knox Pulse to your home screen</span>
+  <button class="install-yes" onclick="installPWA()">Install</button>
+  <button class="install-no" onclick="dismissInstallBanner()">✕</button>
+</div>
 <button id="admin-fab" onclick="openAdminModal()" title="Admin">⚙️</button>
 
 <script>
@@ -1345,6 +1385,155 @@ function isHappeningOnDate(listing, dateStr){
   }
 }
 
+// ── Next occurrence ──────────────────────────────────────────
+function getNextOccurrence(l){
+  const today=new Date(); today.setHours(0,0,0,0);
+  if(l.eventType==='venue') return null;
+  if(l.eventType==='one-time'){
+    if(!l.eventDate) return null;
+    const d=new Date(l.eventDate+'T12:00:00');
+    return d>=today?d:null;
+  }
+  const r=l.recurrenceRule;
+  if(!r) return null;
+  const max=new Date(today); max.setDate(max.getDate()+90);
+  for(const d=new Date(today);d<=max;d.setDate(d.getDate()+1)){
+    const dow=d.getDay(),dom=d.getDate(),mo=d.getMonth();
+    let hit=false;
+    if(r.type==='weekly') hit=r.days.includes(dow);
+    else if(r.type==='weekly-seasonal') hit=r.days.includes(dow)&&r.months.includes(mo);
+    else if(r.type==='monthly-weekday') hit=dow===r.day&&Math.ceil(dom/7)===r.weekNum;
+    else if(r.type==='annual') hit=mo===r.month&&dom<=7;
+    if(hit) return new Date(d);
+  }
+  return null;
+}
+function fmtNextDate(d){
+  if(!d) return '';
+  const today=new Date(); today.setHours(0,0,0,0);
+  const diff=Math.round((d-today)/(864e5));
+  if(diff===0) return 'Today';
+  if(diff===1) return 'Tomorrow';
+  const mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return mo[d.getMonth()]+' '+d.getDate();
+}
+
+// ── Haversine distance (miles) ───────────────────────────────
+function haversine(lat1,lng1,lat2,lng2){
+  const R=3958.8,toRad=x=>x*Math.PI/180;
+  const dLat=toRad(lat2-lat1),dLng=toRad(lng2-lng1);
+  const a=Math.sin(dLat/2)**2+Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLng/2)**2;
+  return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
+}
+
+// ── Add to Calendar (.ics) ───────────────────────────────────
+function addToCalendar(id){
+  const l=allListings().find(x=>x.id===id);
+  if(!l) return;
+  const pad=n=>String(n).padStart(2,'0');
+  function icsDate(dateStr,timeStr){
+    const d=new Date((dateStr||todayStr())+'T'+(timeStr||'09:00')+':00');
+    return d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+'T'+pad(d.getHours())+pad(d.getMinutes())+'00';
+  }
+  let dtStart,dtEnd,rrule='';
+  if(l.eventType==='one-time'){
+    dtStart=icsDate(l.eventDate,l.startTime);
+    dtEnd=icsDate(l.eventDate,l.endTime||l.startTime);
+  } else {
+    const next=getNextOccurrence(l);
+    const base=next?next.getFullYear()+'-'+pad(next.getMonth()+1)+'-'+pad(next.getDate()):todayStr();
+    dtStart=icsDate(base,l.startTime);
+    dtEnd=icsDate(base,l.endTime||l.startTime);
+    const r=l.recurrenceRule;
+    if(r){
+      const days=['SU','MO','TU','WE','TH','FR','SA'];
+      if(r.type==='weekly') rrule='RRULE:FREQ=WEEKLY;BYDAY='+r.days.map(d=>days[d]).join(',');
+      else if(r.type==='monthly-weekday'){const nums=['','1','2','3','4'];rrule='RRULE:FREQ=MONTHLY;BYDAY='+nums[r.weekNum]+days[r.day];}
+      else if(r.type==='annual') rrule='RRULE:FREQ=YEARLY';
+    }
+  }
+  const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Knox Pulse//EN','BEGIN:VEVENT',
+    'SUMMARY:'+(l.title||'').replace(/,/g,'\\,'),
+    'DESCRIPTION:'+(l.description||'').replace(/,/g,'\\,').replace(/\n/g,'\\n'),
+    'LOCATION:'+(l.location||'').replace(/,/g,'\\,'),
+    'DTSTART:'+dtStart,'DTEND:'+dtEnd,
+    rrule,'URL:https://www.theknoxpulse.com/?event='+id,
+    'END:VEVENT','END:VCALENDAR'].filter(Boolean).join('\r\n');
+  const a=document.createElement('a');
+  a.href='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);
+  a.download=(l.title||'event').replace(/[^a-z0-9]/gi,'_')+'.ics';
+  a.click();
+}
+
+// ── Directions URL ───────────────────────────────────────────
+function directionsUrl(l){
+  if(l.lat&&l.lng) return `https://www.google.com/maps/search/?api=1&query=${l.lat},${l.lng}`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l.location)}`;
+}
+
+// ── Filter badge ─────────────────────────────────────────────
+function updateFilterBadge(){
+  const n=[
+    document.getElementById('f-cat').value,
+    document.getElementById('f-inout').value,
+    document.getElementById('f-dist').value,
+    document.getElementById('f-season').value,
+    document.getElementById('f-age').value,
+    document.getElementById('f-nbhd').value,
+    document.getElementById('f-date').value,
+  ].filter(Boolean).length + activeCosts.length + activeTimes.length + activeDows.length;
+  const btn=document.getElementById('filter-toggle');
+  btn.textContent=n>0?`⚙ Filters · ${n}`:'⚙ Filters';
+  btn.classList.toggle('has-filters',n>0);
+}
+
+// ── Near Me ──────────────────────────────────────────────────
+let userLat=null,userLng=null;
+function nearMeSort(){
+  const btn=document.getElementById('nearmebtn');
+  if(userLat!==null){
+    userLat=null; userLng=null;
+    btn.classList.remove('active');
+    btn.textContent='📍 Near Me';
+    applyFilters(); return;
+  }
+  if(!navigator.geolocation){showToast('Geolocation not supported');return;}
+  navigator.geolocation.getCurrentPosition(pos=>{
+    userLat=pos.coords.latitude; userLng=pos.coords.longitude;
+    btn.classList.add('active');
+    btn.textContent='📍 Near Me ✓';
+    applyFilters();
+    showToast('Sorted by distance from you');
+  },()=>showToast('Location access denied'));
+}
+
+// ── PWA Install ──────────────────────────────────────────────
+let deferredInstallPrompt=null;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();
+  deferredInstallPrompt=e;
+  if(!localStorage.getItem('kp_install_dismissed')){
+    setTimeout(()=>{
+      const b=document.getElementById('install-banner');
+      if(b) b.style.display='flex';
+    },30000);
+  }
+});
+function installPWA(){
+  if(!deferredInstallPrompt) return;
+  deferredInstallPrompt.prompt();
+  deferredInstallPrompt.userChoice.then(()=>{
+    deferredInstallPrompt=null;
+    const b=document.getElementById('install-banner');
+    if(b) b.style.display='none';
+  });
+}
+function dismissInstallBanner(){
+  const b=document.getElementById('install-banner');
+  if(b) b.style.display='none';
+  localStorage.setItem('kp_install_dismissed','1');
+}
+
 function formatTime(t){
   if(!t) return '';
   const[h,m]=t.split(':').map(Number);
@@ -1618,8 +1807,17 @@ function applyFilters(){
     return true;
   });
 
-  if(intent&&intent.terms.length)filtered.sort((a,b)=>scoreRelevance(b,intent.terms)-scoreRelevance(a,intent.terms));
+  if(intent&&intent.terms.length){
+    filtered.sort((a,b)=>scoreRelevance(b,intent.terms)-scoreRelevance(a,intent.terms));
+  } else if(userLat!==null&&userLng!==null){
+    filtered.sort((a,b)=>{
+      const da=a.lat&&a.lng?haversine(userLat,userLng,a.lat,a.lng):999;
+      const db=b.lat&&b.lng?haversine(userLat,userLng,b.lat,b.lng):999;
+      return da-db;
+    });
+  }
 
+  updateFilterBadge();
   renderGrid(document.getElementById('main-grid'), filtered);
   document.getElementById('empty-state').style.display=filtered.length?'none':'block';
   renderSmartSections();
@@ -1632,6 +1830,9 @@ function applyFilters(){
 function buildCard(l){
   const avg=getAvgRating(l.id);
   const sched=getScheduleLabel(l);
+  const next=getNextOccurrence(l);
+  const nextStr=next?fmtNextDate(next):'';
+  const schedLine=sched&&nextStr?`${sched} · Next: ${nextStr}`:sched||'';
   const photos=localPhotos[l.id]||[];
   const imgHtml=photos.length
     ? `<img class="card-img" src="${photos[0]}" alt="${l.title}" loading="lazy"/>`
@@ -1645,12 +1846,10 @@ function buildCard(l){
         <span class="chip ${l.indoorOutdoor==='Indoor'?'chip-indoor':l.indoorOutdoor==='Outdoor'?'chip-outdoor':'chip-indoor'}">${l.indoorOutdoor}</span>
         ${costChip(l.costScale)}
         ${l.ageRestrictions!=='All Ages'?`<span class="chip chip-age">${l.ageRestrictions}</span>`:''}
-        ${l.distanceMiles>5?`<span class="chip chip-dist">${l.distanceMiles}mi</span>`:''}
         ${l.underground?`<span class="chip chip-ug">🔒 Underground</span>`:''}
-        ${l.timeOfDay?`<span class="chip chip-time">${l.timeOfDay}</span>`:''}
         ${l.neighborhood?`<span class="chip chip-dist" style="font-size:.65rem;">${l.neighborhood}</span>`:''}
       </div>
-      ${sched?`<div class="schedule-badge">🕐 ${sched}</div>`:''}
+      ${schedLine?`<div class="next-occ">🗓 ${schedLine}</div>`:''}
       <div class="card-title">${l.title}</div>
       <div class="card-loc">📍 ${l.location}</div>
       <div class="card-desc">${l.description}</div>
@@ -1766,7 +1965,14 @@ function openDetail(id){
     : `<div class="modal-img-placeholder">${l.emoji||'📍'}</div>`;
 
   document.getElementById('modal-title').textContent=l.title;
-  document.getElementById('modal-loc').textContent='📍 '+l.location+(l.distanceMiles?' · '+l.distanceMiles+' mi from downtown':'');
+  const locEl=document.getElementById('modal-loc');
+  locEl.innerHTML=`📍 <a href="${directionsUrl(l)}" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">${l.location}</a>`+(l.distanceMiles?` · ${l.distanceMiles} mi from downtown`:'');
+
+  // Quick actions: Add to Calendar + Directions
+  document.getElementById('modal-quick-actions').innerHTML=`
+    <button class="modal-util-btn" onclick="addToCalendar('${l.id}')">📅 Add to Calendar</button>
+    <a href="${directionsUrl(l)}" target="_blank" rel="noopener" class="modal-util-btn" style="text-decoration:none;">🗺 Get Directions</a>
+  `;
   document.getElementById('modal-sched').textContent=getScheduleLabel(l);
   document.getElementById('modal-desc').textContent=l.description;
 
