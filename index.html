@@ -434,11 +434,9 @@ main { padding: 14px; }
 .next-occ{font-size:.72rem;color:var(--orange);font-weight:600;margin-top:4px;}
 /* FILTER BADGE */
 #filter-toggle.has-filters{border-color:var(--accent);color:var(--accent);}
-/* NEAR ME button */
-#nearmebtn{background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);
-  border-radius:var(--radius-sm);padding:8px 14px;cursor:pointer;font-size:.82rem;
-  font-family:inherit;font-weight:500;transition:all .15s;height:44px;box-sizing:border-box;}
-#nearmebtn:hover,#nearmebtn.active{border-color:var(--accent);color:var(--accent);}
+/* MODAL TITLE ROW */
+#modal-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:6px;}
+#modal-title-row h2{margin:0;flex:1;}
 /* INSTALL BANNER */
 #install-banner{display:none;position:fixed;bottom:72px;left:50%;transform:translateX(-50%);
   background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
@@ -626,7 +624,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <button id="filter-toggle" aria-expanded="false" aria-controls="filter-panel" onclick="toggleFilters()">⚙ Filters</button>
   <button id="date-toggle" aria-expanded="false" aria-controls="date-picker-bar" onclick="toggleDatePicker()">📅 Date</button>
-  <button id="nearmebtn" onclick="nearMeSort()" title="Sort by nearest to you">📍 Near Me</button>
   <div id="view-toggle-wrap">
     <button class="view-btn active" id="btn-grid" onclick="setView('grid')">⊞ Grid</button>
     <button class="view-btn" id="btn-map" onclick="setView('map')">🗺 Map</button>
@@ -809,6 +806,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         🍼 Stroller accessible
       </label>
     </div>
+    <div class="filter-group">
+      <label>Sort By</label>
+      <select id="f-sort" onchange="applyFilters()">
+        <option value="">Default</option>
+        <option value="nearmefirst">📍 Near Me</option>
+      </select>
+    </div>
     <div class="filter-actions">
       <button id="clear-filters" onclick="clearFilters()">Clear All</button>
       <button id="apply-filters" onclick="applyFilters()">Apply</button>
@@ -839,6 +843,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span>All Listings</span>
   </div>
 
+  <div id="no-results-msg" style="display:none;padding:12px 16px;background:var(--surface-2);border-radius:10px;color:var(--muted);font-size:.88rem;margin-bottom:14px;"></div>
   <div class="smart-section" id="all-listings-section">
     <div class="grid" id="main-grid"></div>
   </div>
@@ -858,8 +863,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="modal-img-area"></div>
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
-      <h2 id="modal-title"></h2>
+      <div id="modal-title-row">
+        <h2 id="modal-title"></h2>
+        <div id="share-row" class="share-row"></div>
+      </div>
       <div id="modal-meta">
+        <p id="modal-venue"></p>
         <p id="modal-loc"></p>
         <p id="modal-sched"></p>
         <div id="modal-quick-actions" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;"></div>
@@ -867,8 +876,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div id="modal-chips" class="modal-chips"></div>
       <p id="modal-desc" class="modal-desc"></p>
       <div id="modal-map-preview" style="display:none;height:180px;border-radius:10px;overflow:hidden;margin-bottom:16px;"></div>
-      <div class="modal-action-row">
-        <div class="share-row" id="share-row"></div>
+      <div style="margin-bottom:20px;">
         <button class="suggest-edit-btn" onclick="openEditModal()">✏️ Suggest an Edit</button>
       </div>
       <div class="modal-section" id="photos-section">
@@ -919,7 +927,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <option>Film & Cinema</option>
           <option>Community & Civic</option>
         </select>
-        <label>Location / Venue *</label>
+        <label>Venue / Location Name</label>
+        <input type="text" id="org-venuename" placeholder="e.g. Market Square, The Mill &amp; Mine"/>
+        <label>Address * <span style="font-weight:400;color:var(--muted);font-size:.78rem;">(auto-fills from venue name)</span></label>
         <input type="text" id="org-loc" placeholder="Start typing a venue or address…" autocomplete="off"/>
         <label>Description</label>
         <textarea id="org-desc" placeholder="Tell the community about this event…"></textarea>
@@ -1473,6 +1483,7 @@ function directionsUrl(l){
 
 // ── Filter badge ─────────────────────────────────────────────
 function updateFilterBadge(){
+  const sortEl=document.getElementById('f-sort');
   const n=[
     document.getElementById('f-cat').value,
     document.getElementById('f-inout').value,
@@ -1481,6 +1492,7 @@ function updateFilterBadge(){
     document.getElementById('f-age').value,
     document.getElementById('f-nbhd').value,
     document.getElementById('f-date').value,
+    sortEl?sortEl.value:'',
   ].filter(Boolean).length + activeCosts.length + activeTimes.length + activeDows.length;
   const btn=document.getElementById('filter-toggle');
   btn.textContent=n>0?`⚙ Filters · ${n}`:'⚙ Filters';
@@ -1489,22 +1501,18 @@ function updateFilterBadge(){
 
 // ── Near Me ──────────────────────────────────────────────────
 let userLat=null,userLng=null;
-function nearMeSort(){
-  const btn=document.getElementById('nearmebtn');
-  if(userLat!==null){
-    userLat=null; userLng=null;
-    btn.classList.remove('active');
-    btn.textContent='📍 Near Me';
-    applyFilters(); return;
-  }
+function requestNearMe(){
+  if(userLat!==null){applyFilters();return;}
   if(!navigator.geolocation){showToast('Geolocation not supported');return;}
   navigator.geolocation.getCurrentPosition(pos=>{
     userLat=pos.coords.latitude; userLng=pos.coords.longitude;
-    btn.classList.add('active');
-    btn.textContent='📍 Near Me ✓';
     applyFilters();
     showToast('Sorted by distance from you');
-  },()=>showToast('Location access denied'));
+  },()=>{
+    showToast('Location access denied');
+    const s=document.getElementById('f-sort'); if(s) s.value='';
+    updateFilterBadge();
+  });
 }
 
 // ── PWA Install ──────────────────────────────────────────────
@@ -1642,6 +1650,7 @@ function clearFilters(){
   document.getElementById('f-date').value='';
   const stroller=document.getElementById('f-stroller'); if(stroller) stroller.checked=false;
   document.getElementById('f-nbhd').value='';
+  const sortEl=document.getElementById('f-sort'); if(sortEl) sortEl.value='';
   document.getElementById('date-picker-bar').style.display='none';
   document.getElementById('date-toggle').classList.remove('active');
   activeCosts=[]; activeTimes=[]; activeDows=[];
@@ -1765,6 +1774,7 @@ function applyFilters(){
   const age=document.getElementById('f-age').value;
   const dateVal=document.getElementById('f-date').value;
   const nbhd=document.getElementById('f-nbhd').value;
+  const sortBy=(document.getElementById('f-sort')||{}).value||'';
   const NBHD_GROUPS={
     'Downtown':['Downtown','Market Square','Gay Street','Old City','Volunteer Landing',"World's Fair Park"],
     'West Knoxville':['West Knoxville','Bearden','Sequoyah Hills','Northshore','Papermill','West Hills','Cedar Bluff','Turkey Creek','Farragut','Hardin Valley','Karns'],
@@ -1780,12 +1790,12 @@ function applyFilters(){
   const effectiveDows=[...activeDows];
   if(intent&&intent.dows.length)intent.dows.forEach(d=>{if(!effectiveDows.includes(d))effectiveDows.push(d);});
 
-  const filtered=allListings().filter(l=>{
-    // Panel filters
+  // Panel-only filter function (no search query applied)
+  const passesPanel=(l)=>{
     if(cat && l.category!==cat) return false;
     if(inout && l.indoorOutdoor!==inout) return false;
     if(l.distanceMiles>dist) return false;
-    if(season && l.season!=='Year-round' && !l.season.includes(season)) return false;
+    if(season && (l.season||'')!=='Year-round' && !(l.season||'').includes(season)) return false;
     if(age && l.ageRestrictions!==age) return false;
     if(activeCosts.length && !activeCosts.includes(l.costScale)) return false;
     if(activeTimes.length && !activeTimes.includes(l.timeOfDay)) return false;
@@ -1793,33 +1803,50 @@ function applyFilters(){
     if(dateVal && !isHappeningOnDate(l,dateVal)) return false;
     if(ugOnly && !l.underground) return false;
     if(nbhd){const allowed=NBHD_GROUPS[nbhd]||[nbhd];if(!allowed.includes(l.neighborhood||''))return false;}
-
-    // Intent filters
-    if(!intent||!q) return true;
-    if(intent.cats.length && !intent.cats.includes(l.category)) return false;
-    if(intent.cost==='free' && l.costScale!=='Free') return false;
-    if(intent.cost==='paid' && l.costScale==='Free') return false;
-    // Require text match when no category inferred
-    if(!intent.cats.length && intent.terms.length){
-      const txt=(l.title+' '+(l.description||'')+' '+(l.tags||[]).join(' ')).toLowerCase();
-      if(!intent.terms.some(t=>txt.includes(t))) return false;
-    }
     return true;
+  };
+
+  // Search: strict text match required when query has terms
+  const intent_terms=intent&&intent.terms.length?intent.terms:[];
+  const filtered=allListings().filter(l=>{
+    if(!passesPanel(l)) return false;
+    if(!q||!intent_terms.length) return true;
+    const txt=(l.title+' '+(l.description||'')+' '+(l.tags||[]).join(' ')).toLowerCase();
+    return intent_terms.some(t=>txt.includes(t));
   });
 
-  if(intent&&intent.terms.length){
-    filtered.sort((a,b)=>scoreRelevance(b,intent.terms)-scoreRelevance(a,intent.terms));
-  } else if(userLat!==null&&userLng!==null){
-    filtered.sort((a,b)=>{
-      const da=a.lat&&a.lng?haversine(userLat,userLng,a.lat,a.lng):999;
-      const db=b.lat&&b.lng?haversine(userLat,userLng,b.lat,b.lng):999;
-      return da-db;
-    });
+  // Sort
+  if(q && intent_terms.length){
+    filtered.sort((a,b)=>scoreRelevance(b,intent_terms)-scoreRelevance(a,intent_terms));
+  } else if(sortBy==='nearmefirst'){
+    if(userLat!==null){
+      filtered.sort((a,b)=>{
+        const da=a.lat&&a.lng?haversine(userLat,userLng,a.lat,a.lng):999;
+        const db=b.lat&&b.lng?haversine(userLat,userLng,b.lat,b.lng):999;
+        return da-db;
+      });
+    } else {
+      requestNearMe();
+    }
   }
 
   updateFilterBadge();
-  renderGrid(document.getElementById('main-grid'), filtered);
-  document.getElementById('empty-state').style.display=filtered.length?'none':'block';
+
+  // No-results fallback: show all panel-filtered listings with a message
+  const noMsg=document.getElementById('no-results-msg');
+  if(q && filtered.length===0){
+    const fallback=allListings().filter(passesPanel);
+    if(noMsg) noMsg.style.display='block';
+    if(noMsg) noMsg.textContent=`No results for "${q}" — showing all events`;
+    renderGrid(document.getElementById('main-grid'), fallback);
+    document.getElementById('empty-state').style.display=fallback.length?'none':'block';
+  } else {
+    if(noMsg) noMsg.style.display='none';
+    renderGrid(document.getElementById('main-grid'), filtered);
+    document.getElementById('empty-state').style.display=filtered.length?'none':'block';
+  }
+
+  updateIntentChips(q?intent:null);
   renderSmartSections();
   if(document.getElementById('btn-map').classList.contains('active')) renderMapMarkers(filtered);
 }
@@ -1965,13 +1992,18 @@ function openDetail(id){
     : `<div class="modal-img-placeholder">${l.emoji||'📍'}</div>`;
 
   document.getElementById('modal-title').textContent=l.title;
-  const locEl=document.getElementById('modal-loc');
-  locEl.innerHTML=`📍 <a href="${directionsUrl(l)}" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">${l.location}</a>`+(l.distanceMiles?` · ${l.distanceMiles} mi from downtown`:'');
 
-  // Quick actions: Add to Calendar + Directions
+  // Venue name (separate from event title)
+  const venueEl=document.getElementById('modal-venue');
+  if(l.venueName){venueEl.textContent='🏠 '+l.venueName;venueEl.style.display='';}
+  else{venueEl.textContent='';venueEl.style.display='none';}
+
+  const locEl=document.getElementById('modal-loc');
+  locEl.innerHTML=`📍 <a href="${directionsUrl(l)}" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">${l.location}</a>`;
+
+  // Quick actions: Add to Calendar only (address is already hyperlinked)
   document.getElementById('modal-quick-actions').innerHTML=`
     <button class="modal-util-btn" onclick="addToCalendar('${l.id}')">📅 Add to Calendar</button>
-    <a href="${directionsUrl(l)}" target="_blank" rel="noopener" class="modal-util-btn" style="text-decoration:none;">🗺 Get Directions</a>
   `;
   document.getElementById('modal-sched').textContent=getScheduleLabel(l);
   document.getElementById('modal-desc').textContent=l.description;
@@ -2162,11 +2194,13 @@ async function submitOrgEvent(){
     timeOfDay=hr<12?'Morning':hr<17?'Afternoon':'Evening';
   }
 
+  const venueName=(document.getElementById('org-venuename')||{value:''}).value.trim();
   const event={
     id:'org_'+Date.now(),
     title:name,
     category:document.getElementById('org-cat').value,
     location:loc,
+    venueName:venueName||null,
     description:document.getElementById('org-desc').value.trim()||'Community-submitted event.',
     indoorOutdoor:document.getElementById('org-inout').value,
     distanceMiles:5,
@@ -2666,10 +2700,14 @@ function initOrgPlaces() {
   orgLocAutocomplete.addListener('place_changed', () => {
     const place = orgLocAutocomplete.getPlace();
     if (!place.formatted_address) return;
-    // Build "Venue Name, Address" if name differs from address
     const name = place.name || '';
     const addr = place.formatted_address || '';
-    input.value = (name && !addr.startsWith(name)) ? `${name}, ${addr}` : addr;
+    // Auto-fill venue name if it's distinct from the address
+    const venueEl = document.getElementById('org-venuename');
+    if(venueEl && name && !addr.startsWith(name) && !venueEl.value){
+      venueEl.value = name;
+    }
+    input.value = addr;
   });
 }
 
