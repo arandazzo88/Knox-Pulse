@@ -3008,7 +3008,7 @@ function buildCard(l){
 
 let _pageList=[];
 let _pageIdx=0;
-const PAGE_SIZE=15;
+const PAGE_SIZE=16;
 
 function renderGrid(el, list){
   _pageList=list; _pageIdx=0;
@@ -4118,25 +4118,19 @@ window.addEventListener('popstate',function(){
 });
 try{showRecurrenceFields();}catch(e){}
 try{showRecurrenceSubFields();}catch(e){}
-// Default date filter = today
-try{const _fd=document.getElementById('f-date');if(_fd){_fd.value=todayStr();_fd.min=todayStr();}}catch(e){}
+// Show today's date in the picker as a hint but don't apply it as a filter —
+// all events load on first render, sorted by next occurrence.
+// User can tap the Date button to filter by a specific day.
+try{const _fd=document.getElementById('f-date');if(_fd){_fd.min=todayStr();}}catch(e){}
 try{applyFilters();}catch(e){console.error('applyFilters init error:',e);}
 initFromFirestore();
 
-// Hard fallback: if grid is still empty after 500ms, render directly from LISTINGS
+// Hard fallback: if grid is still empty after 500ms, render first 16 directly
 setTimeout(function(){
   try{
     const grid=document.getElementById('main-grid');
     if(!grid||grid.children.length>0) return;
-    const today=new Date(),dow=today.getDay(),mo=today.getMonth();
-    const items=LISTINGS.filter(function(l){
-      if(l.eventType==='venue') return true;
-      const r=l.recurrenceRule; if(!r) return false;
-      if(r.type==='weekly') return r.days.includes(dow);
-      if(r.type==='weekly-seasonal') return r.days.includes(dow)&&(!r.months||!r.months.length||r.months.includes(mo));
-      return true;
-    }).slice(0,15);
-    const html=items.map(function(l){try{return buildCard(l);}catch(e){return '';}}).join('');
+    const html=LISTINGS.slice(0,16).map(function(l){try{return buildCard(l);}catch(e){return '';}}).join('');
     if(html) grid.innerHTML=html;
     const wrap=document.getElementById('load-more-wrap');
     if(wrap) wrap.style.display='none';
