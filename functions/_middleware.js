@@ -44,26 +44,56 @@ export async function onRequest(context) {
       .replace(/<meta name="twitter:title"[^>]*\/>/, `<meta name="twitter:title" content="${titleEsc} — Knox Pulse"/>`)
       .replace(/<meta name="twitter:description"[^>]*\/>/, `<meta name="twitter:description" content="${descEsc}"/>`);
 
+    // Compute next occurrence date for startDate
+    const startDate = getNextOccurrenceDate(listing);
+    const endDate   = getEndDate(listing, startDate);
+
+    // Build price/offer info
+    const isFree = listing.costScale === 'Free' || !listing.costScale;
+    const priceText = listing.price || (isFree ? '0' : null);
+    const offers = priceText !== null ? {
+      '@type': 'Offer',
+      price: (priceText === 'Free' || priceText === '0') ? '0' : priceText,
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock'
+    } : undefined;
+
     // Inject Event structured data before </head>
     const eventLd = {
       '@context': 'https://schema.org',
       '@type': 'Event',
       name: listing.title,
       description: listing.description || '',
+      url: pageUrl,
+      image: 'https://www.theknoxpulse.com/og-image.jpg',
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: listing.indoorOutdoor === 'Online'
+        ? 'https://schema.org/OnlineEventAttendanceMode'
+        : 'https://schema.org/OfflineEventAttendanceMode',
+      ...(startDate ? { startDate } : {}),
+      ...(endDate   ? { endDate   } : {}),
+      ...(offers    ? { offers    } : {}),
+      isAccessibleForFree: isFree,
+      organizer: { '@type': 'Organization', name: 'Knox Pulse', url: 'https://www.theknoxpulse.com' },
       location: {
         '@type': 'Place',
-        name: listing.location,
+        name: listing.venueName || listing.location,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: listing.location,
+          addressLocality: 'Knoxville',
+          addressRegion: 'TN',
+          addressCountry: 'US'
+        },
         ...(listing.lat && listing.lng ? {
           geo: { '@type': 'GeoCoordinates', latitude: listing.lat, longitude: listing.lng }
         } : {})
-      },
-      url: pageUrl,
-      organizer: { '@type': 'Organization', name: 'Knox Pulse', url: 'https://www.theknoxpulse.com' }
+      }
     };
 
     html = html.replace(
       '</head>',
-      `<script type="application/ld+json">${JSON.stringify(eventLd)}</script>\n</head>`
+      `<script type="application/ld+json">${JSON.stringify(eventLd)}<\/script>\n</head>`
     );
 
     return new Response(html, {
@@ -75,6 +105,60 @@ export async function onRequest(context) {
   } catch {
     return next();
   }
+}
+
+/** Returns ISO date-time string for the next occurrence of this listing, or null. */
+function getNextOccurrenceDate(listing) {
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+
+  if (listing.eventType === 'one-time' && listing.eventDate) {
+    const t = listing.startTime || '12:00';
+    return `${listing.eventDate}T${t}`;
+  }
+
+  if (listing.eventType === 'venue') {
+    const t = listing.startTime || '10:00';
+    return `${isoDate(now)}T${t}`;
+  }
+
+  const rule = listing.recurrenceRule;
+  if (!rule) return null;
+
+  // Search up to 60 days out for next occurrence
+  for (let i = 0; i < 60; i++) {
+    const d = new Date(now); d.setDate(d.getDate() + i);
+    const dow = d.getDay();
+    const dom = d.getDate();
+    const month = d.getMonth();
+    let matches = false;
+    switch (rule.type) {
+      case 'weekly':
+        matches = rule.days.includes(dow); break;
+      case 'weekly-seasonal':
+        matches = rule.days.includes(dow) && rule.months.includes(month); break;
+      case 'monthly-weekday':
+        matches = dow === rule.day && Math.ceil(dom / 7) === rule.weekNum; break;
+      case 'annual':
+        matches = month === rule.month; break;
+    }
+    if (matches) {
+      const t = listing.startTime || '12:00';
+      return `${isoDate(d)}T${t}`;
+    }
+  }
+  return null;
+}
+
+function getEndDate(listing, startDate) {
+  if (!startDate || !listing.endTime) return null;
+  return startDate.replace(/T[\d:]+$/, `T${listing.endTime}`);
+}
+
+function isoDate(d) {
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${d.getFullYear()}-${mm}-${dd}`;
 }
 
 function esc(str) {

@@ -36,8 +36,8 @@
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://knoxpulse.com/#website",
-      "url": "https://knoxpulse.com/",
+      "@id": "https://www.theknoxpulse.com/#website",
+      "url": "https://www.theknoxpulse.com/",
       "name": "Knox Pulse",
       "description": "Community guide to things to do in Knoxville, TN and surrounding areas",
       "inLanguage": "en-US",
@@ -45,44 +45,57 @@
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://knoxpulse.com/?q={search_term_string}"
+          "urlTemplate": "https://www.theknoxpulse.com/?q={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       }
     },
     {
       "@type": "Organization",
-      "@id": "https://knoxpulse.com/#organization",
+      "@id": "https://www.theknoxpulse.com/#organization",
       "name": "Knox Pulse",
-      "url": "https://knoxpulse.com/",
+      "url": "https://www.theknoxpulse.com/",
       "description": "Community-driven guide to events, venues, and hidden gems in Knoxville, TN"
     },
     {
       "@type": "ItemList",
-      "@id": "https://knoxpulse.com/#listings",
+      "@id": "https://www.theknoxpulse.com/#listings",
       "name": "Things To Do in Knoxville, TN",
       "description": "Curated list of events, venues, outdoor activities, and hidden gems in Knoxville and East Tennessee",
-      "numberOfItems": 25,
+      "numberOfItems": 24,
       "itemListElement": [
-        {"@type":"ListItem","position":1,"name":"WDVX Blue Plate Special","description":"Free live music every weekday at noon in the heart of downtown Knoxville.","url":"https://knoxpulse.com/#wdvx"},
-        {"@type":"ListItem","position":2,"name":"Market Square Farmers Market","description":"Vibrant outdoor market with local produce, artisan goods, and live music every Saturday morning.","url":"https://knoxpulse.com/#market-sq"},
-        {"@type":"ListItem","position":3,"name":"Ijams Nature Centre","description":"Beautiful riverside nature preserve with hiking trails, rock climbing, and kayak launches.","url":"https://knoxpulse.com/#ijams"},
-        {"@type":"ListItem","position":4,"name":"First Friday Art Walk","description":"Monthly celebration of local art, galleries, studios, and street performers in downtown Knoxville.","url":"https://knoxpulse.com/#art-walk"},
-        {"@type":"ListItem","position":5,"name":"Big Ears Festival","description":"World-class multi-genre music festival in downtown Knoxville each spring.","url":"https://knoxpulse.com/#big-ears"},
-        {"@type":"ListItem","position":6,"name":"Silent Disco at Preservation Pub","description":"Wireless headphone dance party on the third Saturday of each month.","url":"https://knoxpulse.com/#silent-disco"},
-        {"@type":"ListItem","position":7,"name":"Honky Tonk Thursday","description":"Two-step lessons and country dancing every Thursday night.","url":"https://knoxpulse.com/#honky-tonk-thursday"},
-        {"@type":"ListItem","position":8,"name":"Dogwood Arts Festival","description":"Month-long spring celebration of art and community throughout Knoxville.","url":"https://knoxpulse.com/#dogwood-arts"}
+        {"@type":"ListItem","position":1,"name":"WDVX Blue Plate Special","description":"Free live music every weekday at noon in the heart of downtown Knoxville.","url":"https://www.theknoxpulse.com/?event=wdvx"},
+        {"@type":"ListItem","position":2,"name":"Market Square Farmers Market","description":"Vibrant outdoor market with local produce, artisan goods, and live music every Saturday morning.","url":"https://www.theknoxpulse.com/?event=market-sq"},
+        {"@type":"ListItem","position":3,"name":"Ijams Nature Centre","description":"Beautiful riverside nature preserve with hiking trails, rock climbing, and kayak launches.","url":"https://www.theknoxpulse.com/?event=ijams"},
+        {"@type":"ListItem","position":4,"name":"First Friday Art Walk","description":"Monthly celebration of local art, galleries, studios, and street performers in downtown Knoxville.","url":"https://www.theknoxpulse.com/?event=art-walk"},
+        {"@type":"ListItem","position":5,"name":"Big Ears Festival","description":"World-class multi-genre music festival in downtown Knoxville each spring.","url":"https://www.theknoxpulse.com/?event=big-ears"},
+        {"@type":"ListItem","position":6,"name":"Silent Disco at Preservation Pub","description":"Wireless headphone dance party on the third Saturday of each month.","url":"https://www.theknoxpulse.com/?event=silent-disco"},
+        {"@type":"ListItem","position":7,"name":"Honky Tonk Thursday","description":"Two-step lessons and country dancing every Thursday night.","url":"https://www.theknoxpulse.com/?event=honky-tonk-thursday"},
+        {"@type":"ListItem","position":8,"name":"Dogwood Arts Festival","description":"Month-long spring celebration of art and community throughout Knoxville.","url":"https://www.theknoxpulse.com/?event=dogwood-arts"}
       ]
     },
     {
       "@type": "Event",
       "name": "WDVX Blue Plate Special",
       "description": "Free live music every weekday at noon in the heart of downtown Knoxville. A Knoxville institution featuring bluegrass, folk, country, and Americana.",
-      "url": "https://knoxpulse.com/#wdvx",
+      "url": "https://www.theknoxpulse.com/?event=wdvx",
+      "image": "https://www.theknoxpulse.com/og-image.jpg",
+      "startDate": "2026-06-01T12:00",
+      "endDate": "2026-06-01T13:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "isAccessibleForFree": true,
-      "organizer": {"@type":"Organization","name":"WDVX Radio"},
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"},
+      "organizer": {"@type":"Organization","name":"WDVX Radio","url":"https://www.wdvx.com"},
+      "performer": {"@type":"PerformingGroup","name":"Local Knoxville Musicians"},
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1W",
+        "byDay": ["https://schema.org/Monday","https://schema.org/Tuesday","https://schema.org/Wednesday","https://schema.org/Thursday","https://schema.org/Friday"],
+        "startTime": "12:00",
+        "endTime": "13:00",
+        "scheduleTimezone": "America/New_York"
+      },
       "location": {
         "@type": "Place",
         "name": "WDVX Studio",
@@ -93,10 +106,24 @@
       "@type": "Event",
       "name": "First Friday Art Walk — Knoxville",
       "description": "Monthly celebration of local art, galleries open late, and street performers in Market Square and the Old City.",
-      "url": "https://knoxpulse.com/#art-walk",
+      "url": "https://www.theknoxpulse.com/?event=art-walk",
+      "image": "https://www.theknoxpulse.com/og-image.jpg",
+      "startDate": "2026-06-05T18:00",
+      "endDate": "2026-06-05T21:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "isAccessibleForFree": true,
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"},
+      "organizer": {"@type":"Organization","name":"Dogwood Arts","url":"https://www.dogwoodarts.com"},
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1M",
+        "byDay": "https://schema.org/Friday",
+        "byMonthWeek": 1,
+        "startTime": "18:00",
+        "endTime": "21:00",
+        "scheduleTimezone": "America/New_York"
+      },
       "location": {
         "@type": "Place",
         "name": "Market Square & Old City",
@@ -107,8 +134,9 @@
       "@type": "TouristAttraction",
       "name": "Ijams Nature Centre",
       "description": "Beautiful riverside nature preserve with hiking trails, rock climbing, kayak launches, and wildlife near downtown Knoxville.",
-      "url": "https://knoxpulse.com/#ijams",
+      "url": "https://www.theknoxpulse.com/?event=ijams",
       "isAccessibleForFree": true,
+      "image": "https://www.theknoxpulse.com/og-image.jpg",
       "address": {"@type":"PostalAddress","streetAddress":"2915 Island Home Ave","addressLocality":"Knoxville","addressRegion":"TN","postalCode":"37920","addressCountry":"US"},
       "geo": {"@type":"GeoCoordinates","latitude":35.9415,"longitude":-83.8868},
       "touristType": ["Hiker","Nature Lover","Outdoor Enthusiast"]
@@ -118,16 +146,11 @@
 </script>
 
 <title>Knox Pulse — Knoxville's Local Rhythm</title>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3yqeVacl8BCvj0s9YeWkVNZknBFijZ_0&libraries=places&loading=async" async defer></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3yqeVacl8BCvj0s9YeWkVNZknBFijZ_0&libraries=places&loading=async" async defer></script>
 <style>
 :root{
   /* Tennessee Orange — Knoxville dark theme */
@@ -395,9 +418,9 @@ main { padding: 14px; }
   .photo-thumb, .photo-upload-label { width: 80px; height: 80px; }
 }
 
-/* ── Filter panel max-height on mobile ── */
+/* ── Filter panel on mobile: expand fully, no inner scroll ── */
 @media (max-width: 599px) {
-  #filter-panel.open { max-height: 80vh; overflow-y: auto; }
+  #filter-panel.open { max-height: 2000px; overflow: visible; }
 }
 
 
@@ -799,7 +822,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="filter-actions">
       <button id="clear-filters" onclick="clearFilters()">Clear All</button>
-      <button id="apply-filters" onclick="applyFilters()">Apply</button>
+      <button id="apply-filters" onclick="applyAndClose()">Apply</button>
     </div>
   </div>
 </div>
@@ -979,6 +1002,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <button id="admin-fab" onclick="openAdminModal()" title="Admin">⚙️</button>
 
+<!-- Third-party SDKs loaded at end of body so all HTML renders before these are fetched -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 <script>
 const firebaseConfig = {
   apiKey: "AIzaSyBCb7L2HgVzhPlh_xSQCxuBipuEyZdpjF8",
@@ -988,9 +1018,14 @@ const firebaseConfig = {
   messagingSenderId: "512082235444",
   appId: "1:512082235444:web:86b5d56f8d9993cb193a61"
 };
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-const storage = firebase.storage();
+let db, storage;
+try {
+  firebase.initializeApp(firebaseConfig);
+  db = firebase.firestore();
+  storage = firebase.storage();
+} catch(e) {
+  console.warn('Firebase init failed — running with static data only.', e);
+}
 
 // ============================================================
 // DATA
@@ -1287,6 +1322,7 @@ let communityEvents = JSON.parse(localStorage.getItem('kp_events')||'[]');
 // falls back to localStorage cache if offline.
 // ============================================================
 async function initFromFirestore(){
+  if(!db){applyFilters();return;}
   try {
     // ── Custom listings (admin-added) ────────────────────────
     const lSnap = await db.collection('listings').get();
@@ -1573,6 +1609,11 @@ function closeFilterPanel(){
   document.getElementById('filter-toggle').classList.remove('active');
   document.getElementById('filter-toggle').setAttribute('aria-expanded','false');
 }
+function applyAndClose(){
+  applyFilters();
+  closeFilterPanel();
+  document.getElementById('main-content').scrollIntoView({behavior:'smooth',block:'start'});
+}
 function closeDatePanel(){
   document.getElementById('date-picker-bar').style.display='none';
   document.getElementById('date-toggle').classList.remove('active');
@@ -1627,6 +1668,8 @@ function clearFilters(){
   activeCosts=[]; activeTimes=[]; activeDows=[];
   document.querySelectorAll('.tog').forEach(t=>t.classList.remove('active'));
   applyFilters();
+  closeFilterPanel();
+  document.getElementById('main-content').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 // ── Intent Parser ─────────────────────────────────────────────
@@ -1724,8 +1767,8 @@ function updateIntentChips(intent){
   else if(intent.inout==='indoor')parts.push('Indoors');
   if(intent.dows.length){const names=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];parts.push('📅 '+intent.dows.map(d=>names[d]).join(', '));}
   if(!parts.length){if(bar)bar.style.display='none';if(chips)chips.innerHTML='';return;}
-  chips.innerHTML=parts.map(p=>'<span class="intent-chip">'+p+'</span>').join('');
-  bar.style.display='flex';
+  if(chips) chips.innerHTML=parts.map(p=>'<span class="intent-chip">'+p+'</span>').join('');
+  if(bar) bar.style.display='flex';
 }
 
 function clearIntentSearch(){
@@ -1858,8 +1901,8 @@ function buildCard(l){
         ${l.underground?`<span class="chip chip-ug">🔒 Underground</span>`:''}
         ${l.neighborhood?`<span class="chip chip-dist" style="font-size:.65rem;">${l.neighborhood}</span>`:''}
       </div>
-      ${schedLine?`<div class="next-occ">🗓 ${schedLine}</div>`:''}
       <div class="card-title">${l.title}</div>
+      ${schedLine?`<div class="next-occ">🗓 ${schedLine}</div>`:''}
       ${venueDisplay?`<div class="card-loc">🏠 ${venueDisplay}</div>`:''}
       <div class="card-loc">📍 ${l.location}</div>
       ${price?`<div class="card-price">${price}</div>`:''}
