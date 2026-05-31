@@ -473,8 +473,16 @@ main { padding: 14px; }
 
 
 
-/* Load-more sentinel */
-#grid-sentinel{height:1px;margin-top:4px;}
+/* Footer */
+#site-footer{background:var(--surface);border-top:1px solid var(--border);padding:20px 16px;text-align:center;margin-top:32px;}
+#site-footer .footer-inner{display:flex;flex-direction:column;align-items:center;gap:12px;}
+#site-footer .footer-ig{display:flex;align-items:center;gap:8px;color:var(--text);text-decoration:none;font-size:.9rem;}
+#site-footer .footer-ig:hover{color:var(--orange);}
+#site-footer .footer-ig svg{width:20px;height:20px;fill:currentColor;}
+#site-footer .footer-links{display:flex;gap:16px;align-items:center;}
+#site-footer .footer-links a,#site-footer .footer-links button{color:var(--muted);font-size:.8rem;background:none;border:none;cursor:pointer;padding:0;text-decoration:none;}
+#site-footer .footer-links a:hover,#site-footer .footer-links button:hover{color:var(--text);}
+#site-footer .footer-copy{font-size:.72rem;color:var(--muted);}
 
 /* Date picker button */
 #date-picker-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 24px;}
@@ -830,7 +838,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <main id="main-content">
   <div id="no-results-msg" style="display:none;padding:12px 16px;background:var(--surface-2);border-radius:10px;color:var(--muted);font-size:.88rem;margin-bottom:14px;"></div>
   <div class="grid" id="main-grid"></div>
-  <div id="grid-sentinel"></div>
+  <div id="load-more-wrap" style="display:none;text-align:center;padding:16px 0 4px;">
+    <button id="load-more-btn" onclick="_renderNextPage()" style="background:var(--surface-2);color:var(--text);border:1px solid #ffffff20;border-radius:8px;padding:10px 28px;font-size:.9rem;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='var(--surface-3)'" onmouseout="this.style.background='var(--surface-2)'">Load more results</button>
+  </div>
   <div id="empty-state" style="display:none;">
     <div class="empty-icon">🔍</div>
     <p>No events match your filters.</p>
@@ -1322,6 +1332,7 @@ let ugOnly = false;
 let localReviews = JSON.parse(localStorage.getItem('kp_reviews')||'{}');
 let localPhotos = JSON.parse(localStorage.getItem('kp_photos')||'{}');
 let communityEvents = JSON.parse(localStorage.getItem('kp_events')||'[]');
+let editRequests = JSON.parse(localStorage.getItem('kp_edits')||'[]');
 
 // ============================================================
 // FIRESTORE BOOTSTRAP
@@ -1362,6 +1373,12 @@ async function initFromFirestore(){
       localPhotos[p.listingId].push(p.url);
     });
     localStorage.setItem('kp_photos', JSON.stringify(localPhotos));
+
+    // ── Edit requests ────────────────────────────────────────
+    const erSnap = await db.collection('editRequests')
+      .orderBy('submittedAt', 'desc').get();
+    editRequests = erSnap.docs.map(d => ({ docId: d.id, ...d.data() }));
+    localStorage.setItem('kp_edits', JSON.stringify(editRequests));
 
   } catch(err) {
     console.warn('Firestore unavailable — using cached data.', err);
@@ -1948,17 +1965,23 @@ function renderGrid(el, list){
   _renderNextPage();
 }
 
+function _updateLoadMoreBtn(){
+  const wrap=document.getElementById('load-more-wrap');
+  if(wrap) wrap.style.display=(_pageIdx<_pageList.length)?'block':'none';
+}
+
 function _renderNextPage(){
   const el=document.getElementById('main-grid');
   if(!el) return;
   const slice=_pageList.slice(_pageIdx,_pageIdx+PAGE_SIZE);
-  if(!slice.length) return;
+  if(!slice.length){_updateLoadMoreBtn();return;}
   const html=[];
   for(let i=0;i<slice.length;i++){
     try{html.push(buildCard(slice[i]));}catch(e){console.warn('buildCard error:',e);}
   }
   if(html.length) el.insertAdjacentHTML('beforeend',html.join(''));
   _pageIdx+=slice.length;
+  _updateLoadMoreBtn();
 }
 
 function toggleDatePicker(){
@@ -2008,15 +2031,6 @@ function setDateQuick(mode){
   applyFilters();
 }
 
-// Infinite scroll: load more cards as user approaches bottom
-(function(){
-  const sentinel=document.getElementById('grid-sentinel');
-  if(!sentinel||!window.IntersectionObserver) return;
-  const obs=new IntersectionObserver(entries=>{
-    if(entries[0].isIntersecting) _renderNextPage();
-  },{rootMargin:'300px'});
-  obs.observe(sentinel);
-})();
 
 // ============================================================
 // DETAIL MODAL
@@ -2070,7 +2084,7 @@ function openDetail(id){
   if(l.phone) links.push(`<a href="tel:${l.phone.replace(/[^\d+]/g,'')}" style="color:var(--orange);text-decoration:none;font-size:.85rem;">📞 ${l.phone}</a>`);
   if(l.website) links.push(`<a href="${l.website}" target="_blank" rel="noopener" style="color:var(--orange);text-decoration:none;font-size:.85rem;">🌐 ${l.website.replace(/^https?:\/\//,'')}</a>`);
   if(l.email) links.push(`<a href="mailto:${l.email}" style="color:var(--orange);text-decoration:none;font-size:.85rem;">✉️ ${l.email}</a>`);
-  if(l.instagram) links.push(`<a href="https://instagram.com/${l.instagram}" target="_blank" rel="noopener" style="color:var(--orange);text-decoration:none;font-size:.85rem;">📸 @${l.instagram}</a>`);
+  if(l.instagram) links.push(`<a href="https://instagram.com/${l.instagram}" target="_blank" rel="noopener" style="color:var(--orange);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:5px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>@${l.instagram}</a>`);
   contactEl.innerHTML=links.join('');
   contactEl.style.display=links.length?'flex':'none';
 
@@ -2541,6 +2555,50 @@ function renderAdminCommunity(){
       </div>
     </div>`).join('');
 }
+
+function renderAdminEdits(){
+  const el=document.getElementById('admin-edits-list');
+  const pending=editRequests.filter(r=>r.status==='pending');
+  if(!pending.length){
+    el.innerHTML='<p style="color:var(--muted);font-size:.85rem;">No pending edit requests.</p>';
+    return;
+  }
+  const labelMap={address:'Address/Location',hours:'Hours/Schedule',description:'Description',price:'Price/Cost',category:'Category',other:'Other'};
+  el.innerHTML=pending.map(r=>`
+    <div class="admin-listing-row" style="flex-direction:column;align-items:flex-start;gap:6px;padding:12px 10px;">
+      <div style="display:flex;justify-content:space-between;width:100%;align-items:center;">
+        <span class="alr-title" style="font-size:.9rem;">${r.listingTitle||r.listingId}</span>
+        <span style="font-size:.7rem;color:var(--muted);">${r.submittedAt?.toDate?r.submittedAt.toDate().toLocaleDateString():''}</span>
+      </div>
+      <div style="font-size:.75rem;color:var(--orange);">${labelMap[r.editType]||r.editType}</div>
+      <div style="font-size:.82rem;color:var(--text);line-height:1.4;white-space:pre-wrap;">${esc(r.proposedChanges)}</div>
+      <div style="font-size:.75rem;color:var(--muted);">From: ${esc(r.submitterContact||'Anonymous')}</div>
+      <div class="alr-actions" style="gap:8px;">
+        <button class="btn-edit" onclick="resolveEditRequest('${r.docId}')">✓ Mark Resolved</button>
+        <button class="btn-del" onclick="dismissEditRequest('${r.docId}')">✕ Dismiss</button>
+      </div>
+    </div>`).join('');
+}
+
+async function resolveEditRequest(docId){
+  editRequests=editRequests.map(r=>r.docId===docId?{...r,status:'resolved'}:r);
+  localStorage.setItem('kp_edits',JSON.stringify(editRequests));
+  renderAdminEdits();
+  showToast('Marked resolved — remember to update the listing.');
+  try { if(db) await db.collection('editRequests').doc(docId).update({status:'resolved'}); }
+  catch(e){ console.warn('Firestore update failed:',e); }
+}
+
+async function dismissEditRequest(docId){
+  editRequests=editRequests.map(r=>r.docId===docId?{...r,status:'dismissed'}:r);
+  localStorage.setItem('kp_edits',JSON.stringify(editRequests));
+  renderAdminEdits();
+  showToast('Edit request dismissed.');
+  try { if(db) await db.collection('editRequests').doc(docId).update({status:'dismissed'}); }
+  catch(e){ console.warn('Firestore update failed:',e); }
+}
+
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
 function adminEditListing(id){
   const all=[...LISTINGS,...customListings];
@@ -3274,6 +3332,22 @@ initFromFirestore();
     </div>
   </div>
 </div>
+
+<!-- FOOTER -->
+<footer id="site-footer">
+  <div class="footer-inner">
+    <a class="footer-ig" href="https://instagram.com/knoxpulse" target="_blank" rel="noopener" aria-label="Knox Pulse on Instagram">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      @KnoxPulse
+    </a>
+    <div class="footer-links">
+      <a href="https://instagram.com/knoxpulse" target="_blank" rel="noopener">Follow us</a>
+      <button onclick="openOrgModal()">Submit an Event</button>
+      <button onclick="openAdminModal()" aria-label="Admin">⚙️ Admin</button>
+    </div>
+    <p class="footer-copy">© 2025 Knox Pulse · Knoxville, TN · <a href="mailto:hello@theknoxpulse.com" style="color:inherit;">hello@theknoxpulse.com</a></p>
+  </div>
+</footer>
 
 </body>
 </html>
