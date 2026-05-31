@@ -198,9 +198,10 @@ header p{font-size:.75rem;color:var(--muted);margin-left:auto;}
 #organizer-btn:hover{opacity:.88;}
 /* SEARCH */
 #search-bar{display:flex;gap:8px;padding:12px 24px;background:var(--surface);border-bottom:1px solid var(--border);align-items:center;}
+#search-input-wrap{display:flex;gap:8px;flex:1;}
 #search-input{flex:1;padding:9px 16px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface-2);color:var(--text);font-size:.9rem;font-family:inherit;transition:border-color .15s;}
 #search-input:focus{outline:none;border-color:var(--border-hover);}
-#filter-toggle,#date-toggle{background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);border-radius:var(--radius-sm);padding:9px 16px;cursor:pointer;font-size:.82rem;font-family:inherit;font-weight:500;transition:all .15s;}
+#filter-toggle,#date-toggle{background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);border-radius:var(--radius-sm);padding:8px 14px;cursor:pointer;font-size:.82rem;font-family:inherit;font-weight:500;transition:all .15s;height:44px;box-sizing:border-box;}
 #filter-toggle:hover,#filter-toggle.active,#date-toggle:hover,#date-toggle.active{border-color:var(--accent);color:var(--accent);}
 /* FILTER PANEL */
 #filter-panel{background:var(--surface);border-bottom:1px solid var(--border);overflow:hidden;max-height:0;transition:max-height .3s ease;}
@@ -291,7 +292,7 @@ main{max-width:1280px;margin:0 auto;padding:24px;}
    ========================================================= */
 
 /* ── Touch targets ── */
-.tog, .filter-group select, #filter-toggle, #organizer-btn,
+.tog, .filter-group select, #search-btn, #organizer-btn,
 #apply-filters, #clear-filters, .review-form button, .org-submit {
   min-height: 44px;
   display: inline-flex;
@@ -310,7 +311,8 @@ main{max-width:1280px;margin:0 auto;padding:24px;}
 /* ── Search bar ── */
 @media (max-width: 640px) {
   #search-bar { padding: 10px 12px; gap: 6px; flex-wrap: wrap; }
-  #search-input { flex: 1 1 100%; font-size: .9rem; }
+  #search-input-wrap { flex: 1 1 100%; }
+  #search-input { font-size: .9rem; }
   #view-toggle-wrap { margin-left: auto; }
 }
 
@@ -405,7 +407,7 @@ main { padding: 14px; }
 #map { width:100%; height:100%; }
 #view-toggle-wrap { display:flex; gap:6px; margin-left:auto; }
 .view-btn { background:var(--card); border:1px solid #ffffff20; color:var(--text);
-  border-radius:20px; padding:8px 14px; cursor:pointer; font-size:.82rem; white-space:nowrap; min-height:44px; }
+  border-radius:20px; padding:8px 14px; cursor:pointer; font-size:.82rem; white-space:nowrap; height:44px; box-sizing:border-box; }
 .view-btn.active { background:var(--orange); border-color:var(--orange); }
 /* MAP POPUP */
 .leaflet-popup-content-wrapper { background:var(--mid); color:var(--text); border:none; border-radius:10px; }
@@ -449,12 +451,9 @@ main { padding: 14px; }
 .dpb-clear{margin-left:auto;background:transparent;border:1px solid var(--border);color:var(--text-2);border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:.78rem;font-family:inherit;white-space:nowrap;transition:all .15s;}
 .dpb-clear:hover{border-color:var(--accent);color:var(--accent);}
 
-/* Intent bar */
-#intent-bar{background:rgba(255,130,0,0.06);border-bottom:1px solid rgba(255,130,0,0.15);padding:7px 24px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-#intent-chips{display:flex;gap:6px;flex-wrap:wrap;flex:1;}
-.intent-chip{background:var(--accent-dim);border:1px solid rgba(255,130,0,0.25);color:var(--accent);border-radius:4px;padding:3px 10px;font-size:.72rem;font-weight:600;letter-spacing:.01em;}
-.intent-clear{background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:.85rem;padding:2px 6px;border-radius:4px;transition:color .15s;}
-.intent-clear:hover{color:var(--text);}
+/* Search button */
+#search-btn{background:var(--accent);color:#fff;border:none;border-radius:var(--radius-sm);padding:8px 14px;cursor:pointer;font-size:1rem;line-height:1;flex-shrink:0;transition:opacity .15s;height:44px;box-sizing:border-box;}
+#search-btn:hover{opacity:.85;}
 
 /* Google Places Autocomplete — dark theme */
 .pac-container {
@@ -590,18 +589,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 
 <div id="search-bar">
-  <input id="search-input" type="text" aria-label="Search Knox Pulse listings" placeholder="Try 'free jazz tonight' or 'hiking this weekend'…" oninput="applyFilters()"/>
+  <div id="search-input-wrap">
+    <input id="search-input" type="text" aria-label="Search Knox Pulse listings" placeholder="Try 'free jazz tonight' or 'hiking this weekend'…" onkeydown="if(event.key==='Enter')applyFilters()"/>
+    <button id="search-btn" onclick="applyFilters()" aria-label="Search">🔍</button>
+  </div>
   <button id="filter-toggle" aria-expanded="false" aria-controls="filter-panel" onclick="toggleFilters()">⚙ Filters</button>
   <button id="date-toggle" aria-expanded="false" aria-controls="date-picker-bar" onclick="toggleDatePicker()">📅 Date</button>
   <div id="view-toggle-wrap">
     <button class="view-btn active" id="btn-grid" onclick="setView('grid')">⊞ Grid</button>
     <button class="view-btn" id="btn-map" onclick="setView('map')">🗺 Map</button>
   </div>
-</div>
-
-<div id="intent-bar" style="display:none">
-  <span id="intent-chips"></span>
-  <button class="intent-clear" onclick="clearIntentSearch()" title="Clear search">✕</button>
 </div>
 
 <div id="date-picker-bar" style="display:none">
@@ -628,8 +625,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="dpb-sep"></div>
     <div class="dpb-section">
-      <span class="dpb-label">Date</span>
-      <input type="date" id="f-date" onchange="onDatePick()"/>
+      <span class="dpb-label">📅 Pick a date</span>
+      <input type="date" id="f-date" onchange="onDatePick()" title="Choose a specific date"/>
     </div>
     <button class="dpb-clear" onclick="clearDate()">✕ Clear</button>
   </div>
@@ -1569,7 +1566,6 @@ function applyFilters(){
   };
 
   const intent=parseIntent(q);
-  updateIntentChips(intent);
 
   // Merge panel DOW toggles + intent DOWs
   const effectiveDows=[...activeDows];
@@ -1594,8 +1590,6 @@ function applyFilters(){
     if(intent.cats.length && !intent.cats.includes(l.category)) return false;
     if(intent.cost==='free' && l.costScale!=='Free') return false;
     if(intent.cost==='paid' && l.costScale==='Free') return false;
-    if(intent.time && l.timeOfDay && l.timeOfDay.toLowerCase()!==intent.time) return false;
-    if(intent.inout && l.indoorOutdoor && l.indoorOutdoor!==intent.inout) return false;
     // Require text match when no category inferred
     if(!intent.cats.length && intent.terms.length){
       const txt=(l.title+' '+(l.description||'')+' '+(l.tags||[]).join(' ')).toLowerCase();
@@ -1656,16 +1650,16 @@ function toggleDatePicker(){
   const isOpen=document.getElementById('date-picker-bar').style.display==='block';
   if(isOpen){
     closeDatePanel();
-    document.getElementById('f-date').value='';
-    activeDows=[];
-    document.querySelectorAll('#f-dow .tog').forEach(t=>t.classList.remove('active'));
-    applyFilters();
     return;
   }
   closeFilterPanel();
   document.getElementById('date-picker-bar').style.display='block';
   document.getElementById('date-toggle').classList.add('active');
   document.getElementById('date-toggle').setAttribute('aria-expanded','true');
+  // Set min date to today so past dates are greyed out
+  if(!document.getElementById('f-date').min){
+    document.getElementById('f-date').min=todayStr();
+  }
 }
 
 function clearDate(){
@@ -2469,23 +2463,22 @@ function openEditModal(){
 function closeEditModal(){
   document.getElementById('edit-modal').classList.remove('open');
 }
-document.addEventListener('DOMContentLoaded', () => {
-  const em = document.getElementById('edit-modal');
-  if(em) em.addEventListener('click', e => { if(e.target===em) closeEditModal(); });
-
-  document.addEventListener('click', e => {
-    const fp  = document.getElementById('filter-panel');
-    const ft  = document.getElementById('filter-toggle');
-    const dpb = document.getElementById('date-picker-bar');
-    const dt  = document.getElementById('date-toggle');
-    if(fp.classList.contains('open') && !fp.contains(e.target) && !ft.contains(e.target)){
-      closeFilterPanel();
-    }
-    if(dpb.style.display==='block' && !dpb.contains(e.target) && !dt.contains(e.target)){
-      closeDatePanel();
-    }
-  });
+// Click-outside: close filter or date panel when user clicks elsewhere
+document.addEventListener('click', e => {
+  const fp  = document.getElementById('filter-panel');
+  const ft  = document.getElementById('filter-toggle');
+  const dpb = document.getElementById('date-picker-bar');
+  const dt  = document.getElementById('date-toggle');
+  if(fp && fp.classList.contains('open') && !fp.contains(e.target) && e.target!==ft && !ft.contains(e.target)){
+    closeFilterPanel();
+  }
+  if(dpb && dpb.style.display==='block' && !dpb.contains(e.target) && e.target!==dt && !dt.contains(e.target)){
+    closeDatePanel();
+  }
 });
+// Edit modal click-outside
+const _em = document.getElementById('edit-modal');
+if(_em) _em.addEventListener('click', e => { if(e.target===_em) closeEditModal(); });
 
 async function submitEditRequest(){
   if(!currentListing) return;
@@ -2537,8 +2530,20 @@ document.getElementById('detail-modal').addEventListener('click',function(e){if(
 document.getElementById('org-modal').addEventListener('click',function(e){if(e.target===this) closeOrgModal();});
 showRecurrenceFields();
 showRecurrenceSubFields();
-applyFilters();
-renderSmartSections();
+// Render static listings immediately so grid is never blank
+(function(){
+  try{
+    const grid=document.getElementById('main-grid');
+    const es=document.getElementById('empty-state');
+    if(grid){
+      const html=[];
+      for(var i=0;i<LISTINGS.length;i++){try{html.push(buildCard(LISTINGS[i]));}catch(e){}}
+      grid.innerHTML=html.join('');
+      if(es) es.style.display=html.length?'none':'block';
+    }
+    renderSmartSections();
+  }catch(e){console.error('initial render failed',e);}
+})();
 initFromFirestore();
 </script>
 
