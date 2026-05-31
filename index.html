@@ -1775,6 +1775,255 @@ const LISTINGS = [
     recurrenceRule:{type:'weekly', days:[0,2]},
     daysOfWeek:[0,2], startTime:'19:00',
     tags:['trivia','singo','music bingo','northshore','cedar bluff','tuesday','sunday','free']
+  },
+
+  // ── COMEDY ────────────────────────────────────────────────────────────────
+  {
+    id:'stock-barrel-comedy', title:'Comedy Night — Stock & Barrel',
+    category:'Comedy',
+    location:'35 Market Square, Knoxville',
+    description:'Weekly Thursday comedy showcase at this Market Square burger-and-bourbon staple. Local and regional stand-up comedians perform starting at 9 PM upstairs. No cover.',
+    indoorOutdoor:'Indoor', distanceMiles:0.3, ageRestrictions:'21+', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'😂',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[4]},
+    daysOfWeek:[4], startTime:'21:00',
+    tags:['comedy','stand-up','thursday','market square','free','bar']
+  },
+  {
+    id:'preservation-pub-comedy', title:'Open Stage Night — Preservation Pub',
+    category:'Comedy',
+    location:'28 Market Square, Knoxville',
+    description:"Open performance nights at Knoxville's beloved three-story Market Square pub. Rotating mix of stand-up, spoken word, and variety acts every Saturday at 10 PM. Free to attend and perform.",
+    indoorOutdoor:'Indoor', distanceMiles:0.3, ageRestrictions:'21+', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'😂',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[6]},
+    daysOfWeek:[6], startTime:'22:00',
+    tags:['comedy','open stage','variety','saturday','market square','free','pub']
+  },
+  {
+    id:'pilot-light-comedy', title:'Monthly Comedy Showcase — The Pilot Light',
+    category:'Comedy',
+    location:'106 E Jackson Ave, Knoxville',
+    description:"Monthly comedy showcase at Old City's beloved indie venue. Touring and local stand-up comedians, small cover, and excellent craft beer. Check socials for monthly date.",
+    indoorOutdoor:'Indoor', distanceMiles:0.9, ageRestrictions:'21+', timeOfDay:'Evening',
+    costScale:'$', season:'Year-round', underground:false, emoji:'😂',
+    eventType:'recurring',
+    recurrenceRule:{type:'monthly-weekday', weekNum:3, day:5},
+    daysOfWeek:[5], startTime:'20:00',
+    tags:['comedy','monthly','old city','stand-up','indie','bar','friday']
+  },
+
+  // ── FITNESS & WELLNESS ────────────────────────────────────────────────────
+  {
+    id:'fleet-feet-run-club', title:'Wednesday Night Run Club — Fleet Feet Knoxville',
+    category:'Fitness & Wellness',
+    location:'525 S Gay St, Knoxville',
+    description:'Free weekly group run from the Gay Street store every Wednesday at 6 PM. Routes range 3–6 miles through downtown and the Riverwalk greenway. All paces welcome — post-run social on the patio.',
+    indoorOutdoor:'Outdoor', distanceMiles:0.5, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🏃',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[3]},
+    daysOfWeek:[3], startTime:'18:00',
+    tags:['running','run club','free','fitness','wednesday','downtown','community','greenway']
+  },
+  {
+    id:'climb-knx', title:'Open Climbing — Climb KNX',
+    category:'Fitness & Wellness',
+    location:'1645 Downtown West Blvd, Knoxville',
+    description:"Knoxville's dedicated indoor climbing gym with bouldering and top-rope walls. Day passes available — no membership required. Beginner-friendly with an on-site gear shop.",
+    indoorOutdoor:'Indoor', distanceMiles:3, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🧗',
+    eventType:'venue',
+    daysOfWeek:[1,2,3,4,5,6,0],
+    tags:['climbing','bouldering','fitness','gym','all ages','day pass','indoor']
+  },
+  {
+    id:'inner-light-yoga', title:'Drop-In Yoga Classes — Inner Light Yoga',
+    category:'Fitness & Wellness',
+    location:'4618 Kingston Pike, Knoxville',
+    description:'Affordable drop-in yoga in Bearden — hatha, vinyasa, yin, and restorative. Weekday morning and evening classes plus weekend options. New-student specials available.',
+    indoorOutdoor:'Indoor', distanceMiles:4, ageRestrictions:'All Ages', timeOfDay:'Morning',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🧘',
+    eventType:'venue',
+    daysOfWeek:[1,2,3,4,5,6,0],
+    tags:['yoga','fitness','wellness','bearden','drop-in','vinyasa','hatha','classes']
+  },
+  {
+    id:'knoxville-track-club', title:'Saturday Morning Run — Knoxville Track Club',
+    category:'Fitness & Wellness',
+    location:"World's Fair Park, Knoxville",
+    description:"One of Knoxville's longest-running free run clubs. Meets Saturday mornings at World's Fair Park — routes range 4–10 miles, all paces welcome. Visitors and tourists encouraged.",
+    indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Morning',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🏃',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[6]},
+    daysOfWeek:[6], startTime:'07:00',
+    tags:['running','run club','free','fitness','saturday','world\'s fair park','community']
+  },
+
+  // ── TOURS & EXPERIENCES ───────────────────────────────────────────────────
+  {
+    id:'old-city-ghost-tours', title:"Knoxville Ghost Tours — Old City",
+    category:'Tours & Experiences',
+    location:'Old City, Knoxville',
+    description:"Lantern-lit walking tour through Knoxville's haunted Old City, exploring 200+ years of dark history at locations like the historic jail, old morgue, and Victorian mansions. Tours run Fri–Sat evenings; October adds Thursday tours.",
+    indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'$', season:'Year-round', underground:false, emoji:'👻',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[5,6]},
+    daysOfWeek:[5,6], startTime:'20:00',
+    tags:['ghost tour','walking tour','history','haunted','old city','friday','saturday','spooky']
+  },
+  {
+    id:'schulz-brau-brewery-tour', title:'Brewery Tour — Schulz Bräu Brewing Co.',
+    category:'Tours & Experiences',
+    location:'126 Bernard Ave, Knoxville',
+    description:"Tour Knoxville's German-inspired craft brewery in the Old City neighborhood. See the brewing process and sample fresh German-style lagers. Check their website for current tour schedule and availability.",
+    indoorOutdoor:'Indoor', distanceMiles:0.9, ageRestrictions:'21+', timeOfDay:'Afternoon',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🍺',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[6]},
+    daysOfWeek:[6], startTime:'14:00',
+    tags:['brewery tour','craft beer','german','saturday','old city','beer tasting','free']
+  },
+  {
+    id:'marble-springs-tours', title:"Historic Tours — Marble Springs Governor's Mansion",
+    category:'Tours & Experiences',
+    location:'1220 W Governor John Sevier Hwy, Knoxville',
+    description:"Free guided tours of Tennessee's last surviving 18th-century log house complex, home of Governor John Sevier. Open Saturdays April–December, 10 AM–5 PM. Costumed interpreters bring early Knoxville to life.",
+    indoorOutdoor:'Outdoor', distanceMiles:5, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'Free', season:'Seasonal', underground:false, emoji:'🏛️',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly-seasonal', days:[6], months:[3,4,5,6,7,8,9,10,11]},
+    daysOfWeek:[6], startTime:'10:00',
+    tags:['history','historic tour','governor','free','saturday','seasonal','tennessee history']
+  },
+  {
+    id:'volunteer-landing-kayak', title:'Kayak & Paddleboard Rentals — Volunteer Landing',
+    category:'Tours & Experiences',
+    location:'400 Neyland Dr, Knoxville',
+    description:"Rent a kayak, canoe, or stand-up paddleboard on the Tennessee River at Volunteer Landing. Scenic float past Henley Street Bridge, World's Fair Park, and the downtown skyline. No experience needed.",
+    indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'$', season:'Seasonal', underground:false, emoji:'🚣',
+    eventType:'venue',
+    daysOfWeek:[5,6,0],
+    tags:['kayak','paddleboard','river','outdoor','seasonal','downtown','waterfront','tennessee river']
+  },
+
+  // ── FILM & CINEMA ─────────────────────────────────────────────────────────
+  {
+    id:'tennessee-theatre-film', title:'Classic Film Series — Tennessee Theatre',
+    category:'Film & Cinema',
+    location:'604 S Gay St, Knoxville',
+    description:"Monthly classic and cult film screenings inside Knoxville's historic 1928 movie palace, complete with its magnificent Wurlitzer organ. Rotating lineup of golden Hollywood, Hitchcock, and beloved cult films.",
+    indoorOutdoor:'Indoor', distanceMiles:0.4, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'$', season:'Year-round', underground:false, emoji:'🎬',
+    eventType:'recurring',
+    recurrenceRule:{type:'monthly-weekday', weekNum:2, day:4},
+    daysOfWeek:[4], startTime:'19:30',
+    tags:['classic film','movie','cinema','historic theater','monthly','downtown','organ','thursday']
+  },
+  {
+    id:'market-sq-summer-movies', title:'Movies on Market Square',
+    category:'Film & Cinema',
+    location:'Market Square, Knoxville',
+    description:"Free outdoor movies on the big screen at Market Square on select summer Friday evenings. Pre-show festivities start at 7:30 PM; film at dusk (~8:30 PM). Bring a blanket or lawn chair — all ages welcome.",
+    indoorOutdoor:'Outdoor', distanceMiles:0.3, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Seasonal', underground:false, emoji:'🎬',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly-seasonal', days:[5], months:[5,6,7]},
+    daysOfWeek:[5], startTime:'19:30',
+    tags:['outdoor movies','free','summer','market square','movie night','friday','seasonal']
+  },
+  {
+    id:'kma-film-series', title:'Art House Film Series — Knoxville Museum of Art',
+    category:'Film & Cinema',
+    location:"1050 World's Fair Park Dr, Knoxville",
+    description:"Monthly art house and documentary film screenings at the KMA, paired with curator talks and Q&A sessions. Films tie into current exhibitions or regional themes. Free with museum admission (admission is free).",
+    indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🎬',
+    eventType:'recurring',
+    recurrenceRule:{type:'monthly-weekday', weekNum:3, day:4},
+    daysOfWeek:[4], startTime:'18:30',
+    tags:['art house','documentary','film','free','monthly','world\'s fair park','museum','thursday']
+  },
+
+  // ── MARKETS ───────────────────────────────────────────────────────────────
+  {
+    id:'old-city-farmers-market', title:'Old City Farmers Market',
+    category:'Markets',
+    location:'Old City, Knoxville',
+    description:"Saturday morning neighborhood market in Knoxville's historic Old City with local produce, baked goods, artisan crafts, and small-batch food vendors. Runs spring through fall — check socials for exact location and hours.",
+    indoorOutdoor:'Outdoor', distanceMiles:0.9, ageRestrictions:'All Ages', timeOfDay:'Morning',
+    costScale:'Free', season:'Seasonal', underground:false, emoji:'🥦',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly-seasonal', days:[6], months:[3,4,5,6,7,8,9,10]},
+    daysOfWeek:[6], startTime:'09:00',
+    tags:['farmers market','local','produce','old city','saturday','seasonal','outdoor','artisan']
+  },
+  {
+    id:'bearden-village-market', title:'Bearden Village Farmers Market',
+    category:'Markets',
+    location:'Kingston Pike at Bearden Village, Knoxville',
+    description:"Tuesday evening market in the Bearden Village area with local vegetables, flowers, honey, artisan foods, and handmade goods. Runs May through September.",
+    indoorOutdoor:'Outdoor', distanceMiles:3.5, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'Free', season:'Seasonal', underground:false, emoji:'🌻',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly-seasonal', days:[2], months:[4,5,6,7,8]},
+    daysOfWeek:[2], startTime:'15:00',
+    tags:['farmers market','bearden','tuesday','local','seasonal','produce','artisan','flowers']
+  },
+  {
+    id:'second-saturday-art-market', title:'Second Saturday Art Market — Old City',
+    category:'Markets',
+    location:'Old City, Knoxville',
+    description:"Monthly pop-up art and maker market in the Old City every second Saturday. Local artists, jewelers, potters, printmakers, and vintage dealers. Free to browse — shop local and meet the makers.",
+    indoorOutdoor:'Outdoor', distanceMiles:0.9, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🛍',
+    eventType:'recurring',
+    recurrenceRule:{type:'monthly-weekday', weekNum:2, day:6},
+    daysOfWeek:[6], startTime:'11:00',
+    tags:['art market','makers market','artisan','old city','monthly','saturday','free','vintage']
+  },
+
+  // ── COMMUNITY & CIVIC ─────────────────────────────────────────────────────
+  {
+    id:'knox-makers-open-house', title:"Open House Night — Knox Makers",
+    category:'Community & Civic',
+    location:'1450 E Weisgarber Rd, Knoxville',
+    description:"Knoxville's community makerspace hosts weekly open house nights — tour the facility, try tools, and meet the maker community. 3D printers, laser cutters, woodshop, electronics lab, and more. Free to visit.",
+    indoorOutdoor:'Indoor', distanceMiles:2.5, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🔧',
+    eventType:'recurring',
+    recurrenceRule:{type:'weekly', days:[2]},
+    daysOfWeek:[2], startTime:'18:00',
+    tags:['makerspace','DIY','community','tech','3D printing','laser cutting','open house','tuesday']
+  },
+  {
+    id:'keep-knoxville-beautiful', title:'Volunteer Cleanup — Keep Knoxville Beautiful',
+    category:'Community & Civic',
+    location:'Various Knoxville Neighborhoods',
+    description:"Monthly neighborhood beautification events organized by Keep Knoxville Beautiful. Clean up parks, plant trees, and improve community spaces across the city. All supplies provided, all welcome.",
+    indoorOutdoor:'Outdoor', distanceMiles:0, ageRestrictions:'All Ages', timeOfDay:'Morning',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🌳',
+    eventType:'recurring',
+    recurrenceRule:{type:'monthly-weekday', weekNum:2, day:6},
+    daysOfWeek:[6], startTime:'09:00',
+    tags:['volunteer','community','environment','cleanup','free','knoxville','neighborhood']
+  },
+  {
+    id:'knoxville-young-professionals', title:'Monthly Mixer — Knoxville Young Professionals',
+    category:'Community & Civic',
+    location:'Rotating Venue, Knoxville',
+    description:"Monthly networking mixer for Knoxville professionals in their 20s–40s. Rotating venues around downtown and midtown — follow KYP for the monthly location announcement.",
+    indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Evening',
+    costScale:'Free', season:'Year-round', underground:false, emoji:'🤝',
+    eventType:'recurring',
+    recurrenceRule:{type:'monthly-weekday', weekNum:3, day:4},
+    daysOfWeek:[4], startTime:'17:30',
+    tags:['networking','young professionals','social','monthly','downtown','mixer','free']
   }
 ];
 
@@ -1868,6 +2117,32 @@ const LISTING_META = {
   'xul-beer-trivia':     { neighborhood:'Hardin Valley',    lat:35.9595, lng:-84.1093 },
   // Northshore / Cedar Bluff
   'tennessee-tap-house': { neighborhood:'Cedar Bluff',      lat:35.9245, lng:-84.0680 },
+  // Comedy
+  'stock-barrel-comedy':      { neighborhood:'Market Square',    lat:35.9655, lng:-83.9183 },
+  'preservation-pub-comedy':  { neighborhood:'Market Square',    lat:35.9658, lng:-83.9185 },
+  'pilot-light-comedy':       { neighborhood:'Old City',         lat:35.9671, lng:-83.9143 },
+  // Fitness & Wellness
+  'fleet-feet-run-club':      { neighborhood:'Downtown',         lat:35.9629, lng:-83.9188 },
+  'climb-knx':                { neighborhood:'West Knoxville',   lat:35.9462, lng:-84.0005 },
+  'inner-light-yoga':         { neighborhood:'Bearden',          lat:35.9520, lng:-83.9945 },
+  'knoxville-track-club':     { neighborhood:"World's Fair Park", lat:35.9615, lng:-83.9243 },
+  // Tours & Experiences
+  'old-city-ghost-tours':     { neighborhood:'Old City',         lat:35.9670, lng:-83.9150 },
+  'schulz-brau-brewery-tour': { neighborhood:'Old City',         lat:35.9665, lng:-83.9130 },
+  'marble-springs-tours':     { neighborhood:'Southeast Knox',   lat:35.9520, lng:-83.8810 },
+  'volunteer-landing-kayak':  { neighborhood:'Downtown',         lat:35.9570, lng:-83.9271 },
+  // Film & Cinema
+  'tennessee-theatre-film':   { neighborhood:'Downtown',         lat:35.9635, lng:-83.9187 },
+  'market-sq-summer-movies':  { neighborhood:'Market Square',    lat:35.9660, lng:-83.9185 },
+  'kma-film-series':          { neighborhood:"World's Fair Park", lat:35.9622, lng:-83.9248 },
+  // Markets
+  'old-city-farmers-market':  { neighborhood:'Old City',         lat:35.9671, lng:-83.9148 },
+  'bearden-village-market':   { neighborhood:'Bearden',          lat:35.9527, lng:-83.9927 },
+  'second-saturday-art-market':{ neighborhood:'Old City',        lat:35.9669, lng:-83.9145 },
+  // Community & Civic
+  'knox-makers-open-house':   { neighborhood:'West Knoxville',   lat:35.9567, lng:-84.0095 },
+  'keep-knoxville-beautiful': { neighborhood:'Downtown',         lat:35.9606, lng:-83.9205 },
+  'knoxville-young-professionals':{ neighborhood:'Downtown',     lat:35.9649, lng:-83.9186 },
 };
 // Merge meta into LISTINGS
 LISTINGS.forEach(l => { if(LISTING_META[l.id]) Object.assign(l, LISTING_META[l.id]); });
