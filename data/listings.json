@@ -1,7 +1,7 @@
 [
   {
     "id": "neyland-football",
-    "title": "UT Vols Football — Neyland Stadium",
+    "title": "UT Vols Football",
     "category": "Sports & Recreation",
     "location": "1235 Phillip Fulmer Way, Knoxville",
     "venueName": "Neyland Stadium",
@@ -46,7 +46,7 @@
   },
   {
     "id": "vols-basketball",
-    "title": "UT Vols Men's Basketball — Thompson-Boling Arena",
+    "title": "UT Vols Men's Basketball",
     "category": "Sports & Recreation",
     "location": "1600 Phillip Fulmer Way, Knoxville",
     "venueName": "Thompson-Boling Arena at Food City Center",
@@ -93,7 +93,7 @@
   },
   {
     "id": "women-basketball",
-    "title": "Lady Vols Basketball — Thompson-Boling Arena",
+    "title": "Lady Vols Basketball",
     "category": "Sports & Recreation",
     "location": "1600 Phillip Fulmer Way, Knoxville",
     "venueName": "Thompson-Boling Arena at Food City Center",
@@ -140,7 +140,7 @@
   },
   {
     "id": "smokies-baseball",
-    "title": "Knoxville Smokies Baseball — Covenant Health Park",
+    "title": "Knoxville Smokies Baseball",
     "category": "Sports & Recreation",
     "location": "500 E Jackson Ave, Knoxville",
     "venueName": "Covenant Health Park",
@@ -194,7 +194,7 @@
   },
   {
     "id": "ice-bears",
-    "title": "Knoxville Ice Bears Hockey — Civic Coliseum",
+    "title": "Knoxville Ice Bears Hockey",
     "category": "Sports & Recreation",
     "location": "500 Howard Baker Jr Ave, Knoxville",
     "venueName": "Knoxville Civic Coliseum",
@@ -1272,7 +1272,7 @@
   },
   {
     "id": "rave-old-city",
-    "title": "Underground Electronic Events — Old City",
+    "title": "Underground Electronic Events",
     "category": "Dancing",
     "location": "Rotating Venues, Old City",
     "description": "Rotating underground electronic music events at warehouses and bars around the Old City. Watch local Instagram pages for location reveals 24 hours before.",
@@ -1341,7 +1341,7 @@
   },
   {
     "id": "bluegrass-jam",
-    "title": "Sunday Bluegrass Jam — Suttree Landing",
+    "title": "Sunday Bluegrass Jam",
     "category": "Live Music",
     "location": "Suttree Landing Park, Knoxville",
     "description": "Informal bluegrass jam session in the park every Sunday afternoon. Bring an instrument or just listen. All skill levels welcome, BYOB.",
@@ -1378,7 +1378,7 @@
   },
   {
     "id": "roller-derby",
-    "title": "Appalachian Rollergirls — Roller Derby",
+    "title": "Appalachian Rollergirls",
     "category": "Sports & Recreation",
     "location": "Knoxville Expo Center",
     "description": "East Tennessee's flat-track roller derby league hosts bouts monthly. Loud, chaotic, and incredibly fun. One of Knoxville's most unique and affordable live events.",
@@ -1413,7 +1413,7 @@
   },
   {
     "id": "drum-circle",
-    "title": "Full Moon Drum Circle — Sequoyah Hills",
+    "title": "Full Moon Drum Circle",
     "category": "Community & Civic",
     "location": "Sequoyah Hills Park, Knoxville",
     "description": "Community drum circle and bonfire gathering on the night of every full moon in Sequoyah Hills Park. Free, open, and welcoming to all.",
@@ -1455,7 +1455,7 @@
   },
   {
     "id": "midnight-ramble",
-    "title": "Midnight Ramble — Market Square",
+    "title": "Midnight Ramble",
     "category": "Live Music",
     "location": "Market Square, Knoxville",
     "description": "Late-night acoustic sessions that pop up around Market Square at midnight on warm summer weekends.",
@@ -1499,7 +1499,7 @@
   },
   {
     "id": "secret-cinema",
-    "title": "Secret Cinema Club — Old City",
+    "title": "Secret Cinema Club",
     "category": "Film & Cinema",
     "location": "Rotating venue, Old City",
     "description": "Monthly underground film screening series showing cult classics, foreign films, and experimental cinema. Location revealed 48 hours before via newsletter.",
@@ -1581,7 +1581,7 @@
   },
   {
     "id": "scruffy-city-comedy",
-    "title": "Springboard Open Mic Comedy — Scruffy City Hall",
+    "title": "Springboard Open Mic Comedy",
     "category": "Comedy",
     "location": "32 Market Square, Knoxville",
     "description": "Free weekly open mic comedy night hosted by True Grit Comedy. Sign-ups at 7:30 PM, show at 8 PM through midnight. 7-minute sets, any style. Beginners welcome — no experience needed.",
@@ -1620,7 +1620,7 @@
   },
   {
     "id": "jazz-tuesdays-sq",
-    "title": "Jazz on the Square — Concerts on the Square",
+    "title": "Jazz on the Square",
     "category": "Live Music",
     "location": "Market Square, Knoxville",
     "description": "Free outdoor jazz concerts on Market Square every Tuesday evening in May, June, and September (7–9 PM). Presented by Axle Logistics. Bring a lawn chair — all ages welcome.",
@@ -1701,7 +1701,7 @@
   },
   {
     "id": "boyds-open-mic",
-    "title": "Open Mic Night — Boyd's Jig & Reel",
+    "title": "Open Mic Night",
     "category": "Live Music",
     "location": "101 S Central St, Knoxville",
     "description": "Weekly acoustic singer-songwriter open mic at this beloved Old City whisky bar every Wednesday. Sign-ups at 6 PM, show at 7 PM. Up to 20 performers, piano available. Free to attend and perform.",
@@ -1740,7 +1740,7 @@
   },
   {
     "id": "pour-taproom-trivia",
-    "title": "Tuesday Trivia — Pour Taproom",
+    "title": "Tuesday Trivia",
     "category": "Trivia & Games",
     "location": "207 W Jackson Ave, Knoxville",
     "description": "Free pub trivia every Tuesday 8–10 PM at this self-pour taproom with 68 rotating digital taps. Hosted by Timeless Entertainment — top 3 teams win gift cards, and players get 15% off their tab.",
@@ -1779,7 +1779,7 @@
   },
   {
     "id": "barrelhouse-open-mic",
-    "title": "Open Mic Monday — Barrelhouse by Gypsy Circus",
+    "title": "Open Mic Monday",
     "category": "Live Music",
     "location": "621 Lamar St, Knoxville",
     "description": "Monday open mic hosted by Chris Marshall at Gypsy Circus's cider and mead taproom. Free to play and attend. Also: Singo music bingo Tuesdays and free trivia Thursdays at the same spot.",
@@ -1817,7 +1817,7 @@
   },
   {
     "id": "barrelhouse-trivia",
-    "title": "Trivia Thursday — Barrelhouse by Gypsy Circus",
+    "title": "Trivia Thursday",
     "category": "Trivia & Games",
     "location": "621 Lamar St, Knoxville",
     "description": "Free Thursday trivia at this Old North cider and mead taproom, hosted by The Trivia Guys. All ages welcome. Also: open mic Mondays and Singo music bingo Tuesdays — free events every weeknight.",
@@ -1854,7 +1854,7 @@
   },
   {
     "id": "the-hill-trivia",
-    "title": "Trivia Monday — The Hill Bar & Grill",
+    "title": "Trivia Monday",
     "category": "Trivia & Games",
     "location": "1105 Forest Ave, Knoxville",
     "description": "Free weekly trivia every Monday at The Hill, a Fort Sanders institution since 2009 known for award-winning wings. Hosted by Challenge Entertainment — top teams win prizes.",
@@ -1892,7 +1892,7 @@
   },
   {
     "id": "cool-beans-trivia",
-    "title": "Trivia Tuesday — Cool Beans Bar & Grill",
+    "title": "Trivia Tuesday",
     "category": "Trivia & Games",
     "location": "1817 Lake Ave, Knoxville",
     "description": "Free Tuesday trivia followed by live music at this UT/Fort Sanders neighborhood bar. Hosted by Challenge Entertainment. Also: Singo music bingo on Thursdays with a DJ set after.",
@@ -1930,7 +1930,7 @@
   },
   {
     "id": "mellow-mushroom-trivia",
-    "title": "Trivia Wednesday — Mellow Mushroom (Cumberland Ave)",
+    "title": "Trivia Wednesday",
     "category": "Trivia & Games",
     "location": "2109 Cumberland Ave, Knoxville",
     "description": "Free weekly trivia at 7 PM at the Cumberland Ave Mellow Mushroom — historic home of Knox Trivia Guys, founded here in 2002. Hosted by Challenge Entertainment. Great pizza + competitive quiz.",
@@ -1968,7 +1968,7 @@
   },
   {
     "id": "club-xyz-drag",
-    "title": "Divaz & Kingz Drag Show — Club XYZ",
+    "title": "Divaz & Kingz Drag Show",
     "category": "Theater & Performance",
     "location": "1215 N Central St, Knoxville",
     "description": "Weekly Thursday drag show at Knoxville's iconic LGBTQ+ club in Happy Holler. Happy hour 7–9 PM; drag shows at 11:30 PM and 1 AM. Free on Thursdays. Also performs Fridays and Saturdays.",
@@ -2006,7 +2006,7 @@
   },
   {
     "id": "central-flats-trivia",
-    "title": "Trivia Wednesday — Central Flats & Taps",
+    "title": "Trivia Wednesday",
     "category": "Trivia & Games",
     "location": "1204 N Central St, Knoxville",
     "description": "Free weekly trivia at 7 PM at this Happy Holler neighborhood favorite, hosted by Challenge Entertainment. Flatbread pizzas, craft beer, and a comfortable patio right on N Central.",
@@ -2043,7 +2043,7 @@
   },
   {
     "id": "ale-raes-gastropub",
-    "title": "Trivia Tue & Comedy Sun — Ale'Rae's GastroPub",
+    "title": "Trivia Tuesday & Comedy Sunday",
     "category": "Comedy",
     "location": "937 N Broadway, Knoxville",
     "description": "Two weekly events at this North Knoxville gastropub: Tuesday trivia at 7 PM (Challenge Entertainment, gift cards for top teams) and free Sunday comedy with Laugh Alive at 7:30 PM featuring local and touring comedians.",
@@ -2084,7 +2084,7 @@
   },
   {
     "id": "yeehaw-movie-night",
-    "title": "Family Movie Night — Yee-Haw Brewing",
+    "title": "Family Movie Night",
     "category": "Film & Cinema",
     "location": "745 N Broadway, Knoxville",
     "description": "Free Tuesday Family Movie Night 6–9 PM at Yee-Haw's expansive North Knox beer garden with an outdoor amphitheater, fire pits, and 62 taps. Prince's Hot Chicken kitchen on site. All ages welcome.",
@@ -2124,7 +2124,7 @@
   },
   {
     "id": "fountain-city-social",
-    "title": "Trivia, Bingo & Karaoke — Fountain City Social",
+    "title": "Trivia, Bingo & Karaoke",
     "category": "Karaoke",
     "location": "4842 Harvest Mill Way, Knoxville",
     "description": "Voted Best Bar in Knoxville — this 80s-themed cocktail bar packs in weekly events: trivia Wednesdays at 7 PM, music bingo Thursdays, and karaoke dance parties Friday and Saturday nights until midnight.",
@@ -2168,7 +2168,7 @@
   },
   {
     "id": "sevier-burger-trivia",
-    "title": "Trivia Monday — Sevier Ave Burger Co.",
+    "title": "Trivia Monday",
     "category": "Trivia & Games",
     "location": "1120 Sevier Ave, Knoxville",
     "description": "Free Monday trivia at 7 PM at this dog-friendly South Knox burger spot. Hosted by Challenge Entertainment — top teams win prizes. Craft beer, smash burgers, and competitive pub quiz vibes.",
@@ -2206,7 +2206,7 @@
   },
   {
     "id": "sokno-taco-singo",
-    "title": "Singo Music Bingo — SoKno Taco Cantina",
+    "title": "Singo Music Bingo",
     "category": "Trivia & Games",
     "location": "3701 Sevierville Pike, Knoxville",
     "description": "Free Singo (music bingo) every Monday and Thursday at 7 PM at this South Knox taco cantina, hosted by Challenge Entertainment. Monday specials: $13 domestic pitchers all day and $3 house shots.",
@@ -2246,7 +2246,7 @@
   },
   {
     "id": "hiwire-trivia",
-    "title": "Trivia Wednesday — Hi-Wire Brewing",
+    "title": "Trivia Wednesday",
     "category": "Trivia & Games",
     "location": "2020 Barber St, Knoxville",
     "description": "Free Wednesday trivia at 7 PM hosted by Not Rocket Science Trivia at Hi-Wire's South Knox taproom. 20+ craft beers, rooftop deck, and arcade games. Gift card prizes for winning teams.",
@@ -2284,7 +2284,7 @@
   },
   {
     "id": "pink-cactus-karaoke",
-    "title": "Private Karaoke Rooms — The Pink Cactus",
+    "title": "Private Karaoke Rooms",
     "category": "Karaoke",
     "location": "1147 Sevier Ave, Knoxville",
     "description": "South Knoxville's first private karaoke bar with bookable rooms for up to 20 people at $30/hour. Craft cocktails, Latin-inspired bites, and a patio with yard games. Reserve in advance on weekends. Thursday–Sunday.",
@@ -2329,7 +2329,7 @@
   },
   {
     "id": "abridged-beer-trivia",
-    "title": "Trivia Tuesday — Abridged Beer Company",
+    "title": "Trivia Tuesday",
     "category": "Trivia & Games",
     "location": "100 Lockett Rd, Knoxville",
     "description": "Free weekly trivia every Tuesday at 7 PM at Bearden's original brewpub, hosted by Challenge Entertainment. Southern pub fare and rotating craft taps in a neighborhood setting.",
@@ -2366,7 +2366,7 @@
   },
   {
     "id": "bullfeathers-karaoke",
-    "title": "Nightly Karaoke — Bullfeathers Karaoke Cafe",
+    "title": "Nightly Karaoke",
     "category": "Karaoke",
     "location": "10535 Kingston Pike, Knoxville",
     "description": "West Knoxville's dedicated karaoke cafe with open-stage karaoke nightly Tuesday through Saturday starting at 8 PM. Full menu, casual atmosphere — just show up and sing.",
@@ -2411,7 +2411,7 @@
   },
   {
     "id": "core-knoxville",
-    "title": "Drag Shows — CORE Knoxville",
+    "title": "Drag Shows",
     "category": "Theater & Performance",
     "location": "7211 Kingston Pike, Knoxville",
     "description": "West Knoxville's LGBTQ+ bar and grill hosts weekly drag shows Friday through Monday. A welcoming, inclusive neighborhood spot with a full bar and grill open until 3 AM on weekends.",
@@ -2455,7 +2455,7 @@
   },
   {
     "id": "35-north-singo",
-    "title": "Singo Tuesday — 35 North Bar & Grill",
+    "title": "Singo Tuesday",
     "category": "Trivia & Games",
     "location": "11321 Kingston Pike, Knoxville",
     "description": "Free Singo music bingo every Tuesday at 6 PM at this Farragut sports bar with a covered amphitheater courtyard and wood-burning fireplace. Match songs to your bingo card and win prizes.",
@@ -2493,7 +2493,7 @@
   },
   {
     "id": "xul-beer-trivia",
-    "title": "Trivia Wednesday — XUL Beer Company",
+    "title": "Trivia Wednesday",
     "category": "Trivia & Games",
     "location": "10677 Hardin Valley Rd, Knoxville",
     "description": "Free Wednesday trivia at 7 PM hosted by Not Rocket Science Trivia at this Hardin Valley craft brewery near Turkey Creek. Gift card prizes. Relaxed taproom, easy parking.",
@@ -2531,7 +2531,7 @@
   },
   {
     "id": "tennessee-tap-house",
-    "title": "Trivia & Singo — Tennessee Tap House",
+    "title": "Trivia & Singo",
     "category": "Trivia & Games",
     "location": "350 N Peters Rd, Knoxville",
     "description": "Two free weekly events at this Northshore neighborhood bar: Tuesday trivia 7–9 PM and Sunday Singo music bingo at 7 PM. Thursday through Saturday: live acoustic and band performances.",
@@ -2572,7 +2572,7 @@
   },
   {
     "id": "stock-barrel-comedy",
-    "title": "Comedy Night — Stock & Barrel",
+    "title": "Comedy Night",
     "category": "Comedy",
     "location": "35 Market Square, Knoxville",
     "description": "Weekly Thursday comedy showcase at this Market Square burger-and-bourbon staple. Local and regional stand-up comedians perform starting at 9 PM upstairs. No cover.",
@@ -2609,7 +2609,7 @@
   },
   {
     "id": "preservation-pub-comedy",
-    "title": "Open Stage Night — Preservation Pub",
+    "title": "Open Stage Night",
     "category": "Comedy",
     "location": "28 Market Square, Knoxville",
     "description": "Open performance nights at Knoxville's beloved three-story Market Square pub. Rotating mix of stand-up, spoken word, and variety acts every Saturday at 10 PM. Free to attend and perform.",
@@ -2647,7 +2647,7 @@
   },
   {
     "id": "pilot-light-comedy",
-    "title": "Monthly Comedy Showcase — The Pilot Light",
+    "title": "Monthly Comedy Showcase",
     "category": "Comedy",
     "location": "106 E Jackson Ave, Knoxville",
     "description": "Monthly comedy showcase at Old City's beloved indie venue. Touring and local stand-up comedians, small cover, and excellent craft beer. Check socials for monthly date.",
@@ -2684,7 +2684,7 @@
   },
   {
     "id": "fleet-feet-run-club",
-    "title": "Wednesday Night Run Club — Fleet Feet Knoxville",
+    "title": "Wednesday Night Run Club",
     "category": "Fitness & Wellness",
     "location": "525 S Gay St, Knoxville",
     "description": "Free weekly group run from the Gay Street store every Wednesday at 6 PM. Routes range 3–6 miles through downtown and the Riverwalk greenway. All paces welcome — post-run social on the patio.",
@@ -2723,7 +2723,7 @@
   },
   {
     "id": "climb-knx",
-    "title": "Open Climbing — Climb KNX",
+    "title": "Open Climbing",
     "category": "Fitness & Wellness",
     "location": "1645 Downtown West Blvd, Knoxville",
     "description": "Knoxville's dedicated indoor climbing gym with bouldering and top-rope walls. Day passes available — no membership required. Beginner-friendly with an on-site gear shop.",
@@ -2760,7 +2760,7 @@
   },
   {
     "id": "inner-light-yoga",
-    "title": "Drop-In Yoga Classes — Inner Light Yoga",
+    "title": "Drop-In Yoga Classes",
     "category": "Fitness & Wellness",
     "location": "4618 Kingston Pike, Knoxville",
     "description": "Affordable drop-in yoga in Bearden — hatha, vinyasa, yin, and restorative. Weekday morning and evening classes plus weekend options. New-student specials available.",
@@ -2798,7 +2798,7 @@
   },
   {
     "id": "knoxville-track-club",
-    "title": "Saturday Morning Run — Knoxville Track Club",
+    "title": "Saturday Morning Run",
     "category": "Fitness & Wellness",
     "location": "World's Fair Park, Knoxville",
     "description": "One of Knoxville's longest-running free run clubs. Meets Saturday mornings at World's Fair Park — routes range 4–10 miles, all paces welcome. Visitors and tourists encouraged.",
@@ -2836,7 +2836,7 @@
   },
   {
     "id": "old-city-ghost-tours",
-    "title": "Knoxville Ghost Tours — Old City",
+    "title": "Knoxville Ghost Tours",
     "category": "Tours & Experiences",
     "location": "Old City, Knoxville",
     "description": "Lantern-lit walking tour through Knoxville's haunted Old City, exploring 200+ years of dark history at locations like the historic jail, old morgue, and Victorian mansions. Tours run Fri–Sat evenings; October adds Thursday tours.",
@@ -2877,7 +2877,7 @@
   },
   {
     "id": "schulz-brau-brewery-tour",
-    "title": "Brewery Tour — Schulz Bräu Brewing Co.",
+    "title": "Brewery Tour",
     "category": "Tours & Experiences",
     "location": "126 Bernard Ave, Knoxville",
     "description": "Tour Knoxville's German-inspired craft brewery in the Old City neighborhood. See the brewing process and sample fresh German-style lagers. Check their website for current tour schedule and availability.",
@@ -2915,7 +2915,7 @@
   },
   {
     "id": "marble-springs-tours",
-    "title": "Historic Tours — Marble Springs Governor's Mansion",
+    "title": "Historic Tours",
     "category": "Tours & Experiences",
     "location": "1220 W Governor John Sevier Hwy, Knoxville",
     "description": "Free guided tours of Tennessee's last surviving 18th-century log house complex, home of Governor John Sevier. Open Saturdays April–December, 10 AM–5 PM. Costumed interpreters bring early Knoxville to life.",
@@ -2964,7 +2964,7 @@
   },
   {
     "id": "volunteer-landing-kayak",
-    "title": "Kayak & Paddleboard Rentals — Volunteer Landing",
+    "title": "Kayak & Paddleboard Rentals",
     "category": "Tours & Experiences",
     "location": "400 Neyland Dr, Knoxville",
     "description": "Rent a kayak, canoe, or stand-up paddleboard on the Tennessee River at Volunteer Landing. Scenic float past Henley Street Bridge, World's Fair Park, and the downtown skyline. No experience needed.",
@@ -2998,7 +2998,7 @@
   },
   {
     "id": "tennessee-theatre-film",
-    "title": "Classic Film Series — Tennessee Theatre",
+    "title": "Classic Film Series",
     "category": "Film & Cinema",
     "location": "604 S Gay St, Knoxville",
     "description": "Monthly classic and cult film screenings inside Knoxville's historic 1928 movie palace, complete with its magnificent Wurlitzer organ. Rotating lineup of golden Hollywood, Hitchcock, and beloved cult films.",
@@ -3079,7 +3079,7 @@
   },
   {
     "id": "kma-film-series",
-    "title": "Art House Film Series — Knoxville Museum of Art",
+    "title": "Art House Film Series",
     "category": "Film & Cinema",
     "location": "1050 World's Fair Park Dr, Knoxville",
     "description": "Monthly art house and documentary film screenings at the KMA, paired with curator talks and Q&A sessions. Films tie into current exhibitions or regional themes. Free with museum admission (admission is free).",
@@ -3212,7 +3212,7 @@
   },
   {
     "id": "second-saturday-art-market",
-    "title": "Second Saturday Art Market — Old City",
+    "title": "Second Saturday Art Market",
     "category": "Markets",
     "location": "Old City, Knoxville",
     "description": "Monthly pop-up art and maker market in the Old City every second Saturday. Local artists, jewelers, potters, printmakers, and vintage dealers. Free to browse — shop local and meet the makers.",
@@ -3250,7 +3250,7 @@
   },
   {
     "id": "knox-makers-open-house",
-    "title": "Open House Night — Knox Makers",
+    "title": "Open House Night",
     "category": "Community & Civic",
     "location": "1450 E Weisgarber Rd, Knoxville",
     "description": "Knoxville's community makerspace hosts weekly open house nights — tour the facility, try tools, and meet the maker community. 3D printers, laser cutters, woodshop, electronics lab, and more. Free to visit.",
@@ -3289,7 +3289,7 @@
   },
   {
     "id": "keep-knoxville-beautiful",
-    "title": "Volunteer Cleanup — Keep Knoxville Beautiful",
+    "title": "Volunteer Cleanup",
     "category": "Community & Civic",
     "location": "Various Knoxville Neighborhoods",
     "description": "Monthly neighborhood beautification events organized by Keep Knoxville Beautiful. Clean up parks, plant trees, and improve community spaces across the city. All supplies provided, all welcome.",
@@ -3326,7 +3326,7 @@
   },
   {
     "id": "knoxville-young-professionals",
-    "title": "Monthly Mixer — Knoxville Young Professionals",
+    "title": "Monthly Mixer",
     "category": "Community & Civic",
     "location": "Rotating Venue, Knoxville",
     "description": "Monthly networking mixer for Knoxville professionals in their 20s–40s. Rotating venues around downtown and midtown — follow KYP for the monthly location announcement.",
@@ -3363,7 +3363,7 @@
   },
   {
     "id": "knoxville-swing-dance",
-    "title": "Swing Dance Night — Knoxville Swing Dance Society",
+    "title": "Swing Dance Night",
     "category": "Dancing",
     "location": "Rotating Venue, Knoxville",
     "description": "The Knoxville Swing Dance Society hosts regular swing dance nights for all skill levels — beginners welcome, no partner needed. A mix of lindy hop, east coast swing, and balboa. Check their Facebook for current venue and date.",
@@ -3400,7 +3400,7 @@
   },
   {
     "id": "salty-dog-karaoke",
-    "title": "Nightly Karaoke — The Salty Dog Saloon",
+    "title": "Nightly Karaoke",
     "category": "Karaoke",
     "location": "708 Sevier Ave, Knoxville",
     "description": "Late-night karaoke most nights of the week at this South Knoxville dive bar on Sevier Ave. No frills, great crowd, a deep song library, and the kind of place where strangers become friends over a microphone.",
@@ -3592,7 +3592,7 @@
   },
   {
     "id": "barrelhouse-bottomless",
-    "title": "Bottomless Cidermosas $19 — Barrelhouse by Gypsy Circus",
+    "title": "Bottomless Cidermosas $19",
     "category": "Happy Hour & Specials",
     "location": "621 Lamar St, Knoxville",
     "description": "$19 bottomless cidermosas every Saturday and Sunday 11 AM–4 PM at this Old North Knox cider and mead taproom. Hard cider in place of wine makes these a uniquely Knoxville twist on the classic brunch drink.",
@@ -3675,7 +3675,7 @@
   },
   {
     "id": "loco-burro-brunch",
-    "title": "Sunday Bottomless Mimosa Brunch — Loco Burro",
+    "title": "Sunday Bottomless Mimosa Brunch",
     "category": "Happy Hour & Specials",
     "location": "7600 Kingston Pike, Knoxville",
     "description": "Every Sunday 10 AM–3 PM, Loco Burro's rooftop bar transforms into a brunch destination with bottomless mimosas and a full brunch menu. One of West Knoxville's best Sunday brunches with skyline views.",
@@ -3712,7 +3712,7 @@
   },
   {
     "id": "tupelo-honey-mimosa-monday",
-    "title": "Mimosa Monday — Tupelo Honey",
+    "title": "Mimosa Monday",
     "category": "Happy Hour & Specials",
     "location": "1 Market Sq, Knoxville",
     "description": "$2 off all mimosas every Monday at Tupelo Honey on Market Square — the Southern-inspired kitchen that does brunch right. Plus their famous Hoot & Holler Happy Hour runs Mon–Fri 4–6 PM: ½ off apps, $2 off drinks.",
@@ -3750,7 +3750,7 @@
   },
   {
     "id": "chesapeakes-sunday-brunch",
-    "title": "Sunday Seafood Brunch Buffet — Chesapeake's",
+    "title": "Sunday Seafood Brunch Buffet",
     "category": "Happy Hour & Specials",
     "location": "9630 Parkside Dr, Knoxville",
     "description": "Sunday brunch buffet 10:30 AM–2:30 PM: $33 adults, $15 children 12 & under. Fresh seafood bar, bloody mary bar, brunch entrees, and raw bar. One of Knoxville's most indulgent weekend experiences. Reservations recommended.",
@@ -3788,7 +3788,7 @@
   },
   {
     "id": "seasons-brunch-buffet",
-    "title": "Weekend Brunch Buffet — Seasons Bar & Grille",
+    "title": "Weekend Brunch Buffet",
     "category": "Happy Hour & Specials",
     "location": "11605 Parkside Dr, Knoxville",
     "description": "Saturday and Sunday brunch buffet 11 AM–2:30 PM. $28.95 adults, $15.95 children 6–12, kids 5 & under free. Full spread of brunch classics in a relaxed Farragut-area setting.",
@@ -3828,7 +3828,7 @@
   },
   {
     "id": "trailhead-happy-hour",
-    "title": "All-Day Happy Hour Monday — Trailhead Beer Market",
+    "title": "$1 Off All Drafts All Day Monday",
     "category": "Happy Hour & Specials",
     "location": "1317 Island Home Ave, Knoxville",
     "description": "$1 off ALL drafts all day Monday — plus daily happy hour Tue–Fri 3–6 PM. South Knoxville's best craft beer bar with an enormous tap list and a neighborhood vibe that can't be beat.",
@@ -3867,7 +3867,7 @@
   },
   {
     "id": "fin-two-happy-hour",
-    "title": "$1 Nigiri & Yakitori Happy Hour — Fin Two",
+    "title": "$1 Nigiri & $1 Yakitori",
     "category": "Happy Hour & Specials",
     "location": "122 S Central Ave, Knoxville",
     "description": "Mon–Thu 3–5 PM: $1 nigiri and $1 yakitori small plates plus discounted sake, soju, and local brews. One of Knoxville's best-value happy hours — Japanese pub food at bar-snack prices in Old City.",
@@ -3913,7 +3913,7 @@
   },
   {
     "id": "sokno-happy-hour",
-    "title": "Happy Hour + Free Trivia — SoKno Taco Cantina",
+    "title": "$5 Cocktails, $4 Drafts & Free Trivia",
     "category": "Happy Hour & Specials",
     "location": "3701 Sevierville Pike, Knoxville",
     "description": "Mon–Fri 4–7 PM: $5 original cocktails, $4 domestic drafts, $5 craft drafts, $3.50 guac/queso/salsa, $8 nachos. Then stay for FREE trivia 7–9 PM with extended happy hour pricing for trivia players.",
@@ -3960,7 +3960,7 @@
   },
   {
     "id": "tupelo-honey-happy-hour",
-    "title": "Hoot & Holler Happy Hour — Tupelo Honey",
+    "title": "Hoot & Holler: ½ Off Apps & $5 Wells",
     "category": "Happy Hour & Specials",
     "location": "1 Market Sq, Knoxville",
     "description": "Mon–Fri 4–6 PM: ½ off appetizers, $2 off beers & wines, $5 well spirits. Plus daily drink specials: Tini Tuesdays ($3 cocktails), Wine Wednesdays (½ off bottles), Tequila Thursdays ($6 margaritas).",
@@ -4006,7 +4006,7 @@
   },
   {
     "id": "balter-happy-hour",
-    "title": "Happy Hour — Balter Beerworks",
+    "title": "$3 Craft Beers, $1.50 Tacos & Sliders",
     "category": "Happy Hour & Specials",
     "location": "Standard St, Knoxville",
     "description": "Mon–Fri 3–6:30 PM: $3 craft beers, $1.50 tacos & sliders, $3 chips & queso, $4 pimento & hummus plates. Knoxville's beloved craft brewery in a restored service station — happy hour food here is a steal.",
@@ -4054,7 +4054,7 @@
   },
   {
     "id": "the-farmacy-happy-hour",
-    "title": "Happy Hour — The Farmacy",
+    "title": "½ Off Apps, $3 Tacos & $5 Wine",
     "category": "Happy Hour & Specials",
     "location": "5018 Kingston Pike, Knoxville",
     "description": "Mon–Fri 4–6 PM: ½ off appetizers, $3 tacos, $10 hot chicken plate, $5 house wines, $3 house drafts, and $2 bubbles. Exceptional food + drink combo deals at this upscale West Knox spot.",
@@ -4100,7 +4100,7 @@
   },
   {
     "id": "marble-city-happy-hour",
-    "title": "Happy Hour — Marble City Market",
+    "title": "$3 Drafts & Prosecco at the Food Hall",
     "category": "Happy Hour & Specials",
     "location": "333 W Depot Ave, Knoxville",
     "description": "Tue–Wed 5–7 PM, Thu–Fri 4–6 PM: $3 drafts, $3 prosecco, $5 house liquor. Knoxville's premier food hall with 11 restaurant concepts and a 40-seat bar — happy hour here means you can try multiple spots for the price of one.",
@@ -4145,7 +4145,7 @@
   },
   {
     "id": "tern-club-happy-hour",
-    "title": "Happy Hour — Tern Club",
+    "title": "$8 Craft Cocktails & $1 Off Drafts",
     "category": "Happy Hour & Specials",
     "location": "135 S Gay St, Knoxville",
     "description": "Daily until 6 PM: $1 off drafts, house wines & well spirits, plus $8 craft cocktails (mojitos, palomas, tamarind whiskey sours). Stylish downtown bar on Gay Street with one of the best cocktail happy hours in Knoxville.",
@@ -4197,7 +4197,7 @@
   },
   {
     "id": "redbud-kitchen-happy-hour",
-    "title": "Happy Hour — Redbud Kitchen",
+    "title": "$5 Bites & $5 Craft Cocktails",
     "category": "Happy Hour & Specials",
     "location": "906 Sevier Ave, Knoxville",
     "description": "Mon–Fri 4–7 PM: $5 bites (pickle chips, tots, queso), $5 pours on select wines & craft cocktails, $1 off wine bottles & draft beers. South Knoxville neighborhood gem in the heart of the Old Sevier strip.",
