@@ -115,6 +115,7 @@
       "isAccessibleForFree": true,
       "offers": {"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock","validFrom":"2026-01-01","url":"https://www.theknoxpulse.com/?event=art-walk"},
       "organizer": {"@type":"Organization","name":"Dogwood Arts","url":"https://www.dogwoodarts.com"},
+      "performer": {"@type":"PerformingGroup","name":"Local Knoxville Artists & Musicians"},
       "eventSchedule": {
         "@type": "Schedule",
         "repeatFrequency": "P1M",
@@ -3020,9 +3021,9 @@ function buildCard(l){
         ${l.neighborhood?`<span class="chip chip-dist" style="font-size:.65rem;">${l.neighborhood}</span>`:''}
       </div>
       <div class="card-title">${l.title}</div>
-      ${schedLine?`<div class="next-occ">🗓 ${schedLine}</div>`:''}
       ${venueDisplay?`<div class="card-venue">🏠 ${venueDisplay}</div>`:''}
       <div class="card-loc">📍 ${l.location}</div>
+      ${schedLine?`<div class="next-occ">🗓 ${schedLine}</div>`:''}
       ${price?`<div class="card-price">${price}</div>`:''}
       <div class="card-desc">${l.description}</div>
       <div class="rating-row">
