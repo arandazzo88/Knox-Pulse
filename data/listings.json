@@ -190,7 +190,10 @@
     ],
     "neighborhood": "Old City",
     "lat": 35.968,
-    "lng": -83.9107
+    "lng": -83.9107,
+    "website": "https://www.milb.com/knoxville",
+    "phone": "(865) 286-2300",
+    "instagram": "smokiesbaseball"
   },
   {
     "id": "ice-bears",
@@ -284,7 +287,11 @@
     ],
     "neighborhood": "Downtown",
     "lat": 35.9633,
-    "lng": -83.9183
+    "lng": -83.9183,
+    "website": "https://wdvx.com",
+    "phone": "(865) 544-1029",
+    "instagram": "wdvx",
+    "email": "info@wdvx.com"
   },
   {
     "id": "tennessee-theatre",
@@ -321,7 +328,10 @@
     "neighborhood": "Downtown",
     "lat": 35.9635,
     "lng": -83.9187,
-    "venueName": "Tennessee Theatre"
+    "venueName": "Tennessee Theatre",
+    "website": "https://www.tennesseetheatre.com",
+    "phone": "(865) 684-1200",
+    "instagram": "tntheatre"
   },
   {
     "id": "bijou-theatre",
@@ -359,7 +369,11 @@
     "neighborhood": "Downtown",
     "lat": 35.9624,
     "lng": -83.9183,
-    "venueName": "Bijou Theatre"
+    "venueName": "Bijou Theatre",
+    "website": "https://knoxbijou.org",
+    "phone": "(865) 522-0832",
+    "instagram": "bijoutheatre",
+    "email": "info@knoxbijou.org"
   },
   {
     "id": "mill-and-mine",
@@ -396,7 +410,10 @@
     "neighborhood": "Old City",
     "lat": 35.9683,
     "lng": -83.919,
-    "venueName": "The Mill & Mine"
+    "venueName": "The Mill & Mine",
+    "website": "https://themillandmine.com",
+    "phone": "(865) 343-6000",
+    "instagram": "themillandmine"
   },
   {
     "id": "barleys-taproom",
@@ -441,7 +458,10 @@
     "neighborhood": "Old City",
     "lat": 35.9671,
     "lng": -83.9149,
-    "venueName": "Barley's Taproom & Pizzeria"
+    "venueName": "Barley's Taproom & Pizzeria",
+    "website": "https://barleysknoxville.com",
+    "phone": "(865) 521-0092",
+    "instagram": "barleysknoxville"
   },
   {
     "id": "market-sq",
@@ -479,7 +499,10 @@
     ],
     "neighborhood": "Market Square",
     "lat": 35.966,
-    "lng": -83.9185
+    "lng": -83.9185,
+    "website": "https://www.nourishknoxville.org",
+    "phone": "(865) 805-8687",
+    "instagram": "nourishmarkets"
   },
   {
     "id": "marble-city-market",
@@ -517,7 +540,9 @@
     "neighborhood": "Old City",
     "lat": 35.9686,
     "lng": -83.9181,
-    "venueName": "Marble City Market"
+    "venueName": "Marble City Market",
+    "website": "https://www.marblecitymarket.com",
+    "instagram": "marblecitymarket"
   },
   {
     "id": "ijams",
@@ -555,7 +580,10 @@
     "neighborhood": "South Knoxville",
     "lat": 35.9415,
     "lng": -83.8868,
-    "venueName": "Ijams Nature Center"
+    "venueName": "Ijams Nature Center",
+    "website": "https://www.ijams.org",
+    "phone": "(865) 577-4717",
+    "instagram": "ijamsnaturecenter"
   },
   {
     "id": "tennessee-riverwalk",
@@ -701,7 +729,10 @@
     "neighborhood": "World's Fair Park",
     "lat": 35.9622,
     "lng": -83.9248,
-    "venueName": "Knoxville Museum of Art"
+    "venueName": "Knoxville Museum of Art",
+    "website": "https://knoxart.org",
+    "phone": "(865) 525-6101",
+    "instagram": "knoxvillemuseumofart"
   },
   {
     "id": "east-tn-history",
@@ -779,7 +810,9 @@
     "neighborhood": "East Knoxville",
     "lat": 35.9836,
     "lng": -83.8754,
-    "venueName": "Zoo Knoxville"
+    "venueName": "Zoo Knoxville",
+    "website": "https://www.zooknoxville.org",
+    "instagram": "zooknoxville"
   },
   {
     "id": "big-ears",
@@ -818,7 +851,9 @@
     ],
     "neighborhood": "Downtown",
     "lat": 35.9648,
-    "lng": -83.9186
+    "lng": -83.9186,
+    "website": "https://bigearsfestival.org",
+    "instagram": "bigearsfestival"
   },
   {
     "id": "dogwood-arts",
@@ -1057,7 +1092,10 @@
     "neighborhood": "Farragut",
     "lat": 35.9308,
     "lng": -84.0803,
-    "venueName": "Cotton Eyed Joe"
+    "venueName": "Cotton Eyed Joe",
+    "website": "https://www.cottoneyedjoe.com",
+    "instagram": "cottoneyedjoeknoxvilletn",
+    "email": "info@cottoneyedjoe.com"
   },
   {
     "id": "pilot-light",
@@ -1099,7 +1137,10 @@
     "neighborhood": "Old City",
     "lat": 35.9671,
     "lng": -83.9143,
-    "venueName": "The Pilot Light"
+    "venueName": "The Pilot Light",
+    "website": "https://thepilotlight.com",
+    "phone": "(865) 524-8188",
+    "instagram": "pilotlightknox"
   },
   {
     "id": "saluto",
@@ -3670,7 +3711,11 @@
     "neighborhood": "Fort Sanders",
     "lat": 35.9598,
     "lng": -83.9356,
-    "venueName": "Muse Knoxville"
+    "venueName": "Muse Knoxville",
+    "website": "https://themuseknoxville.org",
+    "phone": "(865) 594-1494",
+    "instagram": "museknox",
+    "email": "info@themuseknoxville.org"
   },
   {
     "id": "barrelhouse-bottomless",
@@ -3715,7 +3760,10 @@
     "neighborhood": "Old North Knox",
     "lat": 35.9712,
     "lng": -83.9158,
-    "venueName": "Barrelhouse by Gypsy Circus"
+    "venueName": "Barrelhouse by Gypsy Circus",
+    "website": "https://gypsycircuscider.com",
+    "phone": "(865) 424-7753",
+    "instagram": "barrelhouseknoxville"
   },
   {
     "id": "mimosas-knoxville",
@@ -3797,7 +3845,10 @@
     "neighborhood": "West Knoxville",
     "lat": 35.9213,
     "lng": -84.0785,
-    "venueName": "Chesapeake's"
+    "venueName": "Chesapeake's",
+    "website": "https://chesapeakes.com",
+    "phone": "(865) 851-9088",
+    "instagram": "chesapeakes"
   },
   {
     "id": "trailhead-happy-hour",
@@ -3838,7 +3889,9 @@
     "neighborhood": "South Knoxville",
     "lat": 35.9476,
     "lng": -83.8989,
-    "venueName": "Trailhead Beer Market"
+    "venueName": "Trailhead Beer Market",
+    "phone": "(865) 409-4058",
+    "instagram": "trailheadbeer"
   },
   {
     "id": "fin-two-happy-hour",
@@ -3886,7 +3939,10 @@
     "neighborhood": "Old City",
     "lat": 35.9671,
     "lng": -83.9143,
-    "venueName": "Fin Two"
+    "venueName": "Fin Two",
+    "website": "https://fin-two.com",
+    "phone": "(865) 437-3105",
+    "instagram": "fintwoknox"
   },
   {
     "id": "tupelo-honey-happy-hour",
@@ -3934,7 +3990,9 @@
     "neighborhood": "Market Square",
     "lat": 35.9656,
     "lng": -83.9182,
-    "venueName": "Tupelo Honey"
+    "venueName": "Tupelo Honey",
+    "website": "https://www.tupelohoneycafe.com/restaurant/knoxville/",
+    "phone": "(865) 522-0004"
   },
   {
     "id": "balter-happy-hour",
@@ -3984,7 +4042,10 @@
     "neighborhood": "Old City",
     "lat": 35.9667,
     "lng": -83.9135,
-    "venueName": "Balter Beerworks"
+    "venueName": "Balter Beerworks",
+    "website": "https://www.balterbeerworks.com",
+    "phone": "(865) 999-5015",
+    "instagram": "balterbeerworks"
   },
   {
     "id": "marble-city-happy-hour",
@@ -4031,6 +4092,8 @@
     "neighborhood": "Old City",
     "lat": 35.9686,
     "lng": -83.9181,
-    "venueName": "Marble City Market"
+    "venueName": "Marble City Market",
+    "website": "https://www.marblecitymarket.com",
+    "instagram": "marblecitymarket"
   }
 ]

@@ -873,6 +873,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div id="modal-chips" class="modal-chips"></div>
       <p id="modal-desc" class="modal-desc"></p>
+      <div id="modal-contact-section" class="modal-section" style="display:none;">
+        <h3>📬 Contact</h3>
+        <div id="modal-contact" style="display:flex;flex-direction:column;gap:8px;"></div>
+      </div>
       <div id="modal-map-preview" style="display:none;height:180px;border-radius:10px;overflow:hidden;margin-bottom:16px;"></div>
       <div style="margin-bottom:20px;">
         <button class="suggest-edit-btn" onclick="openEditModal()">✏️ Suggest an Edit</button>
@@ -2252,48 +2256,48 @@ const LISTING_META = {
   'vols-basketball':     { neighborhood:'UT Area',        lat:35.9507, lng:-83.9377 },
   'women-basketball':    { neighborhood:'UT Area',        lat:35.9507, lng:-83.9377 },
   // Downtown Gay St corridor
-  'wdvx':                { neighborhood:'Downtown',       lat:35.9633, lng:-83.9183 },
-  'tennessee-theatre':   { neighborhood:'Downtown',       lat:35.9635, lng:-83.9187 , venueName:'Tennessee Theatre'},
-  'bijou-theatre':       { neighborhood:'Downtown',       lat:35.9624, lng:-83.9183 , venueName:'Bijou Theatre'},
+  'wdvx':                { neighborhood:'Downtown',       lat:35.9633, lng:-83.9183 , website:'https://wdvx.com', phone:'(865) 544-1029', instagram:'wdvx', email:'info@wdvx.com'},
+  'tennessee-theatre':   { neighborhood:'Downtown',       lat:35.9635, lng:-83.9187 , venueName:'Tennessee Theatre', website:'https://www.tennesseetheatre.com', phone:'(865) 684-1200', instagram:'tntheatre'},
+  'bijou-theatre':       { neighborhood:'Downtown',       lat:35.9624, lng:-83.9183 , venueName:'Bijou Theatre', website:'https://knoxbijou.org', phone:'(865) 522-0832', instagram:'bijoutheatre', email:'info@knoxbijou.org'},
   'sunsphere':           { neighborhood:"World's Fair Park", lat:35.9615, lng:-83.9243 , venueName:'Sunsphere & World\'s Fair Park'},
   'rooftop-yoga':        { neighborhood:'Downtown',       lat:35.9649, lng:-83.9196 },
   'art-walk':            { neighborhood:'Downtown',       lat:35.9655, lng:-83.9180 },
-  'knoxville-museum-art':{ neighborhood:"World's Fair Park", lat:35.9622, lng:-83.9248 , venueName:'Knoxville Museum of Art'},
+  'knoxville-museum-art':{ neighborhood:"World's Fair Park", lat:35.9622, lng:-83.9248 , venueName:'Knoxville Museum of Art', website:'https://knoxart.org', phone:'(865) 525-6101', instagram:'knoxvillemuseumofart'},
   'east-tn-history':     { neighborhood:'Downtown',       lat:35.9631, lng:-83.9193 , venueName:'East Tennessee History Center'},
   // Market Square cluster
-  'market-sq':           { neighborhood:'Market Square',  lat:35.9660, lng:-83.9185 },
+  'market-sq':           { neighborhood:'Market Square',  lat:35.9660, lng:-83.9185 , website:'https://www.nourishknoxville.org', phone:'(865) 805-8687', instagram:'nourishmarkets'},
   'summer-concerts':     { neighborhood:'Market Square',  lat:35.9660, lng:-83.9185 },
   'midnight-ramble':     { neighborhood:'Market Square',  lat:35.9660, lng:-83.9185 },
   'saluto':              { neighborhood:'Market Square',  lat:35.9656, lng:-83.9182 , venueName:'Preservation Pub'},
   'silent-disco':        { neighborhood:'Market Square',  lat:35.9656, lng:-83.9182 , venueName:'Preservation Pub'},
   // Old City / Depot district
-  'pilot-light':         { neighborhood:'Old City',       lat:35.9671, lng:-83.9143 , venueName:'The Pilot Light'},
-  'barleys-taproom':     { neighborhood:'Old City',       lat:35.9671, lng:-83.9149 , venueName:'Barley\'s Taproom & Pizzeria'},
+  'pilot-light':         { neighborhood:'Old City',       lat:35.9671, lng:-83.9143 , venueName:'The Pilot Light', website:'https://thepilotlight.com', phone:'(865) 524-8188', instagram:'pilotlightknox'},
+  'barleys-taproom':     { neighborhood:'Old City',       lat:35.9671, lng:-83.9149 , venueName:'Barley\'s Taproom & Pizzeria', website:'https://barleysknoxville.com', phone:'(865) 521-0092', instagram:'barleysknoxville'},
   'jazz-bistro':         { neighborhood:'Old City',       lat:35.9683, lng:-83.9190 },
-  'mill-and-mine':       { neighborhood:'Old City',       lat:35.9683, lng:-83.9190 , venueName:'The Mill & Mine'},
-  'marble-city-market':  { neighborhood:'Old City',       lat:35.9686, lng:-83.9181 , venueName:'Marble City Market'},
-  'smokies-baseball':    { neighborhood:'Old City',       lat:35.9680, lng:-83.9107 },
+  'mill-and-mine':       { neighborhood:'Old City',       lat:35.9683, lng:-83.9190 , venueName:'The Mill & Mine', website:'https://themillandmine.com', phone:'(865) 343-6000', instagram:'themillandmine'},
+  'marble-city-market':  { neighborhood:'Old City',       lat:35.9686, lng:-83.9181 , venueName:'Marble City Market', website:'https://www.marblecitymarket.com', instagram:'marblecitymarket'},
+  'smokies-baseball':    { neighborhood:'Old City',       lat:35.9680, lng:-83.9107 , website:'https://www.milb.com/knoxville', phone:'(865) 286-2300', instagram:'smokiesbaseball'},
   'rave-old-city':       { neighborhood:'Old City',       lat:35.9670, lng:-83.9150 },
   'secret-cinema':       { neighborhood:'Old City',       lat:35.9670, lng:-83.9155 },
   // Civic / Coliseum area
   'ice-bears':           { neighborhood:'Downtown',       lat:35.9652, lng:-83.9060 },
   // Riverfront / World's Fair
   'tennessee-riverwalk': { neighborhood:'Downtown',       lat:35.9570, lng:-83.9270 },
-'big-ears':            { neighborhood:'Downtown',       lat:35.9648, lng:-83.9186 },
+'big-ears':            { neighborhood:'Downtown',       lat:35.9648, lng:-83.9186 , website:'https://bigearsfestival.org', instagram:'bigearsfestival'},
   'dogwood-arts':        { neighborhood:"World's Fair Park", lat:35.9615, lng:-83.9243 },
   'knox-pride':          { neighborhood:"World's Fair Park", lat:35.9615, lng:-83.9243 },
   'knoxville-marathon':  { neighborhood:'Downtown',       lat:35.9615, lng:-83.9243 },
   // South Knoxville
-  'ijams':               { neighborhood:'South Knoxville',  lat:35.9415, lng:-83.8868 , venueName:'Ijams Nature Center'},
+  'ijams':               { neighborhood:'South Knoxville',  lat:35.9415, lng:-83.8868 , venueName:'Ijams Nature Center', website:'https://www.ijams.org', phone:'(865) 577-4717', instagram:'ijamsnaturecenter'},
   'bluegrass-jam':       { neighborhood:'South Knoxville',  lat:35.9497, lng:-83.9105 },
   // East Knoxville
-  'zoo-knoxville':       { neighborhood:'East Knoxville',   lat:35.9836, lng:-83.8754 , venueName:'Zoo Knoxville'},
+  'zoo-knoxville':       { neighborhood:'East Knoxville',   lat:35.9836, lng:-83.8754 , venueName:'Zoo Knoxville', website:'https://www.zooknoxville.org', instagram:'zooknoxville'},
   'tennessee-valley-fair':{ neighborhood:'East Knoxville',  lat:35.9793, lng:-83.8843 },
   // North Knoxville
   'honky-tonk-thursday': { neighborhood:'North Knoxville',  lat:35.9839, lng:-83.9367 , venueName:'The International'},
   'roller-derby':        { neighborhood:'North Knoxville',  lat:35.9850, lng:-83.9700 },
   // West Knoxville
-  'cotton-eyed-joe':     { neighborhood:'Farragut',         lat:35.9308, lng:-84.0803 , venueName:'Cotton Eyed Joe'},
+  'cotton-eyed-joe':     { neighborhood:'Farragut',         lat:35.9308, lng:-84.0803 , venueName:'Cotton Eyed Joe', website:'https://www.cottoneyedjoe.com', instagram:'cottoneyedjoeknoxvilletn', email:'info@cottoneyedjoe.com'},
   // Northshore / Sequoyah Hills
   'drum-circle':         { neighborhood:'Sequoyah Hills',   lat:35.9585, lng:-83.9583 },
   // Smokies
@@ -2362,19 +2366,19 @@ const LISTING_META = {
   'knoxville-young-professionals':{ neighborhood:'Downtown',     lat:35.9649, lng:-83.9186 },
   // Happy Hour & Specials
   'mimosas-knoxville':         { neighborhood:'South Knoxville',  lat:35.9490, lng:-83.9052 , venueName:'Mimosas'},
-  'chesapeakes-sunday-brunch': { neighborhood:'West Knoxville',   lat:35.9213, lng:-84.0785 , venueName:'Chesapeake\'s'},
-  'trailhead-happy-hour':      { neighborhood:'South Knoxville',  lat:35.9476, lng:-83.8989 , venueName:'Trailhead Beer Market'},
-  'fin-two-happy-hour':        { neighborhood:'Old City',         lat:35.9671, lng:-83.9143 , venueName:'Fin Two'},
-  'tupelo-honey-happy-hour':   { neighborhood:'Market Square',    lat:35.9656, lng:-83.9182 , venueName:'Tupelo Honey'},
-  'balter-happy-hour':         { neighborhood:'Old City',         lat:35.9667, lng:-83.9135 , venueName:'Balter Beerworks'},
-  'marble-city-happy-hour':    { neighborhood:'Old City',         lat:35.9686, lng:-83.9181 , venueName:'Marble City Market'},
-  'barrelhouse-bottomless':    { neighborhood:'Old North Knox',   lat:35.9712, lng:-83.9158 , venueName:'Barrelhouse by Gypsy Circus'},
+  'chesapeakes-sunday-brunch': { neighborhood:'West Knoxville',   lat:35.9213, lng:-84.0785 , venueName:'Chesapeake\'s', website:'https://chesapeakes.com', phone:'(865) 851-9088', instagram:'chesapeakes'},
+  'trailhead-happy-hour':      { neighborhood:'South Knoxville',  lat:35.9476, lng:-83.8989 , venueName:'Trailhead Beer Market', phone:'(865) 409-4058', instagram:'trailheadbeer'},
+  'fin-two-happy-hour':        { neighborhood:'Old City',         lat:35.9671, lng:-83.9143 , venueName:'Fin Two', website:'https://fin-two.com', phone:'(865) 437-3105', instagram:'fintwoknox'},
+  'tupelo-honey-happy-hour':   { neighborhood:'Market Square',    lat:35.9656, lng:-83.9182 , venueName:'Tupelo Honey', website:'https://www.tupelohoneycafe.com/restaurant/knoxville/', phone:'(865) 522-0004'},
+  'balter-happy-hour':         { neighborhood:'Old City',         lat:35.9667, lng:-83.9135 , venueName:'Balter Beerworks', website:'https://www.balterbeerworks.com', phone:'(865) 999-5015', instagram:'balterbeerworks'},
+  'marble-city-happy-hour':    { neighborhood:'Old City',         lat:35.9686, lng:-83.9181 , venueName:'Marble City Market', website:'https://www.marblecitymarket.com', instagram:'marblecitymarket'},
+  'barrelhouse-bottomless':    { neighborhood:'Old North Knox',   lat:35.9712, lng:-83.9158 , venueName:'Barrelhouse by Gypsy Circus', website:'https://gypsycircuscider.com', phone:'(865) 424-7753', instagram:'barrelhouseknoxville'},
   'knoxville-swing-dance':     { neighborhood:'Rotating',         lat:35.9606, lng:-83.9207 },
   'salty-dog-karaoke':         { neighborhood:'South Knoxville',  lat:35.9448, lng:-83.9003 , venueName:'The Salty Dog Saloon'},
   'house-mountain':            { neighborhood:'Corryton',         lat:36.1107, lng:-83.8060 },
   'rossini-festival':          { neighborhood:'Market Square',    lat:35.9656, lng:-83.9182 },
   'emporium-center':           { neighborhood:'Downtown',         lat:35.9635, lng:-83.9193 , venueName:'Emporium Center for Arts & Culture'},
-  'muse-knoxville':            { neighborhood:'Fort Sanders',     lat:35.9598, lng:-83.9356 , venueName:'Muse Knoxville'},
+  'muse-knoxville':            { neighborhood:'Fort Sanders',     lat:35.9598, lng:-83.9356 , venueName:'Muse Knoxville', website:'https://themuseknoxville.org', phone:'(865) 594-1494', instagram:'museknox', email:'info@themuseknoxville.org'},
 };
 // Merge meta into LISTINGS
 LISTINGS.forEach(l => { if(LISTING_META[l.id]) Object.assign(l, LISTING_META[l.id]); });
@@ -3149,21 +3153,16 @@ function openDetail(id){
   else{priceEl.style.display='none';}
   document.getElementById('modal-desc').textContent=l.description;
 
-  // Contact info — injected dynamically, removed when no data
-  let contactEl=document.getElementById('modal-contact');
-  if(!contactEl){
-    contactEl=document.createElement('div');
-    contactEl.id='modal-contact';
-    contactEl.style.cssText='margin-bottom:14px;display:flex;flex-direction:column;gap:6px;';
-    document.getElementById('modal-desc').insertAdjacentElement('afterend',contactEl);
-  }
+  // Contact info section
+  const contactSection=document.getElementById('modal-contact-section');
+  const contactEl=document.getElementById('modal-contact');
   const links=[];
   if(l.phone) links.push(`<a href="tel:${l.phone.replace(/[^\d+]/g,'')}" style="color:var(--orange);text-decoration:none;font-size:.85rem;">📞 ${l.phone}</a>`);
   if(l.website) links.push(`<a href="${l.website}" target="_blank" rel="noopener" style="color:var(--orange);text-decoration:none;font-size:.85rem;">🌐 ${l.website.replace(/^https?:\/\//,'')}</a>`);
   if(l.email) links.push(`<a href="mailto:${l.email}" style="color:var(--orange);text-decoration:none;font-size:.85rem;">✉️ ${l.email}</a>`);
   if(l.instagram) links.push(`<a href="https://instagram.com/${l.instagram}" target="_blank" rel="noopener" style="color:var(--orange);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:5px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>@${l.instagram}</a>`);
   contactEl.innerHTML=links.join('');
-  contactEl.style.display=links.length?'flex':'none';
+  contactSection.style.display=links.length?'':'none';
 
   const chips=document.getElementById('modal-chips');
   chips.innerHTML=`
