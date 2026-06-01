@@ -2384,6 +2384,73 @@ const LISTING_META = {
 LISTINGS.forEach(l => { if(LISTING_META[l.id]) Object.assign(l, LISTING_META[l.id]); });
 
 // ============================================================
+// LISTING IMAGES — Wikimedia Commons featured photos per venue
+// ============================================================
+const _IMG = {
+  neyland:  'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Neyland_Stadium_2010.JPG/800px-Neyland_Stadium_2010.JPG',
+  smokies:  'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/First_Tennessee_Park%2C_May_5%2C_2015_-_4.JPG/800px-First_Tennessee_Park%2C_May_5%2C_2015_-_4.JPG',
+  coliseum: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Knoxville_Civic_Coliseum.jpg/800px-Knoxville_Civic_Coliseum.jpg',
+  theatre:  'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Tennessee-theatre-entrance-knoxville-tn1.jpg/800px-Tennessee-theatre-entrance-knoxville-tn1.jpg',
+  bijou:    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg',
+  mktSq:    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG',
+  ijams:    'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG/800px-Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG',
+  sun:      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sunsphere_Knoxville.jpg/800px-Sunsphere_Knoxville.jpg',
+  clingman: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Clingmans_Dome_from_Andrews_Bald.jpg/800px-Clingmans_Dome_from_Andrews_Bald.jpg',
+  houseMtn: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/House-mountain-outcrop-tn1.jpg/800px-House-mountain-outcrop-tn1.jpg',
+  skyline:  'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg',
+};
+const LISTING_IMAGES = {
+  'neyland-football':_IMG.neyland, 'vols-basketball':_IMG.neyland, 'women-basketball':_IMG.neyland,
+  'smokies-baseball':_IMG.smokies,
+  'ice-bears':_IMG.coliseum, 'roller-derby':_IMG.coliseum,
+  'tennessee-theatre':_IMG.theatre, 'tennessee-theatre-film':_IMG.theatre,
+  'east-tn-history':_IMG.theatre, 'emporium-center':_IMG.theatre,
+  'big-ears':_IMG.theatre, 'knox-box-karaoke':_IMG.theatre,
+  'bijou-theatre':_IMG.bijou, 'mill-and-mine':_IMG.bijou, 'barleys-taproom':_IMG.bijou,
+  'pilot-light':_IMG.bijou, 'rave-old-city':_IMG.bijou, 'jazz-bistro':_IMG.bijou,
+  'old-city-ghost-tours':_IMG.bijou, 'fin-two-happy-hour':_IMG.bijou,
+  'balter-happy-hour':_IMG.bijou, 'boyds-open-mic':_IMG.bijou,
+  'barrelhouse-open-mic':_IMG.bijou, 'barrelhouse-trivia':_IMG.bijou,
+  'pilot-light-comedy':_IMG.bijou, 'schulz-brau-brewery-tour':_IMG.bijou,
+  'barrelhouse-bottomless':_IMG.bijou, 'secret-cinema':_IMG.bijou,
+  'old-city-farmers-market':_IMG.bijou,
+  'market-sq':_IMG.mktSq, 'art-walk':_IMG.mktSq, 'summer-concerts':_IMG.mktSq,
+  'rossini-festival':_IMG.mktSq, 'wdvx':_IMG.mktSq, 'saluto':_IMG.mktSq,
+  'silent-disco':_IMG.mktSq, 'honky-tonk-thursday':_IMG.mktSq,
+  'jazz-tuesdays-sq':_IMG.mktSq, 'midnight-ramble':_IMG.mktSq,
+  'stock-barrel-comedy':_IMG.mktSq, 'preservation-pub-comedy':_IMG.mktSq,
+  'scruffy-city-comedy':_IMG.mktSq, 'pour-taproom-trivia':_IMG.mktSq,
+  'marble-city-market':_IMG.mktSq, 'tupelo-honey-happy-hour':_IMG.mktSq,
+  'marble-city-happy-hour':_IMG.mktSq, 'yeehaw-movie-night':_IMG.mktSq,
+  'market-sq-summer-movies':_IMG.mktSq, 'knoxville-young-professionals':_IMG.mktSq,
+  'knoxville-swing-dance':_IMG.mktSq, 'illusions-drag-brunch':_IMG.mktSq,
+  'club-xyz-drag':_IMG.mktSq, 'core-knoxville':_IMG.mktSq,
+  'rooftop-yoga':_IMG.mktSq, 'second-saturday-art-market':_IMG.mktSq,
+  'pink-cactus-karaoke':_IMG.mktSq,
+  'ijams':_IMG.ijams, 'tennessee-riverwalk':_IMG.ijams, 'bluegrass-jam':_IMG.ijams,
+  'volunteer-landing-kayak':_IMG.ijams, 'drum-circle':_IMG.ijams,
+  'trailhead-happy-hour':_IMG.ijams, 'mimosas-knoxville':_IMG.ijams,
+  'hiwire-trivia':_IMG.ijams, 'sevier-burger-trivia':_IMG.ijams,
+  'sokno-taco-singo':_IMG.ijams, 'salty-dog-karaoke':_IMG.ijams,
+  'keep-knoxville-beautiful':_IMG.ijams,
+  'sunsphere':_IMG.sun, 'dogwood-arts':_IMG.sun, 'tennessee-valley-fair':_IMG.sun,
+  'knox-pride':_IMG.sun, 'knoxville-museum-art':_IMG.sun, 'kma-film-series':_IMG.sun,
+  'knoxville-track-club':_IMG.sun, 'muse-knoxville':_IMG.sun, 'zoo-knoxville':_IMG.sun,
+  'clingmans':_IMG.clingman,
+  'house-mountain':_IMG.houseMtn, 'climb-knx':_IMG.houseMtn, 'inner-light-yoga':_IMG.houseMtn,
+  'knoxville-marathon':_IMG.skyline, 'fleet-feet-run-club':_IMG.skyline,
+  'the-hill-trivia':_IMG.skyline, 'cool-beans-trivia':_IMG.skyline,
+  'mellow-mushroom-trivia':_IMG.skyline, 'central-flats-trivia':_IMG.skyline,
+  'ale-raes-gastropub':_IMG.skyline, 'fountain-city-social':_IMG.skyline,
+  'abridged-beer-trivia':_IMG.skyline, 'bullfeathers-karaoke':_IMG.skyline,
+  '35-north-singo':_IMG.skyline, 'xul-beer-trivia':_IMG.skyline,
+  'tennessee-tap-house':_IMG.skyline, 'cotton-eyed-joe':_IMG.skyline,
+  'marble-springs-tours':_IMG.skyline, 'knox-makers-open-house':_IMG.skyline,
+  'bearden-village-market':_IMG.skyline, 'chesapeakes-sunday-brunch':_IMG.skyline,
+};
+LISTINGS.forEach(l => { if(LISTING_IMAGES[l.id]) l.image = LISTING_IMAGES[l.id]; });
+
+// ============================================================
 // STATE
 // ============================================================
 let currentListing = null;
@@ -3007,7 +3074,9 @@ function buildCard(l){
   const photos=localPhotos[l.id]||[];
   const imgHtml=photos.length
     ? `<img class="card-img" src="${photos[0]}" alt="${l.title}" loading="lazy"/>`
-    : `<div class="card-img-placeholder">${l.emoji||'📍'}</div>`;
+    : l.image
+      ? `<img class="card-img" src="${l.image}" alt="${l.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="card-img-placeholder" style="display:none">${l.emoji||'📍'}</div>`
+      : `<div class="card-img-placeholder">${l.emoji||'📍'}</div>`;
 
   const price=priceDisplay(l);
   const venueDisplay=l.venueName||(!/^\d/.test((l.location||'').split(',')[0].trim())?(l.location||'').split(',')[0].trim():'');
@@ -3126,7 +3195,9 @@ function openDetail(id){
   const imgArea=document.getElementById('modal-img-area');
   imgArea.innerHTML=photos.length
     ? `<img class="modal-img" src="${photos[0]}" alt="${l.title}"/>`
-    : `<div class="modal-img-placeholder">${l.emoji||'📍'}</div>`;
+    : l.image
+      ? `<img class="modal-img" src="${l.image}" alt="${l.title}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="modal-img-placeholder" style="display:none">${l.emoji||'📍'}</div>`
+      : `<div class="modal-img-placeholder">${l.emoji||'📍'}</div>`;
 
   document.getElementById('modal-title').textContent=l.title;
 
