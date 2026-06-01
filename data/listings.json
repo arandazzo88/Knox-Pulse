@@ -242,7 +242,7 @@
   },
   {
     "id": "wdvx",
-    "title": "WDVX Blue Plate Special",
+    "title": "Blue Plate Special (Free Live Music)",
     "category": "Live Music",
     "location": "301 S Gay St, Knoxville",
     "venueName": "Knoxville Visitor Center",
@@ -288,7 +288,7 @@
   },
   {
     "id": "tennessee-theatre",
-    "title": "Tennessee Theatre",
+    "title": "Live Theater & Broadway Shows",
     "category": "Theater & Performance",
     "location": "604 S Gay St, Knoxville",
     "description": "A grand 1928 atmospheric movie palace restored as Knoxville's premier performing arts venue. Hosts Broadway touring shows, concerts, dance, film screenings, and the Big Ears Festival. ~1,600 capacity.",
@@ -324,7 +324,7 @@
   },
   {
     "id": "bijou-theatre",
-    "title": "Bijou Theatre",
+    "title": "Live Concerts & Touring Acts",
     "category": "Theater & Performance",
     "location": "803 S Gay St, Knoxville",
     "description": "Historic 700-capacity intimate venue on Gay Street hosting national touring artists across rock, Americana, folk, and comedy. One of Knoxville's most beloved live music rooms.",
@@ -361,7 +361,7 @@
   },
   {
     "id": "mill-and-mine",
-    "title": "The Mill & Mine",
+    "title": "Live Music Concerts",
     "category": "Live Music",
     "location": "227 W Depot Ave, Knoxville",
     "description": "Converted industrial concert venue near the Old City with 1,200-capacity indoor space plus an 8,000 sq ft outdoor courtyard. State-of-the-art sound, private suites, and a strong touring schedule.",
@@ -397,7 +397,7 @@
   },
   {
     "id": "barleys-taproom",
-    "title": "Barley's Taproom & Pizzeria",
+    "title": "Live Music & Craft Beer",
     "category": "Live Music",
     "location": "200 E Jackson Ave, Knoxville",
     "description": "Old City cornerstone with craft beer on tap and live music nearly every night spanning Americana, blues, bluegrass, and rock. Also hosts the WDVX Blue Plate Special on Fridays.",
@@ -479,7 +479,7 @@
   },
   {
     "id": "marble-city-market",
-    "title": "Marble City Market",
+    "title": "Food Hall Dining & Drinks",
     "category": "Markets",
     "location": "333 W Depot Ave, Knoxville",
     "description": "Knoxville's first large-scale food hall in the historic Regas Square building. 15,000+ sq ft of rotating and permanent restaurant stalls, a full bar, and communal seating in the Depot neighborhood.",
@@ -516,7 +516,7 @@
   },
   {
     "id": "ijams",
-    "title": "Ijams Nature Centre",
+    "title": "Urban Nature Preserve & Trails",
     "category": "Outdoor & Nature",
     "location": "2915 Island Home Ave, Knoxville",
     "description": "275-acre urban wildlife sanctuary with 10 miles of trails, seasonal kayaking at Mead's Quarry Lake, rock climbing, and mountain biking. A green oasis 10 minutes from downtown — $5 parking.",
@@ -662,7 +662,7 @@
   },
   {
     "id": "knoxville-museum-art",
-    "title": "Knoxville Museum of Art",
+    "title": "Free Art Museum & Exhibitions",
     "category": "Arts & Museums",
     "location": "1050 World's Fair Park Dr, Knoxville",
     "description": "East Tennessee's primary fine art museum, free to the public, adjacent to World's Fair Park. Focuses on contemporary and historical Appalachian and Southeast American art with rotating special exhibitions.",
@@ -697,7 +697,7 @@
   },
   {
     "id": "east-tn-history",
-    "title": "East Tennessee History Center",
+    "title": "Regional History Museum",
     "category": "Arts & Museums",
     "location": "601 S Gay St, Knoxville",
     "description": "Three floors of permanent and rotating exhibits on Cherokee history, Civil War, early settlement, and regional heritage. Admission free on Sundays. Located on Gay Street downtown.",
@@ -735,7 +735,7 @@
   },
   {
     "id": "zoo-knoxville",
-    "title": "Zoo Knoxville",
+    "title": "City Zoo & Wildlife",
     "category": "Outdoor & Nature",
     "location": "3500 Knoxville Zoo Dr, Knoxville",
     "description": "Full-service accredited zoo in East Knoxville with large mammals, rare red pandas, reptiles, and birds. Seasonal events include Boo at the Zoo (October) and Holiday Lights. Open daily 9am–5pm.",
@@ -1009,7 +1009,7 @@
   },
   {
     "id": "cotton-eyed-joe",
-    "title": "Cotton Eyed Joe",
+    "title": "Country Dancing & Line Dancing",
     "category": "Dancing",
     "location": "11220 Outlet Dr, Knoxville",
     "description": "The biggest honky tonk in East Tennessee. Line dancing lessons, live country music, a mechanical bull, and dancing until last call. A Knoxville institution for 30+ years.",
@@ -1050,7 +1050,7 @@
   },
   {
     "id": "pilot-light",
-    "title": "Pilot Light",
+    "title": "Indie & Underground Shows",
     "category": "Live Music",
     "location": "106 E Jackson Ave, Knoxville",
     "description": "Beloved DIY venue in the Old City hosting indie, punk, experimental, and underground acts. All-ages, no-frills, and consistently one of Knoxville's best rooms for catching emerging talent.",
@@ -1091,7 +1091,7 @@
   },
   {
     "id": "saluto",
-    "title": "Preservation Pub",
+    "title": "Live Music Rooftop Bar",
     "category": "Live Music",
     "location": "28 Market Square, Knoxville",
     "description": "Multi-story bar on Market Square with a rooftop patio and live music almost every night — jazz, blues, folk, and rock. One of the most distinctive spots in downtown Knoxville.",
@@ -1388,7 +1388,7 @@
   },
   {
     "id": "roller-derby",
-    "title": "Appalachian Rollergirls",
+    "title": "Roller Derby Bouts",
     "category": "Sports & Recreation",
     "location": "Knoxville Expo Center",
     "description": "East Tennessee's flat-track roller derby league hosts bouts monthly. Loud, chaotic, and incredibly fun. One of Knoxville's most unique and affordable live events.",
@@ -1546,7 +1546,7 @@
   },
   {
     "id": "knox-box-karaoke",
-    "title": "Knox Box Karaoke",
+    "title": "Late-Night Private Karaoke",
     "category": "Karaoke",
     "location": "522 S Gay St, Knoxville",
     "description": "Knoxville's first all-hours karaoke bar in a cozy basement on Gay Street. Open-stage format (not private rooms) Tuesday through Sunday nights starting at 8 PM. Full bar and grilled cheese menu.",
@@ -3545,7 +3545,7 @@
   },
   {
     "id": "emporium-center",
-    "title": "Emporium Center for Arts & Culture",
+    "title": "Art Gallery & Live Performances",
     "category": "Arts & Museums",
     "location": "100 S Gay St, Knoxville",
     "description": "Downtown Knoxville's multi-discipline arts space at 100 S Gay St, featuring rotating gallery exhibitions, live performances, and artist studios. Free to visit the galleries. A hub for local and regional visual and performing artists.",
@@ -3581,7 +3581,7 @@
   },
   {
     "id": "muse-knoxville",
-    "title": "Muse Knoxville",
+    "title": "Children's Science Museum",
     "category": "Arts & Museums",
     "location": "516 N Henley St, Knoxville",
     "description": "Knoxville's hands-on children's museum with rotating STEAM exhibits, maker spaces, a planetarium, and outdoor garden. Best for families with kids ages 2–12. Admission required; members free.",
@@ -3619,7 +3619,7 @@
   },
   {
     "id": "barrelhouse-bottomless",
-    "title": "Bottomless Cidermosas",
+    "title": "$19 Bottomless Cidermosas",
     "category": "Happy Hour & Specials",
     "location": "621 Lamar St, Knoxville",
     "description": "$19 bottomless cidermosas every Saturday and Sunday 11 AM–4 PM at this Old North Knox cider and mead taproom. Hard cider in place of wine makes these a uniquely Knoxville twist on the classic brunch drink.",
@@ -3663,7 +3663,7 @@
   },
   {
     "id": "mimosas-knoxville",
-    "title": "Bottomless Mimosas Brunch",
+    "title": "$20 Bottomless Mimosas Brunch",
     "category": "Happy Hour & Specials",
     "location": "115 Mimosa Ave, Knoxville",
     "description": "Bottomless mimosas ($20) every Saturday and Sunday during brunch at this South Knoxville neighborhood spot. Named for the street it sits on — one of Knoxville's dedicated brunch destinations.",
@@ -3704,7 +3704,7 @@
   },
   {
     "id": "loco-burro-brunch",
-    "title": "Sunday Bottomless Mimosa Brunch",
+    "title": "$20 Sunday Bottomless Mimosa Brunch",
     "category": "Happy Hour & Specials",
     "location": "7600 Kingston Pike, Knoxville",
     "description": "Every Sunday 10 AM–3 PM, Loco Burro's rooftop bar transforms into a brunch destination with bottomless mimosas and a full brunch menu. One of West Knoxville's best Sunday brunches with skyline views.",
@@ -3742,7 +3742,7 @@
   },
   {
     "id": "tupelo-honey-mimosa-monday",
-    "title": "Mimosa Monday",
+    "title": "$2 Off Mimosa Monday",
     "category": "Happy Hour & Specials",
     "location": "1 Market Sq, Knoxville",
     "description": "$2 off all mimosas every Monday at Tupelo Honey on Market Square — the Southern-inspired kitchen that does brunch right. Plus their famous Hoot & Holler Happy Hour runs Mon–Fri 4–6 PM: ½ off apps, $2 off drinks.",
@@ -3781,7 +3781,7 @@
   },
   {
     "id": "chesapeakes-sunday-brunch",
-    "title": "Sunday Seafood Brunch Buffet",
+    "title": "$33 Sunday Seafood Brunch Buffet",
     "category": "Happy Hour & Specials",
     "location": "9630 Parkside Dr, Knoxville",
     "description": "Sunday brunch buffet 10:30 AM–2:30 PM: $33 adults, $15 children 12 & under. Fresh seafood bar, bloody mary bar, brunch entrees, and raw bar. One of Knoxville's most indulgent weekend experiences. Reservations recommended.",
@@ -3820,7 +3820,7 @@
   },
   {
     "id": "seasons-brunch-buffet",
-    "title": "Weekend Brunch Buffet",
+    "title": "$28 Weekend Brunch Buffet",
     "category": "Happy Hour & Specials",
     "location": "11605 Parkside Dr, Knoxville",
     "description": "Saturday and Sunday brunch buffet 11 AM–2:30 PM. $28.95 adults, $15.95 children 6–12, kids 5 & under free. Full spread of brunch classics in a relaxed Farragut-area setting.",
@@ -3861,7 +3861,7 @@
   },
   {
     "id": "trailhead-happy-hour",
-    "title": "All-Day Monday Draft Specials",
+    "title": "$1 Off All Drafts All Day Monday",
     "category": "Happy Hour & Specials",
     "location": "1317 Island Home Ave, Knoxville",
     "description": "$1 off ALL drafts all day Monday — plus daily happy hour Tue–Fri 3–6 PM. South Knoxville's best craft beer bar with an enormous tap list and a neighborhood vibe that can't be beat.",
@@ -3901,7 +3901,7 @@
   },
   {
     "id": "fin-two-happy-hour",
-    "title": "Japanese Pub Bites Special",
+    "title": "$1 Nigiri & Yakitori Specials",
     "category": "Happy Hour & Specials",
     "location": "122 S Central Ave, Knoxville",
     "description": "Mon–Thu 3–5 PM: $1 nigiri and $1 yakitori small plates plus discounted sake, soju, and local brews. One of Knoxville's best-value happy hours — Japanese pub food at bar-snack prices in Old City.",
@@ -3948,7 +3948,7 @@
   },
   {
     "id": "sokno-happy-hour",
-    "title": "Weekday Specials + Free Trivia",
+    "title": "$5 Cocktails & Free Trivia",
     "category": "Happy Hour & Specials",
     "location": "3701 Sevierville Pike, Knoxville",
     "description": "Mon–Fri 4–7 PM: $5 original cocktails, $4 domestic drafts, $5 craft drafts, $3.50 guac/queso/salsa, $8 nachos. Then stay for FREE trivia 7–9 PM with extended happy hour pricing for trivia players.",
@@ -3996,7 +3996,7 @@
   },
   {
     "id": "tupelo-honey-happy-hour",
-    "title": "Hoot & Holler Daily Specials",
+    "title": "Half Off Apps & $5 Wells Daily",
     "category": "Happy Hour & Specials",
     "location": "1 Market Sq, Knoxville",
     "description": "Mon–Fri 4–6 PM: ½ off appetizers, $2 off beers & wines, $5 well spirits. Plus daily drink specials: Tini Tuesdays ($3 cocktails), Wine Wednesdays (½ off bottles), Tequila Thursdays ($6 margaritas).",
@@ -4043,7 +4043,7 @@
   },
   {
     "id": "balter-happy-hour",
-    "title": "Weekday Drink & Bite Specials",
+    "title": "$3 Beers & $1.50 Tacos Daily",
     "category": "Happy Hour & Specials",
     "location": "Standard St, Knoxville",
     "description": "Mon–Fri 3–6:30 PM: $3 craft beers, $1.50 tacos & sliders, $3 chips & queso, $4 pimento & hummus plates. Knoxville's beloved craft brewery in a restored service station — happy hour food here is a steal.",
@@ -4092,7 +4092,7 @@
   },
   {
     "id": "the-farmacy-happy-hour",
-    "title": "Weekday Food & Drink Specials",
+    "title": "Half Off Apps & $3 Tacos Daily",
     "category": "Happy Hour & Specials",
     "location": "5018 Kingston Pike, Knoxville",
     "description": "Mon–Fri 4–6 PM: ½ off appetizers, $3 tacos, $10 hot chicken plate, $5 house wines, $3 house drafts, and $2 bubbles. Exceptional food + drink combo deals at this upscale West Knox spot.",
@@ -4139,7 +4139,7 @@
   },
   {
     "id": "marble-city-happy-hour",
-    "title": "Food Hall Drink Specials",
+    "title": "$3 Drafts & Prosecco Happy Hour",
     "category": "Happy Hour & Specials",
     "location": "333 W Depot Ave, Knoxville",
     "description": "Tue–Wed 5–7 PM, Thu–Fri 4–6 PM: $3 drafts, $3 prosecco, $5 house liquor. Knoxville's premier food hall with 11 restaurant concepts and a 40-seat bar — happy hour here means you can try multiple spots for the price of one.",
@@ -4185,7 +4185,7 @@
   },
   {
     "id": "tern-club-happy-hour",
-    "title": "Daily Cocktail Specials",
+    "title": "$8 Craft Cocktails Every Day",
     "category": "Happy Hour & Specials",
     "location": "135 S Gay St, Knoxville",
     "description": "Daily until 6 PM: $1 off drafts, house wines & well spirits, plus $8 craft cocktails (mojitos, palomas, tamarind whiskey sours). Stylish downtown bar on Gay Street with one of the best cocktail happy hours in Knoxville.",
@@ -4238,7 +4238,7 @@
   },
   {
     "id": "redbud-kitchen-happy-hour",
-    "title": "Evening Bites & Pours",
+    "title": "$5 Bites & $5 Cocktails Daily",
     "category": "Happy Hour & Specials",
     "location": "906 Sevier Ave, Knoxville",
     "description": "Mon–Fri 4–7 PM: $5 bites (pickle chips, tots, queso), $5 pours on select wines & craft cocktails, $1 off wine bottles & draft beers. South Knoxville neighborhood gem in the heart of the Old Sevier strip.",
