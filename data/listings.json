@@ -1170,7 +1170,7 @@
   },
   {
     "id": "silent-disco",
-    "title": "Silent Disco at Preservation Pub",
+    "title": "Silent Disco",
     "category": "Dancing",
     "location": "28 Market Square, Knoxville",
     "description": "Put on wireless headphones and choose your channel — three DJs, one dance floor, zero speakers. Wild, hilarious, and totally addictive.",
@@ -1206,7 +1206,7 @@
   },
   {
     "id": "honky-tonk-thursday",
-    "title": "Honky Tonk Thursday at International",
+    "title": "Honky Tonk Thursday",
     "category": "Dancing",
     "location": "900 N Central St, Knoxville",
     "description": "$5 cover, cheap beer, and two-step lessons starting at 9pm every Thursday. The real country scene in North Knox — no tourists, just locals.",
@@ -1244,7 +1244,7 @@
   },
   {
     "id": "jazz-bistro",
-    "title": "Jazz at the Mill & Mine Lounge",
+    "title": "Wednesday Jazz Night",
     "category": "Live Music",
     "location": "227 W Depot Ave, Knoxville",
     "venueName": "The Mill & Mine",
@@ -1313,7 +1313,7 @@
   },
   {
     "id": "rooftop-yoga",
-    "title": "Rooftop Yoga at The Oliver Hotel",
+    "title": "Rooftop Yoga",
     "category": "Fitness & Wellness",
     "location": "407 Union Ave, Knoxville",
     "venueName": "The Oliver Hotel",

@@ -69,7 +69,7 @@
         {"@type":"ListItem","position":3,"name":"Ijams Nature Centre","description":"Beautiful riverside nature preserve with hiking trails, rock climbing, and kayak launches.","url":"https://www.theknoxpulse.com/?event=ijams"},
         {"@type":"ListItem","position":4,"name":"First Friday Art Walk","description":"Monthly celebration of local art, galleries, studios, and street performers in downtown Knoxville.","url":"https://www.theknoxpulse.com/?event=art-walk"},
         {"@type":"ListItem","position":5,"name":"Big Ears Festival","description":"World-class multi-genre music festival in downtown Knoxville each spring.","url":"https://www.theknoxpulse.com/?event=big-ears"},
-        {"@type":"ListItem","position":6,"name":"Silent Disco at Preservation Pub","description":"Wireless headphone dance party on the third Saturday of each month.","url":"https://www.theknoxpulse.com/?event=silent-disco"},
+        {"@type":"ListItem","position":6,"name":"Silent Disco","description":"Wireless headphone dance party on the third Saturday of each month.","url":"https://www.theknoxpulse.com/?event=silent-disco"},
         {"@type":"ListItem","position":7,"name":"Honky Tonk Thursday","description":"Two-step lessons and country dancing every Thursday night.","url":"https://www.theknoxpulse.com/?event=honky-tonk-thursday"},
         {"@type":"ListItem","position":8,"name":"Dogwood Arts Festival","description":"Month-long spring celebration of art and community throughout Knoxville.","url":"https://www.theknoxpulse.com/?event=dogwood-arts"}
       ]
@@ -85,7 +85,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "isAccessibleForFree": true,
-      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"},
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock","validFrom":"2026-01-01","url":"https://www.theknoxpulse.com/?event=wdvx"},
       "organizer": {"@type":"Organization","name":"WDVX Radio","url":"https://www.wdvx.com"},
       "performer": {"@type":"PerformingGroup","name":"Local Knoxville Musicians"},
       "eventSchedule": {
@@ -113,7 +113,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "isAccessibleForFree": true,
-      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"},
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock","validFrom":"2026-01-01","url":"https://www.theknoxpulse.com/?event=art-walk"},
       "organizer": {"@type":"Organization","name":"Dogwood Arts","url":"https://www.dogwoodarts.com"},
       "eventSchedule": {
         "@type": "Schedule",
@@ -1379,7 +1379,7 @@ const LISTINGS = [
   },
   // --- RECURRING COMMUNITY ---
   {
-    id:'silent-disco', title:'Silent Disco at Preservation Pub', category:'Dancing', location:'28 Market Square, Knoxville',
+    id:'silent-disco', title:'Silent Disco', category:'Dancing', location:'28 Market Square, Knoxville',
     description:'Put on wireless headphones and choose your channel — three DJs, one dance floor, zero speakers. Wild, hilarious, and totally addictive.',
     indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'21+', timeOfDay:'Evening',
     costScale:'$', season:'Year-round', underground:false, emoji:'🎧',
@@ -1390,7 +1390,7 @@ const LISTINGS = [
     tags:['silent disco','dancing','bar','nightlife','unique']
   },
   {
-    id:'honky-tonk-thursday', title:'Honky Tonk Thursday at International', category:'Dancing', location:'900 N Central St, Knoxville',
+    id:'honky-tonk-thursday', title:'Honky Tonk Thursday', category:'Dancing', location:'900 N Central St, Knoxville',
     description:'$5 cover, cheap beer, and two-step lessons starting at 9pm every Thursday. The real country scene in North Knox — no tourists, just locals.',
     indoorOutdoor:'Indoor', distanceMiles:2, ageRestrictions:'21+', timeOfDay:'Evening',
     costScale:'$', season:'Year-round', underground:false, emoji:'🪗',
@@ -1401,7 +1401,7 @@ const LISTINGS = [
     tags:['country','two-step','dancing','bar','honky tonk','local']
   },
   {
-    id:'jazz-bistro', title:'Jazz at the Mill & Mine Lounge', category:'Live Music', location:'227 W Depot Ave, Knoxville',
+    id:'jazz-bistro', title:'Wednesday Jazz Night', category:'Live Music', location:'227 W Depot Ave, Knoxville',
     venueName:'The Mill & Mine',
     description:'Intimate jazz sessions in the lounge at the Mill & Mine on select Wednesday nights. Rotating local jazz trio, craft cocktails, and a low-key crowd.',
     indoorOutdoor:'Indoor', distanceMiles:1, ageRestrictions:'21+', timeOfDay:'Evening',
@@ -1422,7 +1422,7 @@ const LISTINGS = [
     tags:['rave','EDM','electronic','underground','nightlife']
   },
   {
-    id:'rooftop-yoga', title:'Rooftop Yoga at The Oliver Hotel', category:'Fitness & Wellness', location:'407 Union Ave, Knoxville',
+    id:'rooftop-yoga', title:'Rooftop Yoga', category:'Fitness & Wellness', location:'407 Union Ave, Knoxville',
     venueName:'The Oliver Hotel',
     description:'Sunday morning yoga on the rooftop terrace of the historic Oliver Hotel with panoramic city views. $15, BYOM. Sign up via The Oliver website.',
     indoorOutdoor:'Outdoor', distanceMiles:1, ageRestrictions:'All Ages', timeOfDay:'Morning',
