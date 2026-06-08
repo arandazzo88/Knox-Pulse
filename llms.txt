@@ -1,0 +1,43 @@
+# Knox Pulse
+> Knoxville, TN's curated event discovery platform — recurring events, live music, trivia, outdoor activities, markets, festivals, and more at theknoxpulse.com
+
+## What is Knox Pulse?
+Knox Pulse is a free, single-page web app that helps locals and visitors discover the best recurring events and activities in Knoxville, Tennessee. It covers 99+ vetted listings across 15 categories, filterable by neighborhood, day of week, cost, indoor/outdoor preference, age restrictions, and season.
+
+## Categories
+Live Music · Trivia & Games · Karaoke · Dancing · Outdoor & Nature · Sports & Recreation · Arts & Museums · Festivals & Events · Film & Cinema · Markets · Community & Civic · Comedy · Theater & Performance · Tours & Experiences · Fitness & Wellness
+
+## Neighborhoods Covered
+Downtown · Old City · South Knoxville · North Knoxville · Fort Sanders · West Knoxville · East Knoxville · Bearden · Fountain City · North Shore
+
+## Notable Events
+- UT Vols Football at Neyland Stadium (Fall Saturdays)
+- UT Vols & Lady Vols Basketball (Winter)
+- Knoxville Smokies Baseball at Covenant Health Park
+- Blue Plate Special — free live music at WDVX (weekdays)
+- Market Square Farmers Market (Wednesdays & Saturdays)
+- First Friday Art Walk (Market Square & Old City)
+- Big Ears Festival (March, multiple downtown venues)
+- Dogwood Arts Festival (April, World's Fair Park)
+- Tennessee Valley Fair (September)
+- Knox Pride Fest (World's Fair Park)
+- Knoxville Marathon (March)
+- Sunday Bluegrass Jam at Suttree Landing Park
+- Full Moon Drum Circle at Sequoyah Hills Park
+- Sunsphere & World's Fair Park (free observation deck)
+- Ijams Nature Center & Urban Wilderness trails
+- Clingmans Dome Sunrise Hike (Great Smoky Mountains)
+- Silent Disco, Drag Brunch, Swing Dance, Secret Cinema, and 80+ more
+
+## Site Structure
+- `/` — Full event grid with search and filter panel
+- `/?event=<id>` — Individual event detail page (schedule, map, contact, photos, reviews)
+
+## Event Data Fields
+Each event includes: title, category, neighborhood, full address, indoor/outdoor, schedule (day/time/frequency), cost/price range, age restrictions, venue name, phone, website, email, Instagram handle, and featured photo.
+
+## Data Sources
+Curated static listings maintained by the Knox Pulse team, plus community-submitted events stored in Firebase Firestore. Community members can submit events, leave reviews, and upload photos.
+
+## Technical
+Static SPA hosted on Cloudflare Pages. Sitemap: https://www.theknoxpulse.com/sitemap.xml

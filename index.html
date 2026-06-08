@@ -2514,6 +2514,7 @@ async function initFromFirestore(){
     console.warn('Firestore unavailable — using cached data.', err);
   }
   applyFilters();
+  injectListingsJsonLd();
 }
 
 // ============================================================
@@ -2771,6 +2772,94 @@ function deriveCostScale(priceText){
     return '$$$';
   }
   return '$';
+}
+
+// ============================================================
+// STRUCTURED DATA — dynamic Event JSON-LD for AI & search
+// Runs after listings load; re-runs when community events arrive.
+// Any new listing automatically gets schema without code changes.
+// ============================================================
+function injectListingsJsonLd(){
+  const today=new Date().toISOString().split('T')[0];
+  const musicCategories=new Set(['Live Music','Comedy','Theater & Performance','Dancing']);
+  const events=allListings().map(l=>{
+    // Dates
+    const next=getNextOccurrence(l);
+    const startDt=next||new Date();
+    const startDate=startDt.toISOString().split('T')[0];
+    let endDate=startDate;
+    if(l.endTime){
+      const[eh,em]=(l.endTime||'0:0').split(':').map(Number);
+      const ed=new Date(startDt);
+      ed.setHours(eh,em||0,0,0);
+      if(ed<=startDt) ed.setDate(ed.getDate()+1);
+      endDate=ed.toISOString().split('T')[0];
+    } else {
+      const ed=new Date(startDt);
+      ed.setHours(ed.getHours()+2);
+      endDate=ed.toISOString().split('T')[0];
+    }
+
+    // Location
+    const parts=(l.location||'').split(',');
+    const street=parts[0]?.trim()||'';
+    const vName=l.venueName||street||'Knoxville, TN';
+    const eventUrl='https://www.theknoxpulse.com/?event='+l.id;
+
+    const ev={
+      '@type':'Event',
+      name:l.title,
+      description:l.description,
+      url:eventUrl,
+      startDate,
+      endDate,
+      eventStatus:'https://schema.org/EventScheduled',
+      eventAttendanceMode:'https://schema.org/OfflineEventAttendanceMode',
+      location:{
+        '@type':'Place',
+        name:vName,
+        address:{
+          '@type':'PostalAddress',
+          streetAddress:street,
+          addressLocality:'Knoxville',
+          addressRegion:'TN',
+          addressCountry:'US'
+        }
+      },
+      organizer:{
+        '@type':'Organization',
+        name:vName,
+        url:l.website||eventUrl
+      }
+    };
+
+    if(l.image) ev.image=l.image;
+
+    if(musicCategories.has(l.category)){
+      ev.performer={'@type':'PerformingGroup',name:vName};
+    }
+
+    const isFree=l.costScale==='Free'||(l.price||'').toLowerCase().includes('free');
+    if(isFree){
+      ev.offers={'@type':'Offer',price:'0',priceCurrency:'USD',
+        availability:'https://schema.org/InStock',url:eventUrl,validFrom:today};
+    } else if(l.price||l.costScale){
+      ev.offers={'@type':'Offer',priceCurrency:'USD',
+        availability:'https://schema.org/InStock',url:eventUrl,validFrom:today};
+    }
+
+    return ev;
+  });
+
+  const schema={'@context':'https://schema.org','@graph':events};
+  let el=document.getElementById('ld-events-dynamic');
+  if(!el){
+    el=document.createElement('script');
+    el.type='application/ld+json';
+    el.id='ld-events-dynamic';
+    document.head.appendChild(el);
+  }
+  el.textContent=JSON.stringify(schema);
 }
 
 // ============================================================
@@ -4221,6 +4310,7 @@ try{showRecurrenceSubFields();}catch(e){}
 // User can tap the Date button to filter by a specific day.
 try{const _fd=document.getElementById('f-date');if(_fd){_fd.min=todayStr();}}catch(e){}
 try{applyFilters();}catch(e){console.error('applyFilters init error:',e);}
+try{injectListingsJsonLd();}catch(e){}
 initFromFirestore();
 
 // Hard fallback: if grid is still empty after 500ms, render first 16 directly
