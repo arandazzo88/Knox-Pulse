@@ -2840,11 +2840,17 @@ function injectListingsJsonLd(){
     }
 
     const isFree=l.costScale==='Free'||(l.price||'').toLowerCase().includes('free');
-    if(isFree){
-      ev.offers={'@type':'Offer',price:'0',priceCurrency:'USD',
-        availability:'https://schema.org/InStock',url:eventUrl,validFrom:today};
-    } else if(l.price||l.costScale){
-      ev.offers={'@type':'Offer',priceCurrency:'USD',
+    // Extract lowest numeric price for schema; fall back to costScale estimate
+    let priceVal='0';
+    if(!isFree){
+      const nums=(l.price||'').replace(/[,$+]/g,'').match(/\d+/g);
+      if(nums) priceVal=String(Math.min(...nums.map(Number)));
+      else if(l.costScale==='$') priceVal='5';
+      else if(l.costScale==='$$') priceVal='15';
+      else if(l.costScale==='$$$') priceVal='40';
+    }
+    if(isFree||l.price||l.costScale){
+      ev.offers={'@type':'Offer',price:priceVal,priceCurrency:'USD',
         availability:'https://schema.org/InStock',url:eventUrl,validFrom:today};
     }
 
