@@ -3782,6 +3782,7 @@ async function saveEfAdminListing() {
   applyFilters();
   adminCancelEdit();
   showToast(editId ? 'Listing updated!' : 'Listing added!');
+  try { injectListingsJsonLd(); } catch(e) {}
   try {
     const { id, ...data } = listing;
     if (db) await db.collection('listings').doc(id).set(data);
@@ -3877,6 +3878,7 @@ async function submitEfPublicEvent() {
     }
   } catch(e) { console.warn('Failed to save to Firestore:', e); }
   applyFilters();
+  try { injectListingsJsonLd(); } catch(e) {}
   closeOrgModal();
   showToast('Event submitted! It will appear after review. 🎉');
 }
