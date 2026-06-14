@@ -1189,9 +1189,10 @@ async function initFromFirestore(){
     localStorage.setItem(CUSTOM_LISTINGS_KEY, JSON.stringify(customListings));
 
     // ── Community-submitted events ───────────────────────────
-    const eSnap = await db.collection('communityEvents')
-      .orderBy('submittedAt', 'desc').get();
-    communityEvents = eSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+    // No orderBy: imported events may lack submittedAt, causing Firestore to exclude them
+    const eSnap = await db.collection('communityEvents').get();
+    communityEvents = eSnap.docs.map(d => ({ id: d.id, ...d.data() }))
+      .sort((a, b) => (b.submittedAt || '') > (a.submittedAt || '') ? 1 : -1);
     localStorage.setItem('kp_events', JSON.stringify(communityEvents));
 
     // ── Reviews (all listings) ───────────────────────────────
@@ -2638,6 +2639,8 @@ function setView(v){
       leafletMap.invalidateSize();
       const current=allListings().filter(l=>l.lat&&l.lng);
       renderMapMarkers(current);
+      // Refresh again after a short delay in case data was still loading
+      setTimeout(()=>{ leafletMap.invalidateSize(); renderMapMarkers(allListings().filter(l=>l.lat&&l.lng)); }, 1500);
     },100);
   } else {
     applyFilters();
