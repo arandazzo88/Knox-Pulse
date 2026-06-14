@@ -3516,173 +3516,383 @@ async function submitReview(){
 }
 
 // ============================================================
-// ORGANIZER PORTAL
+// SHARED EVENT FORM
 // ============================================================
-function openOrgModal(){document.getElementById('org-modal').classList.add('open');waitForPlaces(initOrgPlaces);}
-function closeOrgModal(){
-  document.getElementById('org-modal').classList.remove('open');
-  ['org-name','org-venuename','org-loc','org-desc','org-price','org-phone','org-website',
-   'org-email','org-ig','org-starttime','org-endtime','org-date','org-enddate',
-   'org-season-start','org-season-end','org-nbhd','org-lat','org-lng'].forEach(id=>{
-    const el=document.getElementById(id); if(el) el.value='';
+let efMode = 'public'; // 'public' | 'admin'
+let efVenueAC = null;
+let efLocAC   = null;
+
+function openEfForm(slotId, mode, listing) {
+  efMode = mode;
+  const form = document.getElementById('ef-form');
+  const slot = document.getElementById(slotId);
+  if (!form || !slot) return;
+  slot.appendChild(form);
+  form.style.display = 'block';
+  document.getElementById('ef-btn-public').style.display = mode === 'public' ? 'block' : 'none';
+  document.getElementById('ef-btn-admin').style.display  = mode === 'admin'  ? 'flex'  : 'none';
+  resetEfForm();
+  if (listing) populateEfForm(listing);
+  showEfRecurrence();
+  efVenueAC = null; efLocAC = null;
+  waitForPlaces(initEfPlaces);
+}
+
+function resetEfForm() {
+  ['ef-name','ef-emoji','ef-venuename','ef-loc','ef-desc','ef-price','ef-phone',
+   'ef-website','ef-email','ef-ig','ef-starttime','ef-endtime','ef-date','ef-enddate',
+   'ef-season-start','ef-season-end','ef-lat','ef-lng','ef-tags','ef-dist',
+   'ef-nbhd','ef-nbhd-display'].forEach(id => {
+    const el = document.getElementById(id); if (el) el.value = '';
   });
-  const ph=document.getElementById('org-photo'); if(ph) ph.value='';
-  document.getElementById('org-stroller').checked=false;
-  document.querySelectorAll('#org-dow-pick .tog, #org-month-pick .tog').forEach(t=>t.classList.remove('active'));
-  document.getElementById('org-etype').value='one-time';
-  document.getElementById('org-rectype').value='weekly';
-  const nbhdRow=document.getElementById('org-nbhd-row');
-  if(nbhdRow) nbhdRow.style.display='none';
-  orgVenueAutocomplete=null; orgLocAutocomplete=null;
-  showRecurrenceFields();
-  showRecurrenceSubFields();
+  const ph = document.getElementById('ef-photo'); if (ph) ph.value = '';
+  const stroller = document.getElementById('ef-stroller'); if (stroller) stroller.checked = false;
+  document.querySelectorAll('#ef-dow-pick .tog, #ef-month-pick .tog').forEach(t => t.classList.remove('active'));
+  const etype = document.getElementById('ef-etype'); if (etype) etype.value = 'one-time';
+  const rectype = document.getElementById('ef-rectype'); if (rectype) rectype.value = 'weekly';
+  const badge = document.getElementById('ef-nbhd-badge'); if (badge) badge.style.display = 'none';
+  // Reset selects to first option
+  ['ef-cat','ef-inout','ef-age','ef-season'].forEach(id => {
+    const el = document.getElementById(id); if (el) el.selectedIndex = 0;
+  });
+  const efTime = document.getElementById('ef-time'); if (efTime) efTime.value = 'Evening';
 }
 
-function showRecurrenceFields(){
-  const v=document.getElementById('org-etype').value;
-  document.getElementById('org-onetime-fields').style.display=v==='one-time'?'block':'none';
-  document.getElementById('org-recurring-fields').classList.toggle('show',v==='recurring');
+function populateEfForm(l) {
+  const set = (id, val) => { const el = document.getElementById(id); if (el && val != null) el.value = val; };
+  set('ef-name', l.title);
+  set('ef-emoji', l.emoji || '');
+  set('ef-venuename', l.venueName || '');
+  set('ef-loc', l.location || '');
+  set('ef-desc', l.description || '');
+  set('ef-price', l.price || '');
+  set('ef-phone', l.phone || '');
+  set('ef-website', l.website || '');
+  set('ef-email', l.email || '');
+  set('ef-ig', l.instagram || '');
+  set('ef-starttime', l.startTime || '');
+  set('ef-endtime', l.endTime || '');
+  set('ef-date', l.eventDate || '');
+  set('ef-enddate', l.eventEndDate || '');
+  set('ef-lat', l.lat || '');
+  set('ef-lng', l.lng || '');
+  set('ef-tags', (l.tags || []).join(', '));
+  set('ef-dist', l.distanceMiles || '');
+  set('ef-nbhd', l.neighborhood || '');
+  set('ef-nbhd-display', l.neighborhood || '');
+  if (l.neighborhood) { const b = document.getElementById('ef-nbhd-badge'); if (b) b.style.display = 'inline'; }
+  const selSet = (id, val) => { const el = document.getElementById(id); if (el && val) el.value = val; };
+  selSet('ef-cat', l.category);
+  selSet('ef-inout', l.indoorOutdoor);
+  selSet('ef-age', l.ageRestrictions);
+  selSet('ef-time', l.timeOfDay);
+  selSet('ef-season', l.season);
+  selSet('ef-etype', l.eventType || 'recurring');
+  const stroller = document.getElementById('ef-stroller'); if (stroller) stroller.checked = !!l.strollerFriendly;
+  // Recurrence
+  const rr = l.recurrenceRule;
+  if (rr) {
+    selSet('ef-rectype', rr.type);
+    if (rr.days) {
+      document.querySelectorAll('#ef-dow-pick .tog').forEach(t => {
+        if (rr.days.includes(parseInt(t.dataset.v))) t.classList.add('active');
+      });
+    }
+    if (rr.months) {
+      document.querySelectorAll('#ef-month-pick .tog').forEach(t => {
+        if (rr.months.includes(parseInt(t.dataset.v))) t.classList.add('active');
+      });
+    }
+    if (rr.weekNum) selSet('ef-weeknum', String(rr.weekNum));
+    if (rr.day != null) selSet('ef-mday', String(rr.day));
+    if (rr.month != null) selSet('ef-annualmonth', String(rr.month));
+    set('ef-season-start', rr.seasonStart || '');
+    set('ef-season-end', rr.seasonEnd || '');
+  }
+  showEfRecurrence();
 }
 
-function showRecurrenceSubFields(){
-  const v=document.getElementById('org-rectype').value;
-  document.getElementById('org-weekly-days').style.display=(v==='weekly'||v==='weekly-seasonal')?'block':'none';
-  document.getElementById('org-seasonal-months').style.display=v==='weekly-seasonal'?'block':'none';
-  document.getElementById('org-monthly-fields').style.display=v==='monthly-weekday'?'block':'none';
-  document.getElementById('org-annual-fields').style.display=v==='annual'?'block':'none';
+function showEfRecurrence() {
+  const v = document.getElementById('ef-etype')?.value;
+  const onetime = document.getElementById('ef-onetime');
+  const recurring = document.getElementById('ef-recurring');
+  if (onetime) onetime.style.display = v === 'one-time' ? 'block' : 'none';
+  if (recurring) recurring.style.display = v === 'recurring' ? 'block' : 'none';
+  showEfRecurrenceSub();
 }
 
-async function submitOrgEvent(){
-  const name=document.getElementById('org-name').value.trim();
-  const loc=document.getElementById('org-loc').value.trim();
-  if(!name||!loc){showToast('Name and location are required!');return;}
+function showEfRecurrenceSub() {
+  const v = document.getElementById('ef-rectype')?.value;
+  const monthly = document.getElementById('ef-monthly-sub');
+  const seasonal = document.getElementById('ef-seasonal-sub');
+  const annual = document.getElementById('ef-annual-sub');
+  if (monthly) monthly.style.display = v === 'monthly-weekday' ? 'flex' : 'none';
+  if (seasonal) seasonal.style.display = v === 'weekly-seasonal' ? 'block' : 'none';
+  if (annual) annual.style.display = v === 'annual' ? 'block' : 'none';
+}
 
-  const etype=document.getElementById('org-etype').value;
-  let recurrenceRule=null;
-  let daysOfWeek=[];
-  let eventDate=null;
+async function initEfPlaces() {
+  const lib = await getPlacesLib();
+  if (!lib) return;
+  const bounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(KNOX_BOUNDS.south, KNOX_BOUNDS.west),
+    new google.maps.LatLng(KNOX_BOUNDS.north, KNOX_BOUNDS.east)
+  );
 
-  let eventEndDate=null;
-  if(etype==='one-time'){
-    eventDate=document.getElementById('org-date').value;
-    if(!eventDate){showToast('Please select a start date!');return;}
-    eventEndDate=document.getElementById('org-enddate').value||null;
-  } else {
-    const rt=document.getElementById('org-rectype').value;
-    if(rt==='weekly'){
-      const picked=[...document.querySelectorAll('#org-dow-pick .tog.active')].map(t=>parseInt(t.dataset.v));
-      if(!picked.length){showToast('Select at least one day!');return;}
-      recurrenceRule={type:'weekly',days:picked};
-      daysOfWeek=picked;
-    } else if(rt==='weekly-seasonal'){
-      const picked=[...document.querySelectorAll('#org-dow-pick .tog.active')].map(t=>parseInt(t.dataset.v));
-      const months=[...document.querySelectorAll('#org-month-pick .tog.active')].map(t=>parseInt(t.dataset.v));
-      if(!picked.length){showToast('Select at least one day of the week!');return;}
-      if(!months.length){showToast('Select at least one active month!');return;}
-      const seasonStart=document.getElementById('org-season-start').value||null;
-      const seasonEnd=document.getElementById('org-season-end').value||null;
-      recurrenceRule={type:'weekly-seasonal',days:picked,months,...(seasonStart?{seasonStart}:{}),...(seasonEnd?{seasonEnd}:{})};
-      daysOfWeek=picked;
-    } else if(rt==='monthly-weekday'){
-      const wn=parseInt(document.getElementById('org-weeknum').value);
-      const md=parseInt(document.getElementById('org-mday').value);
-      recurrenceRule={type:'monthly-weekday',weekNum:wn,day:md};
-      daysOfWeek=[md];
-    } else if(rt==='annual'){
-      const mo=parseInt(document.getElementById('org-month').value);
-      recurrenceRule={type:'annual',month:mo};
+  function fillEfCoords(place) {
+    if (place.geometry?.location) {
+      const lat = place.geometry.location.lat();
+      const lng = place.geometry.location.lng();
+      const latEl = document.getElementById('ef-lat');
+      const lngEl = document.getElementById('ef-lng');
+      if (latEl) latEl.value = lat.toFixed(6);
+      if (lngEl) lngEl.value = lng.toFixed(6);
+      const nbhd = detectNeighborhood(lat, lng);
+      if (nbhd) {
+        const disp = document.getElementById('ef-nbhd-display');
+        const hidden = document.getElementById('ef-nbhd');
+        const badge = document.getElementById('ef-nbhd-badge');
+        if (disp) disp.value = nbhd;
+        if (hidden) hidden.value = nbhd;
+        if (badge) badge.style.display = 'inline';
+      }
     }
   }
 
-  const startTime=document.getElementById('org-starttime').value;
-  const endTime=document.getElementById('org-endtime').value;
-  let timeOfDay='Evening';
-  if(startTime){
-    const hr=parseInt(startTime.split(':')[0]);
-    timeOfDay=hr<12?'Morning':hr<17?'Afternoon':'Evening';
+  const venueInput = document.getElementById('ef-venuename');
+  if (venueInput && !efVenueAC) {
+    efVenueAC = new lib.Autocomplete(venueInput, { ...PLACES_OPTS, bounds, types: ['establishment'] });
+    efVenueAC.addListener('place_changed', () => {
+      const place = efVenueAC.getPlace();
+      if (!place) return;
+      const name = place.name || '';
+      const addr = place.formatted_address || '';
+      if (name) venueInput.value = name;
+      const locEl = document.getElementById('ef-loc');
+      if (locEl && addr) locEl.value = addr;
+      fillEfCoords(place);
+    });
   }
 
-  const venueName=(document.getElementById('org-venuename')||{value:''}).value.trim();
-  const priceText=(document.getElementById('org-price')||{value:''}).value.trim();
-  const phone=(document.getElementById('org-phone')||{value:''}).value.trim();
-  const website=(document.getElementById('org-website')||{value:''}).value.trim();
-  const email=(document.getElementById('org-email')||{value:''}).value.trim();
-  const ig=(document.getElementById('org-ig')||{value:''}).value.trim().replace(/^@/,'');
-  const orgLat=parseFloat(document.getElementById('org-lat')?.value)||null;
-  const orgLng=parseFloat(document.getElementById('org-lng')?.value)||null;
-  const orgNbhd=document.getElementById('org-nbhd')?.value||'Downtown';
-  const event={
-    id:'org_'+Date.now(),
-    title:name,
-    category:document.getElementById('org-cat').value,
-    neighborhood:orgNbhd,
-    location:loc,
-    venueName:venueName||null,
-    price:priceText||null,
-    phone:phone||null,
-    website:website||null,
-    email:email||null,
-    instagram:ig||null,
-    description:document.getElementById('org-desc').value.trim()||'Community-submitted event.',
-    indoorOutdoor:document.getElementById('org-inout').value,
-    distanceMiles:5,
-    ageRestrictions:document.getElementById('org-age').value,
+  const locInput = document.getElementById('ef-loc');
+  if (locInput && !efLocAC) {
+    efLocAC = new lib.Autocomplete(locInput, { ...PLACES_OPTS, bounds });
+    efLocAC.addListener('place_changed', () => {
+      const place = efLocAC.getPlace();
+      if (!place.formatted_address) return;
+      const name = place.name || '';
+      const addr = place.formatted_address || '';
+      const venueEl = document.getElementById('ef-venuename');
+      if (venueEl && name && !addr.startsWith(name) && !venueEl.value) venueEl.value = name;
+      locInput.value = addr;
+      fillEfCoords(place);
+    });
+  }
+}
+
+async function handleEfSubmit() {
+  if (efMode === 'admin') {
+    saveEfAdminListing();
+  } else {
+    submitEfPublicEvent();
+  }
+}
+
+function readEfRecurrence() {
+  const etype = document.getElementById('ef-etype').value;
+  let recurrenceRule = null;
+  let daysOfWeek = [];
+  let eventDate = null;
+  let eventEndDate = null;
+
+  if (etype === 'one-time') {
+    eventDate = document.getElementById('ef-date').value;
+    eventEndDate = document.getElementById('ef-enddate').value || null;
+  } else if (etype === 'recurring') {
+    const rt = document.getElementById('ef-rectype').value;
+    if (rt === 'weekly') {
+      const picked = [...document.querySelectorAll('#ef-dow-pick .tog.active')].map(t => parseInt(t.dataset.v));
+      recurrenceRule = { type: 'weekly', days: picked };
+      daysOfWeek = picked;
+    } else if (rt === 'weekly-seasonal') {
+      const picked = [...document.querySelectorAll('#ef-dow-pick .tog.active')].map(t => parseInt(t.dataset.v));
+      const months = [...document.querySelectorAll('#ef-month-pick .tog.active')].map(t => parseInt(t.dataset.v));
+      const seasonStart = document.getElementById('ef-season-start').value || null;
+      const seasonEnd   = document.getElementById('ef-season-end').value   || null;
+      recurrenceRule = { type: 'weekly-seasonal', days: picked, months, ...(seasonStart?{seasonStart}:{}), ...(seasonEnd?{seasonEnd}:{}) };
+      daysOfWeek = picked;
+    } else if (rt === 'monthly-weekday') {
+      const wn = parseInt(document.getElementById('ef-weeknum').value);
+      const md = parseInt(document.getElementById('ef-mday').value);
+      recurrenceRule = { type: 'monthly-weekday', weekNum: wn, day: md };
+      daysOfWeek = [md];
+    } else if (rt === 'annual') {
+      const mo = parseInt(document.getElementById('ef-annualmonth').value);
+      recurrenceRule = { type: 'annual', month: mo };
+    }
+  }
+  return { etype, recurrenceRule, daysOfWeek, eventDate, eventEndDate };
+}
+
+async function saveEfAdminListing() {
+  const title = document.getElementById('ef-name').value.trim();
+  if (!title) { showToast('Title is required!'); return; }
+  const { etype, recurrenceRule, daysOfWeek, eventDate, eventEndDate } = readEfRecurrence();
+  const priceText = document.getElementById('ef-price').value.trim();
+  const startTime = document.getElementById('ef-starttime').value;
+  const endTime   = document.getElementById('ef-endtime').value;
+  const editId = document.getElementById('edit-listing-id').value;
+  const listing = {
+    id: editId || 'custom_' + Date.now(),
+    title,
+    emoji: document.getElementById('ef-emoji').value || '📍',
+    category: document.getElementById('ef-cat').value,
+    neighborhood: document.getElementById('ef-nbhd').value || document.getElementById('ef-nbhd-display').value || 'Downtown',
+    venueName: document.getElementById('ef-venuename').value.trim() || null,
+    location: document.getElementById('ef-loc').value,
+    description: document.getElementById('ef-desc').value,
+    price: priceText || null,
+    indoorOutdoor: document.getElementById('ef-inout').value,
+    costScale: deriveCostScale(priceText),
+    ageRestrictions: document.getElementById('ef-age').value,
+    timeOfDay: document.getElementById('ef-time').value,
+    season: document.getElementById('ef-season').value,
+    distanceMiles: parseFloat(document.getElementById('ef-dist').value) || 1,
+    lat: parseFloat(document.getElementById('ef-lat').value) || null,
+    lng: parseFloat(document.getElementById('ef-lng').value) || null,
+    strollerFriendly: document.getElementById('ef-stroller')?.checked || false,
+    underground: false,
+    tags: document.getElementById('ef-tags').value.split(',').map(t => t.trim()).filter(Boolean),
+    phone: document.getElementById('ef-phone').value.trim() || null,
+    website: document.getElementById('ef-website').value.trim() || null,
+    email: document.getElementById('ef-email').value.trim() || null,
+    instagram: document.getElementById('ef-ig').value.trim().replace(/^@/, '') || null,
+    eventType: etype, eventDate, eventEndDate, daysOfWeek, recurrenceRule,
+    startTime: startTime || null,
+    endTime: endTime || null,
+  };
+  if (editId) {
+    const idx = customListings.findIndex(x => x.id === editId);
+    if (idx >= 0) customListings[idx] = listing;
+    else customListings.push(listing);
+  } else {
+    customListings.push(listing);
+  }
+  localStorage.setItem(CUSTOM_LISTINGS_KEY, JSON.stringify(customListings));
+  applyFilters();
+  adminCancelEdit();
+  showToast(editId ? 'Listing updated!' : 'Listing added!');
+  try {
+    const { id, ...data } = listing;
+    if (db) await db.collection('listings').doc(id).set(data);
+  } catch(e) { console.warn('Listing not saved to Firestore:', e); }
+  const photoFile = document.getElementById('ef-photo')?.files?.[0];
+  if (photoFile) {
+    try {
+      if (storage) {
+        const ref = storage.ref(`photos/${listing.id}/${Date.now()}_${photoFile.name}`);
+        await ref.put(photoFile);
+        const url = await ref.getDownloadURL();
+        listing.image = url;
+        customListings[customListings.findIndex(x => x.id === listing.id)] = listing;
+        localStorage.setItem(CUSTOM_LISTINGS_KEY, JSON.stringify(customListings));
+        if (db) await db.collection('listings').doc(listing.id).update({ image: url });
+        applyFilters();
+      }
+    } catch(e) { console.warn('Photo upload failed:', e); }
+  }
+}
+
+async function submitEfPublicEvent() {
+  const name = document.getElementById('ef-name').value.trim();
+  const loc  = document.getElementById('ef-loc').value.trim();
+  if (!name || !loc) { showToast('Name and location are required!'); return; }
+  const { etype, recurrenceRule, daysOfWeek, eventDate, eventEndDate } = readEfRecurrence();
+  if (etype === 'one-time' && !eventDate) { showToast('Please select a start date!'); return; }
+  if (etype === 'recurring' && daysOfWeek.length === 0 && recurrenceRule?.type === 'weekly') {
+    showToast('Select at least one day!'); return;
+  }
+  const startTime = document.getElementById('ef-starttime').value;
+  const endTime   = document.getElementById('ef-endtime').value;
+  const priceText = document.getElementById('ef-price').value.trim();
+  let timeOfDay = document.getElementById('ef-time').value || 'Evening';
+  if (startTime) {
+    const hr = parseInt(startTime.split(':')[0]);
+    timeOfDay = hr < 12 ? 'Morning' : hr < 17 ? 'Afternoon' : 'Evening';
+  }
+  const orgLat = parseFloat(document.getElementById('ef-lat').value) || null;
+  const orgLng = parseFloat(document.getElementById('ef-lng').value) || null;
+  const orgNbhd = document.getElementById('ef-nbhd').value || document.getElementById('ef-nbhd-display').value || 'Knoxville';
+  const tags = document.getElementById('ef-tags').value.split(',').map(t => t.trim()).filter(Boolean);
+  if (!tags.includes('community')) tags.push('community');
+  const event = {
+    id: 'org_' + Date.now(),
+    title: name,
+    emoji: document.getElementById('ef-emoji').value || '🎟️',
+    category: document.getElementById('ef-cat').value,
+    neighborhood: orgNbhd,
+    location: loc,
+    venueName: document.getElementById('ef-venuename').value.trim() || null,
+    price: priceText || null,
+    phone: document.getElementById('ef-phone').value.trim() || null,
+    website: document.getElementById('ef-website').value.trim() || null,
+    email: document.getElementById('ef-email').value.trim() || null,
+    instagram: document.getElementById('ef-ig').value.trim().replace(/^@/, '') || null,
+    description: document.getElementById('ef-desc').value.trim() || 'Community-submitted event.',
+    indoorOutdoor: document.getElementById('ef-inout').value,
+    distanceMiles: parseFloat(document.getElementById('ef-dist').value) || 5,
+    ageRestrictions: document.getElementById('ef-age').value,
     timeOfDay,
-    startTime:startTime||null,
-    endTime:endTime||null,
-    costScale:deriveCostScale(priceText),
-    season:document.getElementById('org-season')?.value||'Year-round',
-    underground:false,
-    strollerFriendly:document.getElementById('org-stroller')?.checked||false,
-    emoji:'🎟️',
-    eventType:etype,
+    startTime: startTime || null,
+    endTime: endTime || null,
+    costScale: deriveCostScale(priceText),
+    season: document.getElementById('ef-season').value || 'Year-round',
+    underground: false,
+    strollerFriendly: document.getElementById('ef-stroller')?.checked || false,
+    eventType: etype,
     eventDate,
     eventEndDate,
     daysOfWeek,
     recurrenceRule,
-    lat:orgLat,
-    lng:orgLng,
-    tags:['community']
+    lat: orgLat,
+    lng: orgLng,
+    tags,
   };
-
   communityEvents.push(event);
-  localStorage.setItem('kp_events',JSON.stringify(communityEvents));
-  closeOrgModal();
-  applyFilters();
-  showToast('Event submitted! 🎉');
-  // Upload cover photo if provided
-  const photoFile=(document.getElementById('org-photo')||{}).files?.[0];
-  if(photoFile){
+  localStorage.setItem('kp_events', JSON.stringify(communityEvents));
+  // Save photo if provided
+  const photoFile = document.getElementById('ef-photo')?.files?.[0];
+  if (photoFile && storage) {
     try {
-      if(storage){
-        const ref=storage.ref(`photos/${event.id}/${Date.now()}_${photoFile.name}`);
-        await ref.put(photoFile);
-        const url=await ref.getDownloadURL();
-        if(!localPhotos[event.id]) localPhotos[event.id]=[];
-        localPhotos[event.id].unshift(url);
-        localStorage.setItem('kp_photos',JSON.stringify(localPhotos));
-        if(db) await db.collection('photos').add({listingId:event.id,url,uploadedAt:firebase.firestore.FieldValue.serverTimestamp()});
-      } else {
-        // Store as data URL locally when Firebase Storage unavailable
-        const reader=new FileReader();
-        reader.onload=e=>{
-          if(!localPhotos[event.id]) localPhotos[event.id]=[];
-          localPhotos[event.id].unshift(e.target.result);
-          localStorage.setItem('kp_photos',JSON.stringify(localPhotos));
-          applyFilters();
-        };
-        reader.readAsDataURL(photoFile);
-      }
-    } catch(e){ console.warn('Photo upload failed:',e); }
+      const ref = storage.ref(`photos/${event.id}/${Date.now()}_${photoFile.name}`);
+      await ref.put(photoFile);
+      event.image = await ref.getDownloadURL();
+    } catch(e) {}
   }
-  // Persist to Firestore
+  // Save to Firestore communityEvents
   try {
-    if(db) await db.collection('communityEvents').add({
-      ...event,
-      submittedAt: firebase.firestore.FieldValue.serverTimestamp()
-    });
-  } catch(e){ console.warn('Event not saved to Firestore:', e); }
+    if (db) {
+      const { id, ...data } = event;
+      await db.collection('communityEvents').doc(id).set({ ...data, submittedAt: new Date().toISOString(), status: 'pending' });
+    }
+  } catch(e) { console.warn('Failed to save to Firestore:', e); }
+  applyFilters();
+  closeOrgModal();
+  showToast('Event submitted! It will appear after review. 🎉');
 }
+
+// ============================================================
+// ORGANIZER PORTAL
+// ============================================================
+function openOrgModal() {
+  document.getElementById('org-modal').classList.add('open');
+  openEfForm('org-form-slot', 'public');
+}
+function closeOrgModal() {
+  document.getElementById('org-modal').classList.remove('open');
+}
+
+// submitOrgEvent replaced by submitEfPublicEvent (shared form)
 
 // ============================================================
 // TOAST
@@ -3885,7 +4095,7 @@ function adminTab(tab){
     btn.classList.toggle('active', ['listings','add','community','edits','crawled','settings'][i]===tab);
   });
   if(tab==='listings') renderAdminListings();
-    if(tab==='add') waitForPlaces(initAdminPlaces);
+    if(tab==='add') openEfForm('admin-form-slot', 'admin');
   if(tab==='community') renderAdminCommunity();
     if(tab==='edits') renderAdminEdits();
     if(tab==='crawled') renderAdminCrawled();
@@ -3976,51 +4186,7 @@ function adminEditListing(id){
   adminTab('add');
   document.getElementById('add-form-title').textContent='Edit Listing';
   document.getElementById('edit-listing-id').value=id;
-  document.getElementById('af-title').value=l.title||'';
-  document.getElementById('af-emoji').value=l.emoji||'';
-  document.getElementById('af-cat').value=l.category||'Live Music';
-  document.getElementById('af-venuename').value=l.venueName||'';
-  document.getElementById('af-nbhd').value=l.neighborhood||'Downtown';
-  document.getElementById('af-loc').value=l.location||'';
-  document.getElementById('af-desc').value=l.description||'';
-  document.getElementById('af-inout').value=l.indoorOutdoor||'Indoor';
-  document.getElementById('af-price').value=l.price||'';
-  document.getElementById('af-cost').value=l.costScale||'Free';
-  document.getElementById('af-age').value=l.ageRestrictions||'All Ages';
-  document.getElementById('af-time').value=l.timeOfDay||'Evening';
-  document.getElementById('af-season').value=l.season||'Year-round';
-  document.getElementById('af-dist').value=l.distanceMiles||1;
-  document.getElementById('af-lat').value=l.lat||'';
-  document.getElementById('af-lng').value=l.lng||'';
-  document.getElementById('af-etype').value=l.eventType||'venue';
-  if(document.getElementById('af-stroller')) document.getElementById('af-stroller').checked=!!l.strollerFriendly;
-  document.getElementById('af-underground').checked=!!l.underground;
-  document.getElementById('af-tags').value=(l.tags||[]).join(', ');
-  document.getElementById('af-phone').value=l.phone||'';
-  document.getElementById('af-website').value=l.website||'';
-  document.getElementById('af-email').value=l.email||'';
-  document.getElementById('af-ig').value=l.instagram||'';
-  if(l.startTime) document.getElementById('af-starttime').value=l.startTime;
-  if(l.endTime) document.getElementById('af-endtime').value=l.endTime;
-  if(l.eventDate) document.getElementById('af-date').value=l.eventDate;
-  if(l.eventEndDate) document.getElementById('af-enddate').value=l.eventEndDate;
-  if(l.daysOfWeek){
-    document.querySelectorAll('#af-dow-pick .tog').forEach(t=>{
-      t.classList.toggle('active', l.daysOfWeek.includes(parseInt(t.dataset.v)));
-    });
-  }
-  if(l.recurrenceRule){
-    document.getElementById('af-rectype').value=l.recurrenceRule.type||'weekly';
-    if(l.recurrenceRule.weekNum) document.getElementById('af-weeknum').value=l.recurrenceRule.weekNum;
-    if(l.recurrenceRule.day!==undefined) document.getElementById('af-mday').value=l.recurrenceRule.day;
-    if(l.recurrenceRule.month!==undefined) document.getElementById('af-annualmonth').value=l.recurrenceRule.month;
-    document.querySelectorAll('#af-month-pick .tog').forEach(t=>{
-      t.classList.toggle('active', (l.recurrenceRule.months||[]).includes(parseInt(t.dataset.v)));
-    });
-    if(l.recurrenceRule.seasonStart) document.getElementById('af-season-start').value=l.recurrenceRule.seasonStart;
-    if(l.recurrenceRule.seasonEnd) document.getElementById('af-season-end').value=l.recurrenceRule.seasonEnd;
-  }
-  adminShowRecurrence();
+  openEfForm('admin-form-slot', 'admin', l);
 }
 
 async function adminDeleteListing(id){
@@ -4066,118 +4232,15 @@ async function promoteToListing(id){
 
 function adminCancelEdit(){
   editingListingId=null;
-  document.getElementById('edit-listing-id').value='';
   document.getElementById('add-form-title').textContent='Add New Listing';
-  ['af-title','af-emoji','af-venuename','af-loc','af-desc','af-price','af-dist','af-lat','af-lng','af-tags','af-starttime','af-endtime','af-date','af-enddate','af-season-start','af-season-end','af-phone','af-website','af-email','af-ig']
-    .forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
-  const afPhoto=document.getElementById('af-photo'); if(afPhoto) afPhoto.value='';
-  document.querySelectorAll('#af-dow-pick .tog, #af-month-pick .tog').forEach(t=>t.classList.remove('active'));
-  document.getElementById('af-underground').checked=false;
+  document.getElementById('edit-listing-id').value='';
+  resetEfForm();
   adminTab('listings');
 }
 
-function adminShowRecurrence(){
-  const v=document.getElementById('af-etype').value;
-  document.getElementById('af-onetime').style.display   = v==='one-time'  ?'block':'none';
-  document.getElementById('af-recurring').style.display = v==='recurring' ?'block':'none';
-  adminShowRecurrenceSub();
-}
+// adminShowRecurrence / adminShowRecurrenceSub replaced by showEfRecurrence / showEfRecurrenceSub
 
-function adminShowRecurrenceSub(){
-  const v=document.getElementById('af-rectype').value;
-  document.getElementById('af-monthly-sub').style.display  = v==='monthly-weekday' ?'flex':'none';
-  document.getElementById('af-seasonal-sub').style.display = v==='weekly-seasonal' ?'block':'none';
-  document.getElementById('af-annual-sub').style.display   = v==='annual'          ?'block':'none';
-}
-
-async function saveAdminListing(){
-  const title=document.getElementById('af-title').value.trim();
-  if(!title){showToast('Title is required!');return;}
-  const etype=document.getElementById('af-etype').value;
-  const rtv=document.getElementById('af-rectype').value;
-  let recurrenceRule=null, daysOfWeek=[], eventDate=null, eventEndDate=null;
-  if(etype==='one-time'){
-    eventDate=document.getElementById('af-date').value;
-    eventEndDate=document.getElementById('af-enddate').value||null;
-  } else if(etype==='recurring'){
-    const picked=[...document.querySelectorAll('#af-dow-pick .tog.active')].map(t=>parseInt(t.dataset.v));
-    daysOfWeek=picked;
-    if(rtv==='weekly') recurrenceRule={type:'weekly',days:picked};
-    else if(rtv==='monthly-weekday') recurrenceRule={type:'monthly-weekday',
-      weekNum:parseInt(document.getElementById('af-weeknum').value),
-      day:parseInt(document.getElementById('af-mday').value)};
-    else if(rtv==='weekly-seasonal'){
-      const ms=[...document.querySelectorAll('#af-month-pick .tog.active')].map(t=>parseInt(t.dataset.v));
-      const seasonStart=document.getElementById('af-season-start').value||null;
-      const seasonEnd=document.getElementById('af-season-end').value||null;
-      recurrenceRule={type:'weekly-seasonal',days:picked,months:ms,...(seasonStart?{seasonStart}:{}),...(seasonEnd?{seasonEnd}:{})};
-    } else if(rtv==='annual'){
-      recurrenceRule={type:'annual',month:parseInt(document.getElementById('af-annualmonth').value)};
-    }
-  }
-  const editId=document.getElementById('edit-listing-id').value;
-  const listing={
-    id: editId || 'custom_'+Date.now(),
-    title,
-    emoji:document.getElementById('af-emoji').value||'📍',
-    category:document.getElementById('af-cat').value,
-    neighborhood:document.getElementById('af-nbhd').value,
-    venueName:document.getElementById('af-venuename').value.trim()||null,
-    location:document.getElementById('af-loc').value,
-    description:document.getElementById('af-desc').value,
-    price:document.getElementById('af-price').value.trim()||null,
-    indoorOutdoor:document.getElementById('af-inout').value,
-    costScale:deriveCostScale(document.getElementById('af-price').value.trim()),
-    ageRestrictions:document.getElementById('af-age').value,
-    timeOfDay:document.getElementById('af-time').value,
-    season:document.getElementById('af-season').value,
-    distanceMiles:parseFloat(document.getElementById('af-dist').value)||1,
-    lat:parseFloat(document.getElementById('af-lat').value)||null,
-    lng:parseFloat(document.getElementById('af-lng').value)||null,
-    strollerFriendly:document.getElementById('af-stroller')?.checked||false,
-    underground:document.getElementById('af-underground').checked,
-    tags:document.getElementById('af-tags').value.split(',').map(t=>t.trim()).filter(Boolean),
-    phone:document.getElementById('af-phone').value.trim()||null,
-    website:document.getElementById('af-website').value.trim()||null,
-    email:document.getElementById('af-email').value.trim()||null,
-    instagram:document.getElementById('af-ig').value.trim().replace(/^@/,'')||null,
-    eventType:etype, eventDate, eventEndDate, daysOfWeek, recurrenceRule,
-    startTime:document.getElementById('af-starttime').value||null,
-    endTime:document.getElementById('af-endtime').value||null,
-  };
-  if(editId){
-    const idx=customListings.findIndex(x=>x.id===editId);
-    if(idx>=0) customListings[idx]=listing;
-    else customListings.push(listing);
-  } else {
-    customListings.push(listing);
-  }
-  localStorage.setItem(CUSTOM_LISTINGS_KEY,JSON.stringify(customListings));
-  applyFilters();
-  adminCancelEdit();
-  showToast(editId?'Listing updated!':'Listing added!');
-  // Persist to Firestore
-  try {
-    const {id, ...data} = listing;
-    if(db) await db.collection('listings').doc(id).set(data);
-  } catch(e){ console.warn('Listing not saved to Firestore:', e); }
-  // Upload cover photo if provided
-  const photoFile=document.getElementById('af-photo')?.files?.[0];
-  if(photoFile){
-    try {
-      if(storage){
-        const ref=storage.ref(`photos/${listing.id}/${Date.now()}_${photoFile.name}`);
-        await ref.put(photoFile);
-        const url=await ref.getDownloadURL();
-        if(!localPhotos[listing.id]) localPhotos[listing.id]=[];
-        localPhotos[listing.id].unshift(url);
-        localStorage.setItem('kp_photos',JSON.stringify(localPhotos));
-        if(db) await db.collection('photos').add({listingId:listing.id,url,uploadedAt:firebase.firestore.FieldValue.serverTimestamp()});
-        applyFilters();
-      }
-    } catch(e){ console.warn('Admin photo upload failed:',e); }
-  }
-}
+// saveAdminListing replaced by saveEfAdminListing (shared form)
 
 async function changeAdminPw(){
   const p1=document.getElementById('new-pw-1').value;
@@ -4363,10 +4426,8 @@ document.querySelector('header h1').addEventListener('click',()=>{
 // ============================================================
 // GOOGLE PLACES AUTOCOMPLETE
 // ============================================================
-let orgLocAutocomplete    = null;
-let orgVenueAutocomplete  = null;
-let adminLocAutocomplete  = null;
-let adminVenueAutocomplete = null;
+// orgLocAutocomplete / orgVenueAutocomplete / adminLocAutocomplete / adminVenueAutocomplete
+// replaced by efLocAC / efVenueAC on the shared event form
 
 function detectNeighborhood(lat, lng) {
   const boxes = [
@@ -4438,120 +4499,7 @@ async function getPlacesLib() {
   return null;
 }
 
-async function initOrgPlaces() {
-  const lib = await getPlacesLib();
-  if (!lib) return;
-  const bounds = new google.maps.LatLngBounds(
-    new google.maps.LatLng(KNOX_BOUNDS.south, KNOX_BOUNDS.west),
-    new google.maps.LatLng(KNOX_BOUNDS.north, KNOX_BOUNDS.east)
-  );
-
-  function fillOrgCoords(place) {
-    if (place.geometry?.location) {
-      const lat = place.geometry.location.lat();
-      const lng = place.geometry.location.lng();
-      const latEl = document.getElementById('org-lat');
-      const lngEl = document.getElementById('org-lng');
-      if (latEl) latEl.value = lat.toFixed(6);
-      if (lngEl) lngEl.value = lng.toFixed(6);
-      applyDetectedNeighborhood(detectNeighborhood(lat, lng), 'org');
-    }
-  }
-
-  const venueInput = document.getElementById('org-venuename');
-  if (venueInput && !orgVenueAutocomplete) {
-    orgVenueAutocomplete = new lib.Autocomplete(venueInput, {
-      ...PLACES_OPTS,
-      bounds,
-      types: ['establishment'],
-    });
-    orgVenueAutocomplete.addListener('place_changed', () => {
-      const place = orgVenueAutocomplete.getPlace();
-      if (!place) return;
-      const name = place.name || '';
-      const addr = place.formatted_address || '';
-      if (name) venueInput.value = name;
-      const locEl = document.getElementById('org-loc');
-      if (locEl && addr) locEl.value = addr;
-      fillOrgCoords(place);
-    });
-  }
-
-  const locInput = document.getElementById('org-loc');
-  if (locInput && !orgLocAutocomplete) {
-    orgLocAutocomplete = new lib.Autocomplete(locInput, { ...PLACES_OPTS, bounds });
-    orgLocAutocomplete.addListener('place_changed', () => {
-      const place = orgLocAutocomplete.getPlace();
-      if (!place.formatted_address) return;
-      const name = place.name || '';
-      const addr = place.formatted_address || '';
-      const venueEl = document.getElementById('org-venuename');
-      if (venueEl && name && !addr.startsWith(name) && !venueEl.value) venueEl.value = name;
-      locInput.value = addr;
-      fillOrgCoords(place);
-    });
-  }
-}
-
-async function initAdminPlaces() {
-  if (adminLocAutocomplete && adminVenueAutocomplete) return;
-  const badge = document.getElementById('af-nbhd-badge');
-  if (badge) badge.style.display = 'none';
-  const lib = await getPlacesLib();
-  if (!lib) return;
-  const bounds = new google.maps.LatLngBounds(
-    new google.maps.LatLng(KNOX_BOUNDS.south, KNOX_BOUNDS.west),
-    new google.maps.LatLng(KNOX_BOUNDS.north, KNOX_BOUNDS.east)
-  );
-
-  // Address field — autocomplete fills address + lat/lng
-  const locInput = document.getElementById('af-loc');
-  if (locInput && !adminLocAutocomplete) {
-    adminLocAutocomplete = new lib.Autocomplete(locInput, { ...PLACES_OPTS, bounds });
-    adminLocAutocomplete.addListener('place_changed', () => {
-      const place = adminLocAutocomplete.getPlace();
-      if (!place.formatted_address) return;
-      const name = place.name || '';
-      const addr = place.formatted_address || '';
-      locInput.value = (name && !addr.startsWith(name)) ? `${name}, ${addr}` : addr;
-      if (place.geometry?.location) {
-        const lat = place.geometry.location.lat();
-        const lng = place.geometry.location.lng();
-        document.getElementById('af-lat').value = lat.toFixed(6);
-        document.getElementById('af-lng').value = lng.toFixed(6);
-        applyDetectedNeighborhood(detectNeighborhood(lat, lng), 'af');
-      }
-      const vn = document.getElementById('af-venuename');
-      if (vn && !vn.value && name && !addr.startsWith(name)) vn.value = name;
-    });
-  }
-
-  // Venue name field — autocomplete fills name, address, and lat/lng together
-  const venueInput = document.getElementById('af-venuename');
-  if (venueInput && !adminVenueAutocomplete) {
-    adminVenueAutocomplete = new lib.Autocomplete(venueInput, {
-      ...PLACES_OPTS,
-      bounds,
-      types: ['establishment'],
-    });
-    adminVenueAutocomplete.addListener('place_changed', () => {
-      const place = adminVenueAutocomplete.getPlace();
-      if (!place) return;
-      const name = place.name || '';
-      const addr = place.formatted_address || '';
-      if (name) venueInput.value = name;
-      const locEl = document.getElementById('af-loc');
-      if (locEl && addr) locEl.value = addr;
-      if (place.geometry?.location) {
-        const lat = place.geometry.location.lat();
-        const lng = place.geometry.location.lng();
-        document.getElementById('af-lat').value = lat.toFixed(6);
-        document.getElementById('af-lng').value = lng.toFixed(6);
-        applyDetectedNeighborhood(detectNeighborhood(lat, lng), 'af');
-      }
-    });
-  }
-}
+// initOrgPlaces / initAdminPlaces replaced by initEfPlaces (shared form)
 
 function waitForPlaces(fn, attempts=0) {
   if (window.google?.maps) { fn(); }
@@ -4652,8 +4600,7 @@ window.addEventListener('popstate',function(){
     if(modalMap){modalMap.remove();modalMap=null;}
   }
 });
-try{showRecurrenceFields();}catch(e){}
-try{showRecurrenceSubFields();}catch(e){}
+// showRecurrenceFields / showRecurrenceSubFields removed (replaced by showEfRecurrence / showEfRecurrenceSub)
 // Show today's date in the picker as a hint but don't apply it as a filter —
 // all events load on first render, sorted by next occurrence.
 // User can tap the Date button to filter by a specific day.
@@ -4713,210 +4660,7 @@ setTimeout(function(){
         <div id="atab-add" style="display:none;">
           <h3 id="add-form-title" style="font-size:.95rem;margin-bottom:4px;">Add New Listing</h3>
           <input type="hidden" id="edit-listing-id"/>
-          <div class="admin-form">
-            <div class="form-row">
-              <div><label>Title *</label><input id="af-title" placeholder="e.g. Jazz at the Bistro"/></div>
-              <div><label>Emoji</label><input id="af-emoji" placeholder="🎷" maxlength="4"/></div>
-            </div>
-            <div class="form-row">
-              <div>
-                <label>Category *</label>
-                <select id="af-cat">
-                  <option>Live Music</option>
-                  <option>Dancing</option>
-                  <option>Karaoke</option>
-                  <option>Trivia &amp; Games</option>
-                  <option>Comedy</option>
-                  <option>Festivals &amp; Events</option>
-                  <option>Sports &amp; Recreation</option>
-                  <option>Outdoor &amp; Nature</option>
-                  <option>Arts &amp; Museums</option>
-                  <option>Markets</option>
-                  <option>Theater &amp; Performance</option>
-                  <option>Fitness &amp; Wellness</option>
-                  <option>Tours &amp; Experiences</option>
-                  <option>Film &amp; Cinema</option>
-                  <option>Community &amp; Civic</option>
-                  <option>Happy Hour &amp; Specials</option>
-                </select>
-              </div>
-              <div>
-                <label>Neighborhood <span id="af-nbhd-badge" style="display:none;font-size:.72rem;color:var(--accent);font-weight:600;text-transform:none;letter-spacing:0;margin-left:4px;">auto-detected</span></label>
-                <select id="af-nbhd">
-                  <option>Downtown</option><option>Market Square</option><option>Old City</option>
-                  <option>World's Fair Park</option><option>Fort Sanders</option><option>Happy Holler</option>
-                  <option>4th &amp; Gill</option><option>Sequoyah Hills</option>
-                  <option>North Knoxville</option><option>Fountain City</option>
-                  <option>South Knoxville</option><option>Old Sevier</option>
-                  <option>East Knoxville</option>
-                  <option>West Knoxville</option><option>Bearden</option>
-                  <option>Northshore</option><option>Papermill</option>
-                  <option>Turkey Creek</option><option>Farragut</option><option>Hardin Valley</option>
-                  <option>UT Area</option><option>Smoky Mountains</option>
-                  <option>Oak Ridge</option><option>Maryville</option>
-                </select>
-              </div>
-            </div>
-            <label>Venue / Location Name</label>
-            <input id="af-venuename" placeholder="e.g. Market Square, The Mill &amp; Mine"/>
-            <label>Location / Venue Address</label>
-            <input id="af-loc" placeholder="Start typing a venue or address…" autocomplete="off"/>
-            <label>Description</label>
-            <textarea id="af-desc" placeholder="What makes this worth going to?"></textarea>
-            <label>Price (free text)</label>
-            <input id="af-price" placeholder="e.g. Free, $10, $5–$15, Donations welcome"/>
-            <div class="form-row">
-              <div>
-                <label>Indoor / Outdoor</label>
-                <select id="af-inout"><option>Indoor</option><option>Outdoor</option><option>Both</option></select>
-              </div>
-              <div style="display:none"><select id="af-cost"><option>Free</option></select></div>
-            </div>
-            <div class="form-row">
-              <div>
-                <label>Ages</label>
-                <select id="af-age"><option>All Ages</option><option>Infants (0–1)</option><option>Toddlers (2–4)</option><option>Kids (5–12)</option><option>Teens (13–17)</option><option>18+</option><option>21+</option></select>
-              </div>
-              <div>
-                <label>Time of Day</label>
-                <select id="af-time"><option>Morning</option><option>Afternoon</option><option>Evening</option></select>
-              </div>
-            </div>
-            <div class="form-row">
-              <div>
-                <label>Season</label>
-                <select id="af-season">
-                  <option>Year-round</option><option>Spring</option><option>Summer</option>
-                  <option>Fall</option><option>Winter</option>
-                </select>
-              </div>
-              <div>
-                <label>Distance (miles from downtown)</label>
-                <input type="number" id="af-dist" placeholder="1" min="0" max="200"/>
-              </div>
-            </div>
-            <div class="form-row">
-              <div>
-                <label>Latitude (optional, for map)</label>
-                <input type="number" id="af-lat" placeholder="35.9650" step="0.0001"/>
-              </div>
-              <div>
-                <label>Longitude (optional, for map)</label>
-                <input type="number" id="af-lng" placeholder="-83.9200" step="0.0001"/>
-              </div>
-            </div>
-            <label>Event Type</label>
-            <select id="af-etype" onchange="adminShowRecurrence()">
-              <option value="venue">Venue (always open / no set schedule)</option>
-              <option value="recurring">Recurring event</option>
-              <option value="one-time">One-time event</option>
-            </select>
-            <div id="af-onetime" style="display:none;">
-              <div class="form-row">
-                <div><label>Start Date</label><input type="date" id="af-date"/></div>
-                <div><label>End Date (multi-day)</label><input type="date" id="af-enddate"/></div>
-              </div>
-            </div>
-            <div id="af-recurring" style="display:none;">
-              <label>Days of Week</label>
-              <div class="toggle-group" id="af-dow-pick" style="margin-top:4px;">
-                <span class="tog" data-v="0" onclick="this.classList.toggle('active')">Sun</span>
-                <span class="tog" data-v="1" onclick="this.classList.toggle('active')">Mon</span>
-                <span class="tog" data-v="2" onclick="this.classList.toggle('active')">Tue</span>
-                <span class="tog" data-v="3" onclick="this.classList.toggle('active')">Wed</span>
-                <span class="tog" data-v="4" onclick="this.classList.toggle('active')">Thu</span>
-                <span class="tog" data-v="5" onclick="this.classList.toggle('active')">Fri</span>
-                <span class="tog" data-v="6" onclick="this.classList.toggle('active')">Sat</span>
-              </div>
-              <div class="form-row" style="margin-top:10px;">
-                <div>
-                  <label>Start Time</label>
-                  <input type="time" id="af-starttime"/>
-                </div>
-                <div>
-                  <label>End Time</label>
-                  <input type="time" id="af-endtime"/>
-                </div>
-              </div>
-              <div class="form-row" style="margin-top:10px;">
-                <div>
-                  <label>Recurrence Pattern</label>
-                  <select id="af-rectype" onchange="adminShowRecurrenceSub()">
-                    <option value="weekly">Every week</option>
-                    <option value="monthly-weekday">Monthly (e.g. 1st Friday)</option>
-                    <option value="weekly-seasonal">Weekly but seasonal</option>
-                    <option value="annual">Once a year</option>
-                  </select>
-                </div>
-              </div>
-              <div id="af-monthly-sub" style="display:none;" class="form-row">
-                <div>
-                  <label>Which week</label>
-                  <select id="af-weeknum"><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option></select>
-                </div>
-                <div>
-                  <label>Day</label>
-                  <select id="af-mday">
-                    <option value="0">Sunday</option><option value="1">Monday</option><option value="2">Tuesday</option>
-                    <option value="3">Wednesday</option><option value="4">Thursday</option>
-                    <option value="5">Friday</option><option value="6">Saturday</option>
-                  </select>
-                </div>
-              </div>
-              <div id="af-seasonal-sub" style="display:none;margin-top:8px;">
-                <label>Active Months</label>
-                <div class="toggle-group" id="af-month-pick" style="flex-wrap:wrap;gap:4px;margin-top:4px;">
-                  <span class="tog" data-v="0" onclick="this.classList.toggle('active')">Jan</span>
-                  <span class="tog" data-v="1" onclick="this.classList.toggle('active')">Feb</span>
-                  <span class="tog" data-v="2" onclick="this.classList.toggle('active')">Mar</span>
-                  <span class="tog" data-v="3" onclick="this.classList.toggle('active')">Apr</span>
-                  <span class="tog" data-v="4" onclick="this.classList.toggle('active')">May</span>
-                  <span class="tog" data-v="5" onclick="this.classList.toggle('active')">Jun</span>
-                  <span class="tog" data-v="6" onclick="this.classList.toggle('active')">Jul</span>
-                  <span class="tog" data-v="7" onclick="this.classList.toggle('active')">Aug</span>
-                  <span class="tog" data-v="8" onclick="this.classList.toggle('active')">Sep</span>
-                  <span class="tog" data-v="9" onclick="this.classList.toggle('active')">Oct</span>
-                  <span class="tog" data-v="10" onclick="this.classList.toggle('active')">Nov</span>
-                  <span class="tog" data-v="11" onclick="this.classList.toggle('active')">Dec</span>
-                </div>
-                <div class="form-row" style="margin-top:8px;">
-                  <div><label>Season start date (optional)</label><input type="date" id="af-season-start"/></div>
-                  <div><label>Season end date (optional)</label><input type="date" id="af-season-end"/></div>
-                </div>
-              </div>
-              <div id="af-annual-sub" style="display:none;margin-top:8px;">
-                <label>Month</label>
-                <select id="af-annualmonth">
-                  <option value="0">January</option><option value="1">February</option><option value="2">March</option>
-                  <option value="3">April</option><option value="4">May</option><option value="5">June</option>
-                  <option value="6">July</option><option value="7">August</option><option value="8">September</option>
-                  <option value="9">October</option><option value="10">November</option><option value="11">December</option>
-                </select>
-              </div>
-            </div>
-            <label style="display:flex;align-items:center;gap:8px;margin-top:10px;">
-              <input type="checkbox" id="af-stroller"/> 🍼 Stroller accessible (infants/toddlers welcome)
-            </label>
-            <label style="display:flex;align-items:center;gap:8px;margin-top:8px;">
-              <input type="checkbox" id="af-underground"/> Underground / not widely publicized
-            </label>
-            <label>Tags (comma-separated)</label>
-            <input id="af-tags" placeholder="jazz, live music, bar"/>
-            <label>Phone (optional)</label>
-            <input type="tel" id="af-phone" placeholder="e.g. (865) 555-0123"/>
-            <label>Website (optional)</label>
-            <input type="url" id="af-website" placeholder="e.g. https://example.com"/>
-            <label>Email (optional)</label>
-            <input type="email" id="af-email" placeholder="e.g. info@example.com"/>
-            <label>Instagram handle (optional)</label>
-            <input type="text" id="af-ig" placeholder="e.g. knoxpulse (no @)"/>
-            <label>Cover Photo (optional)</label>
-            <input type="file" id="af-photo" accept="image/*" style="color:var(--text-2);font-size:.85rem;"/>
-            <div>
-              <button class="admin-save" onclick="saveAdminListing()">💾 Save Listing</button>
-              <button class="admin-cancel" onclick="adminCancelEdit()">Cancel</button>
-            </div>
-          </div>
+          <div id="admin-form-slot" class="admin-form"></div>
         </div>
 
         <!-- COMMUNITY SUBMITTED TAB -->
