@@ -3092,6 +3092,11 @@ function applyFilters(){
 
   // Panel-only filter function (no search query applied)
   const passesPanel=(l)=>{
+    // Hide one-time events whose date has passed
+    if(l.eventType==='one-time'){
+      const cutoff=l.eventEndDate||l.eventDate;
+      if(cutoff && cutoff < todayStr()) return false;
+    }
     if(cat && l.category!==cat) return false;
     if(inout && l.indoorOutdoor!==inout) return false;
     if(l.distanceMiles>dist) return false;
