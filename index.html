@@ -3735,7 +3735,6 @@ function copyLink(id){
 // ============================================================
 // ADMIN PANEL
 // ============================================================
-const ADMIN_PW_KEY = 'kp_admin_pw';
 const CUSTOM_LISTINGS_KEY = 'kp_custom_listings';
 let adminUnlocked = false;
 let editingListingId = null;
@@ -3747,13 +3746,20 @@ function allListings(){
   return [...LISTINGS, ...customListings, ...communityEvents];
 }
 
-function openAdminModal(){
+async function openAdminModal(){
+  // Clear any legacy localStorage password from old client-side auth
+  localStorage.removeItem('kp_admin_pw');
   document.getElementById('admin-modal').classList.add('open');
   document.getElementById('admin-pw-gate').style.display='block';
   document.getElementById('admin-content').style.display='none';
   document.getElementById('admin-pw-input').value='';
+  document.getElementById('admin-pw-err').textContent='Incorrect password.';
   document.getElementById('admin-pw-err').style.display='none';
-  if(adminUnlocked) unlockAdmin();
+  // Auto-unlock if a valid server session cookie already exists
+  try{
+    const r=await fetch('/api/admin-verify');
+    if(r.ok) unlockAdmin();
+  }catch(e){}
 }
 function closeAdminModal(){
   document.getElementById('admin-modal').classList.remove('open');
@@ -3764,19 +3770,31 @@ document.addEventListener('click',function(e){
   if(am&&e.target===am) closeAdminModal();
 });
 
-async function sha256(str){
-  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
-}
-
 async function checkAdminPw(){
   const entered=document.getElementById('admin-pw-input').value;
-  const enteredHash=await sha256(entered);
-  const stored=localStorage.getItem(ADMIN_PW_KEY)||'f931eea68745266ee982bcb44e43f4e57847b420d269de725f511f4bb31aecc7';
-  if(enteredHash===stored){ unlockAdmin(); }
-  else{
-    document.getElementById('admin-pw-err').style.display='block';
-    document.getElementById('admin-pw-input').value='';
+  if(!entered) return;
+  const errEl=document.getElementById('admin-pw-err');
+  errEl.style.display='none';
+  const btn=document.querySelector('#admin-pw-gate button');
+  if(btn){btn.disabled=true;btn.textContent='Checking…';}
+  try{
+    const r=await fetch('/api/admin-auth',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({password:entered})
+    });
+    const data=await r.json().catch(()=>({}));
+    if(r.ok){ unlockAdmin(); }
+    else{
+      errEl.textContent=data.error||'Incorrect password.';
+      errEl.style.display='block';
+      document.getElementById('admin-pw-input').value='';
+    }
+  }catch(e){
+    errEl.textContent='Connection error. Try again.';
+    errEl.style.display='block';
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent='Unlock';}
   }
 }
 
@@ -3785,6 +3803,12 @@ function unlockAdmin(){
   document.getElementById('admin-pw-gate').style.display='none';
   document.getElementById('admin-content').style.display='block';
   adminTab('listings');
+}
+
+async function adminLogout(){
+  await fetch('/api/admin-logout',{method:'POST'}).catch(()=>{});
+  adminUnlocked=false;
+  closeAdminModal();
 }
 
 function adminTab(tab){
@@ -4093,12 +4117,31 @@ async function changeAdminPw(){
   const p1=document.getElementById('new-pw-1').value;
   const p2=document.getElementById('new-pw-2').value;
   if(!p1){showToast('Enter a new password.');return;}
+  if(p1.length<8){showToast('Password must be at least 8 characters.');return;}
   if(p1!==p2){showToast('Passwords do not match!');return;}
-  const hash=await sha256(p1);
-  localStorage.setItem(ADMIN_PW_KEY,hash);
-  document.getElementById('new-pw-1').value='';
-  document.getElementById('new-pw-2').value='';
-  showToast('Password updated!');
+  try{
+    const r=await fetch('/api/admin-change-pw',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({password:p1})
+    });
+    const data=await r.json().catch(()=>({}));
+    if(r.ok){
+      document.getElementById('new-pw-1').value='';
+      document.getElementById('new-pw-2').value='';
+      if(data.action==='manual'){
+        // KV not bound — show hash for manual env var update
+        showToast('Copy new hash to Cloudflare ADMIN_PASSWORD_HASH env var.');
+        prompt('New ADMIN_PASSWORD_HASH value (copy this to Cloudflare):', data.hash);
+      } else {
+        showToast('Password updated!');
+      }
+    } else {
+      showToast(data.error||'Failed to update password.');
+    }
+  }catch(e){
+    showToast('Connection error. Try again.');
+  }
 }
 
 function exportData(){
@@ -4609,6 +4652,9 @@ setTimeout(function(){
             <label>Confirm New Password</label>
             <input type="password" id="new-pw-2" placeholder="Confirm password"/>
             <button class="admin-save" onclick="changeAdminPw()" style="margin-top:12px;">Update Password</button>
+            <hr style="border-color:#ffffff15;margin:20px 0;"/>
+            <label>Session</label>
+            <button class="admin-cancel" onclick="adminLogout()" style="margin-bottom:8px;">🔒 Log Out</button>
             <hr style="border-color:#ffffff15;margin:20px 0;"/>
             <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">
               Export all custom listings as JSON (for backup).</p>
