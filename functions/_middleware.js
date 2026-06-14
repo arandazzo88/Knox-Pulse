@@ -8,7 +8,42 @@ export async function onRequest(context) {
   const url = new URL(request.url);
   const eventId = url.searchParams.get('event');
 
-  if (!eventId) return next();
+  // Main page (no ?event=): inject a server-rendered event list so non-JS
+  // crawlers, scrapers, and AI agents can read all listings as plain HTML.
+  if (!eventId) {
+    try {
+      const [indexResp, dataResp] = await Promise.all([
+        env.ASSETS.fetch(new Request(new URL('/', url.origin).toString())),
+        env.ASSETS.fetch(new Request(new URL('/data/listings.json', url.origin).toString())),
+      ]);
+      const listings = await dataResp.json();
+      let html = await indexResp.text();
+
+      const items = listings.map(l => {
+        const evUrl = `https://www.theknoxpulse.com/?event=${l.id}`;
+        return `<li><a href="${evUrl}"><strong>${esc(l.title)}</strong></a> — ${esc(l.category)}` +
+          (l.neighborhood ? ` · ${esc(l.neighborhood)}` : '') +
+          (l.location ? ` · ${esc(l.location)}` : '') +
+          (l.description ? `<br>${esc(l.description.slice(0,200))}` : '') +
+          `</li>`;
+      }).join('\n');
+
+      const ssrBlock = `<noscript><section id="ssr-listings" style="max-width:860px;margin:2rem auto;padding:1rem;font-family:sans-serif;">` +
+        `<h1>Knox Pulse — Knoxville Events</h1>` +
+        `<p>Discover ${listings.length} recurring events and activities in Knoxville, TN.</p>` +
+        `<ul style="line-height:2;">${items}</ul>` +
+        `</section></noscript>`;
+
+      html = html.replace('<div class="grid" id="main-grid"></div>',
+        `<div class="grid" id="main-grid"></div>${ssrBlock}`);
+
+      return new Response(html, {
+        headers: { 'Content-Type': 'text/html;charset=UTF-8', 'Cache-Control': 'public, max-age=300, s-maxage=3600' }
+      });
+    } catch {
+      return next();
+    }
+  }
 
   try {
     // Load static listing data

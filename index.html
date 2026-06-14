@@ -4181,9 +4181,10 @@ async function uploadEventsJSON(){
   const file=fileInput.files[0];
   if(!file){ showToast('Please select a JSON file first.'); return; }
 
-  // All fields used by the filter panel are required
+  // All fields required — filter fields + eventType + cover photo
   const REQUIRED_STRINGS=['id','title','category','location','description',
-    'indoorOutdoor','timeOfDay','ageRestrictions','costScale','neighborhood','season'];
+    'indoorOutdoor','timeOfDay','ageRestrictions','costScale','neighborhood','season',
+    'eventType','image'];
 
   let parsed;
   try{
@@ -4754,9 +4755,10 @@ setTimeout(function(){
             <label>Import Events (JSON)</label>
             <p style="font-size:.78rem;color:var(--muted);margin-bottom:8px;">
               Upload a JSON file (array of event objects) to add events to the community collection.
-              All filter fields are required per event:
+              All fields are required per event:
               <strong>id, title, category, location, description, indoorOutdoor, timeOfDay,
-              ageRestrictions, costScale, neighborhood, season, daysOfWeek, strollerFriendly</strong>.
+              ageRestrictions, costScale, neighborhood, season, daysOfWeek, strollerFriendly,
+              eventType, image</strong>.
             </p>
             <input type="file" id="upload-events-file" accept=".json"
               style="background:transparent;border:none;color:var(--text);padding:0;"/>
