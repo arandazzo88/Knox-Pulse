@@ -908,168 +908,203 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
+<!-- ============================================================
+     SHARED EVENT FORM — moved between org modal and admin panel
+     ============================================================ -->
+<div id="ef-form" style="display:none;">
+  <div class="form-row">
+    <div style="flex:3;">
+      <label>Event Name *</label>
+      <input type="text" id="ef-name" placeholder="e.g. Saturday Night Rave at The Mill"/>
+    </div>
+    <div style="flex:1;">
+      <label>Emoji</label>
+      <input type="text" id="ef-emoji" placeholder="🎟️" maxlength="4"/>
+    </div>
+  </div>
+  <div class="form-row">
+    <div>
+      <label>Category *</label>
+      <select id="ef-cat">
+        <option>Live Music</option>
+        <option>Dancing</option>
+        <option>Karaoke</option>
+        <option>Trivia &amp; Games</option>
+        <option>Comedy</option>
+        <option>Festivals &amp; Events</option>
+        <option>Sports &amp; Recreation</option>
+        <option>Outdoor &amp; Nature</option>
+        <option>Arts &amp; Museums</option>
+        <option>Markets</option>
+        <option>Theater &amp; Performance</option>
+        <option>Fitness &amp; Wellness</option>
+        <option>Tours &amp; Experiences</option>
+        <option>Film &amp; Cinema</option>
+        <option>Community &amp; Civic</option>
+        <option>Happy Hour &amp; Specials</option>
+      </select>
+    </div>
+    <div>
+      <label>Neighborhood <span id="ef-nbhd-badge" style="display:none;font-size:.72rem;color:var(--accent);font-weight:600;text-transform:none;letter-spacing:0;margin-left:4px;">auto-detected</span></label>
+      <input type="text" id="ef-nbhd-display" placeholder="Auto-detected from address" readonly style="cursor:default;color:var(--text-2);background:var(--surface);"/>
+      <input type="hidden" id="ef-nbhd" value=""/>
+    </div>
+  </div>
+  <label>Venue / Location Name <span style="font-weight:400;color:var(--muted);font-size:.78rem;">(auto-fills address)</span></label>
+  <input type="text" id="ef-venuename" placeholder="Start typing a venue name…" autocomplete="off"/>
+  <label>Address *</label>
+  <input type="text" id="ef-loc" placeholder="Or type an address directly…" autocomplete="off"/>
+  <input type="hidden" id="ef-lat" value=""/>
+  <input type="hidden" id="ef-lng" value=""/>
+  <label>Description</label>
+  <textarea id="ef-desc" placeholder="What makes this worth going to?"></textarea>
+  <label>Price</label>
+  <input type="text" id="ef-price" placeholder="e.g. Free, $10, $5–$15, Donations welcome"/>
+  <div class="form-row">
+    <div>
+      <label>Indoor / Outdoor</label>
+      <select id="ef-inout"><option>Indoor</option><option>Outdoor</option><option>Both</option></select>
+    </div>
+    <div>
+      <label>Ages</label>
+      <select id="ef-age"><option>All Ages</option><option>Infants (0–1)</option><option>Toddlers (2–4)</option><option>Kids (5–12)</option><option>Teens (13–17)</option><option>18+</option><option>21+</option></select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div>
+      <label>Time of Day</label>
+      <select id="ef-time"><option>Morning</option><option>Afternoon</option><option value="Evening" selected>Evening</option></select>
+    </div>
+    <div>
+      <label>Season</label>
+      <select id="ef-season"><option>Year-round</option><option>Spring</option><option>Summer</option><option>Fall</option><option>Winter</option></select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div>
+      <label>Start Time</label>
+      <input type="time" id="ef-starttime"/>
+    </div>
+    <div>
+      <label>End Time (optional)</label>
+      <input type="time" id="ef-endtime"/>
+    </div>
+  </div>
+  <div class="form-row">
+    <div>
+      <label>Distance (miles from downtown)</label>
+      <input type="number" id="ef-dist" placeholder="1" min="0" max="200"/>
+    </div>
+  </div>
+  <label>Event Type *</label>
+  <select id="ef-etype" onchange="showEfRecurrence()">
+    <option value="one-time">One-time event</option>
+    <option value="recurring">Recurring event</option>
+    <option value="venue">Venue (always open / no set schedule)</option>
+  </select>
+  <div id="ef-onetime" style="display:block;">
+    <div class="form-row">
+      <div><label>Start Date</label><input type="date" id="ef-date"/></div>
+      <div><label>End Date (multi-day)</label><input type="date" id="ef-enddate"/></div>
+    </div>
+  </div>
+  <div id="ef-recurring" style="display:none;">
+    <label>Days of Week</label>
+    <div class="toggle-group" id="ef-dow-pick" style="margin-top:4px;">
+      <span class="tog" data-v="0" onclick="this.classList.toggle('active')">Sun</span>
+      <span class="tog" data-v="1" onclick="this.classList.toggle('active')">Mon</span>
+      <span class="tog" data-v="2" onclick="this.classList.toggle('active')">Tue</span>
+      <span class="tog" data-v="3" onclick="this.classList.toggle('active')">Wed</span>
+      <span class="tog" data-v="4" onclick="this.classList.toggle('active')">Thu</span>
+      <span class="tog" data-v="5" onclick="this.classList.toggle('active')">Fri</span>
+      <span class="tog" data-v="6" onclick="this.classList.toggle('active')">Sat</span>
+    </div>
+    <div class="form-row" style="margin-top:10px;">
+      <div>
+        <label>Recurrence Pattern</label>
+        <select id="ef-rectype" onchange="showEfRecurrenceSub()">
+          <option value="weekly">Every week</option>
+          <option value="monthly-weekday">Monthly (e.g. 1st Friday)</option>
+          <option value="weekly-seasonal">Weekly but seasonal</option>
+          <option value="annual">Once a year</option>
+        </select>
+      </div>
+    </div>
+    <div id="ef-monthly-sub" style="display:none;" class="form-row">
+      <div>
+        <label>Which week</label>
+        <select id="ef-weeknum"><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option></select>
+      </div>
+      <div>
+        <label>Day</label>
+        <select id="ef-mday">
+          <option value="0">Sunday</option><option value="1">Monday</option><option value="2">Tuesday</option>
+          <option value="3">Wednesday</option><option value="4">Thursday</option>
+          <option value="5">Friday</option><option value="6">Saturday</option>
+        </select>
+      </div>
+    </div>
+    <div id="ef-seasonal-sub" style="display:none;margin-top:8px;">
+      <label>Active Months</label>
+      <div class="toggle-group" id="ef-month-pick" style="flex-wrap:wrap;gap:4px;margin-top:4px;">
+        <span class="tog" data-v="0" onclick="this.classList.toggle('active')">Jan</span>
+        <span class="tog" data-v="1" onclick="this.classList.toggle('active')">Feb</span>
+        <span class="tog" data-v="2" onclick="this.classList.toggle('active')">Mar</span>
+        <span class="tog" data-v="3" onclick="this.classList.toggle('active')">Apr</span>
+        <span class="tog" data-v="4" onclick="this.classList.toggle('active')">May</span>
+        <span class="tog" data-v="5" onclick="this.classList.toggle('active')">Jun</span>
+        <span class="tog" data-v="6" onclick="this.classList.toggle('active')">Jul</span>
+        <span class="tog" data-v="7" onclick="this.classList.toggle('active')">Aug</span>
+        <span class="tog" data-v="8" onclick="this.classList.toggle('active')">Sep</span>
+        <span class="tog" data-v="9" onclick="this.classList.toggle('active')">Oct</span>
+        <span class="tog" data-v="10" onclick="this.classList.toggle('active')">Nov</span>
+        <span class="tog" data-v="11" onclick="this.classList.toggle('active')">Dec</span>
+      </div>
+      <div class="form-row" style="margin-top:8px;">
+        <div><label>Season start date (optional)</label><input type="date" id="ef-season-start"/></div>
+        <div><label>Season end date (optional)</label><input type="date" id="ef-season-end"/></div>
+      </div>
+    </div>
+    <div id="ef-annual-sub" style="display:none;margin-top:8px;">
+      <label>Month</label>
+      <select id="ef-annualmonth">
+        <option value="0">January</option><option value="1">February</option><option value="2">March</option>
+        <option value="3">April</option><option value="4">May</option><option value="5">June</option>
+        <option value="6">July</option><option value="7">August</option><option value="8">September</option>
+        <option value="9">October</option><option value="10">November</option><option value="11">December</option>
+      </select>
+    </div>
+  </div>
+  <label style="display:flex;align-items:center;gap:8px;margin-top:10px;text-transform:none;letter-spacing:0;font-size:.85rem;color:var(--text-2);">
+    <input type="checkbox" id="ef-stroller" style="width:16px;height:16px;accent-color:var(--accent);"/> 🍼 Stroller accessible (infants/toddlers welcome)
+  </label>
+  <label>Tags (optional, comma-separated)</label>
+  <input type="text" id="ef-tags" placeholder="e.g. jazz, live music, outdoor"/>
+  <label>Phone (optional)</label>
+  <input type="tel" id="ef-phone" placeholder="e.g. (865) 555-0123"/>
+  <label>Website (optional)</label>
+  <input type="url" id="ef-website" placeholder="e.g. https://example.com"/>
+  <label>Email (optional)</label>
+  <input type="email" id="ef-email" placeholder="e.g. info@example.com"/>
+  <label>Instagram handle (optional)</label>
+  <input type="text" id="ef-ig" placeholder="e.g. knoxpulse (no @)"/>
+  <label>Cover Photo (optional)</label>
+  <input type="file" id="ef-photo" accept="image/*" style="color:var(--text-2);font-size:.85rem;"/>
+  <!-- Submit buttons — shown/hidden based on mode -->
+  <button id="ef-btn-public" class="org-submit" onclick="handleEfSubmit()" style="display:none;">Submit Event</button>
+  <div id="ef-btn-admin" style="display:none;">
+    <button class="admin-save" onclick="handleEfSubmit()">💾 Save Listing</button>
+    <button class="admin-cancel" onclick="adminCancelEdit()">Cancel</button>
+  </div>
+</div>
+
 <!-- ORGANIZER MODAL -->
 <div class="modal-overlay" id="org-modal">
   <div class="modal">
     <div class="modal-content">
       <button class="modal-close" onclick="closeOrgModal()">✕</button>
-      <h2 style="margin-bottom:16px;">🎟️ Submit an Event</h2>
-      <div class="org-form">
-        <label>Event Name *</label>
-        <input type="text" id="org-name" placeholder="e.g. Saturday Night Rave at The Mill"/>
-        <label>Category *</label>
-        <select id="org-cat">
-          <option>Live Music</option>
-          <option>Dancing</option>
-          <option>Karaoke</option>
-          <option>Trivia &amp; Games</option>
-          <option>Comedy</option>
-          <option>Festivals &amp; Events</option>
-          <option>Sports &amp; Recreation</option>
-          <option>Outdoor &amp; Nature</option>
-          <option>Arts &amp; Museums</option>
-          <option>Markets</option>
-          <option>Theater &amp; Performance</option>
-          <option>Fitness &amp; Wellness</option>
-          <option>Tours &amp; Experiences</option>
-          <option>Film &amp; Cinema</option>
-          <option>Community &amp; Civic</option>
-          <option>Happy Hour &amp; Specials</option>
-        </select>
-        <label>Venue / Location Name <span style="font-weight:400;color:var(--muted);font-size:.78rem;">(auto-fills address)</span></label>
-        <input type="text" id="org-venuename" placeholder="Start typing a venue name…" autocomplete="off"/>
-        <label>Address *</label>
-        <input type="text" id="org-loc" placeholder="Or type an address directly…" autocomplete="off"/>
-        <div id="org-nbhd-row" style="display:none;margin-top:4px;margin-bottom:8px;">
-          <span style="font-size:.82rem;color:var(--muted);">📍 Neighborhood detected: </span>
-          <strong id="org-nbhd-display" style="font-size:.82rem;color:var(--accent);"></strong>
-          <input type="hidden" id="org-nbhd" value=""/>
-        </div>
-        <label>Description</label>
-        <textarea id="org-desc" placeholder="Tell the community about this event…"></textarea>
-        <label>Price</label>
-        <input type="text" id="org-price" placeholder="e.g. Free, $10, $5–$15, Donations welcome"/>
-        <label>Phone (optional)</label>
-        <input type="tel" id="org-phone" placeholder="e.g. (865) 555-0123"/>
-        <label>Website (optional)</label>
-        <input type="url" id="org-website" placeholder="e.g. https://example.com"/>
-        <label>Email (optional)</label>
-        <input type="email" id="org-email" placeholder="e.g. info@example.com"/>
-        <label>Instagram (optional)</label>
-        <input type="text" id="org-ig" placeholder="e.g. knoxpulse (no @)"/>
-        <label>Ages</label>
-        <select id="org-age">
-          <option>All Ages</option><option>Infants (0–1)</option><option>Toddlers (2–4)</option><option>Kids (5–12)</option><option>Teens (13–17)</option><option>18+</option><option>21+</option>
-        </select>
-        <label>Indoor / Outdoor</label>
-        <select id="org-inout">
-          <option>Indoor</option><option>Outdoor</option><option>Both</option>
-        </select>
-        <label style="display:flex;align-items:center;gap:8px;margin-top:8px;text-transform:none;letter-spacing:0;font-size:.85rem;color:var(--text-2);">
-          <input type="checkbox" id="org-stroller" style="width:16px;height:16px;accent-color:var(--accent);"/> 🍼 Stroller accessible (infants/toddlers welcome)
-        </label>
-        <label>Start Time</label>
-        <input type="time" id="org-starttime"/>
-        <label>End Time (optional)</label>
-        <input type="time" id="org-endtime"/>
-        <label>Event Type *</label>
-        <select id="org-etype" onchange="showRecurrenceFields()">
-          <option value="one-time">One-time event</option>
-          <option value="recurring">Recurring event</option>
-        </select>
-        <div id="org-onetime-fields">
-          <div style="display:flex;gap:12px;flex-wrap:wrap;">
-            <div style="flex:1;min-width:120px;">
-              <label>Start Date *</label>
-              <input type="date" id="org-date"/>
-            </div>
-            <div style="flex:1;min-width:120px;">
-              <label>End Date (multi-day events)</label>
-              <input type="date" id="org-enddate"/>
-            </div>
-          </div>
-        </div>
-        <div id="org-recurring-fields" class="recurrence-opts">
-          <label>Recurrence Type</label>
-          <select id="org-rectype" onchange="showRecurrenceSubFields()">
-            <option value="weekly">Weekly (specific days)</option>
-            <option value="weekly-seasonal">Seasonal weekly (certain months only)</option>
-            <option value="monthly-weekday">Monthly (e.g. 1st Friday)</option>
-            <option value="annual">Annual (once a year)</option>
-          </select>
-          <div id="org-weekly-days" style="margin-top:8px;">
-            <label>Days of Week</label>
-            <div class="toggle-group" id="org-dow-pick">
-              <span class="tog" data-v="0" onclick="this.classList.toggle('active')">Sun</span>
-              <span class="tog" data-v="1" onclick="this.classList.toggle('active')">Mon</span>
-              <span class="tog" data-v="2" onclick="this.classList.toggle('active')">Tue</span>
-              <span class="tog" data-v="3" onclick="this.classList.toggle('active')">Wed</span>
-              <span class="tog" data-v="4" onclick="this.classList.toggle('active')">Thu</span>
-              <span class="tog" data-v="5" onclick="this.classList.toggle('active')">Fri</span>
-              <span class="tog" data-v="6" onclick="this.classList.toggle('active')">Sat</span>
-            </div>
-          </div>
-          <div id="org-seasonal-months" style="display:none;margin-top:8px;">
-            <label>Active Months</label>
-            <div class="toggle-group" id="org-month-pick" style="flex-wrap:wrap;gap:4px;">
-              <span class="tog" data-v="0" onclick="this.classList.toggle('active')">Jan</span>
-              <span class="tog" data-v="1" onclick="this.classList.toggle('active')">Feb</span>
-              <span class="tog" data-v="2" onclick="this.classList.toggle('active')">Mar</span>
-              <span class="tog" data-v="3" onclick="this.classList.toggle('active')">Apr</span>
-              <span class="tog" data-v="4" onclick="this.classList.toggle('active')">May</span>
-              <span class="tog" data-v="5" onclick="this.classList.toggle('active')">Jun</span>
-              <span class="tog" data-v="6" onclick="this.classList.toggle('active')">Jul</span>
-              <span class="tog" data-v="7" onclick="this.classList.toggle('active')">Aug</span>
-              <span class="tog" data-v="8" onclick="this.classList.toggle('active')">Sep</span>
-              <span class="tog" data-v="9" onclick="this.classList.toggle('active')">Oct</span>
-              <span class="tog" data-v="10" onclick="this.classList.toggle('active')">Nov</span>
-              <span class="tog" data-v="11" onclick="this.classList.toggle('active')">Dec</span>
-            </div>
-            <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap;">
-              <div style="flex:1;min-width:120px;">
-                <label>Season start date (optional)</label>
-                <input type="date" id="org-season-start"/>
-              </div>
-              <div style="flex:1;min-width:120px;">
-                <label>Season end date (optional)</label>
-                <input type="date" id="org-season-end"/>
-              </div>
-            </div>
-          </div>
-          <div id="org-monthly-fields" style="display:none;margin-top:8px;">
-            <label>Which Week?</label>
-            <select id="org-weeknum">
-              <option value="1">1st</option><option value="2">2nd</option>
-              <option value="3">3rd</option><option value="4">4th</option>
-            </select>
-            <label style="margin-top:8px;">Day of Week</label>
-            <select id="org-mday">
-              <option value="0">Sunday</option><option value="1">Monday</option><option value="2">Tuesday</option>
-              <option value="3">Wednesday</option><option value="4">Thursday</option>
-              <option value="5">Friday</option><option value="6">Saturday</option>
-            </select>
-          </div>
-          <div id="org-annual-fields" style="display:none;margin-top:8px;">
-            <label>Month</label>
-            <select id="org-month">
-              <option value="0">January</option><option value="1">February</option><option value="2">March</option>
-              <option value="3">April</option><option value="4">May</option><option value="5">June</option>
-              <option value="6">July</option><option value="7">August</option><option value="8">September</option>
-              <option value="9">October</option><option value="10">November</option><option value="11">December</option>
-            </select>
-          </div>
-        </div>
-        <label>Season</label>
-        <select id="org-season">
-          <option>Year-round</option><option>Spring</option><option>Summer</option>
-          <option>Fall</option><option>Winter</option>
-        </select>
-        <input type="hidden" id="org-lat" value=""/>
-        <input type="hidden" id="org-lng" value=""/>
-        <label>Cover Photo (optional)</label>
-        <input type="file" id="org-photo" accept="image/*" style="color:var(--text-2);font-size:.85rem;"/>
-        <button class="org-submit" onclick="submitOrgEvent()">Submit Event</button>
-      </div>
+      <h2 id="ef-modal-title" style="margin-bottom:16px;">🎟️ Submit an Event</h2>
+      <div id="org-form-slot" class="org-form"></div>
     </div>
   </div>
 </div>
