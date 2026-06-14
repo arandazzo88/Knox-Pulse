@@ -2560,7 +2560,7 @@ async function initFromFirestore(){
     // ── Community-submitted events ───────────────────────────
     const eSnap = await db.collection('communityEvents')
       .orderBy('submittedAt', 'desc').get();
-    communityEvents = eSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+    communityEvents = eSnap.docs.map(d => normalizeEvent({ id: d.id, ...d.data() }));
     localStorage.setItem('kp_events', JSON.stringify(communityEvents));
 
     // ── Reviews (all listings) ───────────────────────────────
@@ -2784,12 +2784,57 @@ function dismissInstallBanner(){
   localStorage.setItem('kp_install_dismissed','1');
 }
 
+function to24h(t){
+  if(!t) return '';
+  t = t.trim().toLowerCase();
+  const pm = t.endsWith('pm'), am = t.endsWith('am');
+  if(pm || am){
+    const clean = t.replace(/[ap]m/,'').trim();
+    let [h,m='00'] = clean.split(':');
+    h = parseInt(h,10); m = parseInt(m,10);
+    if(pm && h!==12) h+=12;
+    if(am && h===12) h=0;
+    return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');
+  }
+  return t; // already 24h
+}
+
 function formatTime(t){
   if(!t) return '';
-  const[h,m]=t.split(':').map(Number);
+  const norm = to24h(t);
+  const[h,m]=norm.split(':').map(Number);
   const period=h>=12?'pm':'am';
   const h12=h===0?12:h>12?h-12:h;
   return h12+(m?':'+String(m).padStart(2,'0'):'')+period;
+}
+
+const DOW_NAMES=['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+function normalizeEvent(e){
+  // eventType
+  const rawType=(e.eventType||'').toLowerCase().replace(/[^a-z]/g,'-');
+  if(rawType.includes('one')) e.eventType='one-time';
+  else if(rawType.includes('venue')) e.eventType='venue';
+  else if(rawType.includes('recurr')||rawType.includes('weekly')||rawType.includes('monthly')) e.eventType='recurring';
+  // times → 24h
+  if(e.startTime) e.startTime=to24h(e.startTime);
+  if(e.endTime)   e.endTime=to24h(e.endTime);
+  // coords
+  if(!e.lat && e.latitude)  e.lat=e.latitude;
+  if(!e.lng && e.longitude) e.lng=e.longitude;
+  // daysOfWeek: string names → ints
+  if(e.daysOfWeek && e.daysOfWeek.length && typeof e.daysOfWeek[0]==='string'){
+    e.daysOfWeek=e.daysOfWeek.map(d=>{const i=DOW_NAMES.indexOf(d.toLowerCase());return i>=0?i:0;});
+  }
+  // eventDate from id slug (e.g. "bustie-2026-06-20" → "2026-06-20")
+  if(!e.eventDate && e.id){
+    const m=e.id.match(/(\d{4}-\d{2}-\d{2})/);
+    if(m) e.eventDate=m[1];
+  }
+  // build recurrenceRule for recurring events that have daysOfWeek but no rule
+  if(e.eventType==='recurring' && e.daysOfWeek?.length && !e.recurrenceRule){
+    e.recurrenceRule={type:'weekly',days:e.daysOfWeek};
+  }
+  return e;
 }
 
 function getScheduleLabel(l){
