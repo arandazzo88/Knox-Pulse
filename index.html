@@ -3812,11 +3812,11 @@ async function adminLogout(){
 }
 
 function adminTab(tab){
-  ['listings','add','community','edits','crawled','upload','settings'].forEach(t=>{
+  ['listings','add','community','edits','crawled','settings'].forEach(t=>{
     document.getElementById('atab-'+t).style.display = t===tab?'block':'none';
   });
   document.querySelectorAll('.admin-tab').forEach((btn,i)=>{
-    btn.classList.toggle('active', ['listings','add','community','edits','crawled','upload','settings'][i]===tab);
+    btn.classList.toggle('active', ['listings','add','community','edits','crawled','settings'][i]===tab);
   });
   if(tab==='listings') renderAdminListings();
     if(tab==='add') waitForPlaces(initAdminPlaces);
@@ -4176,12 +4176,15 @@ function importData(event){
 }
 
 async function uploadEventsJSON(){
-  const fileInput=document.getElementById('upload-json-file');
-  const resultEl=document.getElementById('upload-json-result');
+  const fileInput=document.getElementById('upload-events-file');
+  const resultEl=document.getElementById('upload-events-result');
   const file=fileInput.files[0];
   if(!file){ showToast('Please select a JSON file first.'); return; }
 
-  const REQUIRED=['id','title','category','location','description'];
+  // All fields used by the filter panel are required
+  const REQUIRED_STRINGS=['id','title','category','location','description',
+    'indoorOutdoor','timeOfDay','ageRestrictions','costScale','neighborhood','season'];
+
   let parsed;
   try{
     const text=await file.text();
@@ -4203,25 +4206,37 @@ async function uploadEventsJSON(){
 
   let imported=0, skipped=[];
   for(const raw of events){
-    const missing=REQUIRED.filter(f=>!raw[f]||String(raw[f]).trim()==='');
+    const missing=[];
+    REQUIRED_STRINGS.forEach(f=>{ if(!raw[f]||String(raw[f]).trim()==='') missing.push(f); });
+    // daysOfWeek must be a non-empty array
+    if(!Array.isArray(raw.daysOfWeek)||raw.daysOfWeek.length===0) missing.push('daysOfWeek');
+    // strollerFriendly must be explicitly true or false
+    if(raw.strollerFriendly===undefined||raw.strollerFriendly===null) missing.push('strollerFriendly');
     if(missing.length){
       skipped.push(`"${raw.title||raw.id||'(unknown)'}" — missing: ${missing.join(', ')}`);
       continue;
     }
     const ev={
-      id:       String(raw.id).trim(),
-      title:    String(raw.title).trim(),
-      category: String(raw.category).trim(),
-      location: String(raw.location).trim(),
-      description: String(raw.description).trim(),
-      source:   'json-upload',
-      submittedAt: firebase.firestore.FieldValue.serverTimestamp()
+      id:              String(raw.id).trim(),
+      title:           String(raw.title).trim(),
+      category:        String(raw.category).trim(),
+      location:        String(raw.location).trim(),
+      description:     String(raw.description).trim(),
+      indoorOutdoor:   String(raw.indoorOutdoor).trim(),
+      timeOfDay:       String(raw.timeOfDay).trim(),
+      ageRestrictions: String(raw.ageRestrictions).trim(),
+      costScale:       String(raw.costScale).trim(),
+      neighborhood:    String(raw.neighborhood).trim(),
+      season:          String(raw.season).trim(),
+      daysOfWeek:      raw.daysOfWeek,
+      strollerFriendly: Boolean(raw.strollerFriendly),
+      source:          'json-upload',
+      submittedAt:     firebase.firestore.FieldValue.serverTimestamp()
     };
-    // Optional fields — copy if present
-    const OPTIONAL=['venueName','neighborhood','indoorOutdoor','costScale','price',
-                    'daysOfWeek','startTime','recurrenceRule','eventType','emoji',
-                    'tags','season','ageRestrictions','timeOfDay','distanceMiles',
-                    'underground','url'];
+    // Optional enrichment fields — copy if present
+    const OPTIONAL=['venueName','price','startTime','endTime','recurrenceRule','eventType',
+                    'emoji','tags','distanceMiles','underground','lat','lng',
+                    'phone','website','email','instagram','image'];
     for(const f of OPTIONAL){ if(raw[f]!==undefined) ev[f]=raw[f]; }
 
     try{
@@ -4485,7 +4500,6 @@ setTimeout(function(){
           <button class="admin-tab" onclick="adminTab('community')">📥 Submitted</button>
           <button class="admin-tab" onclick="adminTab('edits')">✏️ Edit Requests</button>
           <button class="admin-tab" onclick="adminTab('crawled')">🕷 Crawled</button>
-          <button class="admin-tab" onclick="adminTab('upload')">📂 Upload</button>
           <button class="admin-tab" onclick="adminTab('settings')">🔑 Settings</button>
         </div>
 
@@ -4725,24 +4739,6 @@ setTimeout(function(){
           <div id="admin-crawled-list"></div>
         </div>
         <!-- UPLOAD EVENTS TAB -->
-        <div id="atab-upload" style="display:none;">
-          <p style="font-size:.8rem;color:var(--muted);margin-bottom:12px;">
-            Upload a JSON file of new events to import them directly into the
-            <code style="background:#ffffff15;padding:1px 5px;border-radius:3px;">communityEvents</code>
-            collection. Required fields per event: <strong>id, title, category, location, description</strong>.
-          </p>
-          <div class="admin-form" style="gap:10px;">
-            <label>Select JSON file</label>
-            <input type="file" id="upload-json-file" accept=".json"
-              style="background:transparent;border:none;color:var(--text);padding:0;"/>
-            <button class="admin-save" onclick="uploadEventsJSON()" style="margin-top:8px;">
-              📂 Import Events from JSON
-            </button>
-            <div id="upload-json-result" style="display:none;margin-top:12px;font-size:.83rem;line-height:1.6;
-              background:#ffffff0d;border-radius:8px;padding:12px 14px;white-space:pre-wrap;"></div>
-          </div>
-        </div>
-
         <!-- SETTINGS TAB -->
         <div id="atab-settings" style="display:none;">
           <div class="admin-form">
@@ -4755,12 +4751,27 @@ setTimeout(function(){
             <label>Session</label>
             <button class="admin-cancel" onclick="adminLogout()" style="margin-bottom:8px;">🔒 Log Out</button>
             <hr style="border-color:#ffffff15;margin:20px 0;"/>
-            <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">
-              Export all custom listings as JSON (for backup).</p>
-            <button class="admin-save" onclick="exportData()" style="background:#ffffff20;color:var(--text);">📤 Export Data</button>
+            <label>Import Events (JSON)</label>
+            <p style="font-size:.78rem;color:var(--muted);margin-bottom:8px;">
+              Upload a JSON file (array of event objects) to add events to the community collection.
+              All filter fields are required per event:
+              <strong>id, title, category, location, description, indoorOutdoor, timeOfDay,
+              ageRestrictions, costScale, neighborhood, season, daysOfWeek, strollerFriendly</strong>.
+            </p>
+            <input type="file" id="upload-events-file" accept=".json"
+              style="background:transparent;border:none;color:var(--text);padding:0;"/>
+            <button class="admin-save" onclick="uploadEventsJSON()" style="margin-top:8px;">📂 Import Events</button>
+            <div id="upload-events-result" style="display:none;margin-top:12px;font-size:.83rem;line-height:1.6;
+              background:#ffffff0d;border-radius:8px;padding:12px 14px;white-space:pre-wrap;"></div>
             <hr style="border-color:#ffffff15;margin:20px 0;"/>
-            <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">
-              Import listings from a previously exported JSON file.</p>
+            <label>Export Backup</label>
+            <p style="font-size:.78rem;color:var(--muted);margin-bottom:8px;">
+              Download all custom listings, community events, reviews and photos as JSON.</p>
+            <button class="admin-save" onclick="exportData()" style="background:#ffffff20;color:var(--text);">📤 Export Backup</button>
+            <hr style="border-color:#ffffff15;margin:20px 0;"/>
+            <label>Restore Backup</label>
+            <p style="font-size:.78rem;color:var(--muted);margin-bottom:8px;">
+              Import from a previously exported backup file.</p>
             <input type="file" id="import-file" accept=".json" onchange="importData(event)"
               style="background:transparent;border:none;color:var(--text);padding:0;"/>
           </div>
