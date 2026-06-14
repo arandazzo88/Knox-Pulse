@@ -3812,11 +3812,11 @@ async function adminLogout(){
 }
 
 function adminTab(tab){
-  ['listings','add','community','edits','crawled','settings'].forEach(t=>{
+  ['listings','add','community','edits','crawled','upload','settings'].forEach(t=>{
     document.getElementById('atab-'+t).style.display = t===tab?'block':'none';
   });
   document.querySelectorAll('.admin-tab').forEach((btn,i)=>{
-    btn.classList.toggle('active', ['listings','add','community','edits','crawled','settings'][i]===tab);
+    btn.classList.toggle('active', ['listings','add','community','edits','crawled','upload','settings'][i]===tab);
   });
   if(tab==='listings') renderAdminListings();
     if(tab==='add') waitForPlaces(initAdminPlaces);
@@ -4175,6 +4175,85 @@ function importData(event){
   reader.readAsText(file);
 }
 
+async function uploadEventsJSON(){
+  const fileInput=document.getElementById('upload-json-file');
+  const resultEl=document.getElementById('upload-json-result');
+  const file=fileInput.files[0];
+  if(!file){ showToast('Please select a JSON file first.'); return; }
+
+  const REQUIRED=['id','title','category','location','description'];
+  let parsed;
+  try{
+    const text=await file.text();
+    parsed=JSON.parse(text);
+  } catch(err){
+    resultEl.style.display='block';
+    resultEl.style.color='#ff6b6b';
+    resultEl.textContent='Error: Could not parse JSON file. Make sure it is valid JSON.';
+    return;
+  }
+
+  const events=Array.isArray(parsed)?parsed:(Array.isArray(parsed.events)?parsed.events:null);
+  if(!events){
+    resultEl.style.display='block';
+    resultEl.style.color='#ff6b6b';
+    resultEl.textContent='Error: JSON must be an array of event objects, or an object with an "events" array.';
+    return;
+  }
+
+  let imported=0, skipped=[];
+  for(const raw of events){
+    const missing=REQUIRED.filter(f=>!raw[f]||String(raw[f]).trim()==='');
+    if(missing.length){
+      skipped.push(`"${raw.title||raw.id||'(unknown)'}" — missing: ${missing.join(', ')}`);
+      continue;
+    }
+    const ev={
+      id:       String(raw.id).trim(),
+      title:    String(raw.title).trim(),
+      category: String(raw.category).trim(),
+      location: String(raw.location).trim(),
+      description: String(raw.description).trim(),
+      source:   'json-upload',
+      submittedAt: firebase.firestore.FieldValue.serverTimestamp()
+    };
+    // Optional fields — copy if present
+    const OPTIONAL=['venueName','neighborhood','indoorOutdoor','costScale','price',
+                    'daysOfWeek','startTime','recurrenceRule','eventType','emoji',
+                    'tags','season','ageRestrictions','timeOfDay','distanceMiles',
+                    'underground','url'];
+    for(const f of OPTIONAL){ if(raw[f]!==undefined) ev[f]=raw[f]; }
+
+    try{
+      if(db){
+        await db.collection('communityEvents').doc(ev.id).set(ev);
+      }
+      // Update local cache
+      const idx=communityEvents.findIndex(x=>x.id===ev.id);
+      const localEv={...ev, submittedAt:new Date()};
+      if(idx>=0) communityEvents[idx]=localEv; else communityEvents.push(localEv);
+      imported++;
+    } catch(e){
+      skipped.push(`"${raw.title}" — Firestore write failed: ${e.message}`);
+    }
+  }
+  localStorage.setItem('kp_events',JSON.stringify(communityEvents));
+  applyFilters();
+
+  const lines=[];
+  lines.push(`Import complete.`);
+  lines.push(`  ${imported} event${imported!==1?'s':''} imported successfully.`);
+  if(skipped.length){
+    lines.push(`  ${skipped.length} event${skipped.length!==1?'s':''} skipped:`);
+    skipped.forEach(r=>lines.push(`    • ${r}`));
+  }
+  resultEl.style.display='block';
+  resultEl.style.color= skipped.length && !imported ? '#ff6b6b' : imported ? '#6bffb8' : 'var(--text)';
+  resultEl.textContent=lines.join('\n');
+  showToast(`${imported} event${imported!==1?'s':''} imported!`);
+  fileInput.value='';
+}
+
 // Show admin FAB if ?admin in URL
 if(new URLSearchParams(window.location.search).has('admin')){
   document.getElementById('admin-fab').style.display='flex';
@@ -4406,6 +4485,7 @@ setTimeout(function(){
           <button class="admin-tab" onclick="adminTab('community')">📥 Submitted</button>
           <button class="admin-tab" onclick="adminTab('edits')">✏️ Edit Requests</button>
           <button class="admin-tab" onclick="adminTab('crawled')">🕷 Crawled</button>
+          <button class="admin-tab" onclick="adminTab('upload')">📂 Upload</button>
           <button class="admin-tab" onclick="adminTab('settings')">🔑 Settings</button>
         </div>
 
@@ -4644,6 +4724,25 @@ setTimeout(function(){
             Events auto-discovered by the weekly crawler. Approve to move to main listings.</p>
           <div id="admin-crawled-list"></div>
         </div>
+        <!-- UPLOAD EVENTS TAB -->
+        <div id="atab-upload" style="display:none;">
+          <p style="font-size:.8rem;color:var(--muted);margin-bottom:12px;">
+            Upload a JSON file of new events to import them directly into the
+            <code style="background:#ffffff15;padding:1px 5px;border-radius:3px;">communityEvents</code>
+            collection. Required fields per event: <strong>id, title, category, location, description</strong>.
+          </p>
+          <div class="admin-form" style="gap:10px;">
+            <label>Select JSON file</label>
+            <input type="file" id="upload-json-file" accept=".json"
+              style="background:transparent;border:none;color:var(--text);padding:0;"/>
+            <button class="admin-save" onclick="uploadEventsJSON()" style="margin-top:8px;">
+              📂 Import Events from JSON
+            </button>
+            <div id="upload-json-result" style="display:none;margin-top:12px;font-size:.83rem;line-height:1.6;
+              background:#ffffff0d;border-radius:8px;padding:12px 14px;white-space:pre-wrap;"></div>
+          </div>
+        </div>
+
         <!-- SETTINGS TAB -->
         <div id="atab-settings" style="display:none;">
           <div class="admin-form">
