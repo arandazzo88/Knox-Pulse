@@ -62,7 +62,7 @@
       "@id": "https://www.theknoxpulse.com/#listings",
       "name": "Things To Do in Knoxville, TN",
       "description": "Curated list of events, venues, outdoor activities, and hidden gems in Knoxville and East Tennessee",
-      "numberOfItems": 39,
+      "numberOfItems": 99,
       "itemListElement": [
         {"@type":"ListItem","position":1,"name":"WDVX Blue Plate Special","description":"Free live music every weekday at noon in the heart of downtown Knoxville.","url":"https://www.theknoxpulse.com/?event=wdvx"},
         {"@type":"ListItem","position":2,"name":"Market Square Farmers Market","description":"Vibrant outdoor market with local produce, artisan goods, and live music every Saturday morning.","url":"https://www.theknoxpulse.com/?event=market-sq"},
@@ -115,6 +115,7 @@
       "isAccessibleForFree": true,
       "offers": {"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock","validFrom":"2026-01-01","url":"https://www.theknoxpulse.com/?event=art-walk"},
       "organizer": {"@type":"Organization","name":"Dogwood Arts","url":"https://www.dogwoodarts.com"},
+      "performer": {"@type":"PerformingGroup","name":"Local Knoxville Artists & Musicians"},
       "eventSchedule": {
         "@type": "Schedule",
         "repeatFrequency": "P1M",
@@ -213,14 +214,15 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',system-ui,sans-serif;min-height:100vh;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;}
 /* HEADER */
-header{background:var(--bg);padding:14px 24px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,130,0,0.15);}
+header{background:var(--bg);padding:14px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,130,0,0.15);}
 header h1{font-size:1.2rem;font-weight:700;color:var(--text);letter-spacing:-.01em;}
 header h1 span{color:var(--accent);}
 header p{font-size:.75rem;color:var(--muted);margin-left:auto;}
 #organizer-btn{background:var(--accent);color:#fff;border:none;border-radius:var(--radius-sm);padding:8px 18px;cursor:pointer;font-weight:600;font-size:.82rem;white-space:nowrap;font-family:inherit;transition:opacity .15s;margin-left:auto;}
 #organizer-btn:hover{opacity:.88;}
+.page-inner{max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;gap:14px;padding:0 24px;box-sizing:border-box;}
 /* SEARCH */
-#search-bar{display:flex;gap:8px;padding:12px 24px;background:var(--surface);border-bottom:1px solid var(--border);align-items:center;}
+#search-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 0;}
 #search-input-wrap{display:flex;gap:8px;flex:1;}
 #search-input{flex:1;padding:9px 16px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface-2);color:var(--text);font-size:.9rem;font-family:inherit;transition:border-color .15s;}
 #search-input:focus{outline:none;border-color:var(--border-hover);}
@@ -229,7 +231,7 @@ header p{font-size:.75rem;color:var(--muted);margin-left:auto;}
 /* FILTER PANEL */
 #filter-panel{background:var(--surface);border-bottom:1px solid var(--border);overflow:hidden;max-height:0;transition:max-height .3s ease;}
 #filter-panel.open{max-height:700px;}
-.filter-inner{padding:16px 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;}
+.filter-inner{padding:16px 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;max-width:1280px;margin:0 auto;box-sizing:border-box;}
 .filter-group label{display:block;font-size:.7rem;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em;font-weight:600;}
 .filter-group select{width:100%;padding:8px 10px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface-2);color:var(--text);font-size:.83rem;font-family:inherit;transition:border-color .15s;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236B7280' d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;}
 .filter-group select:focus{outline:none;border-color:var(--border-hover);}
@@ -263,6 +265,7 @@ main{max-width:1280px;margin:0 auto;padding:24px;}
 .chip-time{background:rgba(34,211,238,0.1);color:#67E8F9;border:1px solid rgba(34,211,238,0.2);}
 .schedule-badge{font-size:.7rem;color:var(--text-2);margin-bottom:5px;display:flex;align-items:center;gap:4px;}
 .card-title{font-size:.95rem;font-weight:700;margin-bottom:3px;letter-spacing:-.01em;color:var(--text);}
+.card-venue{font-size:.82rem;font-weight:700;color:var(--accent);margin-bottom:2px;}
 .card-loc{font-size:.78rem;color:var(--muted);margin-bottom:2px;}
 .card-price{font-size:.78rem;color:var(--gold);font-weight:600;margin-bottom:6px;}
 .card-desc{font-size:.8rem;color:var(--text-2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
@@ -485,8 +488,8 @@ main { padding: 14px; }
 #site-footer .footer-copy{font-size:.72rem;color:var(--muted);}
 
 /* Date picker button */
-#date-picker-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 24px;}
-.dpb-inner{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+#date-picker-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 0;}
+.dpb-inner{display:flex;align-items:center;gap:16px;flex-wrap:wrap;max-width:1280px;margin:0 auto;padding:0 24px;box-sizing:border-box;}
 .dpb-section{display:flex;align-items:center;gap:8px;}
 .dpb-label{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;white-space:nowrap;}
 .dpb-sep{width:1px;height:20px;background:var(--border);flex-shrink:0;}
@@ -610,7 +613,7 @@ main { padding: 14px; }
 <link rel="dns-prefetch" href="https://www.googletagmanager.com"/>
 <link rel="dns-prefetch" href="https://tile.openstreetmap.org"/>
 
-<!-- Google Tag Manager — replace GTM-5MW9432G with your container ID -->
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -619,28 +622,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 <body>
 
-<!-- Google Tag Manager (noscript) — replace GTM-5MW9432G with your container ID -->
+<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5MW9432G"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a href="#main-content" class="skip-nav">Skip to main content</a>
 <header>
-  <div>
-    <h1><svg width="20" height="24" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="vertical-align:middle;margin-bottom:3px"><circle cx="50" cy="42" r="38" fill="#FF8200"/><ellipse cx="34" cy="28" rx="14" ry="9" fill="rgba(255,235,80,0.4)"/><rect x="45" y="80" width="10" height="26" fill="#B85C00"/><rect x="28" y="106" width="44" height="14" rx="5" fill="#B85C00"/></svg> Knox Pulse</h1>
-    <p style="margin-left:0;margin-top:2px;font-size:.75rem;color:var(--muted);">Your guide to Knoxville's rhythm</p>
+  <div class="page-inner">
+    <div>
+      <h1><svg width="20" height="24" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="vertical-align:middle;margin-bottom:3px"><circle cx="50" cy="42" r="38" fill="#FF8200"/><ellipse cx="34" cy="28" rx="14" ry="9" fill="rgba(255,235,80,0.4)"/><rect x="45" y="80" width="10" height="26" fill="#B85C00"/><rect x="28" y="106" width="44" height="14" rx="5" fill="#B85C00"/></svg> Knox Pulse</h1>
+      <p style="margin-left:0;margin-top:2px;font-size:.75rem;color:var(--muted);">Your guide to Knoxville's rhythm</p>
+    </div>
+    <button id="organizer-btn" aria-label="Submit a new event" onclick="openOrgModal()">+ Submit Event</button>
   </div>
-  <button id="organizer-btn" aria-label="Submit a new event" onclick="openOrgModal()">+ Submit Event</button>
 </header>
 
 <div id="search-bar">
-  <div id="search-input-wrap">
-    <input id="search-input" type="text" aria-label="Search Knox Pulse listings" placeholder="Try 'free jazz tonight' or 'hiking this weekend'…" onkeydown="if(event.key==='Enter')applyFilters()"/>
-    <button id="search-btn" onclick="applyFilters()" aria-label="Search">🔍</button>
-  </div>
-  <button id="filter-toggle" aria-expanded="false" aria-controls="filter-panel" onclick="toggleFilters()">⚙ Filters</button>
-  <button id="date-toggle" aria-expanded="false" aria-controls="date-picker-bar" onclick="toggleDatePicker()">📅 Date</button>
-  <div id="view-toggle-wrap">
-    <button class="view-btn active" id="btn-grid" onclick="setView('grid')">⊞ Grid</button>
-    <button class="view-btn" id="btn-map" onclick="setView('map')">🗺 Map</button>
+  <div class="page-inner">
+    <div id="search-input-wrap">
+      <input id="search-input" type="text" aria-label="Search Knox Pulse listings" placeholder="Try 'free jazz tonight' or 'hiking this weekend'…" onkeydown="if(event.key==='Enter')applyFilters()"/>
+      <button id="search-btn" onclick="applyFilters()" aria-label="Search">🔍</button>
+    </div>
+    <button id="filter-toggle" aria-expanded="false" aria-controls="filter-panel" onclick="toggleFilters()">⚙ Filters</button>
+    <button id="date-toggle" aria-expanded="false" aria-controls="date-picker-bar" onclick="toggleDatePicker()">📅 Date</button>
+    <div id="view-toggle-wrap">
+      <button class="view-btn active" id="btn-grid" onclick="setView('grid')">⊞ Grid</button>
+      <button class="view-btn" id="btn-map" onclick="setView('map')">🗺 Map</button>
+    </div>
   </div>
 </div>
 
@@ -871,6 +878,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div id="modal-chips" class="modal-chips"></div>
       <p id="modal-desc" class="modal-desc"></p>
+      <div id="modal-contact-section" class="modal-section" style="display:none;">
+        <h3>📬 Contact</h3>
+        <div id="modal-contact" style="display:flex;flex-direction:column;gap:8px;"></div>
+      </div>
       <div id="modal-map-preview" style="display:none;height:180px;border-radius:10px;overflow:hidden;margin-bottom:16px;"></div>
       <div style="margin-bottom:20px;">
         <button class="suggest-edit-btn" onclick="openEditModal()">✏️ Suggest an Edit</button>
@@ -2148,7 +2159,6 @@ const LISTINGS = [
 
   // ── HAPPY HOUR & SPECIALS ─────────────────────────────────────────────────
 
-  // Bottomless Mimosas
   {
     id:'barrelhouse-bottomless', title:'$19 Bottomless Cidermosas',
     category:'Happy Hour & Specials',
@@ -2176,34 +2186,6 @@ const LISTINGS = [
     tags:['bottomless mimosas','brunch','weekend','saturday','sunday','south knoxville','mimosas']
   },
   {
-    id:'loco-burro-brunch', title:'$20 Sunday Bottomless Mimosa Brunch',
-    category:'Happy Hour & Specials',
-    location:'7600 Kingston Pike, Knoxville',
-    description:'Every Sunday 10 AM–3 PM, Loco Burro\'s rooftop bar transforms into a brunch destination with bottomless mimosas and a full brunch menu. One of West Knoxville\'s best Sunday brunches with skyline views.',
-    indoorOutdoor:'Both', distanceMiles:5, ageRestrictions:'21+', timeOfDay:'Morning',
-    costScale:'$$', season:'Year-round', underground:false, emoji:'🥂',
-    eventType:'recurring',
-    recurrenceRule:{type:'weekly', days:[0]},
-    daysOfWeek:[0], startTime:'10:00',
-    price:'$20 bottomless mimosas · Sun 10 AM–2 PM',
-    tags:['bottomless mimosas','brunch','sunday','west knoxville','rooftop','kingston pike']
-  },
-  {
-    id:'tupelo-honey-mimosa-monday', title:'$2 Off Mimosa Monday',
-    category:'Happy Hour & Specials',
-    location:'1 Market Sq, Knoxville',
-    description:'$2 off all mimosas every Monday at Tupelo Honey on Market Square — the Southern-inspired kitchen that does brunch right. Plus their famous Hoot & Holler Happy Hour runs Mon–Fri 4–6 PM: ½ off apps, $2 off drinks.',
-    indoorOutdoor:'Indoor', distanceMiles:0.3, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
-    costScale:'$', season:'Year-round', underground:false, emoji:'🥂',
-    eventType:'recurring',
-    recurrenceRule:{type:'weekly', days:[1]},
-    daysOfWeek:[1], startTime:'11:00',
-    price:'$2 off mimosas · Mondays',
-    tags:['mimosas','monday','market square','brunch','tupelo honey','happy hour','southern']
-  },
-
-  // Brunch Buffets
-  {
     id:'chesapeakes-sunday-brunch', title:'$33 Sunday Seafood Brunch Buffet',
     category:'Happy Hour & Specials',
     location:'9630 Parkside Dr, Knoxville',
@@ -2216,21 +2198,6 @@ const LISTINGS = [
     price:'$33 adults · $15 kids 12 & under',
     tags:['brunch buffet','sunday','seafood','bloody mary','west knoxville','parkside','splurge']
   },
-  {
-    id:'seasons-brunch-buffet', title:'$28 Weekend Brunch Buffet',
-    category:'Happy Hour & Specials',
-    location:'11605 Parkside Dr, Knoxville',
-    description:'Saturday and Sunday brunch buffet 11 AM–2:30 PM. $28.95 adults, $15.95 children 6–12, kids 5 & under free. Full spread of brunch classics in a relaxed Farragut-area setting.',
-    indoorOutdoor:'Indoor', distanceMiles:8, ageRestrictions:'All Ages', timeOfDay:'Morning',
-    costScale:'$$', season:'Year-round', underground:false, emoji:'🍳',
-    eventType:'recurring',
-    recurrenceRule:{type:'weekly', days:[0,6]},
-    daysOfWeek:[0,6], startTime:'11:00',
-    price:'$28.95 adults · $15.95 ages 6–12 · Under 5 free',
-    tags:['brunch buffet','weekend','saturday','sunday','farragut','family friendly','parkside']
-  },
-
-  // Top Happy Hours
   {
     id:'trailhead-happy-hour', title:'$1 Off All Drafts All Day Monday',
     category:'Happy Hour & Specials',
@@ -2256,19 +2223,6 @@ const LISTINGS = [
     daysOfWeek:[1,2,3,4], startTime:'15:00', endTime:'17:00',
     price:'$1 nigiri · $1 yakitori · Mon–Thu 3–5 PM',
     tags:['happy hour','nigiri','yakitori','sake','japanese','old city','weekday','best value']
-  },
-  {
-    id:'sokno-happy-hour', title:'$5 Cocktails & Free Trivia',
-    category:'Happy Hour & Specials',
-    location:'3701 Sevierville Pike, Knoxville',
-    description:'Mon–Fri 4–7 PM: $5 original cocktails, $4 domestic drafts, $5 craft drafts, $3.50 guac/queso/salsa, $8 nachos. Then stay for FREE trivia 7–9 PM with extended happy hour pricing for trivia players.',
-    indoorOutdoor:'Both', distanceMiles:4, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
-    costScale:'$', season:'Year-round', underground:false, emoji:'🌮',
-    eventType:'recurring',
-    recurrenceRule:{type:'weekly', days:[1,2,3,4,5]},
-    daysOfWeek:[1,2,3,4,5], startTime:'16:00', endTime:'19:00',
-    price:'$5 cocktails · $4 drafts · $3.50 snacks · Mon–Fri 4–7 PM',
-    tags:['happy hour','weekday','tacos','cocktails','south knoxville','trivia','best value']
   },
   {
     id:'tupelo-honey-happy-hour', title:'Half Off Apps & $5 Wells Daily',
@@ -2297,19 +2251,6 @@ const LISTINGS = [
     tags:['happy hour','craft beer','tacos','sliders','weekday','downtown','brewery','best value']
   },
   {
-    id:'the-farmacy-happy-hour', title:'Half Off Apps & $3 Tacos Daily',
-    category:'Happy Hour & Specials',
-    location:'5018 Kingston Pike, Knoxville',
-    description:'Mon–Fri 4–6 PM: ½ off appetizers, $3 tacos, $10 hot chicken plate, $5 house wines, $3 house drafts, and $2 bubbles. Exceptional food + drink combo deals at this upscale West Knox spot.',
-    indoorOutdoor:'Indoor', distanceMiles:4.5, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
-    costScale:'$', season:'Year-round', underground:false, emoji:'🍹',
-    eventType:'recurring',
-    recurrenceRule:{type:'weekly', days:[1,2,3,4,5]},
-    daysOfWeek:[1,2,3,4,5], startTime:'16:00', endTime:'18:00',
-    price:'Half off apps · $3 tacos · $5 wine · Mon–Fri 4–6 PM',
-    tags:['happy hour','half price apps','tacos','west knoxville','kingston pike','weekday']
-  },
-  {
     id:'marble-city-happy-hour', title:'$3 Drafts & Prosecco Happy Hour',
     category:'Happy Hour & Specials',
     location:'333 W Depot Ave, Knoxville',
@@ -2321,32 +2262,6 @@ const LISTINGS = [
     daysOfWeek:[2,3,4,5], startTime:'16:00', endTime:'19:00',
     price:'$3 drafts & prosecco · Tue–Wed 5–7 PM · Thu–Fri 4–6 PM',
     tags:['happy hour','food hall','draft beer','prosecco','old city','weekday','marble city']
-  },
-  {
-    id:'tern-club-happy-hour', title:'$8 Craft Cocktails Every Day',
-    category:'Happy Hour & Specials',
-    location:'135 S Gay St, Knoxville',
-    description:'Daily until 6 PM: $1 off drafts, house wines & well spirits, plus $8 craft cocktails (mojitos, palomas, tamarind whiskey sours). Stylish downtown bar on Gay Street with one of the best cocktail happy hours in Knoxville.',
-    indoorOutdoor:'Indoor', distanceMiles:0.4, ageRestrictions:'21+', timeOfDay:'Afternoon',
-    costScale:'$', season:'Year-round', underground:false, emoji:'🍹',
-    eventType:'recurring',
-    recurrenceRule:{type:'weekly', days:[0,1,2,3,4,5,6]},
-    daysOfWeek:[0,1,2,3,4,5,6], startTime:'12:00', endTime:'18:00',
-    price:'$8 craft cocktails · $1 off drafts · Daily until 6 PM',
-    tags:['happy hour','daily','gay street','downtown','cocktails','mojito','paloma','craft cocktails']
-  },
-  {
-    id:'redbud-kitchen-happy-hour', title:'$5 Bites & $5 Cocktails Daily',
-    category:'Happy Hour & Specials',
-    location:'906 Sevier Ave, Knoxville',
-    description:'Mon–Fri 4–7 PM: $5 bites (pickle chips, tots, queso), $5 pours on select wines & craft cocktails, $1 off wine bottles & draft beers. South Knoxville neighborhood gem in the heart of the Old Sevier strip.',
-    indoorOutdoor:'Indoor', distanceMiles:2, ageRestrictions:'All Ages', timeOfDay:'Afternoon',
-    costScale:'$', season:'Year-round', underground:false, emoji:'🍹',
-    eventType:'recurring',
-    recurrenceRule:{type:'weekly', days:[1,2,3,4,5]},
-    daysOfWeek:[1,2,3,4,5], startTime:'16:00', endTime:'19:00',
-    price:'$5 bites · $5 craft cocktails · Mon–Fri 4–7 PM',
-    tags:['happy hour','south knoxville','sevier ave','craft cocktails','bites','weekday','neighborhood']
   }
 ];
 
@@ -2358,139 +2273,199 @@ const LISTING_META = {
   'vols-basketball':     { neighborhood:'UT Area',        lat:35.9507, lng:-83.9377 },
   'women-basketball':    { neighborhood:'UT Area',        lat:35.9507, lng:-83.9377 },
   // Downtown Gay St corridor
-  'wdvx':                { neighborhood:'Downtown',       lat:35.9633, lng:-83.9183 },
-  'tennessee-theatre':   { neighborhood:'Downtown',       lat:35.9635, lng:-83.9187 },
-  'bijou-theatre':       { neighborhood:'Downtown',       lat:35.9624, lng:-83.9183 },
-  'sunsphere':           { neighborhood:"World's Fair Park", lat:35.9615, lng:-83.9243 },
+  'wdvx':                { neighborhood:'Downtown',       lat:35.9633, lng:-83.9183 , website:'https://wdvx.com', phone:'(865) 544-1029', instagram:'wdvx', email:'info@wdvx.com'},
+  'tennessee-theatre':   { neighborhood:'Downtown',       lat:35.9635, lng:-83.9187 , venueName:'Tennessee Theatre', website:'https://www.tennesseetheatre.com', phone:'(865) 684-1200', instagram:'tntheatre'},
+  'bijou-theatre':       { neighborhood:'Downtown',       lat:35.9624, lng:-83.9183 , venueName:'Bijou Theatre', website:'https://knoxbijou.org', phone:'(865) 522-0832', instagram:'bijoutheatre', email:'info@knoxbijou.org'},
+  'sunsphere':           { neighborhood:"World's Fair Park", lat:35.9615, lng:-83.9243 , venueName:'Sunsphere & World\'s Fair Park'},
   'rooftop-yoga':        { neighborhood:'Downtown',       lat:35.9649, lng:-83.9196 },
   'art-walk':            { neighborhood:'Downtown',       lat:35.9655, lng:-83.9180 },
-  'knoxville-museum-art':{ neighborhood:"World's Fair Park", lat:35.9622, lng:-83.9248 },
-  'east-tn-history':     { neighborhood:'Downtown',       lat:35.9631, lng:-83.9193 },
+  'knoxville-museum-art':{ neighborhood:"World's Fair Park", lat:35.9622, lng:-83.9248 , venueName:'Knoxville Museum of Art', website:'https://knoxart.org', phone:'(865) 525-6101', instagram:'knoxvillemuseumofart'},
+  'east-tn-history':     { neighborhood:'Downtown',       lat:35.9631, lng:-83.9193 , venueName:'East Tennessee History Center'},
   // Market Square cluster
-  'market-sq':           { neighborhood:'Market Square',  lat:35.9660, lng:-83.9185 },
+  'market-sq':           { neighborhood:'Market Square',  lat:35.9660, lng:-83.9185 , website:'https://www.nourishknoxville.org', phone:'(865) 805-8687', instagram:'nourishmarkets'},
   'summer-concerts':     { neighborhood:'Market Square',  lat:35.9660, lng:-83.9185 },
   'midnight-ramble':     { neighborhood:'Market Square',  lat:35.9660, lng:-83.9185 },
-  'saluto':              { neighborhood:'Market Square',  lat:35.9656, lng:-83.9182 },
-  'silent-disco':        { neighborhood:'Market Square',  lat:35.9656, lng:-83.9182 },
+  'saluto':              { neighborhood:'Market Square',  lat:35.9656, lng:-83.9182 , venueName:'Preservation Pub'},
+  'silent-disco':        { neighborhood:'Market Square',  lat:35.9656, lng:-83.9182 , venueName:'Preservation Pub'},
   // Old City / Depot district
-  'pilot-light':         { neighborhood:'Old City',       lat:35.9671, lng:-83.9143 },
-  'barleys-taproom':     { neighborhood:'Old City',       lat:35.9671, lng:-83.9149 },
+  'pilot-light':         { neighborhood:'Old City',       lat:35.9671, lng:-83.9143 , venueName:'The Pilot Light', website:'https://thepilotlight.com', phone:'(865) 524-8188', instagram:'pilotlightknox'},
+  'barleys-taproom':     { neighborhood:'Old City',       lat:35.9671, lng:-83.9149 , venueName:'Barley\'s Taproom & Pizzeria', website:'https://barleysknoxville.com', phone:'(865) 521-0092', instagram:'barleysknoxville'},
   'jazz-bistro':         { neighborhood:'Old City',       lat:35.9683, lng:-83.9190 },
-  'mill-and-mine':       { neighborhood:'Old City',       lat:35.9683, lng:-83.9190 },
-  'marble-city-market':  { neighborhood:'Old City',       lat:35.9686, lng:-83.9181 },
-  'smokies-baseball':    { neighborhood:'Old City',       lat:35.9680, lng:-83.9107 },
+  'mill-and-mine':       { neighborhood:'Old City',       lat:35.9683, lng:-83.9190 , venueName:'The Mill & Mine', website:'https://themillandmine.com', phone:'(865) 343-6000', instagram:'themillandmine'},
+  'marble-city-market':  { neighborhood:'Old City',       lat:35.9686, lng:-83.9181 , venueName:'Marble City Market', website:'https://www.marblecitymarket.com', instagram:'marblecitymarket'},
+  'smokies-baseball':    { neighborhood:'Old City',       lat:35.9680, lng:-83.9107 , website:'https://www.milb.com/knoxville', phone:'(865) 286-2300', instagram:'smokiesbaseball'},
   'rave-old-city':       { neighborhood:'Old City',       lat:35.9670, lng:-83.9150 },
   'secret-cinema':       { neighborhood:'Old City',       lat:35.9670, lng:-83.9155 },
   // Civic / Coliseum area
   'ice-bears':           { neighborhood:'Downtown',       lat:35.9652, lng:-83.9060 },
   // Riverfront / World's Fair
   'tennessee-riverwalk': { neighborhood:'Downtown',       lat:35.9570, lng:-83.9270 },
-'big-ears':            { neighborhood:'Downtown',       lat:35.9648, lng:-83.9186 },
+'big-ears':            { neighborhood:'Downtown',       lat:35.9648, lng:-83.9186 , website:'https://bigearsfestival.org', instagram:'bigearsfestival'},
   'dogwood-arts':        { neighborhood:"World's Fair Park", lat:35.9615, lng:-83.9243 },
   'knox-pride':          { neighborhood:"World's Fair Park", lat:35.9615, lng:-83.9243 },
   'knoxville-marathon':  { neighborhood:'Downtown',       lat:35.9615, lng:-83.9243 },
   // South Knoxville
-  'ijams':               { neighborhood:'South Knoxville',  lat:35.9415, lng:-83.8868 },
+  'ijams':               { neighborhood:'South Knoxville',  lat:35.9415, lng:-83.8868 , venueName:'Ijams Nature Center', website:'https://www.ijams.org', phone:'(865) 577-4717', instagram:'ijamsnaturecenter'},
   'bluegrass-jam':       { neighborhood:'South Knoxville',  lat:35.9497, lng:-83.9105 },
   // East Knoxville
-  'zoo-knoxville':       { neighborhood:'East Knoxville',   lat:35.9836, lng:-83.8754 },
+  'zoo-knoxville':       { neighborhood:'East Knoxville',   lat:35.9836, lng:-83.8754 , venueName:'Zoo Knoxville', website:'https://www.zooknoxville.org', instagram:'zooknoxville'},
   'tennessee-valley-fair':{ neighborhood:'East Knoxville',  lat:35.9793, lng:-83.8843 },
   // North Knoxville
-  'honky-tonk-thursday': { neighborhood:'North Knoxville',  lat:35.9839, lng:-83.9367 },
+  'honky-tonk-thursday': { neighborhood:'North Knoxville',  lat:35.9839, lng:-83.9367 , venueName:'The International'},
   'roller-derby':        { neighborhood:'North Knoxville',  lat:35.9850, lng:-83.9700 },
   // West Knoxville
-  'cotton-eyed-joe':     { neighborhood:'Farragut',         lat:35.9308, lng:-84.0803 },
+  'cotton-eyed-joe':     { neighborhood:'Farragut',         lat:35.9308, lng:-84.0803 , venueName:'Cotton Eyed Joe', website:'https://www.cottoneyedjoe.com', instagram:'cottoneyedjoeknoxvilletn', email:'info@cottoneyedjoe.com'},
   // Northshore / Sequoyah Hills
   'drum-circle':         { neighborhood:'Sequoyah Hills',   lat:35.9585, lng:-83.9583 },
   // Smokies
   'clingmans':           { neighborhood:'Smoky Mountains',  lat:35.5629, lng:-83.4985 },
   // Downtown / Gay St
-  'knox-box-karaoke':    { neighborhood:'Downtown',         lat:35.9599, lng:-83.9193 },
-  'scruffy-city-comedy': { neighborhood:'Market Square',    lat:35.9660, lng:-83.9185 },
+  'knox-box-karaoke':    { neighborhood:'Downtown',         lat:35.9599, lng:-83.9193 , venueName:'Knox Box Karaoke'},
+  'scruffy-city-comedy': { neighborhood:'Market Square',    lat:35.9660, lng:-83.9185 , venueName:'Scruffy City Hall'},
   // Market Square
   'jazz-tuesdays-sq':    { neighborhood:'Market Square',    lat:35.9660, lng:-83.9185 },
-  'illusions-drag-brunch':{ neighborhood:'Market Square',   lat:35.9660, lng:-83.9188 },
+  'illusions-drag-brunch':{ neighborhood:'Market Square',   lat:35.9660, lng:-83.9188 , venueName:'Illusions The Drag Brunch'},
   // Old City
-  'boyds-open-mic':      { neighborhood:'Old City',         lat:35.9671, lng:-83.9143 },
-  'pour-taproom-trivia': { neighborhood:'Old City',         lat:35.9671, lng:-83.9142 },
-  'barrelhouse-open-mic':{ neighborhood:'Old North Knox',   lat:35.9712, lng:-83.9158 },
-  'barrelhouse-trivia':  { neighborhood:'Old North Knox',   lat:35.9712, lng:-83.9158 },
+  'boyds-open-mic':      { neighborhood:'Old City',         lat:35.9671, lng:-83.9143 , venueName:'Boyd\'s Jig & Reel'},
+  'pour-taproom-trivia': { neighborhood:'Old City',         lat:35.9671, lng:-83.9142 , venueName:'Pour Taproom'},
+  'barrelhouse-open-mic':{ neighborhood:'Old North Knox',   lat:35.9712, lng:-83.9158 , venueName:'Barrelhouse by Gypsy Circus'},
+  'barrelhouse-trivia':  { neighborhood:'Old North Knox',   lat:35.9712, lng:-83.9158 , venueName:'Barrelhouse by Gypsy Circus'},
   // Fort Sanders / UT
-  'the-hill-trivia':     { neighborhood:'Fort Sanders',     lat:35.9601, lng:-83.9352 },
-  'cool-beans-trivia':   { neighborhood:'Fort Sanders',     lat:35.9600, lng:-83.9385 },
-  'mellow-mushroom-trivia':{ neighborhood:'Fort Sanders',   lat:35.9571, lng:-83.9468 },
+  'the-hill-trivia':     { neighborhood:'Fort Sanders',     lat:35.9601, lng:-83.9352 , venueName:'The Hill Bar & Grill'},
+  'cool-beans-trivia':   { neighborhood:'Fort Sanders',     lat:35.9600, lng:-83.9385 , venueName:'Cool Beans Bar & Grill'},
+  'mellow-mushroom-trivia':{ neighborhood:'Fort Sanders',   lat:35.9571, lng:-83.9468 , venueName:'Mellow Mushroom'},
   // Happy Holler / North Central
-  'club-xyz-drag':       { neighborhood:'Happy Holler',     lat:35.9839, lng:-83.9375 },
-  'central-flats-trivia':{ neighborhood:'Happy Holler',     lat:35.9837, lng:-83.9372 },
+  'club-xyz-drag':       { neighborhood:'Happy Holler',     lat:35.9839, lng:-83.9375 , venueName:'Club XYZ'},
+  'central-flats-trivia':{ neighborhood:'Happy Holler',     lat:35.9837, lng:-83.9372 , venueName:'Central Flats & Taps'},
   // North Knoxville
-  'ale-raes-gastropub':  { neighborhood:'North Knoxville',  lat:35.9925, lng:-83.9318 },
-  'yeehaw-movie-night':  { neighborhood:'North Knoxville',  lat:35.9900, lng:-83.9320 },
-  'fountain-city-social':{ neighborhood:'Fountain City',    lat:36.0385, lng:-83.9285 },
+  'ale-raes-gastropub':  { neighborhood:'North Knoxville',  lat:35.9925, lng:-83.9318 , venueName:'Ale\'Rae\'s GastroPub'},
+  'yeehaw-movie-night':  { neighborhood:'North Knoxville',  lat:35.9900, lng:-83.9320 , venueName:'Yee-Haw Brewing Co.'},
+  'fountain-city-social':{ neighborhood:'Fountain City',    lat:36.0385, lng:-83.9285 , venueName:'Fountain City Social'},
   // South Knoxville
-  'sevier-burger-trivia':{ neighborhood:'South Knoxville',  lat:35.9508, lng:-83.9057 },
-  'sokno-taco-singo':    { neighborhood:'South Knoxville',  lat:35.9198, lng:-83.8852 },
-  'hiwire-trivia':       { neighborhood:'South Knoxville',  lat:35.9476, lng:-83.9098 },
-  'pink-cactus-karaoke': { neighborhood:'South Knoxville',  lat:35.9510, lng:-83.9063 },
+  'sevier-burger-trivia':{ neighborhood:'South Knoxville',  lat:35.9508, lng:-83.9057 , venueName:'Sevier Ave Burger Co.'},
+  'sokno-taco-singo':    { neighborhood:'South Knoxville',  lat:35.9198, lng:-83.8852 , venueName:'SoKno Taco Cantina'},
+  'hiwire-trivia':       { neighborhood:'South Knoxville',  lat:35.9476, lng:-83.9098 , venueName:'Hi-Wire Brewing'},
+  'pink-cactus-karaoke': { neighborhood:'South Knoxville',  lat:35.9510, lng:-83.9063 , venueName:'The Pink Cactus'},
   // Bearden / West Knoxville
-  'abridged-beer-trivia':{ neighborhood:'Bearden',          lat:35.9520, lng:-83.9900 },
-  'bullfeathers-karaoke':{ neighborhood:'West Knoxville',   lat:35.9330, lng:-84.0455 },
-  'core-knoxville':      { neighborhood:'Bearden',          lat:35.9373, lng:-84.0130 },
+  'abridged-beer-trivia':{ neighborhood:'Bearden',          lat:35.9520, lng:-83.9900 , venueName:'Abridged Beer Company'},
+  'bullfeathers-karaoke':{ neighborhood:'West Knoxville',   lat:35.9330, lng:-84.0455 , venueName:'Bullfeathers Karaoke Cafe'},
+  'core-knoxville':      { neighborhood:'Bearden',          lat:35.9373, lng:-84.0130 , venueName:'CORE Knoxville'},
   // Farragut / Turkey Creek / Hardin Valley
-  '35-north-singo':      { neighborhood:'Farragut',         lat:35.9193, lng:-84.1355 },
-  'xul-beer-trivia':     { neighborhood:'Hardin Valley',    lat:35.9595, lng:-84.1093 },
+  '35-north-singo':      { neighborhood:'Farragut',         lat:35.9193, lng:-84.1355 , venueName:'35 North Bar & Grill'},
+  'xul-beer-trivia':     { neighborhood:'Hardin Valley',    lat:35.9595, lng:-84.1093 , venueName:'XUL Beer Company'},
   // Northshore / Cedar Bluff
-  'tennessee-tap-house': { neighborhood:'Cedar Bluff',      lat:35.9245, lng:-84.0680 },
+  'tennessee-tap-house': { neighborhood:'Cedar Bluff',      lat:35.9245, lng:-84.0680 , venueName:'Tennessee Tap House'},
   // Comedy
-  'stock-barrel-comedy':      { neighborhood:'Market Square',    lat:35.9655, lng:-83.9183 },
-  'preservation-pub-comedy':  { neighborhood:'Market Square',    lat:35.9658, lng:-83.9185 },
-  'pilot-light-comedy':       { neighborhood:'Old City',         lat:35.9671, lng:-83.9143 },
+  'stock-barrel-comedy':      { neighborhood:'Market Square',    lat:35.9655, lng:-83.9183 , venueName:'Stock & Barrel'},
+  'preservation-pub-comedy':  { neighborhood:'Market Square',    lat:35.9658, lng:-83.9185 , venueName:'Preservation Pub'},
+  'pilot-light-comedy':       { neighborhood:'Old City',         lat:35.9671, lng:-83.9143 , venueName:'The Pilot Light'},
   // Fitness & Wellness
-  'fleet-feet-run-club':      { neighborhood:'Downtown',         lat:35.9629, lng:-83.9188 },
-  'climb-knx':                { neighborhood:'West Knoxville',   lat:35.9462, lng:-84.0005 },
-  'inner-light-yoga':         { neighborhood:'Bearden',          lat:35.9520, lng:-83.9945 },
+  'fleet-feet-run-club':      { neighborhood:'Downtown',         lat:35.9629, lng:-83.9188 , venueName:'Fleet Feet Knoxville'},
+  'climb-knx':                { neighborhood:'West Knoxville',   lat:35.9462, lng:-84.0005 , venueName:'Climb KNX'},
+  'inner-light-yoga':         { neighborhood:'Bearden',          lat:35.9520, lng:-83.9945 , venueName:'Inner Light Yoga'},
   'knoxville-track-club':     { neighborhood:"World's Fair Park", lat:35.9615, lng:-83.9243 },
   // Tours & Experiences
   'old-city-ghost-tours':     { neighborhood:'Old City',         lat:35.9670, lng:-83.9150 },
-  'schulz-brau-brewery-tour': { neighborhood:'Old City',         lat:35.9665, lng:-83.9130 },
-  'marble-springs-tours':     { neighborhood:'Southeast Knox',   lat:35.9520, lng:-83.8810 },
-  'volunteer-landing-kayak':  { neighborhood:'Downtown',         lat:35.9570, lng:-83.9271 },
+  'schulz-brau-brewery-tour': { neighborhood:'Old City',         lat:35.9665, lng:-83.9130 , venueName:'Schulz Bräu Brewing Co.'},
+  'marble-springs-tours':     { neighborhood:'Southeast Knox',   lat:35.9520, lng:-83.8810 , venueName:'Marble Springs Historic Site'},
+  'volunteer-landing-kayak':  { neighborhood:'Downtown',         lat:35.9570, lng:-83.9271 , venueName:'Volunteer Landing Marina'},
   // Film & Cinema
-  'tennessee-theatre-film':   { neighborhood:'Downtown',         lat:35.9635, lng:-83.9187 },
+  'tennessee-theatre-film':   { neighborhood:'Downtown',         lat:35.9635, lng:-83.9187 , venueName:'Tennessee Theatre'},
   'market-sq-summer-movies':  { neighborhood:'Market Square',    lat:35.9660, lng:-83.9185 },
-  'kma-film-series':          { neighborhood:"World's Fair Park", lat:35.9622, lng:-83.9248 },
+  'kma-film-series':          { neighborhood:"World's Fair Park", lat:35.9622, lng:-83.9248 , venueName:'Knoxville Museum of Art'},
   // Markets
   'old-city-farmers-market':  { neighborhood:'Old City',         lat:35.9671, lng:-83.9148 },
   'bearden-village-market':   { neighborhood:'Bearden',          lat:35.9527, lng:-83.9927 },
   'second-saturday-art-market':{ neighborhood:'Old City',        lat:35.9669, lng:-83.9145 },
   // Community & Civic
-  'knox-makers-open-house':   { neighborhood:'West Knoxville',   lat:35.9567, lng:-84.0095 },
+  'knox-makers-open-house':   { neighborhood:'West Knoxville',   lat:35.9567, lng:-84.0095 , venueName:'Knox Makers'},
   'keep-knoxville-beautiful': { neighborhood:'Downtown',         lat:35.9606, lng:-83.9205 },
   'knoxville-young-professionals':{ neighborhood:'Downtown',     lat:35.9649, lng:-83.9186 },
   // Happy Hour & Specials
-  'mimosas-knoxville':         { neighborhood:'South Knoxville',  lat:35.9490, lng:-83.9052 },
-  'loco-burro-brunch':         { neighborhood:'West Knoxville',   lat:35.9411, lng:-84.0101 },
-  'tupelo-honey-mimosa-monday':{ neighborhood:'Market Square',    lat:35.9656, lng:-83.9182 },
-  'chesapeakes-sunday-brunch': { neighborhood:'West Knoxville',   lat:35.9213, lng:-84.0785 },
-  'seasons-brunch-buffet':     { neighborhood:'Farragut',         lat:35.9086, lng:-84.0790 },
-  'trailhead-happy-hour':      { neighborhood:'South Knoxville',  lat:35.9476, lng:-83.8989 },
-  'fin-two-happy-hour':        { neighborhood:'Old City',         lat:35.9671, lng:-83.9143 },
-  'sokno-happy-hour':          { neighborhood:'South Knoxville',  lat:35.9198, lng:-83.8852 },
-  'tupelo-honey-happy-hour':   { neighborhood:'Market Square',    lat:35.9656, lng:-83.9182 },
-  'balter-happy-hour':         { neighborhood:'Old City',         lat:35.9667, lng:-83.9135 },
-  'the-farmacy-happy-hour':    { neighborhood:'Bearden',          lat:35.9498, lng:-83.9947 },
-  'marble-city-happy-hour':    { neighborhood:'Old City',         lat:35.9686, lng:-83.9181 },
-  'tern-club-happy-hour':      { neighborhood:'Downtown',         lat:35.9631, lng:-83.9193 },
-  'redbud-kitchen-happy-hour': { neighborhood:'South Knoxville',  lat:35.9508, lng:-83.9038 },
-  'barrelhouse-bottomless':    { neighborhood:'Old North Knox',   lat:35.9712, lng:-83.9158 },
+  'mimosas-knoxville':         { neighborhood:'South Knoxville',  lat:35.9490, lng:-83.9052 , venueName:'Mimosas'},
+  'chesapeakes-sunday-brunch': { neighborhood:'West Knoxville',   lat:35.9213, lng:-84.0785 , venueName:'Chesapeake\'s', website:'https://chesapeakes.com', phone:'(865) 851-9088', instagram:'chesapeakes'},
+  'trailhead-happy-hour':      { neighborhood:'South Knoxville',  lat:35.9476, lng:-83.8989 , venueName:'Trailhead Beer Market', phone:'(865) 409-4058', instagram:'trailheadbeer'},
+  'fin-two-happy-hour':        { neighborhood:'Old City',         lat:35.9671, lng:-83.9143 , venueName:'Fin Two', website:'https://fin-two.com', phone:'(865) 437-3105', instagram:'fintwoknox'},
+  'tupelo-honey-happy-hour':   { neighborhood:'Market Square',    lat:35.9656, lng:-83.9182 , venueName:'Tupelo Honey', website:'https://www.tupelohoneycafe.com/restaurant/knoxville/', phone:'(865) 522-0004'},
+  'balter-happy-hour':         { neighborhood:'Old City',         lat:35.9667, lng:-83.9135 , venueName:'Balter Beerworks', website:'https://www.balterbeerworks.com', phone:'(865) 999-5015', instagram:'balterbeerworks'},
+  'marble-city-happy-hour':    { neighborhood:'Old City',         lat:35.9686, lng:-83.9181 , venueName:'Marble City Market', website:'https://www.marblecitymarket.com', instagram:'marblecitymarket'},
+  'barrelhouse-bottomless':    { neighborhood:'Old North Knox',   lat:35.9712, lng:-83.9158 , venueName:'Barrelhouse by Gypsy Circus', website:'https://gypsycircuscider.com', phone:'(865) 424-7753', instagram:'barrelhouseknoxville'},
   'knoxville-swing-dance':     { neighborhood:'Rotating',         lat:35.9606, lng:-83.9207 },
-  'salty-dog-karaoke':         { neighborhood:'South Knoxville',  lat:35.9448, lng:-83.9003 },
+  'salty-dog-karaoke':         { neighborhood:'South Knoxville',  lat:35.9448, lng:-83.9003 , venueName:'The Salty Dog Saloon'},
   'house-mountain':            { neighborhood:'Corryton',         lat:36.1107, lng:-83.8060 },
   'rossini-festival':          { neighborhood:'Market Square',    lat:35.9656, lng:-83.9182 },
-  'emporium-center':           { neighborhood:'Downtown',         lat:35.9635, lng:-83.9193 },
-  'muse-knoxville':            { neighborhood:'Fort Sanders',     lat:35.9598, lng:-83.9356 },
+  'emporium-center':           { neighborhood:'Downtown',         lat:35.9635, lng:-83.9193 , venueName:'Emporium Center for Arts & Culture'},
+  'muse-knoxville':            { neighborhood:'Fort Sanders',     lat:35.9598, lng:-83.9356 , venueName:'Muse Knoxville', website:'https://themuseknoxville.org', phone:'(865) 594-1494', instagram:'museknox', email:'info@themuseknoxville.org'},
 };
 // Merge meta into LISTINGS
 LISTINGS.forEach(l => { if(LISTING_META[l.id]) Object.assign(l, LISTING_META[l.id]); });
+
+// ============================================================
+// LISTING IMAGES — Wikimedia Commons featured photos per venue
+// ============================================================
+const _IMG = {
+  neyland:  'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Neyland_Stadium_2010.JPG/800px-Neyland_Stadium_2010.JPG',
+  smokies:  'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/First_Tennessee_Park%2C_May_5%2C_2015_-_4.JPG/800px-First_Tennessee_Park%2C_May_5%2C_2015_-_4.JPG',
+  coliseum: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Knoxville_Civic_Coliseum.jpg/800px-Knoxville_Civic_Coliseum.jpg',
+  theatre:  'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Tennessee-theatre-entrance-knoxville-tn1.jpg/800px-Tennessee-theatre-entrance-knoxville-tn1.jpg',
+  bijou:    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg',
+  mktSq:    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG',
+  ijams:    'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG/800px-Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG',
+  sun:      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sunsphere_Knoxville.jpg/800px-Sunsphere_Knoxville.jpg',
+  clingman: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Clingmans_Dome_from_Andrews_Bald.jpg/800px-Clingmans_Dome_from_Andrews_Bald.jpg',
+  houseMtn: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/House-mountain-outcrop-tn1.jpg/800px-House-mountain-outcrop-tn1.jpg',
+  skyline:  'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg',
+};
+const LISTING_IMAGES = {
+  'neyland-football':_IMG.neyland, 'vols-basketball':_IMG.neyland, 'women-basketball':_IMG.neyland,
+  'smokies-baseball':_IMG.smokies,
+  'ice-bears':_IMG.coliseum, 'roller-derby':_IMG.coliseum,
+  'tennessee-theatre':_IMG.theatre, 'tennessee-theatre-film':_IMG.theatre,
+  'east-tn-history':_IMG.theatre, 'emporium-center':_IMG.theatre,
+  'big-ears':_IMG.theatre, 'knox-box-karaoke':_IMG.theatre,
+  'bijou-theatre':_IMG.bijou, 'mill-and-mine':_IMG.bijou, 'barleys-taproom':_IMG.bijou,
+  'pilot-light':_IMG.bijou, 'rave-old-city':_IMG.bijou, 'jazz-bistro':_IMG.bijou,
+  'old-city-ghost-tours':_IMG.bijou, 'fin-two-happy-hour':_IMG.bijou,
+  'balter-happy-hour':_IMG.bijou, 'boyds-open-mic':_IMG.bijou,
+  'barrelhouse-open-mic':_IMG.bijou, 'barrelhouse-trivia':_IMG.bijou,
+  'pilot-light-comedy':_IMG.bijou, 'schulz-brau-brewery-tour':_IMG.bijou,
+  'barrelhouse-bottomless':_IMG.bijou, 'secret-cinema':_IMG.bijou,
+  'old-city-farmers-market':_IMG.bijou,
+  'market-sq':_IMG.mktSq, 'art-walk':_IMG.mktSq, 'summer-concerts':_IMG.mktSq,
+  'rossini-festival':_IMG.mktSq, 'wdvx':_IMG.mktSq, 'saluto':_IMG.mktSq,
+  'silent-disco':_IMG.mktSq, 'honky-tonk-thursday':_IMG.mktSq,
+  'jazz-tuesdays-sq':_IMG.mktSq, 'midnight-ramble':_IMG.mktSq,
+  'stock-barrel-comedy':_IMG.mktSq, 'preservation-pub-comedy':_IMG.mktSq,
+  'scruffy-city-comedy':_IMG.mktSq, 'pour-taproom-trivia':_IMG.mktSq,
+  'marble-city-market':_IMG.mktSq, 'tupelo-honey-happy-hour':_IMG.mktSq,
+  'marble-city-happy-hour':_IMG.mktSq, 'yeehaw-movie-night':_IMG.mktSq,
+  'market-sq-summer-movies':_IMG.mktSq, 'knoxville-young-professionals':_IMG.mktSq,
+  'knoxville-swing-dance':_IMG.mktSq, 'illusions-drag-brunch':_IMG.mktSq,
+  'club-xyz-drag':_IMG.mktSq, 'core-knoxville':_IMG.mktSq,
+  'rooftop-yoga':_IMG.mktSq, 'second-saturday-art-market':_IMG.mktSq,
+  'pink-cactus-karaoke':_IMG.mktSq,
+  'ijams':_IMG.ijams, 'tennessee-riverwalk':_IMG.ijams, 'bluegrass-jam':_IMG.ijams,
+  'volunteer-landing-kayak':_IMG.ijams, 'drum-circle':_IMG.ijams,
+  'trailhead-happy-hour':_IMG.ijams, 'mimosas-knoxville':_IMG.ijams,
+  'hiwire-trivia':_IMG.ijams, 'sevier-burger-trivia':_IMG.ijams,
+  'sokno-taco-singo':_IMG.ijams, 'salty-dog-karaoke':_IMG.ijams,
+  'keep-knoxville-beautiful':_IMG.ijams,
+  'sunsphere':_IMG.sun, 'dogwood-arts':_IMG.sun, 'tennessee-valley-fair':_IMG.sun,
+  'knox-pride':_IMG.sun, 'knoxville-museum-art':_IMG.sun, 'kma-film-series':_IMG.sun,
+  'knoxville-track-club':_IMG.sun, 'muse-knoxville':_IMG.sun, 'zoo-knoxville':_IMG.sun,
+  'clingmans':_IMG.clingman,
+  'house-mountain':_IMG.houseMtn, 'climb-knx':_IMG.houseMtn, 'inner-light-yoga':_IMG.houseMtn,
+  'knoxville-marathon':_IMG.skyline, 'fleet-feet-run-club':_IMG.skyline,
+  'the-hill-trivia':_IMG.skyline, 'cool-beans-trivia':_IMG.skyline,
+  'mellow-mushroom-trivia':_IMG.skyline, 'central-flats-trivia':_IMG.skyline,
+  'ale-raes-gastropub':_IMG.skyline, 'fountain-city-social':_IMG.skyline,
+  'abridged-beer-trivia':_IMG.skyline, 'bullfeathers-karaoke':_IMG.skyline,
+  '35-north-singo':_IMG.skyline, 'xul-beer-trivia':_IMG.skyline,
+  'tennessee-tap-house':_IMG.skyline, 'cotton-eyed-joe':_IMG.skyline,
+  'marble-springs-tours':_IMG.skyline, 'knox-makers-open-house':_IMG.skyline,
+  'bearden-village-market':_IMG.skyline, 'chesapeakes-sunday-brunch':_IMG.skyline,
+};
+LISTINGS.forEach(l => { if(LISTING_IMAGES[l.id]) l.image = LISTING_IMAGES[l.id]; });
 
 // ============================================================
 // STATE
@@ -2556,6 +2531,7 @@ async function initFromFirestore(){
     console.warn('Firestore unavailable — using cached data.', err);
   }
   applyFilters();
+  injectListingsJsonLd();
 }
 
 // ============================================================
@@ -2816,6 +2792,100 @@ function deriveCostScale(priceText){
 }
 
 // ============================================================
+// STRUCTURED DATA — dynamic Event JSON-LD for AI & search
+// Runs after listings load; re-runs when community events arrive.
+// Any new listing automatically gets schema without code changes.
+// ============================================================
+function injectListingsJsonLd(){
+  const today=new Date().toISOString().split('T')[0];
+  const musicCategories=new Set(['Live Music','Comedy','Theater & Performance','Dancing']);
+  const events=allListings().map(l=>{
+    // Dates
+    const next=getNextOccurrence(l);
+    const startDt=next||new Date();
+    const startDate=startDt.toISOString().split('T')[0];
+    let endDate=startDate;
+    if(l.endTime){
+      const[eh,em]=(l.endTime||'0:0').split(':').map(Number);
+      const ed=new Date(startDt);
+      ed.setHours(eh,em||0,0,0);
+      if(ed<=startDt) ed.setDate(ed.getDate()+1);
+      endDate=ed.toISOString().split('T')[0];
+    } else {
+      const ed=new Date(startDt);
+      ed.setHours(ed.getHours()+2);
+      endDate=ed.toISOString().split('T')[0];
+    }
+
+    // Location
+    const parts=(l.location||'').split(',');
+    const street=parts[0]?.trim()||'';
+    const vName=l.venueName||street||'Knoxville, TN';
+    const eventUrl='https://www.theknoxpulse.com/?event='+l.id;
+
+    const ev={
+      '@type':'Event',
+      name:l.title,
+      description:l.description,
+      url:eventUrl,
+      startDate,
+      endDate,
+      eventStatus:'https://schema.org/EventScheduled',
+      eventAttendanceMode:'https://schema.org/OfflineEventAttendanceMode',
+      location:{
+        '@type':'Place',
+        name:vName,
+        address:{
+          '@type':'PostalAddress',
+          streetAddress:street,
+          addressLocality:'Knoxville',
+          addressRegion:'TN',
+          addressCountry:'US'
+        }
+      },
+      organizer:{
+        '@type':'Organization',
+        name:vName,
+        url:l.website||eventUrl
+      }
+    };
+
+    if(l.image) ev.image=l.image;
+
+    if(musicCategories.has(l.category)){
+      ev.performer={'@type':'PerformingGroup',name:vName};
+    }
+
+    const isFree=l.costScale==='Free'||(l.price||'').toLowerCase().includes('free');
+    // Extract lowest numeric price for schema; fall back to costScale estimate
+    let priceVal='0';
+    if(!isFree){
+      const nums=(l.price||'').replace(/[,$+]/g,'').match(/\d+/g);
+      if(nums) priceVal=String(Math.min(...nums.map(Number)));
+      else if(l.costScale==='$') priceVal='5';
+      else if(l.costScale==='$$') priceVal='15';
+      else if(l.costScale==='$$$') priceVal='40';
+    }
+    if(isFree||l.price||l.costScale){
+      ev.offers={'@type':'Offer',price:priceVal,priceCurrency:'USD',
+        availability:'https://schema.org/InStock',url:eventUrl,validFrom:today};
+    }
+
+    return ev;
+  });
+
+  const schema={'@context':'https://schema.org','@graph':events};
+  let el=document.getElementById('ld-events-dynamic');
+  if(!el){
+    el=document.createElement('script');
+    el.type='application/ld+json';
+    el.id='ld-events-dynamic';
+    document.head.appendChild(el);
+  }
+  el.textContent=JSON.stringify(schema);
+}
+
+// ============================================================
 // FILTER LOGIC
 // ============================================================
 function closeFilterPanel(){
@@ -3034,6 +3104,11 @@ function applyFilters(){
 
   // Panel-only filter function (no search query applied)
   const passesPanel=(l)=>{
+    // Hide one-time events whose date has passed
+    if(l.eventType==='one-time'){
+      const cutoff=l.eventEndDate||l.eventDate;
+      if(cutoff && cutoff < todayStr()) return false;
+    }
     if(cat && l.category!==cat) return false;
     if(inout && l.indoorOutdoor!==inout) return false;
     if(l.distanceMiles>dist) return false;
@@ -3116,7 +3191,9 @@ function buildCard(l){
   const photos=localPhotos[l.id]||[];
   const imgHtml=photos.length
     ? `<img class="card-img" src="${photos[0]}" alt="${l.title}" loading="lazy"/>`
-    : `<div class="card-img-placeholder">${l.emoji||'📍'}</div>`;
+    : l.image
+      ? `<img class="card-img" src="${l.image}" alt="${l.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="card-img-placeholder" style="display:none">${l.emoji||'📍'}</div>`
+      : `<div class="card-img-placeholder">${l.emoji||'📍'}</div>`;
 
   const price=priceDisplay(l);
   const venueDisplay=l.venueName||(!/^\d/.test((l.location||'').split(',')[0].trim())?(l.location||'').split(',')[0].trim():'');
@@ -3134,9 +3211,9 @@ function buildCard(l){
         ${l.neighborhood?`<span class="chip chip-dist" style="font-size:.65rem;">${l.neighborhood}</span>`:''}
       </div>
       <div class="card-title">${l.title}</div>
-      ${schedLine?`<div class="next-occ">🗓 ${schedLine}</div>`:''}
-      ${venueDisplay?`<div class="card-loc">🏠 ${venueDisplay}</div>`:''}
+      ${venueDisplay?`<div class="card-venue">🏠 ${venueDisplay}</div>`:''}
       <div class="card-loc">📍 ${l.location}</div>
+      ${schedLine?`<div class="next-occ">🗓 ${schedLine}</div>`:''}
       ${price?`<div class="card-price">${price}</div>`:''}
       <div class="card-desc">${l.description}</div>
       <div class="rating-row">
@@ -3235,7 +3312,9 @@ function openDetail(id){
   const imgArea=document.getElementById('modal-img-area');
   imgArea.innerHTML=photos.length
     ? `<img class="modal-img" src="${photos[0]}" alt="${l.title}"/>`
-    : `<div class="modal-img-placeholder">${l.emoji||'📍'}</div>`;
+    : l.image
+      ? `<img class="modal-img" src="${l.image}" alt="${l.title}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="modal-img-placeholder" style="display:none">${l.emoji||'📍'}</div>`
+      : `<div class="modal-img-placeholder">${l.emoji||'📍'}</div>`;
 
   document.getElementById('modal-title').textContent=l.title;
 
@@ -3262,21 +3341,16 @@ function openDetail(id){
   else{priceEl.style.display='none';}
   document.getElementById('modal-desc').textContent=l.description;
 
-  // Contact info — injected dynamically, removed when no data
-  let contactEl=document.getElementById('modal-contact');
-  if(!contactEl){
-    contactEl=document.createElement('div');
-    contactEl.id='modal-contact';
-    contactEl.style.cssText='margin-bottom:14px;display:flex;flex-direction:column;gap:6px;';
-    document.getElementById('modal-desc').insertAdjacentElement('afterend',contactEl);
-  }
+  // Contact info section
+  const contactSection=document.getElementById('modal-contact-section');
+  const contactEl=document.getElementById('modal-contact');
   const links=[];
   if(l.phone) links.push(`<a href="tel:${l.phone.replace(/[^\d+]/g,'')}" style="color:var(--orange);text-decoration:none;font-size:.85rem;">📞 ${l.phone}</a>`);
   if(l.website) links.push(`<a href="${l.website}" target="_blank" rel="noopener" style="color:var(--orange);text-decoration:none;font-size:.85rem;">🌐 ${l.website.replace(/^https?:\/\//,'')}</a>`);
   if(l.email) links.push(`<a href="mailto:${l.email}" style="color:var(--orange);text-decoration:none;font-size:.85rem;">✉️ ${l.email}</a>`);
   if(l.instagram) links.push(`<a href="https://instagram.com/${l.instagram}" target="_blank" rel="noopener" style="color:var(--orange);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:5px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>@${l.instagram}</a>`);
   contactEl.innerHTML=links.join('');
-  contactEl.style.display=links.length?'flex':'none';
+  contactSection.style.display=links.length?'':'none';
 
   const chips=document.getElementById('modal-chips');
   chips.innerHTML=`
@@ -3692,7 +3766,6 @@ function copyLink(id){
 // ============================================================
 // ADMIN PANEL
 // ============================================================
-const ADMIN_PW_KEY = 'kp_admin_pw';
 const CUSTOM_LISTINGS_KEY = 'kp_custom_listings';
 let adminUnlocked = false;
 let editingListingId = null;
@@ -3704,13 +3777,20 @@ function allListings(){
   return [...LISTINGS, ...customListings, ...communityEvents];
 }
 
-function openAdminModal(){
+async function openAdminModal(){
+  // Clear any legacy localStorage password from old client-side auth
+  localStorage.removeItem('kp_admin_pw');
   document.getElementById('admin-modal').classList.add('open');
   document.getElementById('admin-pw-gate').style.display='block';
   document.getElementById('admin-content').style.display='none';
   document.getElementById('admin-pw-input').value='';
+  document.getElementById('admin-pw-err').textContent='Incorrect password.';
   document.getElementById('admin-pw-err').style.display='none';
-  if(adminUnlocked) unlockAdmin();
+  // Auto-unlock if a valid server session cookie already exists
+  try{
+    const r=await fetch('/api/admin-verify');
+    if(r.ok) unlockAdmin();
+  }catch(e){}
 }
 function closeAdminModal(){
   document.getElementById('admin-modal').classList.remove('open');
@@ -3721,13 +3801,31 @@ document.addEventListener('click',function(e){
   if(am&&e.target===am) closeAdminModal();
 });
 
-function checkAdminPw(){
-  const stored = localStorage.getItem(ADMIN_PW_KEY)||'knoxpulse';
-  const entered = document.getElementById('admin-pw-input').value;
-  if(entered === stored){ unlockAdmin(); }
-  else {
-    document.getElementById('admin-pw-err').style.display='block';
-    document.getElementById('admin-pw-input').value='';
+async function checkAdminPw(){
+  const entered=document.getElementById('admin-pw-input').value;
+  if(!entered) return;
+  const errEl=document.getElementById('admin-pw-err');
+  errEl.style.display='none';
+  const btn=document.querySelector('#admin-pw-gate button');
+  if(btn){btn.disabled=true;btn.textContent='Checking…';}
+  try{
+    const r=await fetch('/api/admin-auth',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({password:entered})
+    });
+    const data=await r.json().catch(()=>({}));
+    if(r.ok){ unlockAdmin(); }
+    else{
+      errEl.textContent=data.error||'Incorrect password.';
+      errEl.style.display='block';
+      document.getElementById('admin-pw-input').value='';
+    }
+  }catch(e){
+    errEl.textContent='Connection error. Try again.';
+    errEl.style.display='block';
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent='Unlock';}
   }
 }
 
@@ -3736,6 +3834,12 @@ function unlockAdmin(){
   document.getElementById('admin-pw-gate').style.display='none';
   document.getElementById('admin-content').style.display='block';
   adminTab('listings');
+}
+
+async function adminLogout(){
+  await fetch('/api/admin-logout',{method:'POST'}).catch(()=>{});
+  adminUnlocked=false;
+  closeAdminModal();
 }
 
 function adminTab(tab){
@@ -4040,15 +4144,35 @@ async function saveAdminListing(){
   }
 }
 
-function changeAdminPw(){
+async function changeAdminPw(){
   const p1=document.getElementById('new-pw-1').value;
   const p2=document.getElementById('new-pw-2').value;
   if(!p1){showToast('Enter a new password.');return;}
+  if(p1.length<8){showToast('Password must be at least 8 characters.');return;}
   if(p1!==p2){showToast('Passwords do not match!');return;}
-  localStorage.setItem(ADMIN_PW_KEY,p1);
-  document.getElementById('new-pw-1').value='';
-  document.getElementById('new-pw-2').value='';
-  showToast('Password updated!');
+  try{
+    const r=await fetch('/api/admin-change-pw',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({password:p1})
+    });
+    const data=await r.json().catch(()=>({}));
+    if(r.ok){
+      document.getElementById('new-pw-1').value='';
+      document.getElementById('new-pw-2').value='';
+      if(data.action==='manual'){
+        // KV not bound — show hash for manual env var update
+        showToast('Copy new hash to Cloudflare ADMIN_PASSWORD_HASH env var.');
+        prompt('New ADMIN_PASSWORD_HASH value (copy this to Cloudflare):', data.hash);
+      } else {
+        showToast('Password updated!');
+      }
+    } else {
+      showToast(data.error||'Failed to update password.');
+    }
+  }catch(e){
+    showToast('Connection error. Try again.');
+  }
 }
 
 function exportData(){
@@ -4080,6 +4204,101 @@ function importData(event){
     } catch(err){ showToast('Invalid JSON file.'); }
   };
   reader.readAsText(file);
+}
+
+async function uploadEventsJSON(){
+  const fileInput=document.getElementById('upload-events-file');
+  const resultEl=document.getElementById('upload-events-result');
+  const file=fileInput.files[0];
+  if(!file){ showToast('Please select a JSON file first.'); return; }
+
+  // All fields required — filter fields + eventType + cover photo
+  const REQUIRED_STRINGS=['id','title','category','location','description',
+    'indoorOutdoor','timeOfDay','ageRestrictions','costScale','neighborhood','season',
+    'eventType','image'];
+
+  let parsed;
+  try{
+    const text=await file.text();
+    parsed=JSON.parse(text);
+  } catch(err){
+    resultEl.style.display='block';
+    resultEl.style.color='#ff6b6b';
+    resultEl.textContent='Error: Could not parse JSON file. Make sure it is valid JSON.';
+    return;
+  }
+
+  const events=Array.isArray(parsed)?parsed:(Array.isArray(parsed.events)?parsed.events:null);
+  if(!events){
+    resultEl.style.display='block';
+    resultEl.style.color='#ff6b6b';
+    resultEl.textContent='Error: JSON must be an array of event objects, or an object with an "events" array.';
+    return;
+  }
+
+  let imported=0, skipped=[];
+  for(const raw of events){
+    const missing=[];
+    REQUIRED_STRINGS.forEach(f=>{ if(!raw[f]||String(raw[f]).trim()==='') missing.push(f); });
+    // daysOfWeek must be a non-empty array
+    if(!Array.isArray(raw.daysOfWeek)||raw.daysOfWeek.length===0) missing.push('daysOfWeek');
+    // strollerFriendly must be explicitly true or false
+    if(raw.strollerFriendly===undefined||raw.strollerFriendly===null) missing.push('strollerFriendly');
+    if(missing.length){
+      skipped.push(`"${raw.title||raw.id||'(unknown)'}" — missing: ${missing.join(', ')}`);
+      continue;
+    }
+    const ev={
+      id:              String(raw.id).trim(),
+      title:           String(raw.title).trim(),
+      category:        String(raw.category).trim(),
+      location:        String(raw.location).trim(),
+      description:     String(raw.description).trim(),
+      indoorOutdoor:   String(raw.indoorOutdoor).trim(),
+      timeOfDay:       String(raw.timeOfDay).trim(),
+      ageRestrictions: String(raw.ageRestrictions).trim(),
+      costScale:       String(raw.costScale).trim(),
+      neighborhood:    String(raw.neighborhood).trim(),
+      season:          String(raw.season).trim(),
+      daysOfWeek:      raw.daysOfWeek,
+      strollerFriendly: Boolean(raw.strollerFriendly),
+      source:          'json-upload',
+      submittedAt:     firebase.firestore.FieldValue.serverTimestamp()
+    };
+    // Optional enrichment fields — copy if present
+    const OPTIONAL=['venueName','price','startTime','endTime','recurrenceRule','eventType',
+                    'emoji','tags','distanceMiles','underground','lat','lng',
+                    'phone','website','email','instagram','image'];
+    for(const f of OPTIONAL){ if(raw[f]!==undefined) ev[f]=raw[f]; }
+
+    try{
+      if(db){
+        await db.collection('communityEvents').doc(ev.id).set(ev);
+      }
+      // Update local cache
+      const idx=communityEvents.findIndex(x=>x.id===ev.id);
+      const localEv={...ev, submittedAt:new Date()};
+      if(idx>=0) communityEvents[idx]=localEv; else communityEvents.push(localEv);
+      imported++;
+    } catch(e){
+      skipped.push(`"${raw.title}" — Firestore write failed: ${e.message}`);
+    }
+  }
+  localStorage.setItem('kp_events',JSON.stringify(communityEvents));
+  applyFilters();
+
+  const lines=[];
+  lines.push(`Import complete.`);
+  lines.push(`  ${imported} event${imported!==1?'s':''} imported successfully.`);
+  if(skipped.length){
+    lines.push(`  ${skipped.length} event${skipped.length!==1?'s':''} skipped:`);
+    skipped.forEach(r=>lines.push(`    • ${r}`));
+  }
+  resultEl.style.display='block';
+  resultEl.style.color= skipped.length && !imported ? '#ff6b6b' : imported ? '#6bffb8' : 'var(--text)';
+  resultEl.textContent=lines.join('\n');
+  showToast(`${imported} event${imported!==1?'s':''} imported!`);
+  fileInput.value='';
 }
 
 // Show admin FAB if ?admin in URL
@@ -4148,7 +4367,6 @@ function applyDetectedNeighborhood(nbhd, prefix) {
     const sel = document.getElementById('af-nbhd');
     const badge = document.getElementById('af-nbhd-badge');
     if (sel) {
-      // Add option if not present
       if (![...sel.options].some(o => o.value === nbhd)) {
         const opt = document.createElement('option'); opt.value = nbhd; opt.textContent = nbhd;
         sel.insertBefore(opt, sel.firstChild);
@@ -4300,7 +4518,6 @@ async function initAdminPlaces() {
   }
 }
 
-// Retry until Maps API is ready (it loads async)
 function waitForPlaces(fn, attempts=0) {
   if (window.google?.maps) { fn(); }
   else if (attempts < 40) { setTimeout(() => waitForPlaces(fn, attempts+1), 300); }
@@ -4407,6 +4624,7 @@ try{showRecurrenceSubFields();}catch(e){}
 // User can tap the Date button to filter by a specific day.
 try{const _fd=document.getElementById('f-date');if(_fd){_fd.min=todayStr();}}catch(e){}
 try{applyFilters();}catch(e){console.error('applyFilters init error:',e);}
+try{injectListingsJsonLd();}catch(e){}
 initFromFirestore();
 
 // Hard fallback: if grid is still empty after 500ms, render first 16 directly
@@ -4687,6 +4905,7 @@ setTimeout(function(){
             Events auto-discovered by the weekly crawler. Approve to move to main listings.</p>
           <div id="admin-crawled-list"></div>
         </div>
+        <!-- UPLOAD EVENTS TAB -->
         <!-- SETTINGS TAB -->
         <div id="atab-settings" style="display:none;">
           <div class="admin-form">
@@ -4696,12 +4915,31 @@ setTimeout(function(){
             <input type="password" id="new-pw-2" placeholder="Confirm password"/>
             <button class="admin-save" onclick="changeAdminPw()" style="margin-top:12px;">Update Password</button>
             <hr style="border-color:#ffffff15;margin:20px 0;"/>
-            <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">
-              Export all custom listings as JSON (for backup).</p>
-            <button class="admin-save" onclick="exportData()" style="background:#ffffff20;color:var(--text);">📤 Export Data</button>
+            <label>Session</label>
+            <button class="admin-cancel" onclick="adminLogout()" style="margin-bottom:8px;">🔒 Log Out</button>
             <hr style="border-color:#ffffff15;margin:20px 0;"/>
-            <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">
-              Import listings from a previously exported JSON file.</p>
+            <label>Import Events (JSON)</label>
+            <p style="font-size:.78rem;color:var(--muted);margin-bottom:8px;">
+              Upload a JSON file (array of event objects) to add events to the community collection.
+              All fields are required per event:
+              <strong>id, title, category, location, description, indoorOutdoor, timeOfDay,
+              ageRestrictions, costScale, neighborhood, season, daysOfWeek, strollerFriendly,
+              eventType, image</strong>.
+            </p>
+            <input type="file" id="upload-events-file" accept=".json"
+              style="background:transparent;border:none;color:var(--text);padding:0;"/>
+            <button class="admin-save" onclick="uploadEventsJSON()" style="margin-top:8px;">📂 Import Events</button>
+            <div id="upload-events-result" style="display:none;margin-top:12px;font-size:.83rem;line-height:1.6;
+              background:#ffffff0d;border-radius:8px;padding:12px 14px;white-space:pre-wrap;"></div>
+            <hr style="border-color:#ffffff15;margin:20px 0;"/>
+            <label>Export Backup</label>
+            <p style="font-size:.78rem;color:var(--muted);margin-bottom:8px;">
+              Download all custom listings, community events, reviews and photos as JSON.</p>
+            <button class="admin-save" onclick="exportData()" style="background:#ffffff20;color:var(--text);">📤 Export Backup</button>
+            <hr style="border-color:#ffffff15;margin:20px 0;"/>
+            <label>Restore Backup</label>
+            <p style="font-size:.78rem;color:var(--muted);margin-bottom:8px;">
+              Import from a previously exported backup file.</p>
             <input type="file" id="import-file" accept=".json" onchange="importData(event)"
               style="background:transparent;border:none;color:var(--text);padding:0;"/>
           </div>
