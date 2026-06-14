@@ -1,0 +1,37 @@
+name: Weekly Event Crawler
+
+on:
+  schedule:
+    - cron: '0 14 * * 3'  # Wednesday 10am ET (14:00 UTC, adjusted for DST)
+  workflow_dispatch:        # Allow manual trigger
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install playwright requests beautifulsoup4 firebase-admin lxml
+          playwright install chromium --with-deps
+
+      - name: Write Firebase service account
+        run: echo '${{ secrets.FIREBASE_SA }}' > /tmp/sa.json
+
+      - name: Run crawler
+        env:
+          FIREBASE_SA_PATH: /tmp/sa.json
+        run: python3 crawler/crawl.py
+
+      - name: Clean up credentials
+        if: always()
+        run: rm -f /tmp/sa.json
