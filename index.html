@@ -3764,11 +3764,17 @@ document.addEventListener('click',function(e){
   if(am&&e.target===am) closeAdminModal();
 });
 
-function checkAdminPw(){
-  const stored = localStorage.getItem(ADMIN_PW_KEY)||'0x%Q3U@0gZ&H9t52';
-  const entered = document.getElementById('admin-pw-input').value;
-  if(entered === stored){ unlockAdmin(); }
-  else {
+async function sha256(str){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+async function checkAdminPw(){
+  const entered=document.getElementById('admin-pw-input').value;
+  const enteredHash=await sha256(entered);
+  const stored=localStorage.getItem(ADMIN_PW_KEY)||'f931eea68745266ee982bcb44e43f4e57847b420d269de725f511f4bb31aecc7';
+  if(enteredHash===stored){ unlockAdmin(); }
+  else{
     document.getElementById('admin-pw-err').style.display='block';
     document.getElementById('admin-pw-input').value='';
   }
@@ -4083,12 +4089,13 @@ async function saveAdminListing(){
   }
 }
 
-function changeAdminPw(){
+async function changeAdminPw(){
   const p1=document.getElementById('new-pw-1').value;
   const p2=document.getElementById('new-pw-2').value;
   if(!p1){showToast('Enter a new password.');return;}
   if(p1!==p2){showToast('Passwords do not match!');return;}
-  localStorage.setItem(ADMIN_PW_KEY,p1);
+  const hash=await sha256(p1);
+  localStorage.setItem(ADMIN_PW_KEY,hash);
   document.getElementById('new-pw-1').value='';
   document.getElementById('new-pw-2').value='';
   showToast('Password updated!');
