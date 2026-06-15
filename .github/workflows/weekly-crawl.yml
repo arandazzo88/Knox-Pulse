@@ -2,7 +2,7 @@ name: Weekly Event Crawler
 
 on:
   schedule:
-    - cron: '0 14 * * 3'  # Wednesday 10am ET (14:00 UTC, adjusted for DST)
+    - cron: '0 20 * * 3'  # Wednesday 3pm ET (20:00 UTC)
   workflow_dispatch:        # Allow manual trigger
 
 permissions:
@@ -28,6 +28,8 @@ jobs:
           playwright install chromium --with-deps
 
       - name: Run crawler
+        env:
+          TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
         run: python3 crawler/crawl.py
 
       - name: Commit updated listings

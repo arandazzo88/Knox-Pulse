@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
 Knox Pulse — Weekly Event Crawler
-Scrapes 11 Knoxville event sources and merges new events into
+Scrapes 15 Knoxville event sources and merges new events into
 data/listings.json — the single source of truth the site loads at runtime.
-The CI workflow commits the updated file.
+The CI workflow commits the updated file every Wednesday at 3pm ET.
 
 Run: python3 crawler/crawl.py
 Env: LISTINGS_FILE=/path/to/data/listings.json  (default: ../data/listings.json)
      STATE_FILE=/path/to/scrape-state.json       (default: /tmp/scrape-state.json)
+     TICKETMASTER_API_KEY=<key>                  (free key from developer.ticketmaster.com)
 """
 
 import os
@@ -1145,6 +1146,279 @@ def crawl_ijams(state):
     return saved
 
 
+# 12. oneknoxsc.com/schedule
+def crawl_oneknox(page, state):
+    source = "oneknoxsc.com"
+    print(f"\n── {source} ──")
+    url = "https://oneknoxsc.com/schedule/"
+    saved = 0
+    seen_hashes = state.get(source, {}).get("hashes", [])
+
+    try:
+        page.goto(url, wait_until="networkidle", timeout=45000)
+        page.wait_for_timeout(4000)
+        cards = page.query_selector_all(
+            ".tribe-events-calendar-list__event, .tribe-event, article, [class*='event'], [class*='game'], tr"
+        )
+        print(f"  found {len(cards)} items")
+        for card in cards[:40]:
+            try:
+                title_el = card.query_selector("h2,h3,h4,[class*=title],[class*=name]")
+                title = title_el.inner_text().strip() if title_el else ""
+                if not title or len(title) < 4:
+                    continue
+
+                link_el = card.query_selector("a")
+                link = link_el.get_attribute("href") if link_el else url
+
+                date_el = card.query_selector("time,[class*=date],[class*=start]")
+                date_str = date_el.inner_text().strip() if date_el else ""
+
+                time_el = card.query_selector("[class*=time],[class*=start-time]")
+                time_str = time_el.inner_text().strip() if time_el else ""
+
+                img_el = card.query_selector("img")
+                img = img_el.get_attribute("src") or "" if img_el else ""
+
+                chash = content_hash(title + date_str)
+                if chash in seen_hashes:
+                    continue
+                seen_hashes.append(chash)
+
+                evt = build_event(
+                    title=title, date_str=date_str,
+                    description=f"One Knox Soccer Club event. {title}.",
+                    venue="One Knox SC", location="Knoxville, TN",
+                    source=source, source_url=link or url, image=img, time_str=time_str,
+                )
+                evt["category"] = "Sports & Recreation"
+                evt["indoorOutdoor"] = "Outdoor"
+                if not img:
+                    evt["image"] = CATEGORY_IMAGES["Sports & Recreation"]
+                if save_event(evt):
+                    saved += 1
+            except Exception as e:
+                print(f"    card error: {e}")
+    except PWTimeout:
+        print(f"  timeout: {url}")
+    except Exception as e:
+        print(f"  page error: {e}")
+
+    state[source] = {"hashes": seen_hashes[-500:], "lastRun": datetime.datetime.utcnow().isoformat()}
+    print(f"  → {saved} new events saved")
+    return saved
+
+
+# 13. utsports.com — Football home games
+def crawl_utsports_football(state):
+    source = "utsports.com/football"
+    print(f"\n── {source} ──")
+    url = "https://utsports.com/sports/football/schedule"
+    saved = 0
+    seen_hashes = state.get(source, {}).get("hashes", [])
+
+    soup = soup_get(url)
+    if soup:
+        rows = soup.select(
+            ".sidearm-schedule-game, tr.schedule__game, [class*='schedule-game'], li[class*='game']"
+        )
+        print(f"  found {len(rows)} games")
+        for row in rows[:30]:
+            try:
+                text = row.get_text(" ", strip=True)
+                # Home games: don't contain "at " before opponent or marked as neutral
+                if re.search(r'\bat\s+[A-Z]', text):
+                    continue  # away game
+
+                title_el = row.find(class_=re.compile(r"opponent|school|team", re.I))
+                if not title_el:
+                    title_el = row.find(["h3", "h4", "span", "td"], string=re.compile(r"vs|home", re.I))
+                opponent_text = title_el.get_text(strip=True) if title_el else ""
+                title = f"Tennessee Volunteers Football vs {opponent_text}" if opponent_text else ""
+                if not title or len(title) < 10:
+                    continue
+
+                date_el = row.find(["time", "span", "td"], class_=re.compile(r"date|when", re.I))
+                date_str = date_el.get_text(strip=True) if date_el else ""
+
+                time_el = row.find(["span", "td"], class_=re.compile(r"time|kickoff", re.I))
+                time_str = time_el.get_text(strip=True) if time_el else "12:00 pm"
+
+                chash = content_hash(title + date_str)
+                if chash in seen_hashes:
+                    continue
+                seen_hashes.append(chash)
+
+                evt = build_event(
+                    title=title, date_str=date_str,
+                    description=f"Tennessee Volunteers home football game at Neyland Stadium. {title}.",
+                    venue="Neyland Stadium", location="1600 Stadium Dr, Knoxville, TN 37916",
+                    source=source, source_url=url, price_text="$30-$150", time_str=time_str,
+                )
+                evt["category"] = "Sports & Recreation"
+                evt["neighborhood"] = "Fort Sanders"
+                evt["indoorOutdoor"] = "Outdoor"
+                evt["image"] = CATEGORY_IMAGES["Sports & Recreation"]
+                if save_event(evt):
+                    saved += 1
+            except Exception as e:
+                print(f"    row error: {e}")
+    else:
+        print(f"  failed to fetch {url}")
+
+    state[source] = {"hashes": seen_hashes[-500:], "lastRun": datetime.datetime.utcnow().isoformat()}
+    print(f"  → {saved} new events saved")
+    return saved
+
+
+# 14. scruffycity.com/scruffy-city-hall — grabs show title + flyer image
+def crawl_scruffycity(page, state):
+    source = "scruffycity.com"
+    print(f"\n── {source} ──")
+    url = "https://scruffycity.com/scruffy-city-hall/"
+    saved = 0
+    seen_hashes = state.get(source, {}).get("hashes", [])
+
+    try:
+        page.goto(url, wait_until="networkidle", timeout=45000)
+        page.wait_for_timeout(4000)
+        cards = page.query_selector_all(
+            ".event, article, [class*='show'], [class*='event'], [class*='concert'], .wp-block-group"
+        )
+        print(f"  found {len(cards)} items")
+        for card in cards[:25]:
+            try:
+                title_el = card.query_selector("h2,h3,h4,[class*=title]")
+                title = title_el.inner_text().strip() if title_el else ""
+                if not title or len(title) < 4:
+                    continue
+
+                link_el = card.query_selector("a")
+                link = link_el.get_attribute("href") if link_el else url
+
+                date_el = card.query_selector("time,[class*=date]")
+                date_str = date_el.inner_text().strip() if date_el else ""
+
+                # Grab flyer image specifically
+                img_el = card.query_selector("img")
+                img = img_el.get_attribute("src") or img_el.get_attribute("data-src") or "" if img_el else ""
+                if img and not img.startswith("http"):
+                    img = urllib.parse.urljoin("https://scruffycity.com", img)
+
+                price_el = card.query_selector("[class*=price],[class*=ticket],[class*=cost]")
+                price_text = price_el.inner_text().strip() if price_el else ""
+
+                chash = content_hash(title + date_str)
+                if chash in seen_hashes:
+                    continue
+                seen_hashes.append(chash)
+
+                evt = build_event(
+                    title=title, date_str=date_str,
+                    venue="Scruffy City Hall", location="32 Market Square, Knoxville, TN 37902",
+                    source=source, source_url=link or url, image=img, price_text=price_text,
+                )
+                evt["category"] = "Live Music"
+                evt["neighborhood"] = "Market Square"
+                if not img:
+                    evt["image"] = CATEGORY_IMAGES["Live Music"]
+                if save_event(evt):
+                    saved += 1
+            except Exception as e:
+                print(f"    card error: {e}")
+    except PWTimeout:
+        print(f"  timeout: {url}")
+    except Exception as e:
+        print(f"  page error: {e}")
+
+    state[source] = {"hashes": seen_hashes[-500:], "lastRun": datetime.datetime.utcnow().isoformat()}
+    print(f"  → {saved} new events saved")
+    return saved
+
+
+# 15. ticketmaster.com — Thompson-Boling Arena
+def crawl_ticketmaster_thompson_boling(state):
+    source = "ticketmaster.com/thompson-boling"
+    print(f"\n── {source} ──")
+    # Ticketmaster Discovery API — free, no auth required for basic event search
+    url = (
+        "https://app.ticketmaster.com/discovery/v2/events.json"
+        "?apikey=TICKETMASTER_API_KEY"
+        "&venueId=KovZpZAEdntA"  # Thompson-Boling Arena venue ID
+        "&size=20"
+        "&sort=date,asc"
+    )
+    saved = 0
+    seen_hashes = state.get(source, {}).get("hashes", [])
+
+    api_key = os.environ.get("TICKETMASTER_API_KEY", "")
+    if not api_key:
+        print("  TICKETMASTER_API_KEY not set — skipping")
+        return 0
+
+    actual_url = url.replace("TICKETMASTER_API_KEY", api_key)
+    try:
+        resp = requests.get(actual_url, timeout=20)
+        resp.raise_for_status()
+        data = resp.json()
+        events = data.get("_embedded", {}).get("events", [])
+        print(f"  found {len(events)} events")
+        for ev in events:
+            try:
+                title = ev.get("name", "")
+                if not title:
+                    continue
+
+                dates = ev.get("dates", {}).get("start", {})
+                date_str = dates.get("localDate", "")
+                time_str = dates.get("localTime", "")
+
+                # Price range
+                price_ranges = ev.get("priceRanges", [])
+                price_text = ""
+                if price_ranges:
+                    mn = price_ranges[0].get("min", "")
+                    mx = price_ranges[0].get("max", "")
+                    price_text = f"${mn}-${mx}" if mn and mx else f"${mn or mx}"
+
+                # Image — prefer 16:9 ratio
+                images = ev.get("images", [])
+                img = ""
+                for im in images:
+                    if im.get("ratio") == "16_9" and im.get("width", 0) >= 640:
+                        img = im.get("url", "")
+                        break
+                if not img and images:
+                    img = images[0].get("url", "")
+
+                url_detail = ev.get("url", "https://www.ticketmaster.com")
+
+                chash = content_hash(title + date_str)
+                if chash in seen_hashes:
+                    continue
+                seen_hashes.append(chash)
+
+                evt = build_event(
+                    title=title, date_str=date_str,
+                    venue="Thompson-Boling Arena", location="1600 Stadium Dr, Knoxville, TN 37996",
+                    source=source, source_url=url_detail, image=img,
+                    price_text=price_text, time_str=time_str,
+                )
+                evt["neighborhood"] = "Fort Sanders"
+                if not img:
+                    evt["image"] = CATEGORY_IMAGES.get(evt["category"], DEFAULT_IMAGE)
+                if save_event(evt):
+                    saved += 1
+            except Exception as e:
+                print(f"    event error: {e}")
+    except Exception as e:
+        print(f"  API error: {e}")
+
+    state[source] = {"hashes": seen_hashes[-500:], "lastRun": datetime.datetime.utcnow().isoformat()}
+    print(f"  → {saved} new events saved")
+    return saved
+
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 def main():
@@ -1185,6 +1459,8 @@ def main():
         total_saved += crawl_knoxville_coliseum(page, state)
         total_saved += crawl_mill_and_mine(page, state)
         total_saved += crawl_barleys(page, state)
+        total_saved += crawl_oneknox(page, state)
+        total_saved += crawl_scruffycity(page, state)
 
         browser.close()
 
@@ -1195,6 +1471,8 @@ def main():
     total_saved += crawl_bijou(state)
     total_saved += crawl_tennessee_theatre(state)
     total_saved += crawl_ijams(state)
+    total_saved += crawl_utsports_football(state)
+    total_saved += crawl_ticketmaster_thompson_boling(state)
 
     # Persist the merged listings + incremental state
     if total_saved:
