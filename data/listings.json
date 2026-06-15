@@ -11,10 +11,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$$$",
-    "price": "$50\u2013$300+",
+    "price": "$50–$300+",
     "season": "Fall",
     "underground": false,
-    "emoji": "\ud83c\udfc8",
+    "emoji": "🏈",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -43,7 +43,7 @@
     "neighborhood": "UT Area",
     "lat": 35.9551,
     "lng": -83.9253,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F9%2F9b%2FNeyland_Stadium_2010.JPG%2F800px-Neyland_Stadium_2010.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1623953695613-2849a9cbd9b3%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "vols-basketball",
@@ -57,10 +57,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$$",
-    "price": "$20\u2013$80",
+    "price": "$20–$80",
     "season": "Fall,Winter",
     "underground": false,
-    "emoji": "\ud83c\udfc0",
+    "emoji": "🏀",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -91,7 +91,7 @@
     "neighborhood": "UT Area",
     "lat": 35.9507,
     "lng": -83.9377,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F9%2F9b%2FNeyland_Stadium_2010.JPG%2F800px-Neyland_Stadium_2010.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1546519638-68e109498ffc%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "women-basketball",
@@ -99,16 +99,16 @@
     "category": "Sports & Recreation",
     "location": "1600 Phillip Fulmer Way, Knoxville",
     "venueName": "Thompson-Boling Arena at Food City Center",
-    "description": "Tennessee's legendary Lady Vols women's basketball program \u2014 one of the most decorated in college hoops history. Home games November through March.",
+    "description": "Tennessee's legendary Lady Vols women's basketball program — one of the most decorated in college hoops history. Home games November through March.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 2,
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$$",
-    "price": "$15\u2013$60",
+    "price": "$15–$60",
     "season": "Fall,Winter",
     "underground": false,
-    "emoji": "\ud83c\udfc0",
+    "emoji": "🏀",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -139,7 +139,7 @@
     "neighborhood": "UT Area",
     "lat": 35.9507,
     "lng": -83.9377,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F9%2F9b%2FNeyland_Stadium_2010.JPG%2F800px-Neyland_Stadium_2010.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1546519638-68e109498ffc%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "smokies-baseball",
@@ -153,10 +153,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$",
-    "price": "$10\u2013$25",
+    "price": "$10–$25",
     "season": "Spring,Summer",
     "underground": false,
-    "emoji": "\u26be",
+    "emoji": "⚾",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -197,7 +197,7 @@
     "website": "https://www.milb.com/knoxville",
     "phone": "(865) 286-2300",
     "instagram": "smokiesbaseball",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fe%2Fe4%2FFirst_Tennessee_Park%252C_May_5%252C_2015_-_4.JPG%2F800px-First_Tennessee_Park%252C_May_5%252C_2015_-_4.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.mlbstatic.com%2Fteam-logos%2Fshare%2F553.jpg&w=800&q=80"
   },
   {
     "id": "ice-bears",
@@ -211,10 +211,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$",
-    "price": "$15\u2013$30",
+    "price": "$15–$30",
     "season": "Fall,Winter",
     "underground": false,
-    "emoji": "\ud83c\udfd2",
+    "emoji": "🏒",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -246,7 +246,7 @@
     "neighborhood": "Downtown",
     "lat": 35.9652,
     "lng": -83.906,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F6%2F64%2FKnoxville_Civic_Coliseum.jpg%2F800px-Knoxville_Civic_Coliseum.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1545471977-94cac22e71ed%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "wdvx",
@@ -262,7 +262,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfb8",
+    "emoji": "🎸",
     "eventType": "recurring",
     "daysOfWeek": [
       1,
@@ -297,7 +297,7 @@
     "phone": "(865) 544-1029",
     "instagram": "wdvx",
     "email": "info@wdvx.com",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1459749411175-04bf5292ceea%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "tennessee-theatre",
@@ -310,10 +310,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$$",
-    "price": "$25\u2013$100",
+    "price": "$25–$100",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfad",
+    "emoji": "🎭",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -338,7 +338,7 @@
     "website": "https://www.tennesseetheatre.com",
     "phone": "(865) 684-1200",
     "instagram": "tntheatre",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0d%2FTennessee-theatre-entrance-knoxville-tn1.jpg%2F800px-Tennessee-theatre-entrance-knoxville-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.tennesseetheatre.com%2Fassets%2Fimg%2FTT-interior-1-a27a48698d.png&w=800&q=80"
   },
   {
     "id": "bijou-theatre",
@@ -351,10 +351,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$$",
-    "price": "$20\u2013$60",
+    "price": "$20–$60",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfb5",
+    "emoji": "🎵",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -381,7 +381,7 @@
     "phone": "(865) 522-0832",
     "instagram": "bijoutheatre",
     "email": "info@knoxbijou.org",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fknoxbijou.org%2Fwp-content%2Fuploads%2FCoraWagoner_tntheatre_BE2019-1-scaled.jpg&w=800&q=80"
   },
   {
     "id": "mill-and-mine",
@@ -394,10 +394,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$$",
-    "price": "$20\u2013$60",
+    "price": "$20–$60",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfed",
+    "emoji": "🏭",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -422,7 +422,7 @@
     "website": "https://themillandmine.com",
     "phone": "(865) 343-6000",
     "instagram": "themillandmine",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fthemillandmine.com%2Fwp-content%2Fuploads%2FJaar.slider.jpg&w=800&q=80"
   },
   {
     "id": "barleys-taproom",
@@ -437,7 +437,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udf7a",
+    "emoji": "🍺",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -455,7 +455,7 @@
       6
     ],
     "startTime": "19:00",
-    "price": "Free \u00b7 cover for ticketed shows",
+    "price": "Free · cover for ticketed shows",
     "tags": [
       "live music",
       "craft beer",
@@ -471,14 +471,14 @@
     "website": "https://barleysknoxville.com",
     "phone": "(865) 521-0092",
     "instagram": "barleysknoxville",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1584225064536-d0fbc0a10f18%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "market-sq",
     "title": "Market Square Farmers Market",
     "category": "Markets",
     "location": "Market Square, Knoxville",
-    "description": "Producer-only open-air market on historic Market Square with ~140 local vendors. Main season (May\u2013Oct): Saturdays 9am\u20131pm and Wednesdays 10am\u20131pm. Winter market (Nov\u2013Apr): Saturdays 10am\u20132pm.",
+    "description": "Producer-only open-air market on historic Market Square with ~140 local vendors. Main season (May–Oct): Saturdays 9am–1pm and Wednesdays 10am–1pm. Winter market (Nov–Apr): Saturdays 10am–2pm.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -486,7 +486,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\udd6c",
+    "emoji": "🥬",
     "eventType": "recurring",
     "daysOfWeek": [
       3,
@@ -513,7 +513,7 @@
     "website": "https://www.nourishknoxville.org",
     "phone": "(865) 805-8687",
     "instagram": "nourishmarkets",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1526399743290-f73cb4022f48%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "marble-city-market",
@@ -528,7 +528,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udf5c",
+    "emoji": "🍜",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -540,7 +540,7 @@
       6
     ],
     "startTime": "11:00",
-    "price": "Free to enter \u00b7 pay per dish",
+    "price": "Free to enter · pay per dish",
     "tags": [
       "food hall",
       "restaurants",
@@ -554,14 +554,14 @@
     "venueName": "Marble City Market",
     "website": "https://www.marblecitymarket.com",
     "instagram": "marblecitymarket",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1581414211938-e772a180c7ab%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "ijams",
     "title": "Urban Nature Preserve & Trails",
     "category": "Outdoor & Nature",
     "location": "2915 Island Home Ave, Knoxville",
-    "description": "275-acre urban wildlife sanctuary with 10 miles of trails, seasonal kayaking at Mead's Quarry Lake, rock climbing, and mountain biking. A green oasis 10 minutes from downtown \u2014 $5 parking.",
+    "description": "275-acre urban wildlife sanctuary with 10 miles of trails, seasonal kayaking at Mead's Quarry Lake, rock climbing, and mountain biking. A green oasis 10 minutes from downtown — $5 parking.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 3,
     "ageRestrictions": "All Ages",
@@ -569,7 +569,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udf3f",
+    "emoji": "🌿",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -580,7 +580,7 @@
       5,
       6
     ],
-    "price": "Free \u00b7 $5 parking fee",
+    "price": "Free · $5 parking fee",
     "tags": [
       "hiking",
       "nature",
@@ -596,7 +596,7 @@
     "website": "https://www.ijams.org",
     "phone": "(865) 577-4717",
     "instagram": "ijamsnaturecenter",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F87%2FMead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG%2F800px-Mead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg&w=800&q=80"
   },
   {
     "id": "tennessee-riverwalk",
@@ -612,7 +612,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83d\udeb6",
+    "emoji": "🚶",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -634,14 +634,14 @@
     "neighborhood": "Downtown",
     "lat": 35.957,
     "lng": -83.927,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F87%2FMead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG%2F800px-Mead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1592859600972-1b0834d83747%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "sunsphere",
     "title": "Sunsphere & World's Fair Park",
     "category": "Tours & Experiences",
     "location": "810 Clinch Ave, Knoxville",
-    "description": "Iconic gold globe from the 1982 World's Fair with a free observation deck and sweeping 360\u00b0 city views. Surrounded by a beautiful park used for concerts, Knox Pride, and the Knoxville Marathon.",
+    "description": "Iconic gold globe from the 1982 World's Fair with a free observation deck and sweeping 360° city views. Surrounded by a beautiful park used for concerts, Knox Pride, and the Knoxville Marathon.",
     "indoorOutdoor": "Both",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -649,7 +649,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udf10",
+    "emoji": "🌐",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -672,7 +672,7 @@
     "lat": 35.9615,
     "lng": -83.9243,
     "venueName": "Sunsphere & World's Fair Park",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc9%2FSunsphere_Knoxville.jpg%2F800px-Sunsphere_Knoxville.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1627918563419-121d60046176%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "art-walk",
@@ -687,7 +687,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfa8",
+    "emoji": "🎨",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -709,7 +709,7 @@
     "neighborhood": "Downtown",
     "lat": 35.9655,
     "lng": -83.918,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1606819717115-9159c900370b%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "knoxville-museum-art",
@@ -724,7 +724,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83d\uddbc\ufe0f",
+    "emoji": "🖼️",
     "eventType": "venue",
     "daysOfWeek": [
       2,
@@ -749,7 +749,7 @@
     "website": "https://knoxart.org",
     "phone": "(865) 525-6101",
     "instagram": "knoxvillemuseumofart",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc9%2FSunsphere_Knoxville.jpg%2F800px-Sunsphere_Knoxville.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1606819717115-9159c900370b%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "east-tn-history",
@@ -762,10 +762,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Afternoon",
     "costScale": "$",
-    "price": "$10 adults \u00b7 Free Sundays",
+    "price": "$10 adults · Free Sundays",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfdb\ufe0f",
+    "emoji": "🏛️",
     "eventType": "venue",
     "daysOfWeek": [
       1,
@@ -789,23 +789,23 @@
     "lat": 35.9631,
     "lng": -83.9193,
     "venueName": "East Tennessee History Center",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0d%2FTennessee-theatre-entrance-knoxville-tn1.jpg%2F800px-Tennessee-theatre-entrance-knoxville-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1611473406915-ec8e0ac090e9%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "zoo-knoxville",
     "title": "City Zoo & Wildlife",
     "category": "Outdoor & Nature",
     "location": "3500 Knoxville Zoo Dr, Knoxville",
-    "description": "Full-service accredited zoo in East Knoxville with large mammals, rare red pandas, reptiles, and birds. Seasonal events include Boo at the Zoo (October) and Holiday Lights. Open daily 9am\u20135pm.",
+    "description": "Full-service accredited zoo in East Knoxville with large mammals, rare red pandas, reptiles, and birds. Seasonal events include Boo at the Zoo (October) and Holiday Lights. Open daily 9am–5pm.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 4,
     "ageRestrictions": "All Ages",
     "timeOfDay": "Morning",
     "costScale": "$$",
-    "price": "$27 adults \u00b7 $22 kids/seniors \u00b7 Under 2 free",
+    "price": "$27 adults · $22 kids/seniors · Under 2 free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\udd81",
+    "emoji": "🦁",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -831,23 +831,23 @@
     "venueName": "Zoo Knoxville",
     "website": "https://www.zooknoxville.org",
     "instagram": "zooknoxville",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc9%2FSunsphere_Knoxville.jpg%2F800px-Sunsphere_Knoxville.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1656899367728-cf0194bf3aeb%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "big-ears",
     "title": "Big Ears Festival",
     "category": "Festivals & Events",
     "location": "Multiple Venues, Downtown Knoxville",
-    "description": "Nationally acclaimed experimental and avant-garde music festival across 20 downtown venues \u2014 Tennessee Theatre, Bijou, KMA, and more. ~250 performances over 4 days each March.",
+    "description": "Nationally acclaimed experimental and avant-garde music festival across 20 downtown venues — Tennessee Theatre, Bijou, KMA, and more. ~250 performances over 4 days each March.",
     "indoorOutdoor": "Both",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$$$",
-    "price": "$350+ wristband \u00b7 Single shows available",
+    "price": "$350+ wristband · Single shows available",
     "season": "Spring",
     "underground": false,
-    "emoji": "\ud83d\udc42",
+    "emoji": "👂",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "annual",
@@ -873,7 +873,7 @@
     "lng": -83.9186,
     "website": "https://bigearsfestival.org",
     "instagram": "bigearsfestival",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0d%2FTennessee-theatre-entrance-knoxville-tn1.jpg%2F800px-Tennessee-theatre-entrance-knoxville-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fbigearsfestival.org%2Fwp-content%2Fuploads%2F2026%2F04%2F69caafa140ec7.image_.jpg&w=800&q=80"
   },
   {
     "id": "dogwood-arts",
@@ -888,7 +888,7 @@
     "costScale": "Free",
     "season": "Spring",
     "underground": false,
-    "emoji": "\ud83c\udf38",
+    "emoji": "🌸",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "annual",
@@ -911,7 +911,7 @@
     "neighborhood": "World's Fair Park",
     "lat": 35.9615,
     "lng": -83.9243,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc9%2FSunsphere_Knoxville.jpg%2F800px-Sunsphere_Knoxville.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1561577862-49a301dda61b%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "tennessee-valley-fair",
@@ -925,10 +925,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Afternoon",
     "costScale": "$",
-    "price": "~$12\u2013$15 admission \u00b7 Rides extra",
+    "price": "~$12–$15 admission · Rides extra",
     "season": "Fall",
     "underground": false,
-    "emoji": "\ud83c\udfa1",
+    "emoji": "🎡",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "annual",
@@ -956,7 +956,7 @@
     "neighborhood": "East Knoxville",
     "lat": 35.9793,
     "lng": -83.8843,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc9%2FSunsphere_Knoxville.jpg%2F800px-Sunsphere_Knoxville.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1561577862-49a301dda61b%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "knox-pride",
@@ -971,7 +971,7 @@
     "costScale": "Free",
     "season": "Summer",
     "underground": false,
-    "emoji": "\ud83c\udff3\ufe0f\u200d\ud83c\udf08",
+    "emoji": "🏳️‍🌈",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "annual",
@@ -995,7 +995,7 @@
     "neighborhood": "World's Fair Park",
     "lat": 35.9615,
     "lng": -83.9243,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc9%2FSunsphere_Knoxville.jpg%2F800px-Sunsphere_Knoxville.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1561577862-49a301dda61b%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "knoxville-marathon",
@@ -1009,10 +1009,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Morning",
     "costScale": "$$",
-    "price": "$50\u2013$150 registration",
+    "price": "$50–$150 registration",
     "season": "Spring",
     "underground": false,
-    "emoji": "\ud83c\udfc3",
+    "emoji": "🏃",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "annual",
@@ -1033,7 +1033,7 @@
     "neighborhood": "Downtown",
     "lat": 35.9615,
     "lng": -83.9243,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1552674605-db6ffd4facb5%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "summer-concerts",
@@ -1048,7 +1048,7 @@
     "costScale": "Free",
     "season": "Summer",
     "underground": false,
-    "emoji": "\ud83c\udfb6",
+    "emoji": "🎶",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -1075,7 +1075,7 @@
     "neighborhood": "Market Square",
     "lat": 35.966,
     "lng": -83.9185,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1459749411175-04bf5292ceea%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "cotton-eyed-joe",
@@ -1090,7 +1090,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\udd20",
+    "emoji": "🤠",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1106,7 +1106,7 @@
       6
     ],
     "startTime": "19:00",
-    "price": "$5\u2013$20 \u00b7 varies by night",
+    "price": "$5–$20 · varies by night",
     "tags": [
       "country",
       "dancing",
@@ -1121,7 +1121,7 @@
     "website": "https://www.cottoneyedjoe.com",
     "instagram": "cottoneyedjoeknoxvilletn",
     "email": "info@cottoneyedjoe.com",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1504609813442-a8924e83f76e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "pilot-light",
@@ -1136,7 +1136,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfb5",
+    "emoji": "🎵",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1152,7 +1152,7 @@
       6
     ],
     "startTime": "20:00",
-    "price": "Free\u2013$20 \u00b7 most shows under $10",
+    "price": "Free–$20 · most shows under $10",
     "tags": [
       "indie",
       "punk",
@@ -1167,14 +1167,14 @@
     "website": "https://thepilotlight.com",
     "phone": "(865) 524-8188",
     "instagram": "pilotlightknox",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1459749411175-04bf5292ceea%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "saluto",
     "title": "Live Music Rooftop Bar",
     "category": "Live Music",
     "location": "28 Market Square, Knoxville",
-    "description": "Multi-story bar on Market Square with a rooftop patio and live music almost every night \u2014 jazz, blues, folk, and rock. One of the most distinctive spots in downtown Knoxville.",
+    "description": "Multi-story bar on Market Square with a rooftop patio and live music almost every night — jazz, blues, folk, and rock. One of the most distinctive spots in downtown Knoxville.",
     "indoorOutdoor": "Both",
     "distanceMiles": 1,
     "ageRestrictions": "21+",
@@ -1182,7 +1182,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfba",
+    "emoji": "🎺",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1200,7 +1200,7 @@
       6
     ],
     "startTime": "20:00",
-    "price": "Free\u2013$5 \u00b7 varies by night",
+    "price": "Free–$5 · varies by night",
     "tags": [
       "jazz",
       "blues",
@@ -1213,7 +1213,7 @@
     "lat": 35.9656,
     "lng": -83.9182,
     "venueName": "Preservation Pub",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1597241693839-07d7fb803af1%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "clingmans",
@@ -1228,7 +1228,7 @@
     "costScale": "Free",
     "season": "Spring,Summer,Fall",
     "underground": false,
-    "emoji": "\u26f0\ufe0f",
+    "emoji": "⛰️",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -1249,14 +1249,14 @@
     "neighborhood": "Smoky Mountains",
     "lat": 35.5629,
     "lng": -83.4985,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F7%2F7b%2FClingmans_Dome_from_Andrews_Bald.jpg%2F800px-Clingmans_Dome_from_Andrews_Bald.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1500534623283-312aade485b7%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "silent-disco",
     "title": "Silent Disco",
     "category": "Dancing",
     "location": "28 Market Square, Knoxville",
-    "description": "Put on wireless headphones and choose your channel \u2014 three DJs, one dance floor, zero speakers. Wild, hilarious, and totally addictive.",
+    "description": "Put on wireless headphones and choose your channel — three DJs, one dance floor, zero speakers. Wild, hilarious, and totally addictive.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1,
     "ageRestrictions": "21+",
@@ -1264,7 +1264,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfa7",
+    "emoji": "🎧",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -1275,7 +1275,7 @@
       6
     ],
     "startTime": "22:00",
-    "price": "$12 early bird \u00b7 $15 GA \u00b7 18+",
+    "price": "$12 early bird · $15 GA · 18+",
     "tags": [
       "silent disco",
       "dancing",
@@ -1287,7 +1287,7 @@
     "lat": 35.9656,
     "lng": -83.9182,
     "venueName": "Preservation Pub",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1504609813442-a8924e83f76e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "honky-tonk-thursday",
@@ -1302,7 +1302,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\ude97",
+    "emoji": "🪗",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1327,7 +1327,7 @@
     "lat": 35.9678,
     "lng": -83.9132,
     "venueName": "Barley's Taproom",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1459749411175-04bf5292ceea%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "jazz-bistro",
@@ -1343,7 +1343,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfb7",
+    "emoji": "🎷",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -1354,7 +1354,7 @@
       3
     ],
     "startTime": "20:00",
-    "price": "No cover \u00b7 food & drinks",
+    "price": "No cover · food & drinks",
     "tags": [
       "jazz",
       "lounge",
@@ -1365,7 +1365,7 @@
     "neighborhood": "Old City",
     "lat": 35.9683,
     "lng": -83.919,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1459749411175-04bf5292ceea%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "rave-old-city",
@@ -1380,14 +1380,14 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": true,
-    "emoji": "\ud83d\udd0a",
+    "emoji": "🔊",
     "eventType": "venue",
     "daysOfWeek": [
       5,
       6
     ],
     "startTime": "22:00",
-    "price": "$5\u2013$20 \u00b7 varies by event",
+    "price": "$5–$20 · varies by event",
     "tags": [
       "rave",
       "EDM",
@@ -1398,7 +1398,7 @@
     "neighborhood": "Old City",
     "lat": 35.967,
     "lng": -83.915,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1504609813442-a8924e83f76e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "rooftop-yoga",
@@ -1415,7 +1415,7 @@
     "price": "$15",
     "season": "Spring,Summer,Fall",
     "underground": false,
-    "emoji": "\ud83e\uddd8",
+    "emoji": "🧘",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1437,7 +1437,7 @@
     "neighborhood": "Downtown",
     "lat": 35.9649,
     "lng": -83.9196,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1544367567-0f2fcb009e0b%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "bluegrass-jam",
@@ -1452,7 +1452,7 @@
     "costScale": "Free",
     "season": "Spring,Summer,Fall",
     "underground": false,
-    "emoji": "\ud83e\ude95",
+    "emoji": "🪕",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1475,7 +1475,7 @@
     "neighborhood": "South Knoxville",
     "lat": 35.9497,
     "lng": -83.9105,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F87%2FMead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG%2F800px-Mead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1459749411175-04bf5292ceea%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "roller-derby",
@@ -1490,7 +1490,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\u26f8\ufe0f",
+    "emoji": "⛸️",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -1501,7 +1501,7 @@
       6
     ],
     "startTime": "18:00",
-    "price": "$15 advance \u00b7 $20 at door \u00b7 $10 kids & seniors",
+    "price": "$15 advance · $20 at door · $10 kids & seniors",
     "tags": [
       "roller derby",
       "sports",
@@ -1512,7 +1512,7 @@
     "neighborhood": "North Knoxville",
     "lat": 35.985,
     "lng": -83.97,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F6%2F64%2FKnoxville_Civic_Coliseum.jpg%2F800px-Knoxville_Civic_Coliseum.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1622640338505-2ad7465bda17%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "drum-circle",
@@ -1527,7 +1527,7 @@
     "costScale": "Free",
     "season": "Spring,Summer,Fall",
     "underground": false,
-    "emoji": "\ud83e\udd41",
+    "emoji": "🥁",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -1555,7 +1555,7 @@
     "neighborhood": "Sequoyah Hills",
     "lat": 35.9585,
     "lng": -83.9583,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F87%2FMead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG%2F800px-Mead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1561577862-49a301dda61b%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "midnight-ramble",
@@ -1570,7 +1570,7 @@
     "costScale": "Free",
     "season": "Summer",
     "underground": true,
-    "emoji": "\ud83c\udf19",
+    "emoji": "🌙",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -1600,7 +1600,7 @@
     "neighborhood": "Market Square",
     "lat": 35.966,
     "lng": -83.9185,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1459749411175-04bf5292ceea%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "secret-cinema",
@@ -1615,7 +1615,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": true,
-    "emoji": "\ud83c\udfac",
+    "emoji": "🎬",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -1626,7 +1626,7 @@
       3
     ],
     "startTime": "20:00",
-    "price": "$10\u2013$15 \u00b7 location revealed to ticket holders",
+    "price": "$10–$15 · location revealed to ticket holders",
     "tags": [
       "film",
       "cinema",
@@ -1637,7 +1637,7 @@
     "neighborhood": "Old City",
     "lat": 35.967,
     "lng": -83.9155,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1489599849927-2ee91cede3ba%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "knox-box-karaoke",
@@ -1652,7 +1652,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfa4",
+    "emoji": "🎤",
     "eventType": "venue",
     "recurrenceRule": {
       "type": "weekly",
@@ -1674,7 +1674,7 @@
       6
     ],
     "startTime": "20:00",
-    "price": "Cover charge \u00b7 check website for rates",
+    "price": "Cover charge · check website for rates",
     "tags": [
       "karaoke",
       "bar",
@@ -1687,14 +1687,14 @@
     "lat": 35.9599,
     "lng": -83.9193,
     "venueName": "Knox Box Karaoke",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0d%2FTennessee-theatre-entrance-knoxville-tn1.jpg%2F800px-Tennessee-theatre-entrance-knoxville-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1511671782779-c97d3d27a1d4%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "scruffy-city-comedy",
     "title": "Springboard Open Mic Comedy",
     "category": "Comedy",
     "location": "32 Market Square, Knoxville",
-    "description": "Free weekly open mic comedy night hosted by True Grit Comedy. Sign-ups at 7:30 PM, show at 8 PM through midnight. 7-minute sets, any style. Beginners welcome \u2014 no experience needed.",
+    "description": "Free weekly open mic comedy night hosted by True Grit Comedy. Sign-ups at 7:30 PM, show at 8 PM through midnight. 7-minute sets, any style. Beginners welcome — no experience needed.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 0.3,
     "ageRestrictions": "21+",
@@ -1702,7 +1702,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfad",
+    "emoji": "🎭",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1728,14 +1728,14 @@
     "lat": 35.966,
     "lng": -83.9185,
     "venueName": "Scruffy City Hall",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1611956425642-d5a8169abd63%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "jazz-tuesdays-sq",
     "title": "Jazz on the Square",
     "category": "Live Music",
     "location": "Market Square, Knoxville",
-    "description": "Free outdoor jazz concerts on Market Square every Tuesday evening in May, June, and September (7\u20139 PM). Presented by Axle Logistics. Bring a lawn chair \u2014 all ages welcome.",
+    "description": "Free outdoor jazz concerts on Market Square every Tuesday evening in May, June, and September (7–9 PM). Presented by Axle Logistics. Bring a lawn chair — all ages welcome.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 0.3,
     "ageRestrictions": "All Ages",
@@ -1743,7 +1743,7 @@
     "costScale": "Free",
     "season": "Seasonal",
     "underground": false,
-    "emoji": "\ud83c\udfb7",
+    "emoji": "🎷",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -1773,7 +1773,7 @@
     "neighborhood": "Market Square",
     "lat": 35.966,
     "lng": -83.9185,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1459749411175-04bf5292ceea%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "illusions-drag-brunch",
@@ -1788,7 +1788,7 @@
     "costScale": "$$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83d\udc51",
+    "emoji": "👑",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -1799,7 +1799,7 @@
       6
     ],
     "startTime": "11:00",
-    "price": "From $30 \u00b7 tickets required in advance",
+    "price": "From $30 · tickets required in advance",
     "tags": [
       "drag",
       "brunch",
@@ -1813,7 +1813,7 @@
     "lat": 35.966,
     "lng": -83.9188,
     "venueName": "Illusions The Drag Brunch",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1592507174151-8090d404e633%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "boyds-open-mic",
@@ -1828,7 +1828,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfb8",
+    "emoji": "🎸",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1854,14 +1854,14 @@
     "lat": 35.9671,
     "lng": -83.9143,
     "venueName": "Boyd's Jig & Reel",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1459749411175-04bf5292ceea%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "pour-taproom-trivia",
     "title": "Tuesday Trivia",
     "category": "Trivia & Games",
     "location": "207 W Jackson Ave, Knoxville",
-    "description": "Free pub trivia every Tuesday 8\u201310 PM at this self-pour taproom with 68 rotating digital taps. Hosted by Timeless Entertainment \u2014 top 3 teams win gift cards, and players get 15% off their tab.",
+    "description": "Free pub trivia every Tuesday 8–10 PM at this self-pour taproom with 68 rotating digital taps. Hosted by Timeless Entertainment — top 3 teams win gift cards, and players get 15% off their tab.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 0.9,
     "ageRestrictions": "21+",
@@ -1869,7 +1869,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\udde0",
+    "emoji": "🧠",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1895,7 +1895,7 @@
     "lat": 35.9671,
     "lng": -83.9142,
     "venueName": "Pour Taproom",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1655548872174-6d2316dac41e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "barrelhouse-open-mic",
@@ -1910,7 +1910,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfb5",
+    "emoji": "🎵",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1935,14 +1935,14 @@
     "lat": 35.9712,
     "lng": -83.9158,
     "venueName": "Barrelhouse by Gypsy Circus",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1459749411175-04bf5292ceea%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "barrelhouse-trivia",
     "title": "Trivia Thursday",
     "category": "Trivia & Games",
     "location": "621 Lamar St, Knoxville",
-    "description": "Free Thursday trivia at this Old North cider and mead taproom, hosted by The Trivia Guys. All ages welcome. Also: open mic Mondays and Singo music bingo Tuesdays \u2014 free events every weeknight.",
+    "description": "Free Thursday trivia at this Old North cider and mead taproom, hosted by The Trivia Guys. All ages welcome. Also: open mic Mondays and Singo music bingo Tuesdays — free events every weeknight.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1.2,
     "ageRestrictions": "All Ages",
@@ -1950,7 +1950,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\udde0",
+    "emoji": "🧠",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1974,14 +1974,14 @@
     "lat": 35.9712,
     "lng": -83.9158,
     "venueName": "Barrelhouse by Gypsy Circus",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1655548872174-6d2316dac41e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "the-hill-trivia",
     "title": "Trivia Monday",
     "category": "Trivia & Games",
     "location": "1105 Forest Ave, Knoxville",
-    "description": "Free weekly trivia every Monday at The Hill, a Fort Sanders institution since 2009 known for award-winning wings. Hosted by Challenge Entertainment \u2014 top teams win prizes.",
+    "description": "Free weekly trivia every Monday at The Hill, a Fort Sanders institution since 2009 known for award-winning wings. Hosted by Challenge Entertainment — top teams win prizes.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1.2,
     "ageRestrictions": "All Ages",
@@ -1989,7 +1989,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\udde0",
+    "emoji": "🧠",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2014,7 +2014,7 @@
     "lat": 35.9601,
     "lng": -83.9352,
     "venueName": "The Hill Bar & Grill",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1655548872174-6d2316dac41e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "cool-beans-trivia",
@@ -2029,7 +2029,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\udde0",
+    "emoji": "🧠",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2054,14 +2054,14 @@
     "lat": 35.96,
     "lng": -83.9385,
     "venueName": "Cool Beans Bar & Grill",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1655548872174-6d2316dac41e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "mellow-mushroom-trivia",
     "title": "Trivia Wednesday",
     "category": "Trivia & Games",
     "location": "2109 Cumberland Ave, Knoxville",
-    "description": "Free weekly trivia at 7 PM at the Cumberland Ave Mellow Mushroom \u2014 historic home of Knox Trivia Guys, founded here in 2002. Hosted by Challenge Entertainment. Great pizza + competitive quiz.",
+    "description": "Free weekly trivia at 7 PM at the Cumberland Ave Mellow Mushroom — historic home of Knox Trivia Guys, founded here in 2002. Hosted by Challenge Entertainment. Great pizza + competitive quiz.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1.8,
     "ageRestrictions": "All Ages",
@@ -2069,7 +2069,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udf55",
+    "emoji": "🍕",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2094,14 +2094,14 @@
     "lat": 35.9571,
     "lng": -83.9468,
     "venueName": "Mellow Mushroom",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1655548872174-6d2316dac41e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "club-xyz-drag",
     "title": "Divaz & Kingz Drag Show",
     "category": "Theater & Performance",
     "location": "1215 N Central St, Knoxville",
-    "description": "Weekly Thursday drag show at Knoxville's iconic LGBTQ+ club in Happy Holler. Happy hour 7\u20139 PM; drag shows at 11:30 PM and 1 AM. Free on Thursdays. Also performs Fridays and Saturdays.",
+    "description": "Weekly Thursday drag show at Knoxville's iconic LGBTQ+ club in Happy Holler. Happy hour 7–9 PM; drag shows at 11:30 PM and 1 AM. Free on Thursdays. Also performs Fridays and Saturdays.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1.3,
     "ageRestrictions": "21+",
@@ -2109,7 +2109,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83d\udc51",
+    "emoji": "👑",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2134,7 +2134,7 @@
     "lat": 35.9839,
     "lng": -83.9375,
     "venueName": "Club XYZ",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1592507174151-8090d404e633%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "central-flats-trivia",
@@ -2149,7 +2149,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\udde0",
+    "emoji": "🧠",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2173,7 +2173,7 @@
     "lat": 35.9837,
     "lng": -83.9372,
     "venueName": "Central Flats & Taps",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1655548872174-6d2316dac41e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "ale-raes-gastropub",
@@ -2188,7 +2188,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83d\ude02",
+    "emoji": "😂",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2216,14 +2216,14 @@
     "lat": 35.9925,
     "lng": -83.9318,
     "venueName": "Ale'Rae's GastroPub",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1655548872174-6d2316dac41e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "yeehaw-movie-night",
     "title": "Family Movie Night",
     "category": "Film & Cinema",
     "location": "745 N Broadway, Knoxville",
-    "description": "Free Tuesday Family Movie Night 6\u20139 PM at Yee-Haw's expansive North Knox beer garden with an outdoor amphitheater, fire pits, and 62 taps. Prince's Hot Chicken kitchen on site. All ages welcome.",
+    "description": "Free Tuesday Family Movie Night 6–9 PM at Yee-Haw's expansive North Knox beer garden with an outdoor amphitheater, fire pits, and 62 taps. Prince's Hot Chicken kitchen on site. All ages welcome.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 2.3,
     "ageRestrictions": "All Ages",
@@ -2231,7 +2231,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfac",
+    "emoji": "🎬",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2258,14 +2258,14 @@
     "lat": 35.99,
     "lng": -83.932,
     "venueName": "Yee-Haw Brewing Co.",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1489599849927-2ee91cede3ba%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "fountain-city-social",
     "title": "Trivia, Bingo & Karaoke",
     "category": "Karaoke",
     "location": "4842 Harvest Mill Way, Knoxville",
-    "description": "Voted Best Bar in Knoxville \u2014 this 80s-themed cocktail bar packs in weekly events: trivia Wednesdays at 7 PM, music bingo Thursdays, and karaoke dance parties Friday and Saturday nights until midnight.",
+    "description": "Voted Best Bar in Knoxville — this 80s-themed cocktail bar packs in weekly events: trivia Wednesdays at 7 PM, music bingo Thursdays, and karaoke dance parties Friday and Saturday nights until midnight.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 5.5,
     "ageRestrictions": "21+",
@@ -2273,7 +2273,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83d\udd79\ufe0f",
+    "emoji": "🕹️",
     "eventType": "venue",
     "recurrenceRule": {
       "type": "weekly",
@@ -2291,7 +2291,7 @@
       6
     ],
     "startTime": "19:00",
-    "price": "No cover \u00b7 buy a drink",
+    "price": "No cover · buy a drink",
     "tags": [
       "trivia",
       "karaoke",
@@ -2305,14 +2305,14 @@
     "lat": 36.0385,
     "lng": -83.9285,
     "venueName": "Fountain City Social",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1655548872174-6d2316dac41e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "sevier-burger-trivia",
     "title": "Trivia Monday",
     "category": "Trivia & Games",
     "location": "1120 Sevier Ave, Knoxville",
-    "description": "Free Monday trivia at 7 PM at this dog-friendly South Knox burger spot. Hosted by Challenge Entertainment \u2014 top teams win prizes. Craft beer, smash burgers, and competitive pub quiz vibes.",
+    "description": "Free Monday trivia at 7 PM at this dog-friendly South Knox burger spot. Hosted by Challenge Entertainment — top teams win prizes. Craft beer, smash burgers, and competitive pub quiz vibes.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1.5,
     "ageRestrictions": "All Ages",
@@ -2320,7 +2320,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udf54",
+    "emoji": "🍔",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2345,7 +2345,7 @@
     "lat": 35.9508,
     "lng": -83.9057,
     "venueName": "Sevier Ave Burger Co.",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F87%2FMead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG%2F800px-Mead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1655548872174-6d2316dac41e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "sokno-taco-singo",
@@ -2360,7 +2360,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfb5",
+    "emoji": "🎵",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2388,7 +2388,7 @@
     "lat": 35.9198,
     "lng": -83.8852,
     "venueName": "SoKno Taco Cantina",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F87%2FMead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG%2F800px-Mead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1655548872174-6d2316dac41e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "hiwire-trivia",
@@ -2403,7 +2403,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udf7a",
+    "emoji": "🍺",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2428,14 +2428,14 @@
     "lat": 35.9476,
     "lng": -83.9098,
     "venueName": "Hi-Wire Brewing",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F87%2FMead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG%2F800px-Mead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1655548872174-6d2316dac41e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "pink-cactus-karaoke",
     "title": "Private Karaoke Rooms",
     "category": "Karaoke",
     "location": "1147 Sevier Ave, Knoxville",
-    "description": "South Knoxville's first private karaoke bar with bookable rooms for up to 20 people at $30/hour. Craft cocktails, Latin-inspired bites, and a patio with yard games. Reserve in advance on weekends. Thursday\u2013Sunday.",
+    "description": "South Knoxville's first private karaoke bar with bookable rooms for up to 20 people at $30/hour. Craft cocktails, Latin-inspired bites, and a patio with yard games. Reserve in advance on weekends. Thursday–Sunday.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1.5,
     "ageRestrictions": "21+",
@@ -2443,7 +2443,7 @@
     "costScale": "$$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfa4",
+    "emoji": "🎤",
     "eventType": "venue",
     "recurrenceRule": {
       "type": "weekly",
@@ -2462,7 +2462,7 @@
     ],
     "startTime": "17:00",
     "endTime": "23:00",
-    "price": "$30/hr per room \u00b7 up to 20 people",
+    "price": "$30/hr per room · up to 20 people",
     "tags": [
       "karaoke",
       "private rooms",
@@ -2476,7 +2476,7 @@
     "lat": 35.951,
     "lng": -83.9063,
     "venueName": "The Pink Cactus",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1511671782779-c97d3d27a1d4%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "abridged-beer-trivia",
@@ -2491,7 +2491,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\udde0",
+    "emoji": "🧠",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2515,14 +2515,14 @@
     "lat": 35.952,
     "lng": -83.99,
     "venueName": "Abridged Beer Company",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1655548872174-6d2316dac41e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "bullfeathers-karaoke",
     "title": "Nightly Karaoke",
     "category": "Karaoke",
     "location": "10535 Kingston Pike, Knoxville",
-    "description": "West Knoxville's dedicated karaoke cafe with open-stage karaoke nightly Tuesday through Saturday starting at 8 PM. Full menu, casual atmosphere \u2014 just show up and sing.",
+    "description": "West Knoxville's dedicated karaoke cafe with open-stage karaoke nightly Tuesday through Saturday starting at 8 PM. Full menu, casual atmosphere — just show up and sing.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 8,
     "ageRestrictions": "21+",
@@ -2530,7 +2530,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfa4",
+    "emoji": "🎤",
     "eventType": "venue",
     "recurrenceRule": {
       "type": "weekly",
@@ -2550,7 +2550,7 @@
       6
     ],
     "startTime": "20:00",
-    "price": "No cover \u00b7 21+",
+    "price": "No cover · 21+",
     "tags": [
       "karaoke",
       "west knoxville",
@@ -2563,7 +2563,7 @@
     "lat": 35.933,
     "lng": -84.0455,
     "venueName": "Bullfeathers Karaoke Cafe",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1511671782779-c97d3d27a1d4%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "core-knoxville",
@@ -2578,7 +2578,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83d\udc51",
+    "emoji": "👑",
     "eventType": "venue",
     "recurrenceRule": {
       "type": "weekly",
@@ -2596,7 +2596,7 @@
       6
     ],
     "startTime": "22:00",
-    "price": "Free\u2013$10 \u00b7 varies by show",
+    "price": "Free–$10 · varies by show",
     "tags": [
       "drag",
       "lgbtq",
@@ -2610,7 +2610,7 @@
     "lat": 35.9373,
     "lng": -84.013,
     "venueName": "CORE Knoxville",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1592507174151-8090d404e633%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "35-north-singo",
@@ -2625,7 +2625,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfb5",
+    "emoji": "🎵",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2650,7 +2650,7 @@
     "lat": 35.9193,
     "lng": -84.1355,
     "venueName": "35 North Bar & Grill",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1655548872174-6d2316dac41e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "xul-beer-trivia",
@@ -2665,7 +2665,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udf7a",
+    "emoji": "🍺",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2690,14 +2690,14 @@
     "lat": 35.9595,
     "lng": -84.1093,
     "venueName": "XUL Beer Company",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1655548872174-6d2316dac41e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "tennessee-tap-house",
     "title": "Trivia & Singo",
     "category": "Trivia & Games",
     "location": "350 N Peters Rd, Knoxville",
-    "description": "Two free weekly events at this Northshore neighborhood bar: Tuesday trivia 7\u20139 PM and Sunday Singo music bingo at 7 PM. Thursday through Saturday: live acoustic and band performances.",
+    "description": "Two free weekly events at this Northshore neighborhood bar: Tuesday trivia 7–9 PM and Sunday Singo music bingo at 7 PM. Thursday through Saturday: live acoustic and band performances.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 6,
     "ageRestrictions": "All Ages",
@@ -2705,7 +2705,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\udde0",
+    "emoji": "🧠",
     "eventType": "venue",
     "recurrenceRule": {
       "type": "weekly",
@@ -2733,7 +2733,7 @@
     "lat": 35.9245,
     "lng": -84.068,
     "venueName": "Tennessee Tap House",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1655548872174-6d2316dac41e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "stock-barrel-comedy",
@@ -2748,7 +2748,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83d\ude02",
+    "emoji": "😂",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2772,7 +2772,7 @@
     "lat": 35.9655,
     "lng": -83.9183,
     "venueName": "Stock & Barrel",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1611956425642-d5a8169abd63%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "preservation-pub-comedy",
@@ -2787,7 +2787,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83d\ude02",
+    "emoji": "😂",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2812,7 +2812,7 @@
     "lat": 35.9658,
     "lng": -83.9185,
     "venueName": "Preservation Pub",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1611956425642-d5a8169abd63%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "pilot-light-comedy",
@@ -2827,7 +2827,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83d\ude02",
+    "emoji": "😂",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -2838,7 +2838,7 @@
       5
     ],
     "startTime": "20:00",
-    "price": "$5\u2013$10 \u00b7 check Pilot Light socials",
+    "price": "$5–$10 · check Pilot Light socials",
     "tags": [
       "comedy",
       "monthly",
@@ -2852,14 +2852,14 @@
     "lat": 35.9671,
     "lng": -83.9143,
     "venueName": "The Pilot Light",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1611956425642-d5a8169abd63%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "fleet-feet-run-club",
     "title": "Wednesday Night Run Club",
     "category": "Fitness & Wellness",
     "location": "525 S Gay St, Knoxville",
-    "description": "Free weekly group run from the Gay Street store every Wednesday at 6 PM. Routes range 3\u20136 miles through downtown and the Riverwalk greenway. All paces welcome \u2014 post-run social on the patio.",
+    "description": "Free weekly group run from the Gay Street store every Wednesday at 6 PM. Routes range 3–6 miles through downtown and the Riverwalk greenway. All paces welcome — post-run social on the patio.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 0.5,
     "ageRestrictions": "All Ages",
@@ -2867,7 +2867,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfc3",
+    "emoji": "🏃",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2893,14 +2893,14 @@
     "lat": 35.9629,
     "lng": -83.9188,
     "venueName": "Fleet Feet Knoxville",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1552674605-db6ffd4facb5%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "climb-knx",
     "title": "Open Climbing",
     "category": "Fitness & Wellness",
     "location": "1645 Downtown West Blvd, Knoxville",
-    "description": "Knoxville's dedicated indoor climbing gym with bouldering and top-rope walls. Day passes available \u2014 no membership required. Beginner-friendly with an on-site gear shop.",
+    "description": "Knoxville's dedicated indoor climbing gym with bouldering and top-rope walls. Day passes available — no membership required. Beginner-friendly with an on-site gear shop.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 3,
     "ageRestrictions": "All Ages",
@@ -2908,7 +2908,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\uddd7",
+    "emoji": "🧗",
     "eventType": "venue",
     "daysOfWeek": [
       1,
@@ -2919,7 +2919,7 @@
       6,
       0
     ],
-    "price": "$15\u2013$25 day pass",
+    "price": "$15–$25 day pass",
     "tags": [
       "climbing",
       "bouldering",
@@ -2933,14 +2933,14 @@
     "lat": 35.9462,
     "lng": -84.0005,
     "venueName": "Climb KNX",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F05%2FHouse-mountain-outcrop-tn1.jpg%2F800px-House-mountain-outcrop-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1564769662533-4f00a87b4056%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "inner-light-yoga",
     "title": "Drop-In Yoga Classes",
     "category": "Fitness & Wellness",
     "location": "4618 Kingston Pike, Knoxville",
-    "description": "Affordable drop-in yoga in Bearden \u2014 hatha, vinyasa, yin, and restorative. Weekday morning and evening classes plus weekend options. New-student specials available.",
+    "description": "Affordable drop-in yoga in Bearden — hatha, vinyasa, yin, and restorative. Weekday morning and evening classes plus weekend options. New-student specials available.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 4,
     "ageRestrictions": "All Ages",
@@ -2948,7 +2948,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\uddd8",
+    "emoji": "🧘",
     "eventType": "venue",
     "daysOfWeek": [
       1,
@@ -2974,14 +2974,14 @@
     "lat": 35.952,
     "lng": -83.9945,
     "venueName": "Inner Light Yoga",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F05%2FHouse-mountain-outcrop-tn1.jpg%2F800px-House-mountain-outcrop-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1544367567-0f2fcb009e0b%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "knoxville-track-club",
     "title": "Saturday Morning Run",
     "category": "Fitness & Wellness",
     "location": "World's Fair Park, Knoxville",
-    "description": "One of Knoxville's longest-running free run clubs. Meets Saturday mornings at World's Fair Park \u2014 routes range 4\u201310 miles, all paces welcome. Visitors and tourists encouraged.",
+    "description": "One of Knoxville's longest-running free run clubs. Meets Saturday mornings at World's Fair Park — routes range 4–10 miles, all paces welcome. Visitors and tourists encouraged.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -2989,7 +2989,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfc3",
+    "emoji": "🏃",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3013,14 +3013,14 @@
     "neighborhood": "World's Fair Park",
     "lat": 35.9615,
     "lng": -83.9243,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc9%2FSunsphere_Knoxville.jpg%2F800px-Sunsphere_Knoxville.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1552674605-db6ffd4facb5%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "old-city-ghost-tours",
     "title": "Knoxville Ghost Tours",
     "category": "Tours & Experiences",
     "location": "Old City, Knoxville",
-    "description": "Lantern-lit walking tour through Knoxville's haunted Old City, exploring 200+ years of dark history at locations like the historic jail, old morgue, and Victorian mansions. Tours run Fri\u2013Sat evenings; October adds Thursday tours.",
+    "description": "Lantern-lit walking tour through Knoxville's haunted Old City, exploring 200+ years of dark history at locations like the historic jail, old morgue, and Victorian mansions. Tours run Fri–Sat evenings; October adds Thursday tours.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -3028,7 +3028,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83d\udc7b",
+    "emoji": "👻",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3042,7 +3042,7 @@
       6
     ],
     "startTime": "20:00",
-    "price": "$25 adults \u00b7 $18 kids 6\u201312",
+    "price": "$25 adults · $18 kids 6–12",
     "tags": [
       "ghost tour",
       "walking tour",
@@ -3056,7 +3056,7 @@
     "neighborhood": "Old City",
     "lat": 35.967,
     "lng": -83.915,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1507697364665-69eec30ea71e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "schulz-brau-brewery-tour",
@@ -3071,7 +3071,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udf7a",
+    "emoji": "🍺",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3095,15 +3095,15 @@
     "neighborhood": "Old City",
     "lat": 35.9665,
     "lng": -83.913,
-    "venueName": "Schulz Br\u00e4u Brewing Co.",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "venueName": "Schulz Bräu Brewing Co.",
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1584225064536-d0fbc0a10f18%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "marble-springs-tours",
     "title": "Historic Tours",
     "category": "Tours & Experiences",
     "location": "1220 W Governor John Sevier Hwy, Knoxville",
-    "description": "Free guided tours of Tennessee's last surviving 18th-century log house complex, home of Governor John Sevier. Open Saturdays April\u2013December, 10 AM\u20135 PM. Costumed interpreters bring early Knoxville to life.",
+    "description": "Free guided tours of Tennessee's last surviving 18th-century log house complex, home of Governor John Sevier. Open Saturdays April–December, 10 AM–5 PM. Costumed interpreters bring early Knoxville to life.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 5,
     "ageRestrictions": "All Ages",
@@ -3111,7 +3111,7 @@
     "costScale": "Free",
     "season": "Seasonal",
     "underground": false,
-    "emoji": "\ud83c\udfdb\ufe0f",
+    "emoji": "🏛️",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -3147,7 +3147,7 @@
     "lat": 35.952,
     "lng": -83.881,
     "venueName": "Marble Springs Historic Site",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1611473406915-ec8e0ac090e9%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "volunteer-landing-kayak",
@@ -3162,14 +3162,14 @@
     "costScale": "$",
     "season": "Seasonal",
     "underground": false,
-    "emoji": "\ud83d\udea3",
+    "emoji": "🚣",
     "eventType": "venue",
     "daysOfWeek": [
       5,
       6,
       0
     ],
-    "price": "$20/hr kayak \u00b7 $25/hr paddleboard",
+    "price": "$20/hr kayak · $25/hr paddleboard",
     "tags": [
       "kayak",
       "paddleboard",
@@ -3184,7 +3184,7 @@
     "lat": 35.957,
     "lng": -83.9271,
     "venueName": "Volunteer Landing Marina",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F87%2FMead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG%2F800px-Mead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1721239571860-4f73b7e35551%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "tennessee-theatre-film",
@@ -3199,7 +3199,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfac",
+    "emoji": "🎬",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -3210,7 +3210,7 @@
       4
     ],
     "startTime": "19:30",
-    "price": "$5\u2013$15 \u00b7 check website",
+    "price": "$5–$15 · check website",
     "tags": [
       "classic film",
       "movie",
@@ -3225,14 +3225,14 @@
     "lat": 35.9635,
     "lng": -83.9187,
     "venueName": "Tennessee Theatre",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0d%2FTennessee-theatre-entrance-knoxville-tn1.jpg%2F800px-Tennessee-theatre-entrance-knoxville-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1489599849927-2ee91cede3ba%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "market-sq-summer-movies",
     "title": "Movies on Market Square",
     "category": "Film & Cinema",
     "location": "Market Square, Knoxville",
-    "description": "Free outdoor movies on the big screen at Market Square on select summer Friday evenings. Pre-show festivities start at 7:30 PM; film at dusk (~8:30 PM). Bring a blanket or lawn chair \u2014 all ages welcome.",
+    "description": "Free outdoor movies on the big screen at Market Square on select summer Friday evenings. Pre-show festivities start at 7:30 PM; film at dusk (~8:30 PM). Bring a blanket or lawn chair — all ages welcome.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 0.3,
     "ageRestrictions": "All Ages",
@@ -3240,7 +3240,7 @@
     "costScale": "Free",
     "season": "Seasonal",
     "underground": false,
-    "emoji": "\ud83c\udfac",
+    "emoji": "🎬",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -3269,7 +3269,7 @@
     "neighborhood": "Market Square",
     "lat": 35.966,
     "lng": -83.9185,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1489599849927-2ee91cede3ba%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "kma-film-series",
@@ -3284,7 +3284,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfac",
+    "emoji": "🎬",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -3309,14 +3309,14 @@
     "lat": 35.9622,
     "lng": -83.9248,
     "venueName": "Knoxville Museum of Art",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc9%2FSunsphere_Knoxville.jpg%2F800px-Sunsphere_Knoxville.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1489599849927-2ee91cede3ba%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "old-city-farmers-market",
     "title": "Old City Farmers Market",
     "category": "Markets",
     "location": "Old City, Knoxville",
-    "description": "Saturday morning neighborhood market in Knoxville's historic Old City with local produce, baked goods, artisan crafts, and small-batch food vendors. Runs spring through fall \u2014 check socials for exact location and hours.",
+    "description": "Saturday morning neighborhood market in Knoxville's historic Old City with local produce, baked goods, artisan crafts, and small-batch food vendors. Runs spring through fall — check socials for exact location and hours.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 0.9,
     "ageRestrictions": "All Ages",
@@ -3324,7 +3324,7 @@
     "costScale": "Free",
     "season": "Seasonal",
     "underground": false,
-    "emoji": "\ud83e\udd66",
+    "emoji": "🥦",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -3359,7 +3359,7 @@
     "neighborhood": "Old City",
     "lat": 35.9671,
     "lng": -83.9148,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1526399743290-f73cb4022f48%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "bearden-village-market",
@@ -3374,7 +3374,7 @@
     "costScale": "Free",
     "season": "Seasonal",
     "underground": false,
-    "emoji": "\ud83c\udf3b",
+    "emoji": "🌻",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -3406,14 +3406,14 @@
     "neighborhood": "Bearden",
     "lat": 35.9527,
     "lng": -83.9927,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1526399743290-f73cb4022f48%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "second-saturday-art-market",
     "title": "Second Saturday Art Market",
     "category": "Markets",
     "location": "Old City, Knoxville",
-    "description": "Monthly pop-up art and maker market in the Old City every second Saturday. Local artists, jewelers, potters, printmakers, and vintage dealers. Free to browse \u2014 shop local and meet the makers.",
+    "description": "Monthly pop-up art and maker market in the Old City every second Saturday. Local artists, jewelers, potters, printmakers, and vintage dealers. Free to browse — shop local and meet the makers.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 0.9,
     "ageRestrictions": "All Ages",
@@ -3421,7 +3421,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83d\udecd",
+    "emoji": "🛍",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -3445,14 +3445,14 @@
     "neighborhood": "Old City",
     "lat": 35.9669,
     "lng": -83.9145,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1606819717115-9159c900370b%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "knox-makers-open-house",
     "title": "Open House Night",
     "category": "Community & Civic",
     "location": "1450 E Weisgarber Rd, Knoxville",
-    "description": "Knoxville's community makerspace hosts weekly open house nights \u2014 tour the facility, try tools, and meet the maker community. 3D printers, laser cutters, woodshop, electronics lab, and more. Free to visit.",
+    "description": "Knoxville's community makerspace hosts weekly open house nights — tour the facility, try tools, and meet the maker community. 3D printers, laser cutters, woodshop, electronics lab, and more. Free to visit.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 2.5,
     "ageRestrictions": "All Ages",
@@ -3460,7 +3460,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83d\udd27",
+    "emoji": "🔧",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3486,7 +3486,7 @@
     "lat": 35.9567,
     "lng": -84.0095,
     "venueName": "Knox Makers",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1576344671421-374280113976%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "keep-knoxville-beautiful",
@@ -3501,7 +3501,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udf33",
+    "emoji": "🌳",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -3524,14 +3524,14 @@
     "neighborhood": "Downtown",
     "lat": 35.9606,
     "lng": -83.9205,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F87%2FMead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG%2F800px-Mead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1565803974275-dccd2f933cbb%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "knoxville-young-professionals",
     "title": "Monthly Mixer",
     "category": "Community & Civic",
     "location": "Rotating Venue, Knoxville",
-    "description": "Monthly networking mixer for Knoxville professionals in their 20s\u201340s. Rotating venues around downtown and midtown \u2014 follow KYP for the monthly location announcement.",
+    "description": "Monthly networking mixer for Knoxville professionals in their 20s–40s. Rotating venues around downtown and midtown — follow KYP for the monthly location announcement.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -3539,7 +3539,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\udd1d",
+    "emoji": "🤝",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -3562,14 +3562,14 @@
     "neighborhood": "Downtown",
     "lat": 35.9649,
     "lng": -83.9186,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1540575467063-178a50c2df87%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "knoxville-swing-dance",
     "title": "Swing Dance Night",
     "category": "Dancing",
     "location": "Rotating Venue, Knoxville",
-    "description": "The Knoxville Swing Dance Society hosts regular swing dance nights for all skill levels \u2014 beginners welcome, no partner needed. A mix of lindy hop, east coast swing, and balboa. Check their Facebook for current venue and date.",
+    "description": "The Knoxville Swing Dance Society hosts regular swing dance nights for all skill levels — beginners welcome, no partner needed. A mix of lindy hop, east coast swing, and balboa. Check their Facebook for current venue and date.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 2,
     "ageRestrictions": "All Ages",
@@ -3577,7 +3577,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83d\udc83",
+    "emoji": "💃",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3589,7 +3589,7 @@
       5
     ],
     "startTime": "19:00",
-    "price": "$5 \u00b7 includes beginner lesson",
+    "price": "$5 · includes beginner lesson",
     "tags": [
       "swing dance",
       "lindy hop",
@@ -3601,7 +3601,7 @@
     "neighborhood": "Rotating",
     "lat": 35.9606,
     "lng": -83.9207,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1504609813442-a8924e83f76e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "salty-dog-karaoke",
@@ -3616,7 +3616,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfa4",
+    "emoji": "🎤",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3646,7 +3646,7 @@
     "lat": 35.9448,
     "lng": -83.9003,
     "venueName": "The Salty Dog Saloon",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F87%2FMead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG%2F800px-Mead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1511671782779-c97d3d27a1d4%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "house-mountain",
@@ -3661,7 +3661,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\u26f0\ufe0f",
+    "emoji": "⛰️",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -3685,7 +3685,7 @@
     "neighborhood": "Corryton",
     "lat": 36.1107,
     "lng": -83.806,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F05%2FHouse-mountain-outcrop-tn1.jpg%2F800px-House-mountain-outcrop-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1500534623283-312aade485b7%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "rossini-festival",
@@ -3700,7 +3700,7 @@
     "costScale": "Free",
     "season": "Seasonal",
     "underground": false,
-    "emoji": "\ud83c\udfad",
+    "emoji": "🎭",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "annual",
@@ -3724,7 +3724,7 @@
     "neighborhood": "Market Square",
     "lat": 35.9656,
     "lng": -83.9182,
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1561577862-49a301dda61b%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "emporium-center",
@@ -3739,7 +3739,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udfa8",
+    "emoji": "🎨",
     "eventType": "venue",
     "daysOfWeek": [
       2,
@@ -3762,14 +3762,14 @@
     "lat": 35.9635,
     "lng": -83.9193,
     "venueName": "Emporium Center for Arts & Culture",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0d%2FTennessee-theatre-entrance-knoxville-tn1.jpg%2F800px-Tennessee-theatre-entrance-knoxville-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1606819717115-9159c900370b%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "muse-knoxville",
     "title": "Children's Science Museum",
     "category": "Arts & Museums",
     "location": "516 N Henley St, Knoxville",
-    "description": "Knoxville's hands-on children's museum with rotating STEAM exhibits, maker spaces, a planetarium, and outdoor garden. Best for families with kids ages 2\u201312. Admission required; members free.",
+    "description": "Knoxville's hands-on children's museum with rotating STEAM exhibits, maker spaces, a planetarium, and outdoor garden. Best for families with kids ages 2–12. Admission required; members free.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -3777,7 +3777,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83d\udd2c",
+    "emoji": "🔬",
     "eventType": "venue",
     "daysOfWeek": [
       2,
@@ -3787,7 +3787,7 @@
       6,
       0
     ],
-    "price": "$12 adults \u00b7 $6 seniors & military \u00b7 Under 2 free",
+    "price": "$12 adults · $6 seniors & military · Under 2 free",
     "tags": [
       "children",
       "museum",
@@ -3806,14 +3806,14 @@
     "phone": "(865) 594-1494",
     "instagram": "museknox",
     "email": "info@themuseknoxville.org",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc9%2FSunsphere_Knoxville.jpg%2F800px-Sunsphere_Knoxville.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1588444543009-7db73c43514e%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "barrelhouse-bottomless",
     "title": "$19 Bottomless Cidermosas",
     "category": "Happy Hour & Specials",
     "location": "621 Lamar St, Knoxville",
-    "description": "$19 bottomless cidermosas every Saturday and Sunday 11 AM\u20134 PM at this Old North Knox cider and mead taproom. Hard cider in place of wine makes these a uniquely Knoxville twist on the classic brunch drink.",
+    "description": "$19 bottomless cidermosas every Saturday and Sunday 11 AM–4 PM at this Old North Knox cider and mead taproom. Hard cider in place of wine makes these a uniquely Knoxville twist on the classic brunch drink.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1.2,
     "ageRestrictions": "21+",
@@ -3821,7 +3821,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\udd42",
+    "emoji": "🥂",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3836,7 +3836,7 @@
     ],
     "startTime": "11:00",
     "endTime": "16:00",
-    "price": "$19 per person \u00b7 Sat & Sun 11 AM\u20134 PM",
+    "price": "$19 per person · Sat & Sun 11 AM–4 PM",
     "tags": [
       "cidermosas",
       "bottomless",
@@ -3855,14 +3855,14 @@
     "website": "https://gypsycircuscider.com",
     "phone": "(865) 424-7753",
     "instagram": "barrelhouseknoxville",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1556063230-aa38680c8142%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "mimosas-knoxville",
     "title": "$20 Bottomless Mimosas Brunch",
     "category": "Happy Hour & Specials",
     "location": "115 Mimosa Ave, Knoxville",
-    "description": "Bottomless mimosas ($20) every Saturday and Sunday during brunch at this South Knoxville neighborhood spot. Named for the street it sits on \u2014 one of Knoxville's dedicated brunch destinations.",
+    "description": "Bottomless mimosas ($20) every Saturday and Sunday during brunch at this South Knoxville neighborhood spot. Named for the street it sits on — one of Knoxville's dedicated brunch destinations.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 3,
     "ageRestrictions": "21+",
@@ -3870,7 +3870,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\udd42",
+    "emoji": "🥂",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3884,7 +3884,7 @@
       6
     ],
     "startTime": "10:00",
-    "price": "$20 bottomless \u00b7 Sat & Sun brunch",
+    "price": "$20 bottomless · Sat & Sun brunch",
     "tags": [
       "bottomless mimosas",
       "brunch",
@@ -3898,14 +3898,14 @@
     "lat": 35.949,
     "lng": -83.9052,
     "venueName": "Mimosas",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F87%2FMead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG%2F800px-Mead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1556063230-aa38680c8142%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "chesapeakes-sunday-brunch",
     "title": "$33 Sunday Seafood Brunch Buffet",
     "category": "Happy Hour & Specials",
     "location": "9630 Parkside Dr, Knoxville",
-    "description": "Sunday brunch buffet 10:30 AM\u20132:30 PM: $33 adults, $15 children 12 & under. Fresh seafood bar, bloody mary bar, brunch entrees, and raw bar. One of Knoxville's most indulgent weekend experiences. Reservations recommended.",
+    "description": "Sunday brunch buffet 10:30 AM–2:30 PM: $33 adults, $15 children 12 & under. Fresh seafood bar, bloody mary bar, brunch entrees, and raw bar. One of Knoxville's most indulgent weekend experiences. Reservations recommended.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 7,
     "ageRestrictions": "All Ages",
@@ -3913,7 +3913,7 @@
     "costScale": "$$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83e\udd9e",
+    "emoji": "🦞",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3925,7 +3925,7 @@
       0
     ],
     "startTime": "10:30",
-    "price": "$33 adults \u00b7 $15 kids 12 & under",
+    "price": "$33 adults · $15 kids 12 & under",
     "tags": [
       "brunch buffet",
       "sunday",
@@ -3942,14 +3942,14 @@
     "website": "https://chesapeakes.com",
     "phone": "(865) 851-9088",
     "instagram": "chesapeakes",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1556063230-aa38680c8142%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "trailhead-happy-hour",
     "title": "$1 Off All Drafts All Day Monday",
     "category": "Happy Hour & Specials",
     "location": "1317 Island Home Ave, Knoxville",
-    "description": "$1 off ALL drafts all day Monday \u2014 plus daily happy hour Tue\u2013Fri 3\u20136 PM. South Knoxville's best craft beer bar with an enormous tap list and a neighborhood vibe that can't be beat.",
+    "description": "$1 off ALL drafts all day Monday — plus daily happy hour Tue–Fri 3–6 PM. South Knoxville's best craft beer bar with an enormous tap list and a neighborhood vibe that can't be beat.",
     "indoorOutdoor": "Both",
     "distanceMiles": 3,
     "ageRestrictions": "21+",
@@ -3957,7 +3957,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udf7a",
+    "emoji": "🍺",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3969,7 +3969,7 @@
       1
     ],
     "startTime": "11:00",
-    "price": "$1 off all drafts all day \u00b7 Tue\u2013Fri 3\u20136 PM too",
+    "price": "$1 off all drafts all day · Tue–Fri 3–6 PM too",
     "tags": [
       "happy hour",
       "all day",
@@ -3986,14 +3986,14 @@
     "venueName": "Trailhead Beer Market",
     "phone": "(865) 409-4058",
     "instagram": "trailheadbeer",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F87%2FMead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG%2F800px-Mead%2527s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1584225064536-d0fbc0a10f18%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "fin-two-happy-hour",
     "title": "$1 Nigiri & Yakitori Specials",
     "category": "Happy Hour & Specials",
     "location": "122 S Central Ave, Knoxville",
-    "description": "Mon\u2013Thu 3\u20135 PM: $1 nigiri and $1 yakitori small plates plus discounted sake, soju, and local brews. One of Knoxville's best-value happy hours \u2014 Japanese pub food at bar-snack prices in Old City.",
+    "description": "Mon–Thu 3–5 PM: $1 nigiri and $1 yakitori small plates plus discounted sake, soju, and local brews. One of Knoxville's best-value happy hours — Japanese pub food at bar-snack prices in Old City.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 0.8,
     "ageRestrictions": "21+",
@@ -4001,7 +4001,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udf63",
+    "emoji": "🍣",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -4020,7 +4020,7 @@
     ],
     "startTime": "15:00",
     "endTime": "17:00",
-    "price": "$1 nigiri \u00b7 $1 yakitori \u00b7 Mon\u2013Thu 3\u20135 PM",
+    "price": "$1 nigiri · $1 yakitori · Mon–Thu 3–5 PM",
     "tags": [
       "happy hour",
       "nigiri",
@@ -4038,14 +4038,14 @@
     "website": "https://fin-two.com",
     "phone": "(865) 437-3105",
     "instagram": "fintwoknox",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1581414211938-e772a180c7ab%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "tupelo-honey-happy-hour",
     "title": "Half Off Apps & $5 Wells Daily",
     "category": "Happy Hour & Specials",
     "location": "1 Market Sq, Knoxville",
-    "description": "Mon\u2013Fri 4\u20136 PM: \u00bd off appetizers, $2 off beers & wines, $5 well spirits. Plus daily drink specials: Tini Tuesdays ($3 cocktails), Wine Wednesdays (\u00bd off bottles), Tequila Thursdays ($6 margaritas).",
+    "description": "Mon–Fri 4–6 PM: ½ off appetizers, $2 off beers & wines, $5 well spirits. Plus daily drink specials: Tini Tuesdays ($3 cocktails), Wine Wednesdays (½ off bottles), Tequila Thursdays ($6 margaritas).",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 0.3,
     "ageRestrictions": "All Ages",
@@ -4053,7 +4053,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udf79",
+    "emoji": "🍹",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -4074,7 +4074,7 @@
     ],
     "startTime": "16:00",
     "endTime": "18:00",
-    "price": "Half off apps \u00b7 $5 wells \u00b7 Mon\u2013Fri 4\u20136 PM",
+    "price": "Half off apps · $5 wells · Mon–Fri 4–6 PM",
     "tags": [
       "happy hour",
       "half price apps",
@@ -4089,14 +4089,14 @@
     "venueName": "Tupelo Honey",
     "website": "https://www.tupelohoneycafe.com/restaurant/knoxville/",
     "phone": "(865) 522-0004",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1597241693839-07d7fb803af1%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "balter-happy-hour",
     "title": "$3 Beers & $1.50 Tacos Daily",
     "category": "Happy Hour & Specials",
     "location": "Standard St, Knoxville",
-    "description": "Mon\u2013Fri 3\u20136:30 PM: $3 craft beers, $1.50 tacos & sliders, $3 chips & queso, $4 pimento & hummus plates. Knoxville's beloved craft brewery in a restored service station \u2014 happy hour food here is a steal.",
+    "description": "Mon–Fri 3–6:30 PM: $3 craft beers, $1.50 tacos & sliders, $3 chips & queso, $4 pimento & hummus plates. Knoxville's beloved craft brewery in a restored service station — happy hour food here is a steal.",
     "indoorOutdoor": "Both",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -4104,7 +4104,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udf7a",
+    "emoji": "🍺",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -4125,7 +4125,7 @@
     ],
     "startTime": "15:00",
     "endTime": "18:30",
-    "price": "$3 craft beers \u00b7 $1.50 tacos & sliders \u00b7 Mon\u2013Fri 3\u20136:30 PM",
+    "price": "$3 craft beers · $1.50 tacos & sliders · Mon–Fri 3–6:30 PM",
     "tags": [
       "happy hour",
       "craft beer",
@@ -4143,14 +4143,14 @@
     "website": "https://www.balterbeerworks.com",
     "phone": "(865) 999-5015",
     "instagram": "balterbeerworks",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1584225064536-d0fbc0a10f18%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "marble-city-happy-hour",
     "title": "$3 Drafts & Prosecco Happy Hour",
     "category": "Happy Hour & Specials",
     "location": "333 W Depot Ave, Knoxville",
-    "description": "Tue\u2013Wed 5\u20137 PM, Thu\u2013Fri 4\u20136 PM: $3 drafts, $3 prosecco, $5 house liquor. Knoxville's premier food hall with 11 restaurant concepts and a 40-seat bar \u2014 happy hour here means you can try multiple spots for the price of one.",
+    "description": "Tue–Wed 5–7 PM, Thu–Fri 4–6 PM: $3 drafts, $3 prosecco, $5 house liquor. Knoxville's premier food hall with 11 restaurant concepts and a 40-seat bar — happy hour here means you can try multiple spots for the price of one.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -4158,7 +4158,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "\ud83c\udf79",
+    "emoji": "🍹",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -4177,7 +4177,7 @@
     ],
     "startTime": "16:00",
     "endTime": "19:00",
-    "price": "$3 drafts & prosecco \u00b7 Tue\u2013Wed 5\u20137 PM \u00b7 Thu\u2013Fri 4\u20136 PM",
+    "price": "$3 drafts & prosecco · Tue–Wed 5–7 PM · Thu–Fri 4–6 PM",
     "tags": [
       "happy hour",
       "food hall",
@@ -4193,7 +4193,7 @@
     "venueName": "Marble City Market",
     "website": "https://www.marblecitymarket.com",
     "instagram": "marblecitymarket",
-    "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1597241693839-07d7fb803af1%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26h%3D800%26q%3D80&w=800&q=80"
   },
   {
     "id": "conor-churchill-2026-06-16-barley-s-taproom-pizzeria",
