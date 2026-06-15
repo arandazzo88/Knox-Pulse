@@ -2822,28 +2822,53 @@ function showImportReady(){
   document.getElementById('import-btn').style.display = file ? 'block' : 'none';
 }
 
-function importData(){
+async function importData(){
   const file=document.getElementById('import-file').files[0]; if(!file) return;
-  const reader=new FileReader();
-  reader.onload=e=>{
+  const text=await file.text();
+  let events;
+  try{
+    const parsed=JSON.parse(text);
+    // Accept: plain array, {events:[...]}, {schemaVersion:1,...,events:[...]}
+    events=Array.isArray(parsed)?parsed:(parsed.events||parsed.communityEvents||parsed.customListings||[]);
+    if(!events.length) throw new Error('No events found');
+  } catch(err){ showToast('Invalid JSON file.'); return; }
+
+  // Map cowork field aliases → codebase field names
+  const aliasMap={venue:'venueName',address:'location',startDate:'eventDate',
+    endDate:'eventEndDate',coverPhoto:'image',latitude:'lat',longitude:'lng'};
+  events=events.map(raw=>{
+    const e={...raw};
+    for(const[from,to]of Object.entries(aliasMap)){
+      if(from in e && !(to in e)){ e[to]=e[from]; delete e[from]; }
+    }
+    return e;
+  });
+
+  // Normalize (handles string daysOfWeek, 12h times, etc.)
+  events=events.map(e=>{try{return normalizeEvent(e);}catch{return e;}});
+
+  // De-dup against existing communityEvents by id
+  const existingIds=new Set(communityEvents.map(e=>e.id).filter(Boolean));
+  const toAdd=events.filter(e=>!e.id||!existingIds.has(e.id));
+  if(!toAdd.length){ showToast('All events already imported.'); return; }
+
+  if(!db){ showToast('Firestore not available.'); return; }
+
+  showToast(`Importing ${toAdd.length} event(s)…`);
+  let added=0, failed=0;
+  const ts=firebase.firestore.FieldValue.serverTimestamp();
+  for(const ev of toAdd){
     try{
-      const data=JSON.parse(e.target.result);
-      if(data.customListings){
-        customListings=[...customListings,...data.customListings];
-        localStorage.setItem(CUSTOM_LISTINGS_KEY,JSON.stringify(customListings));
-      }
-      if(data.communityEvents){
-        communityEvents=[...communityEvents,...data.communityEvents];
-        localStorage.setItem('kp_events',JSON.stringify(communityEvents));
-      }
-      applyFilters();
-      showToast('Data imported successfully!');
-      document.getElementById('import-file').value='';
-      document.getElementById('import-filename').textContent='No file selected';
-      document.getElementById('import-btn').style.display='none';
-    } catch(err){ showToast('Invalid JSON file.'); }
-  };
-  reader.readAsText(file);
+      const ref=await db.collection('communityEvents').add({...ev, submittedAt:ts, source:'import'});
+      communityEvents.push({...ev, id:ref.id});
+      added++;
+    } catch(err){ console.warn('Import write failed:',err); failed++; }
+  }
+  applyFilters();
+  showToast(failed?`Imported ${added}, failed ${failed}.`:`Imported ${added} event(s)!`);
+  document.getElementById('import-file').value='';
+  document.getElementById('import-filename').textContent='No file selected';
+  document.getElementById('import-btn').style.display='none';
 }
 
 // Show admin FAB if ?admin in URL
