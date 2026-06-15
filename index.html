@@ -2891,8 +2891,14 @@ function exportData(){
   a.click();
 }
 
-function importData(event){
-  const file=event.target.files[0]; if(!file) return;
+function showImportReady(){
+  const file = document.getElementById('import-file').files[0];
+  document.getElementById('import-filename').textContent = file ? file.name : 'No file selected';
+  document.getElementById('import-btn').style.display = file ? 'block' : 'none';
+}
+
+function importData(){
+  const file=document.getElementById('import-file').files[0]; if(!file) return;
   const reader=new FileReader();
   reader.onload=e=>{
     try{
@@ -2907,6 +2913,9 @@ function importData(event){
       }
       applyFilters();
       showToast('Data imported successfully!');
+      document.getElementById('import-file').value='';
+      document.getElementById('import-filename').textContent='No file selected';
+      document.getElementById('import-btn').style.display='none';
     } catch(err){ showToast('Invalid JSON file.'); }
   };
   reader.readAsText(file);
@@ -3417,8 +3426,12 @@ setTimeout(function(){
             <hr style="border-color:#ffffff15;margin:20px 0;"/>
             <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">
               Import listings from a previously exported JSON file.</p>
-            <input type="file" id="import-file" accept=".json" onchange="importData(event)"
-              style="background:transparent;border:none;color:var(--text);padding:0;"/>
+            <input type="file" id="import-file" accept=".json" style="display:none;" onchange="showImportReady()"/>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+              <button class="admin-save" style="background:#ffffff20;color:var(--text);" onclick="document.getElementById('import-file').click()">📂 Choose File</button>
+              <span id="import-filename" style="font-size:.8rem;color:var(--muted);">No file selected</span>
+            </div>
+            <button id="import-btn" class="admin-save" style="margin-top:10px;display:none;" onclick="importData()">📥 Import Now</button>
           </div>
         </div>
       </div><!-- /admin-content -->
