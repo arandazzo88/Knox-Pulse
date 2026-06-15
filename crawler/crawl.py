@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """
 Knox Pulse — Weekly Event Crawler
-Scrapes 11 Knoxville event sources and writes new events to Firestore
-"crawled_events" collection for admin review.
+Scrapes 11 Knoxville event sources and merges new events into
+data/listings.json — the single source of truth the site loads at runtime.
+The CI workflow commits the updated file.
 
 Run: python3 crawler/crawl.py
-Env: FIREBASE_SA_PATH=/path/to/sa.json  (default: /tmp/sa.json)
+Env: LISTINGS_FILE=/path/to/data/listings.json  (default: ../data/listings.json)
+     STATE_FILE=/path/to/scrape-state.json       (default: /tmp/scrape-state.json)
 """
 
 import os
@@ -20,13 +22,17 @@ import sys
 import requests
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout
-import firebase_admin
-from firebase_admin import credentials, firestore
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
-SA_PATH = os.environ.get("FIREBASE_SA_PATH", "/tmp/sa.json")
-STATE_FILE = "/tmp/scrape-state.json"
+# data/listings.json is the single source of truth for the site (curated
+# listings + dated events). New crawled events are merged into it; the CI
+# workflow then commits the updated file.
+LISTINGS_FILE = os.environ.get(
+    "LISTINGS_FILE",
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "listings.json"),
+)
+STATE_FILE = os.environ.get("STATE_FILE", "/tmp/scrape-state.json")
 
 CATEGORY_IMAGES = {
     "Live Music": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb8%2FGuitar_1.jpg%2F800px-Guitar_1.jpg&w=800&q=80",
@@ -46,11 +52,32 @@ HEADERS = {
     "Accept-Language": "en-US,en;q=0.9",
 }
 
-# ── Firebase init ──────────────────────────────────────────────────────────────
+# ── Local data store (single source of truth) ────────────────────────────────
 
-cred = credentials.Certificate(SA_PATH)
-firebase_admin.initialize_app(cred)
-db = firestore.client()
+_listings = []        # full list currently in data/listings.json
+_existing_ids = set()  # ids already present, for dedup
+_new_count = 0         # number of new events added this run
+
+
+def load_listings():
+    """Load data/listings.json into memory so we can dedup and append."""
+    global _listings, _existing_ids
+    try:
+        with open(LISTINGS_FILE, encoding="utf-8") as f:
+            _listings = json.load(f)
+    except FileNotFoundError:
+        _listings = []
+    _existing_ids = {l.get("id") for l in _listings if l.get("id")}
+    print(f"Loaded {len(_listings)} entries from {LISTINGS_FILE}")
+
+
+def write_listings():
+    """Write the merged list back to data/listings.json."""
+    with open(LISTINGS_FILE, "w", encoding="utf-8") as f:
+        json.dump(_listings, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+    print(f"Wrote {len(_listings)} entries to {LISTINGS_FILE} (+{_new_count} new this run)")
+
 
 # ── State management (incremental scraping) ───────────────────────────────────
 
@@ -82,18 +109,19 @@ def event_id(title, date_str=""):
 
 
 def already_exists(eid):
-    return db.collection("crawled_events").document(eid).get().exists
+    return eid in _existing_ids
 
 
 def save_event(evt):
+    global _new_count
     eid = evt.get("id") or event_id(evt.get("title", ""), evt.get("eventDate", ""))
     if already_exists(eid):
         print(f"    skip (exists): {evt.get('title', '')[:55]}")
         return False
     evt["id"] = eid
-    evt["status"] = "pending"
-    evt["crawledAt"] = datetime.datetime.utcnow().isoformat()
-    db.collection("crawled_events").document(eid).set(evt)
+    _listings.append(evt)
+    _existing_ids.add(eid)
+    _new_count += 1
     print(f"    saved: {evt.get('title', '')[:60]}")
     return True
 
@@ -348,7 +376,10 @@ def build_event(title, date_str="", description="", location="Knoxville, TN",
         final_image = category_image(category)
 
     eid = event_id(title, date_str)
+    recurrence_rule = {"type": "weekly", "days": days_of_week} if event_type == "recurring" and days_of_week else None
 
+    # Shape matches the unified data/listings.json event schema so crawled
+    # events render identically to curated ones.
     return {
         "id": eid,
         "title": title,
@@ -357,19 +388,29 @@ def build_event(title, date_str="", description="", location="Knoxville, TN",
         "venueName": venue or "",
         "description": description[:500] if description else "",
         "indoorOutdoor": indoor_outdoor,
-        "timeOfDay": time_of_day,
         "ageRestrictions": age_restrictions,
+        "timeOfDay": time_of_day,
         "costScale": cost_scale,
-        "neighborhood": neighborhood,
+        "price": price_text or "",
         "season": season,
-        "daysOfWeek": days_of_week,
-        "strollerFriendly": stroller_friendly,
-        "image": final_image,
+        "emoji": "📍",
         "eventType": event_type,
-        "source": source,
-        "sourceUrl": source_url,
         "eventDate": date_str,
-        "priceText": price_text,
+        "eventEndDate": "",
+        "daysOfWeek": days_of_week,
+        "startTime": time_str or "",
+        "endTime": "",
+        "recurrenceRule": recurrence_rule,
+        "tags": [],
+        "neighborhood": neighborhood,
+        "lat": None,
+        "lng": None,
+        "image": final_image,
+        "strollerFriendly": stroller_friendly,
+        "phone": "",
+        "website": source_url or "",
+        "email": "",
+        "instagram": "",
     }
 
 
@@ -1109,8 +1150,9 @@ def crawl_ijams(state):
 def main():
     start_time = time.time()
     print(f"Knox Pulse Crawler — {datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M')} UTC")
-    print(f"Firebase SA: {SA_PATH}")
+    print(f"Listings file: {LISTINGS_FILE}")
 
+    load_listings()
     state = load_state()
     total_saved = 0
 
@@ -1154,13 +1196,16 @@ def main():
     total_saved += crawl_tennessee_theatre(state)
     total_saved += crawl_ijams(state)
 
-    # Persist incremental state
+    # Persist the merged listings + incremental state
+    if total_saved:
+        write_listings()
+    else:
+        print("No new events — data/listings.json unchanged.")
     save_state(state)
 
     elapsed = time.time() - start_time
     print(f"\n{'='*60}")
-    print(f"Crawler complete — {total_saved} new events saved in {elapsed:.1f}s")
-    print("Check the admin panel > Crawled tab to review pending events.")
+    print(f"Crawler complete — {total_saved} new events merged in {elapsed:.1f}s")
 
 
 if __name__ == "__main__":

@@ -1096,21 +1096,9 @@ try {
 // ============================================================
 // DATA — loaded asynchronously from /data/listings.json
 // ============================================================
-let baseListings = [];
-
-async function loadBaseListings() {
-  try {
-    const resp = await fetch('/data/listings.json');
-    baseListings = await resp.json();
-    // Apply any admin overrides (same ID takes priority)
-    const overrideMap = new Map(customListings.map(l => [l.id, l]));
-    baseListings = baseListings.map(l => overrideMap.has(l.id) ? overrideMap.get(l.id) : l);
-  } catch(e) {
-    console.warn('Failed to load listings:', e);
-  }
-  applyFilters();
-  try { injectListingsJsonLd(); } catch(e) {}
-}
+// Listings + events are loaded at runtime from /data/listings.json
+// (the single source of truth, also consumed by the SSR middleware).
+let LISTINGS = [];
 
 // ============================================================
 // ACTIVITY-BASED IMAGE FALLBACK
@@ -2486,9 +2474,16 @@ let editingListingId = null;
 let customListings = JSON.parse(localStorage.getItem(CUSTOM_LISTINGS_KEY)||'[]');
 
 function allListings(){
-  const baseIds = new Set(baseListings.map(l => l.id));
-  const newCustom = customListings.filter(l => !baseIds.has(l.id));
-  return [...baseListings, ...newCustom, ...communityEvents];
+  // LISTINGS (the static /data/listings.json file) is the single source of
+  // truth and wins on id collisions; customListings (admin) and
+  // communityEvents (Firestore) only contribute ids not already in the file.
+  const out=[], seen=new Set();
+  for(const l of [...LISTINGS, ...customListings, ...communityEvents]){
+    if(!l) continue;
+    if(l.id){ if(seen.has(l.id)) continue; seen.add(l.id); }
+    out.push(l);
+  }
+  return out;
 }
 
 async function openAdminModal(){
@@ -3115,11 +3110,29 @@ try{showRecurrenceSubFields();}catch(e){}
 // Show today's date in the picker as a hint but don't apply it as a filter —
 // all events load on first render, sorted by next occurrence.
 // User can tap the Date button to filter by a specific day.
-try{const _fd=document.getElementById('f-date');if(_fd){_fd.min=todayStr();}}catch(e){}
-try{applyFilters();}catch(e){console.error('applyFilters init error:',e);}
-try{injectListingsJsonLd();}catch(e){}
-loadBaseListings();
-initFromFirestore();
+// Load the single source of truth (listings + events) from the static
+// JSON file, then render. Falls back to the last cached copy if offline.
+async function loadListings(){
+  try{
+    const res=await fetch('/data/listings.json',{cache:'no-cache'});
+    if(res.ok){
+      const data=await res.json();
+      if(Array.isArray(data)&&data.length){
+        LISTINGS=data;
+        try{localStorage.setItem('kp_listings',JSON.stringify(data));}catch(e){}
+        return;
+      }
+    }
+  }catch(e){ console.warn('listings.json fetch failed — using cache.', e); }
+  try{ const c=JSON.parse(localStorage.getItem('kp_listings')||'[]'); if(c.length) LISTINGS=c; }catch(e){}
+}
+(async function boot(){
+  await loadListings();
+  try{const _fd=document.getElementById('f-date');if(_fd){_fd.min=todayStr();}}catch(e){}
+  try{applyFilters();}catch(e){console.error('applyFilters init error:',e);}
+  try{injectListingsJsonLd();}catch(e){}
+  initFromFirestore();
+})();
 
 // Hard fallback: if grid is still empty after 500ms, render first 16 directly
 setTimeout(function(){
