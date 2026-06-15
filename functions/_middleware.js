@@ -6,6 +6,12 @@
 export async function onRequest(context) {
   const { request, next, env } = context;
   const url = new URL(request.url);
+
+  // Only handle requests for the root HTML page — skip all static assets
+  // (JSON, images, JS, CSS) so fetch('/data/listings.json') gets real JSON.
+  const pathname = url.pathname;
+  if (pathname !== '/' && pathname !== '/index.html') return next();
+
   const eventId = url.searchParams.get('event');
 
   // Main page (no ?event=): inject a server-rendered event list so non-JS
@@ -20,7 +26,7 @@ export async function onRequest(context) {
       let html = await indexResp.text();
 
       const items = listings.map(l => {
-        const evUrl = `https://www.theknoxpulse.com/?event=${l.id}`;
+        const evUrl = `https://www.theknoxpulse.com/?event=${esc(l.id)}`;
         return `<li><a href="${evUrl}"><strong>${esc(l.title)}</strong></a> — ${esc(l.category)}` +
           (l.neighborhood ? ` · ${esc(l.neighborhood)}` : '') +
           (l.location ? ` · ${esc(l.location)}` : '') +

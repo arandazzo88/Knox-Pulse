@@ -1,0 +1,45 @@
+name: Weekly Event Crawler
+
+on:
+  schedule:
+    - cron: '0 20 * * 3'  # Wednesday 3pm ET (20:00 UTC)
+  workflow_dispatch:        # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install playwright requests beautifulsoup4 lxml
+          playwright install chromium --with-deps
+
+      - name: Run crawler
+        env:
+          TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
+        run: python3 crawler/crawl.py
+
+      - name: Commit updated listings
+        run: |
+          git config user.name "knox-pulse-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet -- data/listings.json; then
+            echo "No new events — nothing to commit."
+          else
+            git add data/listings.json
+            git commit -m "Weekly crawl: merge new events into listings.json"
+            git push
+          fi

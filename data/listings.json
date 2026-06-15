@@ -43,7 +43,7 @@
     "neighborhood": "UT Area",
     "lat": 35.9551,
     "lng": -83.9253,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Neyland_Stadium_2010.JPG/800px-Neyland_Stadium_2010.JPG"
+    "image": "https://images.unsplash.com/photo-1623953695613-2849a9cbd9b3?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "vols-basketball",
@@ -91,7 +91,7 @@
     "neighborhood": "UT Area",
     "lat": 35.9507,
     "lng": -83.9377,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Neyland_Stadium_2010.JPG/800px-Neyland_Stadium_2010.JPG"
+    "image": "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "women-basketball",
@@ -139,7 +139,7 @@
     "neighborhood": "UT Area",
     "lat": 35.9507,
     "lng": -83.9377,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Neyland_Stadium_2010.JPG/800px-Neyland_Stadium_2010.JPG"
+    "image": "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "smokies-baseball",
@@ -197,7 +197,7 @@
     "website": "https://www.milb.com/knoxville",
     "phone": "(865) 286-2300",
     "instagram": "smokiesbaseball",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/First_Tennessee_Park%2C_May_5%2C_2015_-_4.JPG/800px-First_Tennessee_Park%2C_May_5%2C_2015_-_4.JPG"
+    "image": "https://www.mlbstatic.com/team-logos/share/553.jpg"
   },
   {
     "id": "ice-bears",
@@ -246,7 +246,7 @@
     "neighborhood": "Downtown",
     "lat": 35.9652,
     "lng": -83.906,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Knoxville_Civic_Coliseum.jpg/800px-Knoxville_Civic_Coliseum.jpg"
+    "image": "https://images.unsplash.com/photo-1545471977-94cac22e71ed?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "wdvx",
@@ -297,7 +297,7 @@
     "phone": "(865) 544-1029",
     "instagram": "wdvx",
     "email": "info@wdvx.com",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "tennessee-theatre",
@@ -338,7 +338,7 @@
     "website": "https://www.tennesseetheatre.com",
     "phone": "(865) 684-1200",
     "instagram": "tntheatre",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Tennessee-theatre-entrance-knoxville-tn1.jpg/800px-Tennessee-theatre-entrance-knoxville-tn1.jpg"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.tennesseetheatre.com%2Fassets%2Fimg%2FTT-interior-1-a27a48698d.png&w=800&q=80"
   },
   {
     "id": "bijou-theatre",
@@ -381,7 +381,7 @@
     "phone": "(865) 522-0832",
     "instagram": "bijoutheatre",
     "email": "info@knoxbijou.org",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fknoxbijou.org%2Fwp-content%2Fuploads%2FCoraWagoner_tntheatre_BE2019-1-scaled.jpg&w=800&q=80"
   },
   {
     "id": "mill-and-mine",
@@ -422,7 +422,7 @@
     "website": "https://themillandmine.com",
     "phone": "(865) 343-6000",
     "instagram": "themillandmine",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fthemillandmine.com%2Fwp-content%2Fuploads%2FJaar.slider.jpg&w=800&q=80"
   },
   {
     "id": "barleys-taproom",
@@ -471,7 +471,7 @@
     "website": "https://barleysknoxville.com",
     "phone": "(865) 521-0092",
     "instagram": "barleysknoxville",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1584225064536-d0fbc0a10f18?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "market-sq",
@@ -513,7 +513,7 @@
     "website": "https://www.nourishknoxville.org",
     "phone": "(865) 805-8687",
     "instagram": "nourishmarkets",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1526399743290-f73cb4022f48?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "marble-city-market",
@@ -554,7 +554,7 @@
     "venueName": "Marble City Market",
     "website": "https://www.marblecitymarket.com",
     "instagram": "marblecitymarket",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1581414211938-e772a180c7ab?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "ijams",
@@ -596,7 +596,7 @@
     "website": "https://www.ijams.org",
     "phone": "(865) 577-4717",
     "instagram": "ijamsnaturecenter",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG/800px-Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg&w=800&q=80"
   },
   {
     "id": "tennessee-riverwalk",
@@ -634,7 +634,7 @@
     "neighborhood": "Downtown",
     "lat": 35.957,
     "lng": -83.927,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG/800px-Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG"
+    "image": "https://images.unsplash.com/photo-1592859600972-1b0834d83747?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "sunsphere",
@@ -672,7 +672,7 @@
     "lat": 35.9615,
     "lng": -83.9243,
     "venueName": "Sunsphere & World's Fair Park",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sunsphere_Knoxville.jpg/800px-Sunsphere_Knoxville.jpg"
+    "image": "https://images.unsplash.com/photo-1627918563419-121d60046176?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "art-walk",
@@ -709,7 +709,7 @@
     "neighborhood": "Downtown",
     "lat": 35.9655,
     "lng": -83.918,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1606819717115-9159c900370b?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "knoxville-museum-art",
@@ -749,7 +749,7 @@
     "website": "https://knoxart.org",
     "phone": "(865) 525-6101",
     "instagram": "knoxvillemuseumofart",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sunsphere_Knoxville.jpg/800px-Sunsphere_Knoxville.jpg"
+    "image": "https://images.unsplash.com/photo-1606819717115-9159c900370b?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "east-tn-history",
@@ -789,7 +789,7 @@
     "lat": 35.9631,
     "lng": -83.9193,
     "venueName": "East Tennessee History Center",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Tennessee-theatre-entrance-knoxville-tn1.jpg/800px-Tennessee-theatre-entrance-knoxville-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1611473406915-ec8e0ac090e9?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "zoo-knoxville",
@@ -831,7 +831,7 @@
     "venueName": "Zoo Knoxville",
     "website": "https://www.zooknoxville.org",
     "instagram": "zooknoxville",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sunsphere_Knoxville.jpg/800px-Sunsphere_Knoxville.jpg"
+    "image": "https://images.unsplash.com/photo-1656899367728-cf0194bf3aeb?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "big-ears",
@@ -873,7 +873,7 @@
     "lng": -83.9186,
     "website": "https://bigearsfestival.org",
     "instagram": "bigearsfestival",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Tennessee-theatre-entrance-knoxville-tn1.jpg/800px-Tennessee-theatre-entrance-knoxville-tn1.jpg"
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fbigearsfestival.org%2Fwp-content%2Fuploads%2F2026%2F04%2F69caafa140ec7.image_.jpg&w=800&q=80"
   },
   {
     "id": "dogwood-arts",
@@ -911,7 +911,7 @@
     "neighborhood": "World's Fair Park",
     "lat": 35.9615,
     "lng": -83.9243,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sunsphere_Knoxville.jpg/800px-Sunsphere_Knoxville.jpg"
+    "image": "https://images.unsplash.com/photo-1561577862-49a301dda61b?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "tennessee-valley-fair",
@@ -956,7 +956,7 @@
     "neighborhood": "East Knoxville",
     "lat": 35.9793,
     "lng": -83.8843,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sunsphere_Knoxville.jpg/800px-Sunsphere_Knoxville.jpg"
+    "image": "https://images.unsplash.com/photo-1561577862-49a301dda61b?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "knox-pride",
@@ -995,7 +995,7 @@
     "neighborhood": "World's Fair Park",
     "lat": 35.9615,
     "lng": -83.9243,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sunsphere_Knoxville.jpg/800px-Sunsphere_Knoxville.jpg"
+    "image": "https://images.unsplash.com/photo-1561577862-49a301dda61b?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "knoxville-marathon",
@@ -1033,7 +1033,7 @@
     "neighborhood": "Downtown",
     "lat": 35.9615,
     "lng": -83.9243,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "summer-concerts",
@@ -1075,7 +1075,7 @@
     "neighborhood": "Market Square",
     "lat": 35.966,
     "lng": -83.9185,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "cotton-eyed-joe",
@@ -1121,7 +1121,7 @@
     "website": "https://www.cottoneyedjoe.com",
     "instagram": "cottoneyedjoeknoxvilletn",
     "email": "info@cottoneyedjoe.com",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "pilot-light",
@@ -1167,7 +1167,7 @@
     "website": "https://thepilotlight.com",
     "phone": "(865) 524-8188",
     "instagram": "pilotlightknox",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "saluto",
@@ -1213,7 +1213,7 @@
     "lat": 35.9656,
     "lng": -83.9182,
     "venueName": "Preservation Pub",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1597241693839-07d7fb803af1?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "clingmans",
@@ -1249,7 +1249,7 @@
     "neighborhood": "Smoky Mountains",
     "lat": 35.5629,
     "lng": -83.4985,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Clingmans_Dome_from_Andrews_Bald.jpg/800px-Clingmans_Dome_from_Andrews_Bald.jpg"
+    "image": "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "silent-disco",
@@ -1287,19 +1287,19 @@
     "lat": 35.9656,
     "lng": -83.9182,
     "venueName": "Preservation Pub",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "honky-tonk-thursday",
     "title": "Honky Tonk Thursday",
     "category": "Dancing",
-    "location": "900 N Central St, Knoxville",
-    "description": "$5 cover, cheap beer, and two-step lessons starting at 9pm every Thursday. The real country scene in North Knox — no tourists, just locals.",
+    "location": "200 E Jackson Ave, Knoxville, TN 37915",
+    "description": "Begins at 7pm with beginner two-step lessons, then social dancing with live bands. Free to attend.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 2,
-    "ageRestrictions": "21+",
+    "ageRestrictions": "All ages",
     "timeOfDay": "Evening",
-    "costScale": "$",
+    "costScale": "Free",
     "season": "Year-round",
     "underground": false,
     "emoji": "🪗",
@@ -1313,8 +1313,8 @@
     "daysOfWeek": [
       4
     ],
-    "startTime": "21:00",
-    "price": "$5 cover",
+    "startTime": "19:00",
+    "price": "Free",
     "tags": [
       "country",
       "two-step",
@@ -1323,11 +1323,11 @@
       "honky tonk",
       "local"
     ],
-    "neighborhood": "North Knoxville",
-    "lat": 35.9839,
-    "lng": -83.9367,
-    "venueName": "The International",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "neighborhood": "Old City",
+    "lat": 35.9678,
+    "lng": -83.9132,
+    "venueName": "Barley's Taproom",
+    "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "jazz-bistro",
@@ -1365,7 +1365,7 @@
     "neighborhood": "Old City",
     "lat": 35.9683,
     "lng": -83.919,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "rave-old-city",
@@ -1398,7 +1398,7 @@
     "neighborhood": "Old City",
     "lat": 35.967,
     "lng": -83.915,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "rooftop-yoga",
@@ -1437,7 +1437,7 @@
     "neighborhood": "Downtown",
     "lat": 35.9649,
     "lng": -83.9196,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "bluegrass-jam",
@@ -1475,7 +1475,7 @@
     "neighborhood": "South Knoxville",
     "lat": 35.9497,
     "lng": -83.9105,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG/800px-Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG"
+    "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "roller-derby",
@@ -1512,7 +1512,7 @@
     "neighborhood": "North Knoxville",
     "lat": 35.985,
     "lng": -83.97,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Knoxville_Civic_Coliseum.jpg/800px-Knoxville_Civic_Coliseum.jpg"
+    "image": "https://images.unsplash.com/photo-1622640338505-2ad7465bda17?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "drum-circle",
@@ -1555,7 +1555,7 @@
     "neighborhood": "Sequoyah Hills",
     "lat": 35.9585,
     "lng": -83.9583,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG/800px-Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG"
+    "image": "https://images.unsplash.com/photo-1561577862-49a301dda61b?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "midnight-ramble",
@@ -1600,7 +1600,7 @@
     "neighborhood": "Market Square",
     "lat": 35.966,
     "lng": -83.9185,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "secret-cinema",
@@ -1637,7 +1637,7 @@
     "neighborhood": "Old City",
     "lat": 35.967,
     "lng": -83.9155,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "knox-box-karaoke",
@@ -1687,7 +1687,7 @@
     "lat": 35.9599,
     "lng": -83.9193,
     "venueName": "Knox Box Karaoke",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Tennessee-theatre-entrance-knoxville-tn1.jpg/800px-Tennessee-theatre-entrance-knoxville-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "scruffy-city-comedy",
@@ -1728,7 +1728,7 @@
     "lat": 35.966,
     "lng": -83.9185,
     "venueName": "Scruffy City Hall",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1611956425642-d5a8169abd63?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "jazz-tuesdays-sq",
@@ -1773,7 +1773,7 @@
     "neighborhood": "Market Square",
     "lat": 35.966,
     "lng": -83.9185,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "illusions-drag-brunch",
@@ -1813,7 +1813,7 @@
     "lat": 35.966,
     "lng": -83.9188,
     "venueName": "Illusions The Drag Brunch",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1592507174151-8090d404e633?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "boyds-open-mic",
@@ -1854,7 +1854,7 @@
     "lat": 35.9671,
     "lng": -83.9143,
     "venueName": "Boyd's Jig & Reel",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "pour-taproom-trivia",
@@ -1895,7 +1895,7 @@
     "lat": 35.9671,
     "lng": -83.9142,
     "venueName": "Pour Taproom",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1655548872174-6d2316dac41e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "barrelhouse-open-mic",
@@ -1935,7 +1935,7 @@
     "lat": 35.9712,
     "lng": -83.9158,
     "venueName": "Barrelhouse by Gypsy Circus",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "barrelhouse-trivia",
@@ -1974,7 +1974,7 @@
     "lat": 35.9712,
     "lng": -83.9158,
     "venueName": "Barrelhouse by Gypsy Circus",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1655548872174-6d2316dac41e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "the-hill-trivia",
@@ -2014,7 +2014,7 @@
     "lat": 35.9601,
     "lng": -83.9352,
     "venueName": "The Hill Bar & Grill",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1655548872174-6d2316dac41e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "cool-beans-trivia",
@@ -2054,7 +2054,7 @@
     "lat": 35.96,
     "lng": -83.9385,
     "venueName": "Cool Beans Bar & Grill",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1655548872174-6d2316dac41e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "mellow-mushroom-trivia",
@@ -2094,7 +2094,7 @@
     "lat": 35.9571,
     "lng": -83.9468,
     "venueName": "Mellow Mushroom",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1655548872174-6d2316dac41e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "club-xyz-drag",
@@ -2134,7 +2134,7 @@
     "lat": 35.9839,
     "lng": -83.9375,
     "venueName": "Club XYZ",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1592507174151-8090d404e633?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "central-flats-trivia",
@@ -2173,7 +2173,7 @@
     "lat": 35.9837,
     "lng": -83.9372,
     "venueName": "Central Flats & Taps",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1655548872174-6d2316dac41e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "ale-raes-gastropub",
@@ -2216,7 +2216,7 @@
     "lat": 35.9925,
     "lng": -83.9318,
     "venueName": "Ale'Rae's GastroPub",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1655548872174-6d2316dac41e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "yeehaw-movie-night",
@@ -2258,7 +2258,7 @@
     "lat": 35.99,
     "lng": -83.932,
     "venueName": "Yee-Haw Brewing Co.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "fountain-city-social",
@@ -2305,7 +2305,7 @@
     "lat": 36.0385,
     "lng": -83.9285,
     "venueName": "Fountain City Social",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1655548872174-6d2316dac41e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "sevier-burger-trivia",
@@ -2345,7 +2345,7 @@
     "lat": 35.9508,
     "lng": -83.9057,
     "venueName": "Sevier Ave Burger Co.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG/800px-Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG"
+    "image": "https://images.unsplash.com/photo-1655548872174-6d2316dac41e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "sokno-taco-singo",
@@ -2388,7 +2388,7 @@
     "lat": 35.9198,
     "lng": -83.8852,
     "venueName": "SoKno Taco Cantina",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG/800px-Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG"
+    "image": "https://images.unsplash.com/photo-1655548872174-6d2316dac41e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "hiwire-trivia",
@@ -2428,7 +2428,7 @@
     "lat": 35.9476,
     "lng": -83.9098,
     "venueName": "Hi-Wire Brewing",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG/800px-Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG"
+    "image": "https://images.unsplash.com/photo-1655548872174-6d2316dac41e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "pink-cactus-karaoke",
@@ -2476,7 +2476,7 @@
     "lat": 35.951,
     "lng": -83.9063,
     "venueName": "The Pink Cactus",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "abridged-beer-trivia",
@@ -2515,7 +2515,7 @@
     "lat": 35.952,
     "lng": -83.99,
     "venueName": "Abridged Beer Company",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1655548872174-6d2316dac41e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "bullfeathers-karaoke",
@@ -2563,7 +2563,7 @@
     "lat": 35.933,
     "lng": -84.0455,
     "venueName": "Bullfeathers Karaoke Cafe",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "core-knoxville",
@@ -2610,7 +2610,7 @@
     "lat": 35.9373,
     "lng": -84.013,
     "venueName": "CORE Knoxville",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1592507174151-8090d404e633?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "35-north-singo",
@@ -2650,7 +2650,7 @@
     "lat": 35.9193,
     "lng": -84.1355,
     "venueName": "35 North Bar & Grill",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1655548872174-6d2316dac41e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "xul-beer-trivia",
@@ -2690,7 +2690,7 @@
     "lat": 35.9595,
     "lng": -84.1093,
     "venueName": "XUL Beer Company",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1655548872174-6d2316dac41e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "tennessee-tap-house",
@@ -2733,7 +2733,7 @@
     "lat": 35.9245,
     "lng": -84.068,
     "venueName": "Tennessee Tap House",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1655548872174-6d2316dac41e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "stock-barrel-comedy",
@@ -2772,7 +2772,7 @@
     "lat": 35.9655,
     "lng": -83.9183,
     "venueName": "Stock & Barrel",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1611956425642-d5a8169abd63?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "preservation-pub-comedy",
@@ -2812,7 +2812,7 @@
     "lat": 35.9658,
     "lng": -83.9185,
     "venueName": "Preservation Pub",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1611956425642-d5a8169abd63?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "pilot-light-comedy",
@@ -2852,7 +2852,7 @@
     "lat": 35.9671,
     "lng": -83.9143,
     "venueName": "The Pilot Light",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1611956425642-d5a8169abd63?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "fleet-feet-run-club",
@@ -2893,7 +2893,7 @@
     "lat": 35.9629,
     "lng": -83.9188,
     "venueName": "Fleet Feet Knoxville",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "climb-knx",
@@ -2933,7 +2933,7 @@
     "lat": 35.9462,
     "lng": -84.0005,
     "venueName": "Climb KNX",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/House-mountain-outcrop-tn1.jpg/800px-House-mountain-outcrop-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1564769662533-4f00a87b4056?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "inner-light-yoga",
@@ -2974,7 +2974,7 @@
     "lat": 35.952,
     "lng": -83.9945,
     "venueName": "Inner Light Yoga",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/House-mountain-outcrop-tn1.jpg/800px-House-mountain-outcrop-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "knoxville-track-club",
@@ -3013,7 +3013,7 @@
     "neighborhood": "World's Fair Park",
     "lat": 35.9615,
     "lng": -83.9243,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sunsphere_Knoxville.jpg/800px-Sunsphere_Knoxville.jpg"
+    "image": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "old-city-ghost-tours",
@@ -3056,7 +3056,7 @@
     "neighborhood": "Old City",
     "lat": 35.967,
     "lng": -83.915,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1507697364665-69eec30ea71e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "schulz-brau-brewery-tour",
@@ -3096,7 +3096,7 @@
     "lat": 35.9665,
     "lng": -83.913,
     "venueName": "Schulz Bräu Brewing Co.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1584225064536-d0fbc0a10f18?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "marble-springs-tours",
@@ -3147,7 +3147,7 @@
     "lat": 35.952,
     "lng": -83.881,
     "venueName": "Marble Springs Historic Site",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1611473406915-ec8e0ac090e9?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "volunteer-landing-kayak",
@@ -3184,7 +3184,7 @@
     "lat": 35.957,
     "lng": -83.9271,
     "venueName": "Volunteer Landing Marina",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG/800px-Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG"
+    "image": "https://images.unsplash.com/photo-1721239571860-4f73b7e35551?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "tennessee-theatre-film",
@@ -3225,7 +3225,7 @@
     "lat": 35.9635,
     "lng": -83.9187,
     "venueName": "Tennessee Theatre",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Tennessee-theatre-entrance-knoxville-tn1.jpg/800px-Tennessee-theatre-entrance-knoxville-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "market-sq-summer-movies",
@@ -3269,7 +3269,7 @@
     "neighborhood": "Market Square",
     "lat": 35.966,
     "lng": -83.9185,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "kma-film-series",
@@ -3309,7 +3309,7 @@
     "lat": 35.9622,
     "lng": -83.9248,
     "venueName": "Knoxville Museum of Art",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sunsphere_Knoxville.jpg/800px-Sunsphere_Knoxville.jpg"
+    "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "old-city-farmers-market",
@@ -3359,7 +3359,7 @@
     "neighborhood": "Old City",
     "lat": 35.9671,
     "lng": -83.9148,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1526399743290-f73cb4022f48?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "bearden-village-market",
@@ -3406,7 +3406,7 @@
     "neighborhood": "Bearden",
     "lat": 35.9527,
     "lng": -83.9927,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1526399743290-f73cb4022f48?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "second-saturday-art-market",
@@ -3445,7 +3445,7 @@
     "neighborhood": "Old City",
     "lat": 35.9669,
     "lng": -83.9145,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1606819717115-9159c900370b?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "knox-makers-open-house",
@@ -3486,7 +3486,7 @@
     "lat": 35.9567,
     "lng": -84.0095,
     "venueName": "Knox Makers",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1576344671421-374280113976?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "keep-knoxville-beautiful",
@@ -3524,7 +3524,7 @@
     "neighborhood": "Downtown",
     "lat": 35.9606,
     "lng": -83.9205,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG/800px-Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG"
+    "image": "https://images.unsplash.com/photo-1565803974275-dccd2f933cbb?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "knoxville-young-professionals",
@@ -3562,7 +3562,7 @@
     "neighborhood": "Downtown",
     "lat": 35.9649,
     "lng": -83.9186,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "knoxville-swing-dance",
@@ -3601,7 +3601,7 @@
     "neighborhood": "Rotating",
     "lat": 35.9606,
     "lng": -83.9207,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "salty-dog-karaoke",
@@ -3646,7 +3646,7 @@
     "lat": 35.9448,
     "lng": -83.9003,
     "venueName": "The Salty Dog Saloon",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG/800px-Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG"
+    "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "house-mountain",
@@ -3685,7 +3685,7 @@
     "neighborhood": "Corryton",
     "lat": 36.1107,
     "lng": -83.806,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/House-mountain-outcrop-tn1.jpg/800px-House-mountain-outcrop-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "rossini-festival",
@@ -3724,7 +3724,7 @@
     "neighborhood": "Market Square",
     "lat": 35.9656,
     "lng": -83.9182,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1561577862-49a301dda61b?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "emporium-center",
@@ -3762,7 +3762,7 @@
     "lat": 35.9635,
     "lng": -83.9193,
     "venueName": "Emporium Center for Arts & Culture",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Tennessee-theatre-entrance-knoxville-tn1.jpg/800px-Tennessee-theatre-entrance-knoxville-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1606819717115-9159c900370b?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "muse-knoxville",
@@ -3806,7 +3806,7 @@
     "phone": "(865) 594-1494",
     "instagram": "museknox",
     "email": "info@themuseknoxville.org",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sunsphere_Knoxville.jpg/800px-Sunsphere_Knoxville.jpg"
+    "image": "https://images.unsplash.com/photo-1588444543009-7db73c43514e?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "barrelhouse-bottomless",
@@ -3855,7 +3855,7 @@
     "website": "https://gypsycircuscider.com",
     "phone": "(865) 424-7753",
     "instagram": "barrelhouseknoxville",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1556063230-aa38680c8142?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "mimosas-knoxville",
@@ -3898,7 +3898,7 @@
     "lat": 35.949,
     "lng": -83.9052,
     "venueName": "Mimosas",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG/800px-Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG"
+    "image": "https://images.unsplash.com/photo-1556063230-aa38680c8142?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "chesapeakes-sunday-brunch",
@@ -3942,7 +3942,7 @@
     "website": "https://chesapeakes.com",
     "phone": "(865) 851-9088",
     "instagram": "chesapeakes",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Knoxville_TN_skyline.jpg/800px-Knoxville_TN_skyline.jpg"
+    "image": "https://images.unsplash.com/photo-1556063230-aa38680c8142?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "trailhead-happy-hour",
@@ -3986,7 +3986,7 @@
     "venueName": "Trailhead Beer Market",
     "phone": "(865) 409-4058",
     "instagram": "trailheadbeer",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG/800px-Mead%27s_Quarry_at_Ijams_Nature_Center_from_Tharp_Trace.JPG"
+    "image": "https://images.unsplash.com/photo-1584225064536-d0fbc0a10f18?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "fin-two-happy-hour",
@@ -4038,7 +4038,7 @@
     "website": "https://fin-two.com",
     "phone": "(865) 437-3105",
     "instagram": "fintwoknox",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1581414211938-e772a180c7ab?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "tupelo-honey-happy-hour",
@@ -4089,7 +4089,7 @@
     "venueName": "Tupelo Honey",
     "website": "https://www.tupelohoneycafe.com/restaurant/knoxville/",
     "phone": "(865) 522-0004",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1597241693839-07d7fb803af1?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "balter-happy-hour",
@@ -4143,7 +4143,7 @@
     "website": "https://www.balterbeerworks.com",
     "phone": "(865) 999-5015",
     "instagram": "balterbeerworks",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bijou-theater-lamar-house-tn1.jpg/800px-Bijou-theater-lamar-house-tn1.jpg"
+    "image": "https://images.unsplash.com/photo-1584225064536-d0fbc0a10f18?auto=format&fit=crop&w=1200&h=800&q=80"
   },
   {
     "id": "marble-city-happy-hour",
@@ -4193,6 +4193,3942 @@
     "venueName": "Marble City Market",
     "website": "https://www.marblecitymarket.com",
     "instagram": "marblecitymarket",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Market_Square_SA2.JPG/800px-Market_Square_SA2.JPG"
+    "image": "https://images.unsplash.com/photo-1597241693839-07d7fb803af1?auto=format&fit=crop&w=1200&h=800&q=80"
+  },
+  {
+    "id": "conor-churchill-2026-06-16-barley-s-taproom-pizzeria",
+    "title": "Conor Churchill",
+    "category": "Live Music",
+    "location": "200 East Jackson Avenue, Knoxville, TN 37915",
+    "venueName": "Barley's Taproom & Pizzeria",
+    "description": "Live music at Barley's Taproom & Pizzeria in the Old City. Conor Churchill performs at 9:00pm. 21+ after 9pm.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "21+",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-06-16",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      2
+    ],
+    "startTime": "21:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "old city"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9686,
+    "lng": -83.9165,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fbarleysknoxville.com%2Fwp-content%2Fuploads%2F2026%2F05%2FIMG_1203.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 521-0092",
+    "website": "https://barleysknoxville.com/events/",
+    "email": "",
+    "instagram": "barleysknoxville"
+  },
+  {
+    "id": "the-collins-brothers-band-2026-06-19-barley-s-taproom-pizzeria",
+    "title": "The Collins Brothers Band",
+    "category": "Live Music",
+    "location": "200 East Jackson Avenue, Knoxville, TN 37915",
+    "venueName": "Barley's Taproom & Pizzeria",
+    "description": "Live music at Barley's Taproom & Pizzeria in the Old City. The Collins Brothers Band performs at 10:00pm. 21+ after 9pm.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "21+",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-06-19",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "22:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "old city"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9686,
+    "lng": -83.9165,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fbarleysknoxville.com%2Fwp-content%2Fuploads%2F2026%2F06%2FWhoa11.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 521-0092",
+    "website": "https://barleysknoxville.com/events/",
+    "email": "",
+    "instagram": "barleysknoxville"
+  },
+  {
+    "id": "sammy-t-and-the-sunny-d-2026-06-20-barley-s-taproom-pizzeria",
+    "title": "Sammy T and the Sunny D",
+    "category": "Live Music",
+    "location": "200 East Jackson Avenue, Knoxville, TN 37915",
+    "venueName": "Barley's Taproom & Pizzeria",
+    "description": "Live music at Barley's Taproom & Pizzeria in the Old City. Sammy T and the Sunny D performs at 10:00pm. 21+ after 9pm.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "21+",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-06-20",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "22:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "old city"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9686,
+    "lng": -83.9165,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fbarleysknoxville.com%2Fwp-content%2Fuploads%2F2026%2F05%2FSammy-T-rotated.jpeg",
+    "strollerFriendly": false,
+    "phone": "(865) 521-0092",
+    "website": "https://barleysknoxville.com/events/",
+    "email": "",
+    "instagram": "barleysknoxville"
+  },
+  {
+    "id": "maddy-bo-2026-06-27-barley-s-taproom-pizzeria",
+    "title": "Maddy & Bo",
+    "category": "Live Music",
+    "location": "200 East Jackson Avenue, Knoxville, TN 37915",
+    "venueName": "Barley's Taproom & Pizzeria",
+    "description": "Live music at Barley's Taproom & Pizzeria in the Old City. Maddy & Bo performs at 9:00pm. 21+ after 9pm.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "21+",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-06-27",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "21:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "old city"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9686,
+    "lng": -83.9165,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fbarleysknoxville.com%2Fwp-content%2Fuploads%2F2026%2F06%2Fimage2.png",
+    "strollerFriendly": false,
+    "phone": "(865) 521-0092",
+    "website": "https://barleysknoxville.com/events/",
+    "email": "",
+    "instagram": "barleysknoxville"
+  },
+  {
+    "id": "rattletraps-and-highway-61-2026-06-29-barley-s-taproom-pizzeria",
+    "title": "Rattletraps and Highway 61",
+    "category": "Live Music",
+    "location": "200 East Jackson Avenue, Knoxville, TN 37915",
+    "venueName": "Barley's Taproom & Pizzeria",
+    "description": "Live music at Barley's Taproom & Pizzeria in the Old City. Rattletraps and Highway 61 performs at 9:00pm. 21+ after 9pm.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "21+",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-06-29",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      1
+    ],
+    "startTime": "21:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "old city"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9686,
+    "lng": -83.9165,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fbarleysknoxville.com%2Fwp-content%2Fuploads%2F2026%2F05%2FRattletraps.png",
+    "strollerFriendly": false,
+    "phone": "(865) 521-0092",
+    "website": "https://barleysknoxville.com/events/",
+    "email": "",
+    "instagram": "barleysknoxville"
+  },
+  {
+    "id": "galentines-2026-07-03-barley-s-taproom-pizzeria",
+    "title": "Galentines",
+    "category": "Live Music",
+    "location": "200 East Jackson Avenue, Knoxville, TN 37915",
+    "venueName": "Barley's Taproom & Pizzeria",
+    "description": "Live music at Barley's Taproom & Pizzeria in the Old City. Galentines performs at 10:00pm. 21+ after 9pm.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "21+",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-07-03",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "22:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "old city"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9686,
+    "lng": -83.9165,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fbarleysknoxville.com%2Fwp-content%2Fuploads%2F2026%2F05%2FGalentines-Day.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 521-0092",
+    "website": "https://barleysknoxville.com/events/",
+    "email": "",
+    "instagram": "barleysknoxville"
+  },
+  {
+    "id": "sage-council-2026-07-10-barley-s-taproom-pizzeria",
+    "title": "Sage Council",
+    "category": "Live Music",
+    "location": "200 East Jackson Avenue, Knoxville, TN 37915",
+    "venueName": "Barley's Taproom & Pizzeria",
+    "description": "Live music at Barley's Taproom & Pizzeria in the Old City. Sage Council performs at 10:00pm. 21+ after 9pm.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "21+",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-07-10",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "22:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "old city"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9686,
+    "lng": -83.9165,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fbarleysknoxville.com%2Fwp-content%2Fuploads%2F2026%2F06%2FSage-Council-2-scaled.jpeg",
+    "strollerFriendly": false,
+    "phone": "(865) 521-0092",
+    "website": "https://barleysknoxville.com/events/",
+    "email": "",
+    "instagram": "barleysknoxville"
+  },
+  {
+    "id": "slumbering-sun-2026-07-12-barley-s-taproom-pizzeria",
+    "title": "Slumbering Sun",
+    "category": "Live Music",
+    "location": "200 East Jackson Avenue, Knoxville, TN 37915",
+    "venueName": "Barley's Taproom & Pizzeria",
+    "description": "Live music at Barley's Taproom & Pizzeria in the Old City. Slumbering Sun performs at 10:00pm. 21+ after 9pm.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "21+",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-07-12",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "22:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "old city"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9686,
+    "lng": -83.9165,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fbarleysknoxville.com%2Fwp-content%2Fuploads%2F2026%2F05%2FSlumbering-Sun-photo-17-1-1024x683-1.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 521-0092",
+    "website": "https://barleysknoxville.com/events/",
+    "email": "",
+    "instagram": "barleysknoxville"
+  },
+  {
+    "id": "summer-movie-magic-the-wizard-of-oz-2026-06-14-tennessee-theatre",
+    "title": "Summer Movie Magic: The Wizard of Oz",
+    "category": "Film & Cinema",
+    "location": "604 South Gay Street, Knoxville, TN 37902",
+    "venueName": "Tennessee Theatre",
+    "description": "Classic film on the big screen, presented by FirstBank.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-06-14",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "14:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "film",
+      "family"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9627,
+    "lng": -83.9193,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.tennesseetheatre.com%2Fassets%2Fimg%2FTT_SMM26_Website_TM_01_The-Wizard-of-Oz-2360d8e9bf.png",
+    "strollerFriendly": false,
+    "phone": "(865) 684-1200",
+    "website": "https://www.tennesseetheatre.com/events/detail/summer-movie-magic-the-wizard-of-oz",
+    "email": "",
+    "instagram": "tntheatre"
+  },
+  {
+    "id": "summer-movie-magic-spaceballs-2026-06-14-tennessee-theatre",
+    "title": "Summer Movie Magic: Spaceballs",
+    "category": "Film & Cinema",
+    "location": "604 South Gay Street, Knoxville, TN 37902",
+    "venueName": "Tennessee Theatre",
+    "description": "Mel Brooks classic on the big screen, presented by FirstBank.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-06-14",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "18:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "film"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9627,
+    "lng": -83.9193,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.tennesseetheatre.com%2Fassets%2Fimg%2FTT_SMM26_Website_TM_02_Spaceballs-ae7cb17ead.png",
+    "strollerFriendly": false,
+    "phone": "(865) 684-1200",
+    "website": "https://www.tennesseetheatre.com/events/detail/summer-movie-magic-spaceballs",
+    "email": "",
+    "instagram": "tntheatre"
+  },
+  {
+    "id": "make-music-knoxville-2026-06-21-tennessee-theatre",
+    "title": "Make Music Knoxville",
+    "category": "Festivals & Events",
+    "location": "604 South Gay Street, Knoxville, TN 37902",
+    "venueName": "Tennessee Theatre",
+    "description": "Free city-wide celebration of music presented by the Arts & Culture Alliance.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "Free",
+    "price": "Free",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-06-21",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "free",
+      "music",
+      "festival"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9627,
+    "lng": -83.9193,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.tennesseetheatre.com%2Fassets%2Fimg%2FMMK_website-1200x675-641dce7e95.png",
+    "strollerFriendly": false,
+    "phone": "(865) 684-1200",
+    "website": "https://www.tennesseetheatre.com/events",
+    "email": "",
+    "instagram": "tntheatre"
+  },
+  {
+    "id": "2nd-annual-pride-variety-show-2026-06-26-tennessee-theatre",
+    "title": "2nd Annual Pride Variety Show",
+    "category": "Theater & Performance",
+    "location": "604 South Gay Street, Knoxville, TN 37902",
+    "venueName": "Tennessee Theatre",
+    "description": "Free variety show celebrating Pride.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "Free",
+    "price": "Free",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-06-26",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "free",
+      "pride",
+      "theater"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9627,
+    "lng": -83.9193,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.tennesseetheatre.com%2Fassets%2Fimg%2FUntitled-2-98f41ab898.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 684-1200",
+    "website": "https://www.tennesseetheatre.com/events",
+    "email": "",
+    "instagram": "tntheatre"
+  },
+  {
+    "id": "women-s-basketball-hall-of-fame-induction-ceremony-2026-06-27-tennessee-theatre",
+    "title": "Women's Basketball Hall of Fame Induction Ceremony",
+    "category": "Community & Civic",
+    "location": "604 South Gay Street, Knoxville, TN 37902",
+    "venueName": "Tennessee Theatre",
+    "description": "Induction ceremony for the Women's Basketball Hall of Fame.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "$50+",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-06-27",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "17:45",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "sports",
+      "ceremony"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9627,
+    "lng": -83.9193,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fs1.ticketm.net%2Fdam%2Fe%2F2a6%2Fa309d0d7-fab7-4696-8764-cb363c46f2a6_RETINA_PORTRAIT_3_2.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 684-1200",
+    "website": "https://www.tennesseetheatre.com/events",
+    "email": "",
+    "instagram": "tntheatre"
+  },
+  {
+    "id": "mighty-musical-monday-2026-07-06-tennessee-theatre",
+    "title": "Mighty Musical Monday",
+    "category": "Live Music",
+    "location": "604 South Gay Street, Knoxville, TN 37902",
+    "venueName": "Tennessee Theatre",
+    "description": "Free monthly Wurlitzer organ concert presented by Coca-Cola Consolidated.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "Free",
+    "price": "Free",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-07-06",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      1
+    ],
+    "startTime": "12:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "free",
+      "organ",
+      "music"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9627,
+    "lng": -83.9193,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.tennesseetheatre.com%2Fassets%2Fimg%2Ffreddie-2f13a5333c.jpeg",
+    "strollerFriendly": false,
+    "phone": "(865) 684-1200",
+    "website": "https://www.tennesseetheatre.com/events",
+    "email": "",
+    "instagram": "tntheatre"
+  },
+  {
+    "id": "summer-movie-magic-disney-pixar-cars-2026-07-12-tennessee-theatre",
+    "title": "Summer Movie Magic: Disney Pixar Cars",
+    "category": "Film & Cinema",
+    "location": "604 South Gay Street, Knoxville, TN 37902",
+    "venueName": "Tennessee Theatre",
+    "description": "Family film on the big screen, presented by FirstBank.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-07-12",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "14:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "film",
+      "family"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9627,
+    "lng": -83.9193,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.tennesseetheatre.com%2Fassets%2Fimg%2FTT_SMM26_Website_TM_03_Cars-70a449880f.png",
+    "strollerFriendly": false,
+    "phone": "(865) 684-1200",
+    "website": "https://www.tennesseetheatre.com/events/detail/summer-movie-magic-cars",
+    "email": "",
+    "instagram": "tntheatre"
+  },
+  {
+    "id": "summer-movie-magic-independence-day-2026-07-12-tennessee-theatre",
+    "title": "Summer Movie Magic: Independence Day",
+    "category": "Film & Cinema",
+    "location": "604 South Gay Street, Knoxville, TN 37902",
+    "venueName": "Tennessee Theatre",
+    "description": "Blockbuster on the big screen, presented by FirstBank.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-07-12",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "18:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "film"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9627,
+    "lng": -83.9193,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.tennesseetheatre.com%2Fassets%2Fimg%2FTT_SMM26_Website_TM_04_Independence-Day-4a843ebc77.png",
+    "strollerFriendly": false,
+    "phone": "(865) 684-1200",
+    "website": "https://www.tennesseetheatre.com/events/detail/summer-movie-magic-independence-day",
+    "email": "",
+    "instagram": "tntheatre"
+  },
+  {
+    "id": "jason-isbell-solo-tour-2026-07-17-tennessee-theatre",
+    "title": "Jason Isbell Solo Tour",
+    "category": "Live Music",
+    "location": "604 South Gay Street, Knoxville, TN 37902",
+    "venueName": "Tennessee Theatre",
+    "description": "Two-night solo run from Jason Isbell.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-07-17",
+    "eventEndDate": "2026-07-18",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "20:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "concert",
+      "live music"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9627,
+    "lng": -83.9193,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.tennesseetheatre.com%2Fassets%2Fimg%2F25928abf-c58d-427c-9325-c2247e73fae3_TABLET_LANDSCAPE_3_2-6240cb62e7.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 684-1200",
+    "website": "https://www.ticketmaster.com/jason-isbell-knoxville-tennessee-07-17-2026/event/1B006330A5533477",
+    "email": "",
+    "instagram": "tntheatre"
+  },
+  {
+    "id": "an-evening-with-band-of-horses-and-dinosaur-jr-2026-07-20-tennessee-theatre",
+    "title": "An Evening With Band of Horses and Dinosaur Jr.",
+    "category": "Live Music",
+    "location": "604 South Gay Street, Knoxville, TN 37902",
+    "venueName": "Tennessee Theatre",
+    "description": "Co-headlining concert.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-07-20",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      1
+    ],
+    "startTime": "19:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "concert",
+      "live music"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9627,
+    "lng": -83.9193,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fs1.ticketm.net%2Fdam%2Fa%2F492%2F6d94c22c-be24-4391-bb8e-a4cb94e06492_RETINA_PORTRAIT_3_2.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 684-1200",
+    "website": "https://www.tennesseetheatre.com/events",
+    "email": "",
+    "instagram": "tntheatre"
+  },
+  {
+    "id": "juliet-2026-08-04-tennessee-theatre",
+    "title": "& Juliet",
+    "category": "Theater & Performance",
+    "location": "604 South Gay Street, Knoxville, TN 37902",
+    "venueName": "Tennessee Theatre",
+    "description": "Broadway at the Tennessee Theatre.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$$",
+    "price": "$49-$89.50",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-08-04",
+    "eventEndDate": "2026-08-09",
+    "daysOfWeek": [
+      2
+    ],
+    "startTime": "19:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "broadway",
+      "theater"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9627,
+    "lng": -83.9193,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.tennesseetheatre.com%2Fassets%2Fimg%2FFabiola-Caraballo-Quijada-and-the-company-of-the-North-American-Tour-of-JULIET-Photo-Credit-Evan-Zimmerman-for-MurphyMade-2-23aa574aaf.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 684-1200",
+    "website": "https://www.tennesseetheatre.com/events/detail/juliet",
+    "email": "",
+    "instagram": "tntheatre"
+  },
+  {
+    "id": "summer-movie-magic-disney-s-the-parent-trap-2026-08-16-tennessee-theatre",
+    "title": "Summer Movie Magic: Disney's The Parent Trap",
+    "category": "Film & Cinema",
+    "location": "604 South Gay Street, Knoxville, TN 37902",
+    "venueName": "Tennessee Theatre",
+    "description": "Family film on the big screen, presented by FirstBank.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "one-time",
+    "eventDate": "2026-08-16",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "14:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "film",
+      "family"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9627,
+    "lng": -83.9193,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.tennesseetheatre.com%2Fassets%2Fimg%2FTT_SMM26_Website_TM_05_Parent-Trap-52ae6ac1d8.png",
+    "strollerFriendly": false,
+    "phone": "(865) 684-1200",
+    "website": "https://www.tennesseetheatre.com/events/detail/summer-movie-magic-the-parent-trap",
+    "email": "",
+    "instagram": "tntheatre"
+  },
+  {
+    "id": "early-bird-run-club-mon-market-square-stage",
+    "title": "Early Bird Run Club",
+    "category": "Sports & Recreation",
+    "location": "Market Square Stage",
+    "venueName": "Market Square Stage",
+    "description": "2mi/5mi options. Free community group run from Market Square.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Morning",
+    "costScale": "Free",
+    "price": "Free",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "recurring",
+    "eventDate": "",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      1
+    ],
+    "startTime": "06:00",
+    "endTime": "",
+    "recurrenceRule": {
+      "type": "weekly",
+      "days": [
+        1
+      ]
+    },
+    "tags": [
+      "running",
+      "group run",
+      "free",
+      "fitness"
+    ],
+    "neighborhood": "Market Square",
+    "lat": 35.965,
+    "lng": -83.919,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimg1.wsimg.com%2Fisteam%2Fip%2Fb53482b3-611a-42c7-8444-809e72132c7e%2F385004506_729869605845919_7739307517581404333_.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://865running.com/group-runs",
+    "email": "",
+    "instagram": ""
+  },
+  {
+    "id": "shoupandrunclub-mon-kern-s-food-hall",
+    "title": "Shoupandrunclub",
+    "category": "Sports & Recreation",
+    "location": "Kern's Food Hall",
+    "venueName": "Kern's Food Hall",
+    "description": "Free evening group run from Kern's Food Hall.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "Free",
+    "price": "Free",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "recurring",
+    "eventDate": "",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      1
+    ],
+    "startTime": "18:00",
+    "endTime": "",
+    "recurrenceRule": {
+      "type": "weekly",
+      "days": [
+        1
+      ]
+    },
+    "tags": [
+      "running",
+      "group run",
+      "free",
+      "fitness"
+    ],
+    "neighborhood": "South Knoxville",
+    "lat": 35.9492,
+    "lng": -83.9216,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimg1.wsimg.com%2Fisteam%2Fip%2Fb53482b3-611a-42c7-8444-809e72132c7e%2F385004506_729869605845919_7739307517581404333_.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://865running.com/group-runs",
+    "email": "",
+    "instagram": ""
+  },
+  {
+    "id": "old-city-athletic-club-run-wed-barley-s",
+    "title": "Old City Athletic Club Run",
+    "category": "Sports & Recreation",
+    "location": "Barley's",
+    "venueName": "Barley's",
+    "description": "Free weekly run starting at Barley's in the Old City.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "Free",
+    "price": "Free",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "recurring",
+    "eventDate": "",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      3
+    ],
+    "startTime": "18:00",
+    "endTime": "",
+    "recurrenceRule": {
+      "type": "weekly",
+      "days": [
+        3
+      ]
+    },
+    "tags": [
+      "running",
+      "group run",
+      "free",
+      "fitness"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9686,
+    "lng": -83.9165,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimg1.wsimg.com%2Fisteam%2Fip%2Fb53482b3-611a-42c7-8444-809e72132c7e%2F385004506_729869605845919_7739307517581404333_.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://865running.com/group-runs",
+    "email": "",
+    "instagram": ""
+  },
+  {
+    "id": "the-knox-run-club-wed-downtown-knoxville",
+    "title": "The Knox Run Club",
+    "category": "Sports & Recreation",
+    "location": "Downtown Knoxville",
+    "venueName": "Downtown Knoxville",
+    "description": "Free weekly downtown group run.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "Free",
+    "price": "Free",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "recurring",
+    "eventDate": "",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      3
+    ],
+    "startTime": "18:00",
+    "endTime": "",
+    "recurrenceRule": {
+      "type": "weekly",
+      "days": [
+        3
+      ]
+    },
+    "tags": [
+      "running",
+      "group run",
+      "free",
+      "fitness"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9606,
+    "lng": -83.9207,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimg1.wsimg.com%2Fisteam%2Fip%2Fb53482b3-611a-42c7-8444-809e72132c7e%2F385004506_729869605845919_7739307517581404333_.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://865running.com/group-runs",
+    "email": "",
+    "instagram": ""
+  },
+  {
+    "id": "central-flats-and-taps-run-thu-central-flats-and-taps",
+    "title": "Central Flats and Taps Run",
+    "category": "Sports & Recreation",
+    "location": "Central Flats and Taps",
+    "venueName": "Central Flats and Taps",
+    "description": "North Knox Beer Runners. Free craft brew for runners 21+.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "Free",
+    "price": "Free",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "recurring",
+    "eventDate": "",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      4
+    ],
+    "startTime": "18:00",
+    "endTime": "",
+    "recurrenceRule": {
+      "type": "weekly",
+      "days": [
+        4
+      ]
+    },
+    "tags": [
+      "running",
+      "group run",
+      "free",
+      "fitness"
+    ],
+    "neighborhood": "Happy Holler",
+    "lat": 35.9856,
+    "lng": -83.923,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimg1.wsimg.com%2Fisteam%2Fip%2Fb53482b3-611a-42c7-8444-809e72132c7e%2F385004506_729869605845919_7739307517581404333_.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://865running.com/group-runs",
+    "email": "",
+    "instagram": ""
+  },
+  {
+    "id": "third-creek-greenway-parkrun-sat-third-creek-greenway",
+    "title": "Third Creek Greenway parkrun",
+    "category": "Sports & Recreation",
+    "location": "Third Creek Greenway",
+    "venueName": "Third Creek Greenway",
+    "description": "Free timed 5K every Saturday on the Third Creek Greenway.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Morning",
+    "costScale": "Free",
+    "price": "Free",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "recurring",
+    "eventDate": "",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "08:00",
+    "endTime": "",
+    "recurrenceRule": {
+      "type": "weekly",
+      "days": [
+        6
+      ]
+    },
+    "tags": [
+      "running",
+      "group run",
+      "free",
+      "fitness"
+    ],
+    "neighborhood": "Bearden",
+    "lat": 35.943,
+    "lng": -83.962,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimg1.wsimg.com%2Fisteam%2Fip%2Fb53482b3-611a-42c7-8444-809e72132c7e%2F385004506_729869605845919_7739307517581404333_.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://865running.com/group-runs",
+    "email": "",
+    "instagram": ""
+  },
+  {
+    "id": "sunday-coffee-run-sun-eddie-s-health-shoppe-downtown",
+    "title": "Sunday Coffee Run",
+    "category": "Sports & Recreation",
+    "location": "Eddie's Health Shoppe Downtown",
+    "venueName": "Eddie's Health Shoppe Downtown",
+    "description": "Free Sunday morning coffee run downtown.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Morning",
+    "costScale": "Free",
+    "price": "Free",
+    "season": "Year-round",
+    "emoji": "📍",
+    "eventType": "recurring",
+    "eventDate": "",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "07:00",
+    "endTime": "",
+    "recurrenceRule": {
+      "type": "weekly",
+      "days": [
+        0
+      ]
+    },
+    "tags": [
+      "running",
+      "group run",
+      "free",
+      "fitness"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9606,
+    "lng": -83.9207,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fimg1.wsimg.com%2Fisteam%2Fip%2Fb53482b3-611a-42c7-8444-809e72132c7e%2F385004506_729869605845919_7739307517581404333_.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://865running.com/group-runs",
+    "email": "",
+    "instagram": ""
+  },
+  {
+    "id": "tennessee-vols-football-vs-furman-2026-09-05-neyland-stadium",
+    "title": "Tennessee Vols Football vs Furman",
+    "category": "Sports & Recreation",
+    "location": "1235 Phillip Fulmer Way, Knoxville, TN 37996",
+    "venueName": "Neyland Stadium",
+    "description": "SEC college football: Tennessee Volunteers host Furman at Neyland Stadium. Kickoff 3:30pm ET.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Afternoon",
+    "costScale": "$$$",
+    "price": "",
+    "season": "Fall",
+    "emoji": "🏈",
+    "eventType": "one-time",
+    "eventDate": "2026-09-05",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "15:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "football",
+      "vols",
+      "sec",
+      "sports"
+    ],
+    "neighborhood": "UT Area",
+    "lat": 35.955,
+    "lng": -83.925,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Futsports.com%2Fimages%2F2026%2F5%2F27%2F588533_20251011_FB_Arkansas_AF_005.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://utsports.com/sports/football/schedule",
+    "email": "",
+    "instagram": "vol_football"
+  },
+  {
+    "id": "tennessee-vols-football-vs-kennesaw-state-2026-09-19-neyland-stadium",
+    "title": "Tennessee Vols Football vs Kennesaw State",
+    "category": "Sports & Recreation",
+    "location": "1235 Phillip Fulmer Way, Knoxville, TN 37996",
+    "venueName": "Neyland Stadium",
+    "description": "SEC college football: Tennessee Volunteers host Kennesaw State at Neyland Stadium. Kickoff 7:45pm ET.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Afternoon",
+    "costScale": "$$$",
+    "price": "",
+    "season": "Fall",
+    "emoji": "🏈",
+    "eventType": "one-time",
+    "eventDate": "2026-09-19",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "19:45",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "football",
+      "vols",
+      "sec",
+      "sports"
+    ],
+    "neighborhood": "UT Area",
+    "lat": 35.955,
+    "lng": -83.925,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Futsports.com%2Fimages%2F2026%2F5%2F27%2F588533_20251011_FB_Arkansas_AF_005.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://utsports.com/sports/football/schedule",
+    "email": "",
+    "instagram": "vol_football"
+  },
+  {
+    "id": "tennessee-vols-football-vs-texas-2026-09-26-neyland-stadium",
+    "title": "Tennessee Vols Football vs Texas",
+    "category": "Sports & Recreation",
+    "location": "1235 Phillip Fulmer Way, Knoxville, TN 37996",
+    "venueName": "Neyland Stadium",
+    "description": "SEC college football: Tennessee Volunteers host Texas at Neyland Stadium. Kickoff 12:00pm ET.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Afternoon",
+    "costScale": "$$$",
+    "price": "",
+    "season": "Fall",
+    "emoji": "🏈",
+    "eventType": "one-time",
+    "eventDate": "2026-09-26",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "12:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "football",
+      "vols",
+      "sec",
+      "sports"
+    ],
+    "neighborhood": "UT Area",
+    "lat": 35.955,
+    "lng": -83.925,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Futsports.com%2Fimages%2F2026%2F5%2F27%2F588533_20251011_FB_Arkansas_AF_005.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://utsports.com/sports/football/schedule",
+    "email": "",
+    "instagram": "vol_football"
+  },
+  {
+    "id": "tennessee-vols-football-vs-auburn-2026-10-03-neyland-stadium",
+    "title": "Tennessee Vols Football vs Auburn",
+    "category": "Sports & Recreation",
+    "location": "1235 Phillip Fulmer Way, Knoxville, TN 37996",
+    "venueName": "Neyland Stadium",
+    "description": "SEC college football: Tennessee Volunteers host Auburn at Neyland Stadium. Kickoff time TBD.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Afternoon",
+    "costScale": "$$$",
+    "price": "",
+    "season": "Fall",
+    "emoji": "🏈",
+    "eventType": "one-time",
+    "eventDate": "2026-10-03",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "football",
+      "vols",
+      "sec",
+      "sports"
+    ],
+    "neighborhood": "UT Area",
+    "lat": 35.955,
+    "lng": -83.925,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Futsports.com%2Fimages%2F2026%2F5%2F27%2F588533_20251011_FB_Arkansas_AF_005.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://utsports.com/sports/football/schedule",
+    "email": "",
+    "instagram": "vol_football"
+  },
+  {
+    "id": "tennessee-vols-football-vs-alabama-2026-10-17-neyland-stadium",
+    "title": "Tennessee Vols Football vs Alabama",
+    "category": "Sports & Recreation",
+    "location": "1235 Phillip Fulmer Way, Knoxville, TN 37996",
+    "venueName": "Neyland Stadium",
+    "description": "SEC college football: Tennessee Volunteers host Alabama at Neyland Stadium. Kickoff time TBD.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Afternoon",
+    "costScale": "$$$",
+    "price": "",
+    "season": "Fall",
+    "emoji": "🏈",
+    "eventType": "one-time",
+    "eventDate": "2026-10-17",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "football",
+      "vols",
+      "sec",
+      "sports"
+    ],
+    "neighborhood": "UT Area",
+    "lat": 35.955,
+    "lng": -83.925,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Futsports.com%2Fimages%2F2026%2F5%2F27%2F588533_20251011_FB_Arkansas_AF_005.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://utsports.com/sports/football/schedule",
+    "email": "",
+    "instagram": "vol_football"
+  },
+  {
+    "id": "tennessee-vols-football-vs-kentucky-2026-11-07-neyland-stadium",
+    "title": "Tennessee Vols Football vs Kentucky",
+    "category": "Sports & Recreation",
+    "location": "1235 Phillip Fulmer Way, Knoxville, TN 37996",
+    "venueName": "Neyland Stadium",
+    "description": "SEC college football: Tennessee Volunteers host Kentucky at Neyland Stadium. Kickoff 6:00pm ET.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Afternoon",
+    "costScale": "$$$",
+    "price": "",
+    "season": "Fall",
+    "emoji": "🏈",
+    "eventType": "one-time",
+    "eventDate": "2026-11-07",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "18:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "football",
+      "vols",
+      "sec",
+      "sports"
+    ],
+    "neighborhood": "UT Area",
+    "lat": 35.955,
+    "lng": -83.925,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Futsports.com%2Fimages%2F2026%2F5%2F27%2F588533_20251011_FB_Arkansas_AF_005.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://utsports.com/sports/football/schedule",
+    "email": "",
+    "instagram": "vol_football"
+  },
+  {
+    "id": "tennessee-vols-football-vs-lsu-2026-11-21-neyland-stadium",
+    "title": "Tennessee Vols Football vs LSU",
+    "category": "Sports & Recreation",
+    "location": "1235 Phillip Fulmer Way, Knoxville, TN 37996",
+    "venueName": "Neyland Stadium",
+    "description": "SEC college football: Tennessee Volunteers host LSU at Neyland Stadium. Kickoff time TBD.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Afternoon",
+    "costScale": "$$$",
+    "price": "",
+    "season": "Fall",
+    "emoji": "🏈",
+    "eventType": "one-time",
+    "eventDate": "2026-11-21",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "football",
+      "vols",
+      "sec",
+      "sports"
+    ],
+    "neighborhood": "UT Area",
+    "lat": 35.955,
+    "lng": -83.925,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Futsports.com%2Fimages%2F2026%2F5%2F27%2F588533_20251011_FB_Arkansas_AF_005.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://utsports.com/sports/football/schedule",
+    "email": "",
+    "instagram": "vol_football"
+  },
+  {
+    "id": "memphis-may-fire-2026-07-09-the-mill-mine",
+    "title": "Memphis May Fire",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "Memphis May Fire live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-07-09",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      4
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F43%2F87%2F53_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "sts9-sound-tribe-sector-9-2026-07-17-the-mill-mine",
+    "title": "STS9 (Sound Tribe Sector 9)",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "STS9 (Sound Tribe Sector 9) live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-07-17",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "20:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F42%2F08%2F93_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "boot-scootin-boogie-nights-a-night-of-90s-country-2026-07-24-the-mill-mine",
+    "title": "Boot Scootin' Boogie Nights: A Night of 90s Country",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "Boot Scootin' Boogie Nights: A Night of 90s Country live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-07-24",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "20:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F39%2F72%2F83_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "gwar-w-twiztid-2026-07-31-the-mill-mine",
+    "title": "GWAR w/ Twiztid",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "GWAR w/ Twiztid live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-07-31",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "20:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F50%2F40%2F43_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "winyah-w-penelope-road-2026-08-20-the-mill-mine",
+    "title": "Winyah w/ Penelope Road",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "Winyah w/ Penelope Road live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-08-20",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      4
+    ],
+    "startTime": "19:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F43%2F03%2F03_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "happy-landing-w-the-band-solstice-2026-08-27-the-mill-mine",
+    "title": "Happy Landing w/ The Band Solstice",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "Happy Landing w/ The Band Solstice live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-08-27",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      4
+    ],
+    "startTime": "19:15",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F45%2F59%2F83_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "jonah-kagen-2026-08-28-the-mill-mine",
+    "title": "Jonah Kagen",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "Jonah Kagen live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-08-28",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "20:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F46%2F63%2F63_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "bop-to-the-top-2026-08-29-the-mill-mine",
+    "title": "Bop to the Top",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "Bop to the Top live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-08-29",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "20:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F47%2F41%2F73_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "cigarettes-sunset-2026-09-04-the-mill-mine",
+    "title": "Cigarettes @ Sunset",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "Cigarettes @ Sunset live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-09-04",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "20:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F55%2F17%2F13_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "judah-the-lion-2026-09-17-the-mill-mine",
+    "title": "Judah & The Lion",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "Judah & The Lion live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-09-17",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      4
+    ],
+    "startTime": "19:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F58%2F97%2F13_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "buffalo-traffic-jam-2026-09-20-the-mill-mine",
+    "title": "Buffalo Traffic Jam",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "Buffalo Traffic Jam live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-09-20",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "20:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F50%2F37%2F03_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "the-home-team-w-heart-attack-man-unity-tx-2026-09-22-the-mill-mine",
+    "title": "The Home Team w/ Heart Attack Man, UNITY TX",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "The Home Team w/ Heart Attack Man, UNITY TX live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-09-22",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      2
+    ],
+    "startTime": "19:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F56%2F91%2F33_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "the-brook-the-bluff-2026-10-06-the-mill-mine",
+    "title": "The Brook & The Bluff",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "The Brook & The Bluff live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-10-06",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      2
+    ],
+    "startTime": "20:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F57%2F62%2F33_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "blake-whiten-w-slater-nalley-2026-10-09-the-mill-mine",
+    "title": "Blake Whiten w/ Slater Nalley",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "Blake Whiten w/ Slater Nalley live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-10-09",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "20:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F48%2F00%2F03_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "dax-2026-10-11-the-mill-mine",
+    "title": "Dax",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "Dax live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-10-11",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "20:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F51%2F63%2F03_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "waylon-wyatt-2026-10-14-the-mill-mine",
+    "title": "Waylon Wyatt",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "Waylon Wyatt live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-10-14",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      3
+    ],
+    "startTime": "20:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F51%2F55%2F73_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "benjamin-tod-2026-10-25-the-mill-mine",
+    "title": "Benjamin Tod",
+    "category": "Live Music",
+    "location": "227 W Depot Ave, Knoxville, TN 37917",
+    "venueName": "The Mill & Mine",
+    "description": "Benjamin Tod live at The Mill & Mine in downtown Knoxville.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-10-25",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "20:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "live music",
+      "concert",
+      "downtown"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9722,
+    "lng": -83.924,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F29%2F37%2F33_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://themillandmine.com/",
+    "email": "",
+    "instagram": "themillandmine"
+  },
+  {
+    "id": "phenomenal-fireflies-2026-06-17-ijams-nature-center",
+    "title": "Phenomenal Fireflies",
+    "category": "Outdoor & Nature",
+    "location": "2915 Island Home Ave, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Evening firefly viewing program at Ijams.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🪲",
+    "eventType": "one-time",
+    "eventDate": "2026-06-17",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      3
+    ],
+    "startTime": "21:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "ijams"
+    ],
+    "neighborhood": "Island Home",
+    "lat": 35.9565,
+    "lng": -83.869,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 577-4717",
+    "website": "https://www.ijams.org/calendar-of-events",
+    "email": "",
+    "instagram": "ijamsnaturecenter"
+  },
+  {
+    "id": "phenomenal-fireflies-2026-06-18-ijams-nature-center",
+    "title": "Phenomenal Fireflies",
+    "category": "Outdoor & Nature",
+    "location": "2915 Island Home Ave, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Evening firefly viewing program at Ijams.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🪲",
+    "eventType": "one-time",
+    "eventDate": "2026-06-18",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      4
+    ],
+    "startTime": "21:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "ijams"
+    ],
+    "neighborhood": "Island Home",
+    "lat": 35.9565,
+    "lng": -83.869,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 577-4717",
+    "website": "https://www.ijams.org/calendar-of-events",
+    "email": "",
+    "instagram": "ijamsnaturecenter"
+  },
+  {
+    "id": "phenomenal-fireflies-2026-06-19-ijams-nature-center",
+    "title": "Phenomenal Fireflies",
+    "category": "Outdoor & Nature",
+    "location": "2915 Island Home Ave, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Evening firefly viewing program at Ijams.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🪲",
+    "eventType": "one-time",
+    "eventDate": "2026-06-19",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "21:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "ijams"
+    ],
+    "neighborhood": "Island Home",
+    "lat": 35.9565,
+    "lng": -83.869,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 577-4717",
+    "website": "https://www.ijams.org/calendar-of-events",
+    "email": "",
+    "instagram": "ijamsnaturecenter"
+  },
+  {
+    "id": "bird-banding-at-ijams-nature-center-2026-06-20-ijams-nature-center",
+    "title": "Bird Banding at Ijams Nature Center",
+    "category": "Outdoor & Nature",
+    "location": "2915 Island Home Ave, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Watch researchers band wild birds up close.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Morning",
+    "costScale": "Free",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🐦",
+    "eventType": "one-time",
+    "eventDate": "2026-06-20",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "07:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "ijams"
+    ],
+    "neighborhood": "Island Home",
+    "lat": 35.9565,
+    "lng": -83.869,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 577-4717",
+    "website": "https://www.ijams.org/calendar-of-events",
+    "email": "",
+    "instagram": "ijamsnaturecenter"
+  },
+  {
+    "id": "self-care-sunday-yoga-class-with-hope-irwin-2026-06-21-ijams-nature-center",
+    "title": "Self Care Sunday Yoga Class with Hope Irwin",
+    "category": "Fitness & Wellness",
+    "location": "2915 Island Home Ave, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Outdoor yoga class in nature with Hope Irwin.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Morning",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🧘",
+    "eventType": "one-time",
+    "eventDate": "2026-06-21",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "11:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "ijams"
+    ],
+    "neighborhood": "Island Home",
+    "lat": 35.9565,
+    "lng": -83.869,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 577-4717",
+    "website": "https://www.ijams.org/calendar-of-events",
+    "email": "",
+    "instagram": "ijamsnaturecenter"
+  },
+  {
+    "id": "improv-in-the-wild-with-manatee-vanity-improv-2026-06-24-ijams-nature-center",
+    "title": "Improv in the Wild with Manatee Vanity Improv",
+    "category": "Comedy",
+    "location": "2915 Island Home Ave, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Outdoor improv comedy show at Ijams.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎭",
+    "eventType": "one-time",
+    "eventDate": "2026-06-24",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      3
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "ijams"
+    ],
+    "neighborhood": "Island Home",
+    "lat": 35.9565,
+    "lng": -83.869,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 577-4717",
+    "website": "https://www.ijams.org/calendar-of-events",
+    "email": "",
+    "instagram": "ijamsnaturecenter"
+  },
+  {
+    "id": "pickin-on-nature-bluegrass-concert-2026-06-25-ijams-nature-center",
+    "title": "Pickin' on Nature Bluegrass Concert",
+    "category": "Live Music",
+    "location": "2915 Island Home Ave, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Bluegrass concert with Grassy Creek and Carolina Bluegrass Style.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🪕",
+    "eventType": "one-time",
+    "eventDate": "2026-06-25",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      4
+    ],
+    "startTime": "18:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "ijams"
+    ],
+    "neighborhood": "Island Home",
+    "lat": 35.9565,
+    "lng": -83.869,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 577-4717",
+    "website": "https://www.ijams.org/calendar-of-events",
+    "email": "",
+    "instagram": "ijamsnaturecenter"
+  },
+  {
+    "id": "evening-paddle-2026-06-26-ijams-nature-center",
+    "title": "Evening Paddle",
+    "category": "Outdoor & Nature",
+    "location": "2915 Island Home Ave, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Guided evening paddle on the river at Ijams.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🛶",
+    "eventType": "one-time",
+    "eventDate": "2026-06-26",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "19:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "ijams"
+    ],
+    "neighborhood": "Island Home",
+    "lat": 35.9565,
+    "lng": -83.869,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 577-4717",
+    "website": "https://www.ijams.org/calendar-of-events",
+    "email": "",
+    "instagram": "ijamsnaturecenter"
+  },
+  {
+    "id": "storytelling-at-the-ijams-nature-playscape-2026-06-27-ijams-nature-center",
+    "title": "Storytelling at the Ijams Nature Playscape",
+    "category": "Outdoor & Nature",
+    "location": "2915 Island Home Ave, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Family storytelling at the Nature Playscape.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "Kids (5-12)",
+    "timeOfDay": "Morning",
+    "costScale": "Free",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "📖",
+    "eventType": "one-time",
+    "eventDate": "2026-06-27",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "10:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "ijams"
+    ],
+    "neighborhood": "Island Home",
+    "lat": 35.9565,
+    "lng": -83.869,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": true,
+    "phone": "(865) 577-4717",
+    "website": "https://www.ijams.org/calendar-of-events",
+    "email": "",
+    "instagram": "ijamsnaturecenter"
+  },
+  {
+    "id": "self-care-sunday-yoga-class-with-hope-irwin-2026-06-28-ijams-nature-center",
+    "title": "Self Care Sunday Yoga Class with Hope Irwin",
+    "category": "Fitness & Wellness",
+    "location": "2915 Island Home Ave, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Outdoor yoga class in nature with Hope Irwin.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Morning",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🧘",
+    "eventType": "one-time",
+    "eventDate": "2026-06-28",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "11:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "ijams"
+    ],
+    "neighborhood": "Island Home",
+    "lat": 35.9565,
+    "lng": -83.869,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 577-4717",
+    "website": "https://www.ijams.org/calendar-of-events",
+    "email": "",
+    "instagram": "ijamsnaturecenter"
+  },
+  {
+    "id": "evening-paddle-2026-07-03-ijams-nature-center",
+    "title": "Evening Paddle",
+    "category": "Outdoor & Nature",
+    "location": "2915 Island Home Ave, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Guided evening paddle on the river at Ijams.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🛶",
+    "eventType": "one-time",
+    "eventDate": "2026-07-03",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "19:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "ijams"
+    ],
+    "neighborhood": "Island Home",
+    "lat": 35.9565,
+    "lng": -83.869,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 577-4717",
+    "website": "https://www.ijams.org/calendar-of-events",
+    "email": "",
+    "instagram": "ijamsnaturecenter"
+  },
+  {
+    "id": "pollinator-palooza-ecosystem-explorers-series-2026-07-04-ijams-nature-center",
+    "title": "Pollinator Palooza: Ecosystem Explorers Series",
+    "category": "Outdoor & Nature",
+    "location": "2915 Island Home Ave, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Family program exploring pollinators and ecosystems.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "Kids (5-12)",
+    "timeOfDay": "Morning",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🐝",
+    "eventType": "one-time",
+    "eventDate": "2026-07-04",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "10:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "ijams"
+    ],
+    "neighborhood": "Island Home",
+    "lat": 35.9565,
+    "lng": -83.869,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": true,
+    "phone": "(865) 577-4717",
+    "website": "https://www.ijams.org/calendar-of-events",
+    "email": "",
+    "instagram": "ijamsnaturecenter"
+  },
+  {
+    "id": "movies-under-the-stars-all-dogs-go-to-heaven-2026-07-10-ijams-nature-center",
+    "title": "Movies Under the Stars: All Dogs Go To Heaven",
+    "category": "Film & Cinema",
+    "location": "2915 Island Home Ave, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Outdoor family movie night under the stars.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎬",
+    "eventType": "one-time",
+    "eventDate": "2026-07-10",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "ijams"
+    ],
+    "neighborhood": "Island Home",
+    "lat": 35.9565,
+    "lng": -83.869,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 577-4717",
+    "website": "https://www.ijams.org/calendar-of-events",
+    "email": "",
+    "instagram": "ijamsnaturecenter"
+  },
+  {
+    "id": "sunrise-paddle-2026-07-11-ijams-nature-center",
+    "title": "Sunrise Paddle",
+    "category": "Outdoor & Nature",
+    "location": "2915 Island Home Ave, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Guided sunrise paddle on the river at Ijams.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Morning",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🛶",
+    "eventType": "one-time",
+    "eventDate": "2026-07-11",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "06:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "ijams"
+    ],
+    "neighborhood": "Island Home",
+    "lat": 35.9565,
+    "lng": -83.869,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 577-4717",
+    "website": "https://www.ijams.org/calendar-of-events",
+    "email": "",
+    "instagram": "ijamsnaturecenter"
+  },
+  {
+    "id": "bird-banding-at-ijams-nature-center-2026-07-12-ijams-nature-center",
+    "title": "Bird Banding at Ijams Nature Center",
+    "category": "Outdoor & Nature",
+    "location": "2915 Island Home Ave, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Watch researchers band wild birds up close.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Morning",
+    "costScale": "Free",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🐦",
+    "eventType": "one-time",
+    "eventDate": "2026-07-12",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "07:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "nature",
+      "outdoor",
+      "ijams"
+    ],
+    "neighborhood": "Island Home",
+    "lat": 35.9565,
+    "lng": -83.869,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 577-4717",
+    "website": "https://www.ijams.org/calendar-of-events",
+    "email": "",
+    "instagram": "ijamsnaturecenter"
+  },
+  {
+    "id": "npc-knox-classic-2026-08-01-knoxville-civic-auditorium-coliseum",
+    "title": "NPC Knox Classic",
+    "category": "Sports & Recreation",
+    "location": "500 Howard Baker Jr Ave, Knoxville, TN 37915",
+    "venueName": "Knoxville Civic Auditorium & Coliseum",
+    "description": "NPC Knox Classic at the Knoxville Civic Auditorium & Coliseum.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "💪",
+    "eventType": "one-time",
+    "eventDate": "2026-08-01",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "09:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "concert",
+      "coliseum"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9617,
+    "lng": -83.9116,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fcdn.saffire.com%2Fimages.ashx%3Ft%3Dig%26rid%3DASMKnoxvilleCivic%26i%3DKnox_Classic_Web.jpg%26cb%3DAA8FFAA0",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.knoxvillecoliseum.com/events",
+    "email": "",
+    "instagram": "thekcac"
+  },
+  {
+    "id": "bert-kreischer-permission-to-party-2026-09-10-knoxville-civic-auditorium-coliseum",
+    "title": "Bert Kreischer: Permission to Party",
+    "category": "Comedy",
+    "location": "500 Howard Baker Jr Ave, Knoxville, TN 37915",
+    "venueName": "Knoxville Civic Auditorium & Coliseum",
+    "description": "Bert Kreischer: Permission to Party at the Knoxville Civic Auditorium & Coliseum.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎤",
+    "eventType": "one-time",
+    "eventDate": "2026-09-10",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      4
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "concert",
+      "coliseum"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9617,
+    "lng": -83.9116,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fcdn.saffire.com%2Fimages.ashx%3Ft%3Dig%26rid%3DASMKnoxvilleCivic%26i%3DBert_K.jpg%26cb%3D8c76cb68",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.knoxvillecoliseum.com/events",
+    "email": "",
+    "instagram": "thekcac"
+  },
+  {
+    "id": "the-black-jacket-symphony-presents-def-leppard-s-hysteria-2026-09-11-knoxville-civic-audit",
+    "title": "The Black Jacket Symphony Presents Def Leppard's Hysteria",
+    "category": "Live Music",
+    "location": "500 Howard Baker Jr Ave, Knoxville, TN 37915",
+    "venueName": "Knoxville Civic Auditorium & Coliseum",
+    "description": "The Black Jacket Symphony Presents Def Leppard's Hysteria at the Knoxville Civic Auditorium & Coliseum.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-09-11",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "19:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "concert",
+      "coliseum"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9617,
+    "lng": -83.9116,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fcdn.saffire.com%2Fimages.ashx%3Ft%3Dig%26rid%3DASMKnoxvilleCivic%26i%3D091126_-_Knoxville%2C_TN_-_1920x1080.jpg%26cb%3D4fd72e54",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.knoxvillecoliseum.com/events",
+    "email": "",
+    "instagram": "thekcac"
+  },
+  {
+    "id": "sam-barber-2026-09-25-knoxville-civic-auditorium-coliseum",
+    "title": "Sam Barber",
+    "category": "Live Music",
+    "location": "500 Howard Baker Jr Ave, Knoxville, TN 37915",
+    "venueName": "Knoxville Civic Auditorium & Coliseum",
+    "description": "Sam Barber at the Knoxville Civic Auditorium & Coliseum.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎤",
+    "eventType": "one-time",
+    "eventDate": "2026-09-25",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "concert",
+      "coliseum"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9617,
+    "lng": -83.9116,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fcdn.saffire.com%2Fimages.ashx%3Ft%3Dig%26rid%3DASMKnoxvilleCivic%26i%3D0925-Knoxville-SamBarber-500x262.jpg%26cb%3D9f80d1c6",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.knoxvillecoliseum.com/events",
+    "email": "",
+    "instagram": "thekcac"
+  },
+  {
+    "id": "zach-williams-cochren-co-christian-hohn-revival-nights-2026-10-15-knoxville-civic-auditori",
+    "title": "Zach Williams, Cochren & Co., Christian Hohn: Revival Nights",
+    "category": "Live Music",
+    "location": "500 Howard Baker Jr Ave, Knoxville, TN 37915",
+    "venueName": "Knoxville Civic Auditorium & Coliseum",
+    "description": "Zach Williams, Cochren & Co., Christian Hohn: Revival Nights at the Knoxville Civic Auditorium & Coliseum.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎶",
+    "eventType": "one-time",
+    "eventDate": "2026-10-15",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      4
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "concert",
+      "coliseum"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9617,
+    "lng": -83.9116,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fcdn.saffire.com%2Fimages.ashx%3Ft%3Dig%26rid%3DASMKnoxvilleCivic%26i%3DZachWilliams_FA26_1920x1080_101526.jpg%26cb%3D64824d3b",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.knoxvillecoliseum.com/events",
+    "email": "",
+    "instagram": "thekcac"
+  },
+  {
+    "id": "gavin-adcock-2026-10-23-knoxville-civic-auditorium-coliseum",
+    "title": "Gavin Adcock",
+    "category": "Live Music",
+    "location": "500 Howard Baker Jr Ave, Knoxville, TN 37915",
+    "venueName": "Knoxville Civic Auditorium & Coliseum",
+    "description": "Gavin Adcock at the Knoxville Civic Auditorium & Coliseum.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-10-23",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "concert",
+      "coliseum"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9617,
+    "lng": -83.9116,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fcdn.saffire.com%2Fimages.ashx%3Ft%3Dig%26rid%3DASMKnoxvilleCivic%26i%3DGAVIN_ADCOCK_KCAC_1920_X_1080.png%26cb%3Da0428793",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.knoxvillecoliseum.com/events",
+    "email": "",
+    "instagram": "thekcac"
+  },
+  {
+    "id": "josh-turner-this-country-music-thing-tour-2026-11-06-knoxville-civic-auditorium-coliseum",
+    "title": "Josh Turner: This Country Music Thing Tour",
+    "category": "Live Music",
+    "location": "500 Howard Baker Jr Ave, Knoxville, TN 37915",
+    "venueName": "Knoxville Civic Auditorium & Coliseum",
+    "description": "Josh Turner: This Country Music Thing Tour at the Knoxville Civic Auditorium & Coliseum.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎤",
+    "eventType": "one-time",
+    "eventDate": "2026-11-06",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "19:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "concert",
+      "coliseum"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9617,
+    "lng": -83.9116,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fcdn.saffire.com%2Fimages.ashx%3Ft%3Dig%26rid%3DASMKnoxvilleCivic%26i%3DJosh_Turner%281%29.jpg%26cb%3D72177c42",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.knoxvillecoliseum.com/events",
+    "email": "",
+    "instagram": "thekcac"
+  },
+  {
+    "id": "intro-to-climbing-class-sun-onsight-rock-gym",
+    "title": "Intro to Climbing Class",
+    "category": "Sports & Recreation",
+    "location": "5335 Western Ave, Knoxville, TN 37921",
+    "venueName": "Onsight Rock Gym",
+    "description": "Learn top-rope belaying, knot tying, and climbing technique. For beginners with no experience.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🧗",
+    "eventType": "recurring",
+    "eventDate": "",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "13:00",
+    "endTime": "14:30",
+    "recurrenceRule": {
+      "type": "weekly",
+      "days": [
+        0
+      ]
+    },
+    "tags": [
+      "climbing",
+      "outdoor knoxville"
+    ],
+    "neighborhood": "North Knoxville",
+    "lat": 35.976,
+    "lng": -83.97,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Flegacyparks.org%2Fwp-content%2Fuploads%2F2023%2F08%2FLegacyParksLogoHoriz.png",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://legacyparks.org/outdoor-knoxville-guide/calendar/",
+    "email": "",
+    "instagram": ""
+  },
+  {
+    "id": "disc-golf-doubles-mon-various-knoxville-courses",
+    "title": "Disc Golf Doubles",
+    "category": "Sports & Recreation",
+    "location": "Various Knoxville courses",
+    "venueName": "Various Knoxville courses",
+    "description": "Weekly disc golf doubles at various Knoxville courses. All skill levels. A/B draw, $5 to play, check-in 5:30, tee 6pm.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🥏",
+    "eventType": "recurring",
+    "eventDate": "",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      1
+    ],
+    "startTime": "18:00",
+    "endTime": "",
+    "recurrenceRule": {
+      "type": "weekly",
+      "days": [
+        1
+      ]
+    },
+    "tags": [
+      "disc golf",
+      "outdoor knoxville"
+    ],
+    "neighborhood": "Knoxville",
+    "lat": null,
+    "lng": null,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Flegacyparks.org%2Fwp-content%2Fuploads%2F2023%2F08%2FLegacyParksLogoHoriz.png",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://legacyparks.org/outdoor-knoxville-guide/calendar/",
+    "email": "",
+    "instagram": ""
+  },
+  {
+    "id": "knoxville-smokies-vs-chattanooga-2026-06-16-covenant-health-park",
+    "title": "Knoxville Smokies vs Chattanooga",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "Double-A baseball: Knoxville Smokies host Chattanooga at Covenant Health Park. Taco Tuesday.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚾",
+    "eventType": "one-time",
+    "eventDate": "2026-06-16",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      2
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "baseball",
+      "smokies",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://www.mlbstatic.com/team-logos/share/553.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.milb.com/knoxville/schedule",
+    "email": "",
+    "instagram": "smokiesbaseball"
+  },
+  {
+    "id": "knoxville-smokies-vs-chattanooga-2026-06-17-covenant-health-park",
+    "title": "Knoxville Smokies vs Chattanooga",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "Double-A baseball: Knoxville Smokies host Chattanooga at Covenant Health Park. All-You-Can-Eat Wednesday.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚾",
+    "eventType": "one-time",
+    "eventDate": "2026-06-17",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      3
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "baseball",
+      "smokies",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://www.mlbstatic.com/team-logos/share/553.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.milb.com/knoxville/schedule",
+    "email": "",
+    "instagram": "smokiesbaseball"
+  },
+  {
+    "id": "knoxville-smokies-vs-chattanooga-2026-06-18-covenant-health-park",
+    "title": "Knoxville Smokies vs Chattanooga",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "Double-A baseball: Knoxville Smokies host Chattanooga at Covenant Health Park. Thirsty Thursday.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚾",
+    "eventType": "one-time",
+    "eventDate": "2026-06-18",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      4
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "baseball",
+      "smokies",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://www.mlbstatic.com/team-logos/share/553.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.milb.com/knoxville/schedule",
+    "email": "",
+    "instagram": "smokiesbaseball"
+  },
+  {
+    "id": "knoxville-smokies-vs-chattanooga-2026-06-19-covenant-health-park",
+    "title": "Knoxville Smokies vs Chattanooga",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "Double-A baseball: Knoxville Smokies host Chattanooga at Covenant Health Park. Country Night.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚾",
+    "eventType": "one-time",
+    "eventDate": "2026-06-19",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "baseball",
+      "smokies",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://www.mlbstatic.com/team-logos/share/553.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.milb.com/knoxville/schedule",
+    "email": "",
+    "instagram": "smokiesbaseball"
+  },
+  {
+    "id": "knoxville-smokies-vs-chattanooga-2026-06-20-covenant-health-park",
+    "title": "Knoxville Smokies vs Chattanooga",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "Double-A baseball: Knoxville Smokies host Chattanooga at Covenant Health Park. Summer Fireworks Series.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚾",
+    "eventType": "one-time",
+    "eventDate": "2026-06-20",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "baseball",
+      "smokies",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://www.mlbstatic.com/team-logos/share/553.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.milb.com/knoxville/schedule",
+    "email": "",
+    "instagram": "smokiesbaseball"
+  },
+  {
+    "id": "knoxville-smokies-vs-chattanooga-2026-06-21-covenant-health-park",
+    "title": "Knoxville Smokies vs Chattanooga",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "Double-A baseball: Knoxville Smokies host Chattanooga at Covenant Health Park. Father's Day.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Afternoon",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚾",
+    "eventType": "one-time",
+    "eventDate": "2026-06-21",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "14:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "baseball",
+      "smokies",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://www.mlbstatic.com/team-logos/share/553.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.milb.com/knoxville/schedule",
+    "email": "",
+    "instagram": "smokiesbaseball"
+  },
+  {
+    "id": "knoxville-smokies-vs-columbus-2026-06-30-covenant-health-park",
+    "title": "Knoxville Smokies vs Columbus",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "Double-A baseball: Knoxville Smokies host Columbus at Covenant Health Park. Taco Tuesday.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚾",
+    "eventType": "one-time",
+    "eventDate": "2026-06-30",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      2
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "baseball",
+      "smokies",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://www.mlbstatic.com/team-logos/share/553.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.milb.com/knoxville/schedule",
+    "email": "",
+    "instagram": "smokiesbaseball"
+  },
+  {
+    "id": "one-knoxville-sc-vs-fort-wayne-fc-2026-07-15-covenant-health-park",
+    "title": "One Knoxville SC vs Fort Wayne FC",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "USL League One soccer: One Knoxville SC hosts Fort Wayne FC at Covenant Health Park. Youth Club Night.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚽",
+    "eventType": "one-time",
+    "eventDate": "2026-07-15",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      3
+    ],
+    "startTime": "18:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "soccer",
+      "one knox",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.oneknoxsc.com%2Fwp-content%2Fuploads%2Fsites%2F77%2F2026%2F02%2FOne-Knoxville-SC.png",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.oneknoxsc.com/schedule/",
+    "email": "",
+    "instagram": "oneknoxsc"
+  },
+  {
+    "id": "one-knoxville-sc-vs-av-alta-fc-2026-07-18-covenant-health-park",
+    "title": "One Knoxville SC vs AV Alta FC",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "USL League One soccer: One Knoxville SC hosts AV Alta FC at Covenant Health Park.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚽",
+    "eventType": "one-time",
+    "eventDate": "2026-07-18",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "19:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "soccer",
+      "one knox",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.oneknoxsc.com%2Fwp-content%2Fuploads%2Fsites%2F77%2F2026%2F02%2FOne-Knoxville-SC.png",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.oneknoxsc.com/schedule/",
+    "email": "",
+    "instagram": "oneknoxsc"
+  },
+  {
+    "id": "one-knoxville-sc-vs-sarasota-paradise-2026-08-08-covenant-health-park",
+    "title": "One Knoxville SC vs Sarasota Paradise",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "USL League One soccer: One Knoxville SC hosts Sarasota Paradise at Covenant Health Park.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚽",
+    "eventType": "one-time",
+    "eventDate": "2026-08-08",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "19:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "soccer",
+      "one knox",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.oneknoxsc.com%2Fwp-content%2Fuploads%2Fsites%2F77%2F2026%2F02%2FOne-Knoxville-SC.png",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.oneknoxsc.com/schedule/",
+    "email": "",
+    "instagram": "oneknoxsc"
+  },
+  {
+    "id": "one-knoxville-sc-vs-portland-hearts-of-pine-2026-08-19-covenant-health-park",
+    "title": "One Knoxville SC vs Portland Hearts of Pine",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "USL League One soccer: One Knoxville SC hosts Portland Hearts of Pine at Covenant Health Park.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚽",
+    "eventType": "one-time",
+    "eventDate": "2026-08-19",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      3
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "soccer",
+      "one knox",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.oneknoxsc.com%2Fwp-content%2Fuploads%2Fsites%2F77%2F2026%2F02%2FOne-Knoxville-SC.png",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.oneknoxsc.com/schedule/",
+    "email": "",
+    "instagram": "oneknoxsc"
+  },
+  {
+    "id": "one-knoxville-sc-vs-ac-boise-2026-08-22-covenant-health-park",
+    "title": "One Knoxville SC vs AC Boise",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "USL League One soccer: One Knoxville SC hosts AC Boise at Covenant Health Park. Vols Night.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚽",
+    "eventType": "one-time",
+    "eventDate": "2026-08-22",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "19:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "soccer",
+      "one knox",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.oneknoxsc.com%2Fwp-content%2Fuploads%2Fsites%2F77%2F2026%2F02%2FOne-Knoxville-SC.png",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.oneknoxsc.com/schedule/",
+    "email": "",
+    "instagram": "oneknoxsc"
+  },
+  {
+    "id": "one-knoxville-sc-vs-fc-naples-2026-09-11-covenant-health-park",
+    "title": "One Knoxville SC vs FC Naples",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "USL League One soccer: One Knoxville SC hosts FC Naples at Covenant Health Park.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚽",
+    "eventType": "one-time",
+    "eventDate": "2026-09-11",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "soccer",
+      "one knox",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.oneknoxsc.com%2Fwp-content%2Fuploads%2Fsites%2F77%2F2026%2F02%2FOne-Knoxville-SC.png",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.oneknoxsc.com/schedule/",
+    "email": "",
+    "instagram": "oneknoxsc"
+  },
+  {
+    "id": "one-knoxville-sc-vs-westchester-sc-2026-09-27-covenant-health-park",
+    "title": "One Knoxville SC vs Westchester SC",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "USL League One soccer: One Knoxville SC hosts Westchester SC at Covenant Health Park. Oktoberfest.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚽",
+    "eventType": "one-time",
+    "eventDate": "2026-09-27",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "18:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "soccer",
+      "one knox",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.oneknoxsc.com%2Fwp-content%2Fuploads%2Fsites%2F77%2F2026%2F02%2FOne-Knoxville-SC.png",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.oneknoxsc.com/schedule/",
+    "email": "",
+    "instagram": "oneknoxsc"
+  },
+  {
+    "id": "one-knoxville-sc-vs-chattanooga-red-wolves-sc-2026-10-07-covenant-health-park",
+    "title": "One Knoxville SC vs Chattanooga Red Wolves SC",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "USL League One soccer: One Knoxville SC hosts Chattanooga Red Wolves SC at Covenant Health Park.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚽",
+    "eventType": "one-time",
+    "eventDate": "2026-10-07",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      3
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "soccer",
+      "one knox",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.oneknoxsc.com%2Fwp-content%2Fuploads%2Fsites%2F77%2F2026%2F02%2FOne-Knoxville-SC.png",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.oneknoxsc.com/schedule/",
+    "email": "",
+    "instagram": "oneknoxsc"
+  },
+  {
+    "id": "one-knoxville-sc-vs-spokane-velocity-2026-10-11-covenant-health-park",
+    "title": "One Knoxville SC vs Spokane Velocity",
+    "category": "Sports & Recreation",
+    "location": "Covenant Health Park, Knoxville, TN 37915",
+    "venueName": "Covenant Health Park",
+    "description": "USL League One soccer: One Knoxville SC hosts Spokane Velocity at Covenant Health Park. Family Night.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Afternoon",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "⚽",
+    "eventType": "one-time",
+    "eventDate": "2026-10-11",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "15:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "soccer",
+      "one knox",
+      "sports"
+    ],
+    "neighborhood": "Old City",
+    "lat": 35.9676,
+    "lng": -83.9085,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fwww.oneknoxsc.com%2Fwp-content%2Fuploads%2Fsites%2F77%2F2026%2F02%2FOne-Knoxville-SC.png",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.oneknoxsc.com/schedule/",
+    "email": "",
+    "instagram": "oneknoxsc"
+  },
+  {
+    "id": "kathleen-madigan-with-karen-mills-2026-06-26-bijou-theatre",
+    "title": "Kathleen Madigan with Karen Mills",
+    "category": "Comedy",
+    "location": "803 S Gay St, Knoxville, TN 37902",
+    "venueName": "Bijou Theatre",
+    "description": "Comedian Kathleen Madigan with Karen Mills at the Bijou Theatre.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎤",
+    "eventType": "one-time",
+    "eventDate": "2026-06-26",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "bijou"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9636,
+    "lng": -83.9189,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fknoxbijou.org%2Fwp-content%2Fuploads%2FCoraWagoner_tntheatre_BE2019-1-scaled.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 522-0832",
+    "website": "https://knoxbijou.org/events/",
+    "email": "",
+    "instagram": "bijoutheatre"
+  },
+  {
+    "id": "kathleen-madigan-rescheduled-with-karen-mills-2026-06-27-bijou-theatre",
+    "title": "Kathleen Madigan (Rescheduled) with Karen Mills",
+    "category": "Comedy",
+    "location": "803 S Gay St, Knoxville, TN 37902",
+    "venueName": "Bijou Theatre",
+    "description": "Rescheduled Kathleen Madigan show with Karen Mills at the Bijou Theatre.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎤",
+    "eventType": "one-time",
+    "eventDate": "2026-06-27",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "bijou"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9636,
+    "lng": -83.9189,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fknoxbijou.org%2Fwp-content%2Fuploads%2FCoraWagoner_tntheatre_BE2019-1-scaled.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 522-0832",
+    "website": "https://knoxbijou.org/events/",
+    "email": "",
+    "instagram": "bijoutheatre"
+  },
+  {
+    "id": "josiah-and-the-bonnevilles-2026-07-01-bijou-theatre",
+    "title": "Josiah and the Bonnevilles",
+    "category": "Live Music",
+    "location": "803 S Gay St, Knoxville, TN 37902",
+    "venueName": "Bijou Theatre",
+    "description": "Josiah and the Bonnevilles with Max Alan and Brenna MacMillan.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎸",
+    "eventType": "one-time",
+    "eventDate": "2026-07-01",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      3
+    ],
+    "startTime": "19:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "bijou"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9636,
+    "lng": -83.9189,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fknoxbijou.org%2Fwp-content%2Fuploads%2FCoraWagoner_tntheatre_BE2019-1-scaled.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 522-0832",
+    "website": "https://knoxbijou.org/events/",
+    "email": "",
+    "instagram": "bijoutheatre"
+  },
+  {
+    "id": "the-wordplayers-present-hairspray-the-musical-2026-07-10-bijou-theatre",
+    "title": "The WordPlayers Present Hairspray: The Musical",
+    "category": "Theater & Performance",
+    "location": "803 S Gay St, Knoxville, TN 37902",
+    "venueName": "Bijou Theatre",
+    "description": "The WordPlayers present Hairspray: The Musical at the Bijou Theatre.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎭",
+    "eventType": "one-time",
+    "eventDate": "2026-07-10",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      5
+    ],
+    "startTime": "19:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "bijou"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9636,
+    "lng": -83.9189,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fknoxbijou.org%2Fwp-content%2Fuploads%2FCoraWagoner_tntheatre_BE2019-1-scaled.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 522-0832",
+    "website": "https://knoxbijou.org/events/",
+    "email": "",
+    "instagram": "bijoutheatre"
+  },
+  {
+    "id": "the-wordplayers-present-hairspray-the-musical-2026-07-11-bijou-theatre",
+    "title": "The WordPlayers Present Hairspray: The Musical",
+    "category": "Theater & Performance",
+    "location": "803 S Gay St, Knoxville, TN 37902",
+    "venueName": "Bijou Theatre",
+    "description": "The WordPlayers present Hairspray: The Musical (matinee).",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Afternoon",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎭",
+    "eventType": "one-time",
+    "eventDate": "2026-07-11",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "14:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "bijou"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9636,
+    "lng": -83.9189,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fknoxbijou.org%2Fwp-content%2Fuploads%2FCoraWagoner_tntheatre_BE2019-1-scaled.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 522-0832",
+    "website": "https://knoxbijou.org/events/",
+    "email": "",
+    "instagram": "bijoutheatre"
+  },
+  {
+    "id": "the-wordplayers-present-hairspray-the-musical-2026-07-12-bijou-theatre",
+    "title": "The WordPlayers Present Hairspray: The Musical",
+    "category": "Theater & Performance",
+    "location": "803 S Gay St, Knoxville, TN 37902",
+    "venueName": "Bijou Theatre",
+    "description": "The WordPlayers present Hairspray: The Musical (matinee).",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Afternoon",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎭",
+    "eventType": "one-time",
+    "eventDate": "2026-07-12",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "14:30",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "bijou"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9636,
+    "lng": -83.9189,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fknoxbijou.org%2Fwp-content%2Fuploads%2FCoraWagoner_tntheatre_BE2019-1-scaled.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 522-0832",
+    "website": "https://knoxbijou.org/events/",
+    "email": "",
+    "instagram": "bijoutheatre"
+  },
+  {
+    "id": "girls-gone-bible-2026-07-16-bijou-theatre",
+    "title": "Girls Gone Bible",
+    "category": "Community & Civic",
+    "location": "803 S Gay St, Knoxville, TN 37902",
+    "venueName": "Bijou Theatre",
+    "description": "Girls Gone Bible live event at the Bijou Theatre.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎙️",
+    "eventType": "one-time",
+    "eventDate": "2026-07-16",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      4
+    ],
+    "startTime": "19:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "bijou"
+    ],
+    "neighborhood": "Gay Street",
+    "lat": 35.9636,
+    "lng": -83.9189,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fknoxbijou.org%2Fwp-content%2Fuploads%2FCoraWagoner_tntheatre_BE2019-1-scaled.jpg",
+    "strollerFriendly": false,
+    "phone": "(865) 522-0832",
+    "website": "https://knoxbijou.org/events/",
+    "email": "",
+    "instagram": "bijoutheatre"
+  },
+  {
+    "id": "bustie-2026-06-14-cactus-club",
+    "title": "Bustie",
+    "category": "Dancing",
+    "location": "Cactus Club, Knoxville, TN",
+    "venueName": "Cactus Club",
+    "description": "Electro/EDM night with Buddo (Minneapolis), New Romantics, and DJ Da.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "18+",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Year-round",
+    "emoji": "🎧",
+    "eventType": "one-time",
+    "eventDate": "2026-06-14",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "21:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "edm",
+      "electro",
+      "dance",
+      "nightlife"
+    ],
+    "neighborhood": "Happy Holler",
+    "lat": null,
+    "lng": null,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fi.ticketweb.com%2Fi%2F00%2F13%2F42%2F08%2F93_Edp.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "",
+    "email": "",
+    "instagram": "knox.edm"
+  },
+  {
+    "id": "flow-meet-flow-arts-meetup-2026-06-16-knoxville-flow-arts-meetup",
+    "title": "Flow Meet (Flow Arts Meetup)",
+    "category": "Community & Civic",
+    "location": "Knoxville, TN",
+    "venueName": "Knoxville (Flow Arts Meetup)",
+    "description": "Flow arts meetup with music, poi/flow practice, and community. Posted by Knox EDM.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "Free",
+    "price": "Free",
+    "season": "Year-round",
+    "emoji": "🔥",
+    "eventType": "one-time",
+    "eventDate": "2026-06-16",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      2
+    ],
+    "startTime": "18:00",
+    "endTime": "20:00",
+    "recurrenceRule": null,
+    "tags": [
+      "flow arts",
+      "community",
+      "meetup"
+    ],
+    "neighborhood": "Knoxville",
+    "lat": 35.9412,
+    "lng": -83.9838,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.instagram.com/knoxflows/",
+    "email": "",
+    "instagram": "knox.edm"
+  },
+  {
+    "id": "knoxville-brewfest-2026-2026-06-20-world-s-fair-performance-lawn",
+    "title": "Knoxville Brewfest 2026",
+    "category": "Festivals & Events",
+    "location": "World's Fair Park, Knoxville, TN 37916",
+    "venueName": "World's Fair Performance Lawn",
+    "description": "The 15th annual Knoxville Brewfest returns to the World's Fair Performance Lawn with 60+ breweries, live bands, a vintage market, expanded food options, and jumbo yard games (putt-putt, giant Jenga, Connect 4, cornhole, soccer pool). Net proceeds benefit CureDuchenne and local nonprofits.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "21+",
+    "timeOfDay": "Afternoon",
+    "costScale": "$$$",
+    "price": "GA $60; VIP $120",
+    "season": "Summer",
+    "emoji": "🍺",
+    "eventType": "one-time",
+    "eventDate": "2026-06-20",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      6
+    ],
+    "startTime": "15:30",
+    "endTime": "20:30",
+    "recurrenceRule": null,
+    "tags": [
+      "beer festival",
+      "breweries",
+      "live music",
+      "festival",
+      "fundraiser"
+    ],
+    "neighborhood": "Downtown",
+    "lat": 35.9625,
+    "lng": -83.9256,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fassets.simpleviewinc.com%2Fsimpleview%2Fimage%2Fupload%2Fc_limit%2Ch_1200%2Cq_75%2Cw_1200%2Fv1%2Fcrm%2Fknoxville%2FBrew-Fest-4_3F69D0A4-CFCA-40EE-8EB70CF4816144E8_5a210c9d-4429-4fcc-9fd1fc7bdd698188.jpg",
+    "strollerFriendly": false,
+    "phone": "",
+    "website": "https://www.knoxvillebrewfest.com/",
+    "email": "",
+    "instagram": "new2knox"
+  },
+  {
+    "id": "adoption-event-at-good-girl-books-2026-06-14-good-girl-books",
+    "title": "Adoption Event at Good Girl Books",
+    "category": "Community & Civic",
+    "location": "Good Girl Books, Knoxville, TN",
+    "venueName": "Good Girl Books",
+    "description": "Pet adoption event hosted by Good Girl Books in partnership with the Humane Society of Tennessee Valley. Come hang out with adoptable pups and kitties while you browse books. Sunday 12-5pm.",
+    "indoorOutdoor": "Indoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Afternoon",
+    "costScale": "Free",
+    "price": "",
+    "season": "Summer",
+    "emoji": "🐶",
+    "eventType": "one-time",
+    "eventDate": "2026-06-14",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "12:00",
+    "endTime": "",
+    "recurrenceRule": null,
+    "tags": [
+      "adoption",
+      "pets",
+      "humane society",
+      "family",
+      "free"
+    ],
+    "neighborhood": "Knoxville",
+    "lat": 35.903,
+    "lng": -84.0214,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fgoodgirlbooks.square.site%2Fuploads%2Fb%2Fbe40d650-4169-11f0-99f3-732093b91d7c%2Ficon_180x180_ios_NTYyMz.png",
+    "strollerFriendly": true,
+    "phone": "",
+    "website": "https://goodgirlbooks.square.site/",
+    "email": "",
+    "instagram": "connecting_knox"
+  },
+  {
+    "id": "fleurish-2026-2026-06-14-ijams-nature-center",
+    "title": "Fleurish 2026",
+    "category": "Festivals & Events",
+    "location": "2915 Island Home Avenue, Knoxville, TN 37920",
+    "venueName": "Ijams Nature Center",
+    "description": "Fleurish 2026 at Ijams Nature Center. Sunday evening event starting at 6PM.",
+    "indoorOutdoor": "Outdoor",
+    "ageRestrictions": "All Ages",
+    "timeOfDay": "Evening",
+    "costScale": "$",
+    "price": "",
+    "season": "Summer",
+    "emoji": "🌻",
+    "eventType": "one-time",
+    "eventDate": "2026-06-14",
+    "eventEndDate": "",
+    "daysOfWeek": [
+      0
+    ],
+    "startTime": "18:00",
+    "endTime": "21:00",
+    "recurrenceRule": null,
+    "tags": [
+      "ijams",
+      "outdoor",
+      "community"
+    ],
+    "neighborhood": "South Knoxville",
+    "lat": 35.9562,
+    "lng": -83.8718,
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F80d2f6_9719729837384760b3b3883892d901eb~mv2.jpg",
+    "strollerFriendly": true,
+    "phone": "",
+    "website": "https://www.ijams.org/fleurish",
+    "email": "",
+    "instagram": "connecting_knox"
   }
 ]
