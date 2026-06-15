@@ -1094,7 +1094,7 @@ try {
 }
 
 // ============================================================
-// DATA
+// DATA — loaded asynchronously from /data/listings.json
 // ============================================================
 // Listings + events are loaded at runtime from /data/listings.json
 // (the single source of truth, also consumed by the SSR middleware).
@@ -3139,7 +3139,7 @@ setTimeout(function(){
   try{
     const grid=document.getElementById('main-grid');
     if(!grid||grid.children.length>0) return;
-    const html=LISTINGS.slice(0,16).map(function(l){try{return buildCard(l);}catch(e){return '';}}).join('');
+    const html=baseListings.slice(0,16).map(function(l){try{return buildCard(l);}catch(e){return '';}}).join('');
     if(html) grid.innerHTML=html;
     const wrap=document.getElementById('load-more-wrap');
     if(wrap) wrap.style.display='none';
