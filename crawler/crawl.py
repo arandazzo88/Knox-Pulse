@@ -44,23 +44,6 @@ CATEGORY_IMAGES = {
 }
 DEFAULT_IMAGE = "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80"
 
-# Stable per-venue images (Wikipedia / official logos) — never rotate with show flyers
-VENUE_IMAGES = {
-    "bijou":       "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fd%2Fdd%2FBijouTheatreKnoxville.jpg%2F800px-BijouTheatreKnoxville.jpg&w=800&q=80",
-    "tennessee":   "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0d%2FTennessee_Theatre_marquee.JPG%2F800px-Tennessee_Theatre_marquee.JPG&w=800&q=80",
-    "barleys":     "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80",
-    "coliseum":    "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80",
-    "mill":        "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb8%2FGuitar_1.jpg%2F800px-Guitar_1.jpg&w=800&q=80",
-    "scruffy":     "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0f%2FMarket_Square_SA2.JPG%2F800px-Market_Square_SA2.JPG&w=800&q=80",
-    "smokies":     "https://wsrv.nl/?url=https%3A%2F%2Fwww.mlbstatic.com%2Fteam-logos%2Fshare%2F553.jpg&w=800&q=80",
-    "coliseum_tm": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80",
-    "ijams":       "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F05%2FHouse-mountain-outcrop-tn1.jpg%2F800px-House-mountain-outcrop-tn1.jpg&w=800&q=80",
-    "legacy":      "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F05%2FHouse-mountain-outcrop-tn1.jpg%2F800px-House-mountain-outcrop-tn1.jpg&w=800&q=80",
-    "oneknox":     "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F05%2FFootball_game_-_panoramic.jpg%2F800px-Football_game_-_panoramic.jpg&w=800&q=80",
-    "neyland":     "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F05%2FFootball_game_-_panoramic.jpg%2F800px-Football_game_-_panoramic.jpg&w=800&q=80",
-    "thompson":    "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FKnoxville_TN_skyline.jpg%2F800px-Knoxville_TN_skyline.jpg&w=800&q=80",
-}
-
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -629,7 +612,7 @@ def crawl_legacyparks(page, state):
                 evt = build_event(
                     title=title, date_str=date_str, description=desc,
                     venue="Legacy Parks", location="Knoxville, TN",
-                    source=source, source_url=link, image=VENUE_IMAGES["legacy"],
+                    source=source, source_url=link, image=img,
                 )
                 if save_event(evt):
                     saved += 1
@@ -766,7 +749,7 @@ def crawl_smokies_baseball(page, state):
                     time_str=time_str, price_text="$10-$20",
                 )
                 evt["category"] = "Sports & Recreation"
-                evt["image"] = VENUE_IMAGES["smokies"]
+                evt["image"] = CATEGORY_IMAGES["Sports & Recreation"]
                 evt["neighborhood"] = "Downtown"  # closest major area
                 if save_event(evt):
                     saved += 1
@@ -827,7 +810,7 @@ def crawl_knoxville_coliseum(page, state):
                 evt = build_event(
                     title=title, date_str=date_str,
                     venue="Knoxville Civic Coliseum", location="500 Howard Baker Jr Ave, Knoxville, TN",
-                    source=source, source_url=link, image=VENUE_IMAGES["coliseum"], price_text=price_text,
+                    source=source, source_url=link, image=img, price_text=price_text,
                 )
                 if save_event(evt):
                     saved += 1
@@ -887,10 +870,12 @@ def crawl_mill_and_mine(page, state):
                 evt = build_event(
                     title=title, date_str=date_str,
                     venue="The Mill & Mine", location="227 W Depot Ave, Knoxville, TN",
-                    source=source, source_url=link, image=VENUE_IMAGES["mill"], price_text=price_text,
+                    source=source, source_url=link, image=img, price_text=price_text,
                 )
                 evt["category"] = "Live Music"
                 evt["neighborhood"] = "Downtown"
+                if not img:
+                    evt["image"] = CATEGORY_IMAGES["Live Music"]
                 if save_event(evt):
                     saved += 1
             except Exception as e:
@@ -946,12 +931,14 @@ def crawl_barleys(page, state):
                 evt = build_event(
                     title=title, date_str=date_str,
                     venue="Barley's Taproom & Pizzeria", location="200 E Jackson Ave, Knoxville, TN",
-                    source=source, source_url=link, image=VENUE_IMAGES["barleys"],
+                    source=source, source_url=link, image=img,
                 )
                 evt["category"] = "Live Music"
                 evt["neighborhood"] = "Old City"
                 evt["ageRestrictions"] = "21+"
                 evt["strollerFriendly"] = False
+                if not img:
+                    evt["image"] = CATEGORY_IMAGES["Live Music"]
                 if save_event(evt):
                     saved += 1
             except Exception as e:
@@ -1011,10 +998,12 @@ def crawl_bijou(state):
                 evt = build_event(
                     title=title, date_str=date_str,
                     venue="Bijou Theatre", location="803 S Gay St, Knoxville, TN",
-                    source=source, source_url=link, image=VENUE_IMAGES["bijou"], price_text=price_text,
+                    source=source, source_url=link, image=img, price_text=price_text,
                 )
                 evt["category"] = "Live Music"
                 evt["neighborhood"] = "Downtown"
+                if not img:
+                    evt["image"] = CATEGORY_IMAGES["Live Music"]
                 if save_event(evt):
                     saved += 1
             except Exception as e:
@@ -1072,9 +1061,11 @@ def crawl_tennessee_theatre(state):
                 evt = build_event(
                     title=title, date_str=date_str,
                     venue="Tennessee Theatre", location="604 S Gay St, Knoxville, TN",
-                    source=source, source_url=link, image=VENUE_IMAGES["tennessee"], price_text=price_text,
+                    source=source, source_url=link, image=img, price_text=price_text,
                 )
                 evt["neighborhood"] = "Downtown"
+                if not img:
+                    evt["image"] = CATEGORY_IMAGES.get(evt["category"], DEFAULT_IMAGE)
                 if save_event(evt):
                     saved += 1
             except Exception as e:
@@ -1135,12 +1126,14 @@ def crawl_ijams(state):
                 evt = build_event(
                     title=title, date_str=date_str, description=desc,
                     venue="Ijams Nature Centre", location="2915 Island Home Ave, Knoxville, TN",
-                    source=source, source_url=link, image=VENUE_IMAGES["ijams"], price_text=price_text,
+                    source=source, source_url=link, image=img, price_text=price_text,
                 )
                 evt["category"] = derive_category(title, desc) or "Outdoor & Nature"
                 evt["neighborhood"] = "South Knoxville"
                 evt["indoorOutdoor"] = "Outdoor"
                 evt["strollerFriendly"] = True
+                if not img:
+                    evt["image"] = CATEGORY_IMAGES["Outdoor & Nature"]
                 if save_event(evt):
                     saved += 1
             except Exception as e:
@@ -1196,10 +1189,12 @@ def crawl_oneknox(page, state):
                     title=title, date_str=date_str,
                     description=f"One Knox Soccer Club event. {title}.",
                     venue="One Knox SC", location="Knoxville, TN",
-                    source=source, source_url=link or url, image=VENUE_IMAGES["oneknox"], time_str=time_str,
+                    source=source, source_url=link or url, image=img, time_str=time_str,
                 )
                 evt["category"] = "Sports & Recreation"
                 evt["indoorOutdoor"] = "Outdoor"
+                if not img:
+                    evt["image"] = CATEGORY_IMAGES["Sports & Recreation"]
                 if save_event(evt):
                     saved += 1
             except Exception as e:
@@ -1263,7 +1258,7 @@ def crawl_utsports_football(state):
                 evt["category"] = "Sports & Recreation"
                 evt["neighborhood"] = "Fort Sanders"
                 evt["indoorOutdoor"] = "Outdoor"
-                evt["image"] = VENUE_IMAGES["neyland"]
+                evt["image"] = CATEGORY_IMAGES["Sports & Recreation"]
                 if save_event(evt):
                     saved += 1
             except Exception as e:
@@ -1321,10 +1316,12 @@ def crawl_scruffycity(page, state):
                 evt = build_event(
                     title=title, date_str=date_str,
                     venue="Scruffy City Hall", location="32 Market Square, Knoxville, TN 37902",
-                    source=source, source_url=link or url, image=VENUE_IMAGES["scruffy"], price_text=price_text,
+                    source=source, source_url=link or url, image=img, price_text=price_text,
                 )
                 evt["category"] = "Live Music"
                 evt["neighborhood"] = "Market Square"
+                if not img:
+                    evt["image"] = CATEGORY_IMAGES["Live Music"]
                 if save_event(evt):
                     saved += 1
             except Exception as e:
@@ -1409,7 +1406,7 @@ def crawl_ticketmaster_thompson_boling(state):
                 )
                 evt["neighborhood"] = "Fort Sanders"
                 if not img:
-                    evt["image"] = VENUE_IMAGES["thompson"]
+                    evt["image"] = CATEGORY_IMAGES.get(evt["category"], DEFAULT_IMAGE)
                 if save_event(evt):
                     saved += 1
             except Exception as e:
