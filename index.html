@@ -1188,7 +1188,6 @@ let selectedStar = 0;
 let activeCosts = [];
 let activeTimes = [];
 let activeDows = [];
-let ugOnly = false;
 let localReviews = JSON.parse(localStorage.getItem('kp_reviews')||'{}');
 let localPhotos = JSON.parse(localStorage.getItem('kp_photos')||'{}');
 let communityEvents = JSON.parse(localStorage.getItem('kp_events')||'[]');
@@ -1749,7 +1748,6 @@ const INTENT_SIGNALS={
     indoor:['indoor','inside','indoors','covered','enclosed'],
   },
 };
-const DOW_FULL=['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
 const DOW_SHORT_=['sun','mon','tue','wed','thu','fri','sat'];
 const STOP_WORDS_=new Set(['a','an','the','is','are','at','in','on','to','for','and','or','of','this','that','with','by','near','from','what','where','when','any','some','all','find','show','me','us','something','want','looking','search','things','thing','stuff','do','going','places','events','happening','tonight','today','weekend','around','here','knoxville','knox','tn','tennessee','tell','about','good','great','best','cool','fun','nice','see','look']);
 
@@ -1760,7 +1758,7 @@ function parseIntent(q){
   const intent={cats:[],cost:null,time:null,inout:null,dows:[],terms:[]};
 
   // DOW detection
-  DOW_FULL.forEach((d,i)=>{if(rem.includes(d)){intent.dows.push(i);rem=rem.replace(new RegExp(d,'g'),'');}});
+  DOW_NAMES.forEach((d,i)=>{if(rem.includes(d)){intent.dows.push(i);rem=rem.replace(new RegExp(d,'g'),'');}});
   DOW_SHORT_.forEach((d,i)=>{const re=new RegExp('\\b'+d+'\\b');if(re.test(rem)&&!intent.dows.includes(i)){intent.dows.push(i);rem=rem.replace(re,'');}});
   if(/this weekend|weekend/.test(rem)){[0,6].forEach(d=>{if(!intent.dows.includes(d))intent.dows.push(d);});rem=rem.replace(/this weekend|weekend/g,'');}
 
@@ -1796,30 +1794,6 @@ function scoreRelevance(l,terms){
 
 const CAT_EMOJI_={'Live Music':'🎵','Dancing':'💃','Karaoke':'🎤','Trivia & Games':'🧠','Comedy':'😂','Festivals & Events':'🎉','Sports & Recreation':'⚽','Outdoor & Nature':'🌿','Arts & Museums':'🎨','Markets':'🛍','Theater & Performance':'🎭','Fitness & Wellness':'🧘','Tours & Experiences':'🗺','Film & Cinema':'🎬','Community & Civic':'🤝','Happy Hour & Specials':'🍹'};
 
-function updateIntentChips(intent){
-  const bar=document.getElementById('intent-bar');
-  const chips=document.getElementById('intent-chips');
-  if(!intent){if(bar)bar.style.display='none';if(chips)chips.innerHTML='';return;}
-  const parts=[];
-  if(intent.cats.length)parts.push(...intent.cats.map(c=>(CAT_EMOJI_[c]||'')+'&nbsp;'+c));
-  if(intent.cost==='free')parts.push('Free');
-  else if(intent.cost==='cheap')parts.push('Budget-friendly');
-  else if(intent.cost==='paid')parts.push('Ticketed');
-  if(intent.time)parts.push({morning:'Morning',afternoon:'Afternoon',evening:'Evening',night:'Nightlife'}[intent.time]||intent.time);
-  if(intent.inout==='outdoor')parts.push('Outdoors');
-  else if(intent.inout==='indoor')parts.push('Indoors');
-  if(intent.dows.length){const names=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];parts.push('📅 '+intent.dows.map(d=>names[d]).join(', '));}
-  if(!parts.length){if(bar)bar.style.display='none';if(chips)chips.innerHTML='';return;}
-  if(chips) chips.innerHTML=parts.map(p=>'<span class="intent-chip">'+p+'</span>').join('');
-  if(bar) bar.style.display='flex';
-}
-
-function clearIntentSearch(){
-  document.getElementById('search-input').value='';
-  const _ib=document.getElementById('intent-bar');if(_ib)_ib.style.display='none';
-  const _ic=document.getElementById('intent-chips');if(_ic)_ic.innerHTML='';
-  applyFilters();
-}
 // ─────────────────────────────────────────────────────────────
 
 function applyFilters(){
@@ -1859,7 +1833,6 @@ function applyFilters(){
     if(activeTimes.length && !activeTimes.includes(l.timeOfDay)) return false;
     if(effectiveDows.length){const dows=l.daysOfWeek||[];if(!effectiveDows.some(d=>dows.includes(d)))return false;}
     if(dateVal && !isHappeningOnDate(l,dateVal)) return false;
-    if(ugOnly && !l.underground) return false;
     if(strollerOnly && !l.strollerFriendly) return false;
     if(nbhd){const allowed=NBHD_GROUPS[nbhd]||[nbhd];if(!allowed.includes(l.neighborhood||''))return false;}
     return true;
@@ -1916,7 +1889,6 @@ function applyFilters(){
     document.getElementById('empty-state').style.display=filtered.length?'none':'block';
   }
 
-  updateIntentChips(q?intent:null);
   if(document.getElementById('btn-map')&&document.getElementById('btn-map').classList.contains('active')) renderMapMarkers(filtered);
 }
 
@@ -2229,11 +2201,9 @@ async function submitReview(){
 // ============================================================
 // UNIFIED EVENT FORM (DOM move pattern)
 // ============================================================
-let efMode = 'public';
 let efVenueAC = null, efLocAC = null;
 
 function openEfForm(slotId, mode, listing) {
-  efMode = mode;
   const form = document.getElementById('ef-form');
   const slot = document.getElementById(slotId);
   if (!slot || !form) return;
@@ -2570,7 +2540,6 @@ function copyLink(id){
 // ADMIN PANEL
 // ============================================================
 const CUSTOM_LISTINGS_KEY = 'kp_custom_listings';
-let adminUnlocked = false;
 
 // Custom listings stored separately from community events
 let customListings = JSON.parse(localStorage.getItem(CUSTOM_LISTINGS_KEY)||'[]');
@@ -2638,7 +2607,6 @@ async function checkAdminPw(){
 }
 
 function unlockAdmin(){
-  adminUnlocked=true;
   document.getElementById('admin-pw-gate').style.display='none';
   document.getElementById('admin-content').style.display='block';
   adminTab('listings');
@@ -2646,7 +2614,6 @@ function unlockAdmin(){
 
 async function adminLogout(){
   try { await fetch('/api/admin-logout', { method: 'POST', credentials: 'same-origin' }); } catch {}
-  adminUnlocked = false;
   closeAdminModal();
 }
 
@@ -2808,11 +2775,6 @@ async function promoteToListing(id){
     await db.collection('listings').doc(newId).set(data);
     await db.collection('communityEvents').doc(id).delete();
   } catch(e){ console.warn('Firestore promote failed:', e); }
-}
-
-function adminCancelEdit(){
-  efHandleAdminCancel();
-  adminTab('listings');
 }
 
 async function changeAdminPw(){
