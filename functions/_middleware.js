@@ -26,7 +26,7 @@ export async function onRequest(context) {
       let html = await indexResp.text();
 
       const items = listings.map(l => {
-        const evUrl = `https://www.theknoxpulse.com/?event=${l.id}`;
+        const evUrl = `https://www.theknoxpulse.com/?event=${esc(l.id)}`;
         return `<li><a href="${evUrl}"><strong>${esc(l.title)}</strong></a> — ${esc(l.category)}` +
           (l.neighborhood ? ` · ${esc(l.neighborhood)}` : '') +
           (l.location ? ` · ${esc(l.location)}` : '') +

@@ -306,8 +306,6 @@ main{max-width:1280px;margin:0 auto;padding:24px;}
 .org-form label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:4px;margin-top:12px;}
 .org-form input,.org-form select,.org-form textarea{width:100%;padding:9px 12px;border-radius:8px;border:1px solid #ffffff20;background:#ffffff08;color:var(--text);font-size:.85rem;}
 .org-form textarea{min-height:60px;resize:vertical;}
-.org-form .recurrence-opts{display:none;}
-.org-form .recurrence-opts.show{display:block;}
 .org-submit{margin-top:16px;padding:10px 28px;background:var(--orange);border:none;border-radius:20px;color:#fff;cursor:pointer;font-weight:700;font-size:.95rem;}
 /* EMPTY STATE */
 #empty-state{text-align:center;padding:60px 20px;color:var(--muted);}
@@ -1539,19 +1537,6 @@ function priceDisplay(l){
   return '';
 }
 
-function deriveCostScale(priceText){
-  const t=(priceText||'').toLowerCase().trim();
-  if(!t||t==='free'||t==='0'||t.includes('free')) return 'Free';
-  const nums=t.match(/\d+/g);
-  if(nums){
-    const max=Math.max(...nums.map(Number));
-    if(max<=15) return '$';
-    if(max<=40) return '$$';
-    return '$$$';
-  }
-  return '$';
-}
-
 // ============================================================
 // STRUCTURED DATA — dynamic Event JSON-LD for AI & search
 // Runs after listings load; re-runs when community events arrive.
@@ -2584,10 +2569,8 @@ function copyLink(id){
 // ============================================================
 // ADMIN PANEL
 // ============================================================
-const ADMIN_PW_KEY = 'kp_admin_pw';
 const CUSTOM_LISTINGS_KEY = 'kp_custom_listings';
 let adminUnlocked = false;
-let editingListingId = null;
 
 // Custom listings stored separately from community events
 let customListings = JSON.parse(localStorage.getItem(CUSTOM_LISTINGS_KEY)||'[]');
@@ -2606,8 +2589,6 @@ function allListings(){
 }
 
 async function openAdminModal(){
-  // Clear any legacy plaintext password from old client-side auth
-  localStorage.removeItem(ADMIN_PW_KEY);
   document.getElementById('admin-modal').classList.add('open');
   document.getElementById('admin-pw-gate').style.display='block';
   document.getElementById('admin-content').style.display='none';
@@ -2696,6 +2677,25 @@ function renderAdminListings(){
       <div class="alr-actions">
         <button class="btn-edit" onclick="adminEditListing('${l.id}')">Edit</button>
         ${customListings.find(x=>x.id===l.id)?`<button class="btn-del" onclick="adminDeleteListing('${l.id}')">Delete</button>`:'<span style="font-size:.7rem;color:var(--muted);padding:4px 6px;">Built-in</span>'}
+      </div>
+    </div>`).join('');
+}
+
+function renderAdminCrawled(){
+  const el=document.getElementById('admin-crawled-list');
+  const crawled=LISTINGS.filter(l=>l.id&&l.id.startsWith('crawled_'));
+  if(!crawled.length){
+    el.innerHTML='<p style="color:var(--muted);font-size:.85rem;">No crawled events in listings.json yet — the weekly crawler will add them automatically.</p>';
+    return;
+  }
+  el.innerHTML=crawled.map(l=>`
+    <div class="admin-listing-row">
+      <span>${l.emoji||'🕷'}</span>
+      <span class="alr-title">${l.title}</span>
+      <span class="alr-nbhd">${l.eventDate||l.neighborhood||''}</span>
+      <span style="font-size:.75rem;color:var(--muted);">${l.category}</span>
+      <div class="alr-actions">
+        <button class="btn-edit" onclick="adminEditListing('${l.id}')">Edit</button>
       </div>
     </div>`).join('');
 }
@@ -2907,6 +2907,39 @@ document.querySelector('header h1').addEventListener('click',()=>{
   }
 });
 
+
+// ============================================================
+// NEIGHBORHOOD DETECTION — coordinate bounding boxes
+// ============================================================
+function detectNeighborhood(lat, lng){
+  // [name, latMin, latMax, lngMin, lngMax] — more specific areas first
+  const boxes=[
+    ['Market Square',    35.962, 35.968, -83.922, -83.917],
+    ['Old City',         35.963, 35.978, -83.922, -83.905],
+    ["World's Fair Park",35.958, 35.967, -83.940, -83.928],
+    ['UT Area',          35.948, 35.967, -83.960, -83.935],
+    ['Fort Sanders',     35.944, 35.960, -83.945, -83.928],
+    ['Downtown',         35.953, 35.973, -83.935, -83.913],
+    ['Happy Holler',     35.974, 35.998, -83.928, -83.908],
+    ['Fountain City',    35.998, 36.048, -83.965, -83.908],
+    ['North Knoxville',  35.982, 36.000, -83.972, -83.900],
+    ['East Knoxville',   35.953, 35.998, -83.916, -83.858],
+    ['South Knoxville',  35.928, 35.960, -83.965, -83.888],
+    ['Sequoyah Hills',   35.940, 35.960, -84.015, -83.975],
+    ['Bearden',          35.942, 35.978, -84.005, -83.958],
+    ['Northshore',       35.928, 35.955, -84.035, -83.993],
+    ['Papermill',        35.950, 35.980, -84.020, -83.990],
+    ['West Knoxville',   35.925, 35.982, -84.065, -84.010],
+    ['Turkey Creek',     35.885, 35.942, -84.115, -84.048],
+    ['Hardin Valley',    35.918, 35.970, -84.160, -84.105],
+    ['Farragut',         35.850, 35.922, -84.210, -84.125],
+    ['Smoky Mountains',  35.540, 35.790, -83.810, -83.340],
+  ];
+  for(const[name,laMin,laMax,lnMin,lnMax]of boxes){
+    if(lat>=laMin&&lat<=laMax&&lng>=lnMin&&lng<=lnMax) return name;
+  }
+  return '';
+}
 
 // ============================================================
 // GOOGLE PLACES AUTOCOMPLETE
