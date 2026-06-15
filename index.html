@@ -3880,13 +3880,20 @@ function allListings(){
   return [...LISTINGS, ...customListings, ...communityEvents];
 }
 
-function openAdminModal(){
+async function openAdminModal(){
+  // Clear any legacy plaintext password from old client-side auth
+  localStorage.removeItem(ADMIN_PW_KEY);
   document.getElementById('admin-modal').classList.add('open');
   document.getElementById('admin-pw-gate').style.display='block';
   document.getElementById('admin-content').style.display='none';
   document.getElementById('admin-pw-input').value='';
+  document.getElementById('admin-pw-err').textContent='Incorrect password.';
   document.getElementById('admin-pw-err').style.display='none';
-  if(adminUnlocked) unlockAdmin();
+  // Auto-unlock if a valid server session cookie already exists
+  try {
+    const r = await fetch('/api/admin-verify', { credentials: 'same-origin' });
+    if (r.ok) unlockAdmin();
+  } catch {}
 }
 function closeAdminModal(){
   document.getElementById('admin-modal').classList.remove('open');
@@ -3897,13 +3904,30 @@ document.addEventListener('click',function(e){
   if(am&&e.target===am) closeAdminModal();
 });
 
-function checkAdminPw(){
-  const stored = localStorage.getItem(ADMIN_PW_KEY)||'knoxpulse';
-  const entered = document.getElementById('admin-pw-input').value;
-  if(entered === stored){ unlockAdmin(); }
-  else {
-    document.getElementById('admin-pw-err').style.display='block';
-    document.getElementById('admin-pw-input').value='';
+async function checkAdminPw(){
+  const password = document.getElementById('admin-pw-input').value;
+  const errEl = document.getElementById('admin-pw-err');
+  errEl.style.display = 'none';
+  if (!password) return;
+  try {
+    const r = await fetch('/api/admin-auth', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify({ password }),
+    });
+    const data = await r.json().catch(() => ({}));
+    if (r.ok) {
+      document.getElementById('admin-pw-input').value = '';
+      unlockAdmin();
+    } else {
+      errEl.textContent = data.error || 'Incorrect password.';
+      errEl.style.display = 'block';
+      document.getElementById('admin-pw-input').value = '';
+    }
+  } catch {
+    errEl.textContent = 'Server error — please try again.';
+    errEl.style.display = 'block';
   }
 }
 
@@ -3912,6 +3936,12 @@ function unlockAdmin(){
   document.getElementById('admin-pw-gate').style.display='none';
   document.getElementById('admin-content').style.display='block';
   adminTab('listings');
+}
+
+async function adminLogout(){
+  try { await fetch('/api/admin-logout', { method: 'POST', credentials: 'same-origin' }); } catch {}
+  adminUnlocked = false;
+  closeAdminModal();
 }
 
 function adminTab(tab){
@@ -4216,15 +4246,33 @@ async function saveAdminListing(){
   }
 }
 
-function changeAdminPw(){
+async function changeAdminPw(){
   const p1=document.getElementById('new-pw-1').value;
   const p2=document.getElementById('new-pw-2').value;
   if(!p1){showToast('Enter a new password.');return;}
+  if(p1.length < 8){showToast('Password must be at least 8 characters.');return;}
   if(p1!==p2){showToast('Passwords do not match!');return;}
-  localStorage.setItem(ADMIN_PW_KEY,p1);
+  try {
+    const r = await fetch('/api/admin-change-pw', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify({ password: p1 }),
+    });
+    const data = await r.json().catch(() => ({}));
+    if (r.ok && data.action === 'manual') {
+      // KV not bound — show hash for manual update in Cloudflare dashboard
+      showToast('Update ADMIN_PASSWORD_HASH in Cloudflare env vars to: ' + data.hash, 8000);
+    } else if (r.ok) {
+      showToast('Password updated successfully.');
+    } else {
+      showToast(data.error || 'Failed to update password.');
+    }
+  } catch {
+    showToast('Server error — could not update password.');
+  }
   document.getElementById('new-pw-1').value='';
   document.getElementById('new-pw-2').value='';
-  showToast('Password updated!');
 }
 
 function exportData(){
@@ -4735,6 +4783,8 @@ setTimeout(function(){
             <label>Confirm New Password</label>
             <input type="password" id="new-pw-2" placeholder="Confirm password"/>
             <button class="admin-save" onclick="changeAdminPw()" style="margin-top:12px;">Update Password</button>
+            <hr style="border-color:#ffffff15;margin:20px 0;"/>
+            <button class="admin-save" onclick="adminLogout()" style="background:#c0392b;margin-bottom:4px;">🔓 Log Out</button>
             <hr style="border-color:#ffffff15;margin:20px 0;"/>
             <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">
               Export all custom listings as JSON (for backup).</p>
