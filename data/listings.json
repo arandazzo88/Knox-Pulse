@@ -11,10 +11,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$$$",
-    "price": "$50–$300+",
+    "price": "$50\u2013$300+",
     "season": "Fall",
     "underground": false,
-    "emoji": "🏈",
+    "emoji": "\ud83c\udfc8",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -57,10 +57,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$$",
-    "price": "$20–$80",
+    "price": "$20\u2013$80",
     "season": "Fall,Winter",
     "underground": false,
-    "emoji": "🏀",
+    "emoji": "\ud83c\udfc0",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -99,16 +99,16 @@
     "category": "Sports & Recreation",
     "location": "1600 Phillip Fulmer Way, Knoxville",
     "venueName": "Thompson-Boling Arena at Food City Center",
-    "description": "Tennessee's legendary Lady Vols women's basketball program — one of the most decorated in college hoops history. Home games November through March.",
+    "description": "Tennessee's legendary Lady Vols women's basketball program \u2014 one of the most decorated in college hoops history. Home games November through March.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 2,
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$$",
-    "price": "$15–$60",
+    "price": "$15\u2013$60",
     "season": "Fall,Winter",
     "underground": false,
-    "emoji": "🏀",
+    "emoji": "\ud83c\udfc0",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -153,10 +153,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$",
-    "price": "$10–$25",
+    "price": "$10\u2013$25",
     "season": "Spring,Summer",
     "underground": false,
-    "emoji": "⚾",
+    "emoji": "\u26be",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -211,10 +211,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$",
-    "price": "$15–$30",
+    "price": "$15\u2013$30",
     "season": "Fall,Winter",
     "underground": false,
-    "emoji": "🏒",
+    "emoji": "\ud83c\udfd2",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -262,7 +262,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎸",
+    "emoji": "\ud83c\udfb8",
     "eventType": "recurring",
     "daysOfWeek": [
       1,
@@ -310,10 +310,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$$",
-    "price": "$25–$100",
+    "price": "$25\u2013$100",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎭",
+    "emoji": "\ud83c\udfad",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -351,10 +351,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$$",
-    "price": "$20–$60",
+    "price": "$20\u2013$60",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎵",
+    "emoji": "\ud83c\udfb5",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -394,10 +394,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$$",
-    "price": "$20–$60",
+    "price": "$20\u2013$60",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🏭",
+    "emoji": "\ud83c\udfed",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -437,7 +437,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🍺",
+    "emoji": "\ud83c\udf7a",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -455,7 +455,7 @@
       6
     ],
     "startTime": "19:00",
-    "price": "Free · cover for ticketed shows",
+    "price": "Free \u00b7 cover for ticketed shows",
     "tags": [
       "live music",
       "craft beer",
@@ -478,7 +478,7 @@
     "title": "Market Square Farmers Market",
     "category": "Markets",
     "location": "Market Square, Knoxville",
-    "description": "Producer-only open-air market on historic Market Square with ~140 local vendors. Main season (May–Oct): Saturdays 9am–1pm and Wednesdays 10am–1pm. Winter market (Nov–Apr): Saturdays 10am–2pm.",
+    "description": "Producer-only open-air market on historic Market Square with ~140 local vendors. Main season (May\u2013Oct): Saturdays 9am\u20131pm and Wednesdays 10am\u20131pm. Winter market (Nov\u2013Apr): Saturdays 10am\u20132pm.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -486,7 +486,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🥬",
+    "emoji": "\ud83e\udd6c",
     "eventType": "recurring",
     "daysOfWeek": [
       3,
@@ -528,7 +528,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🍜",
+    "emoji": "\ud83c\udf5c",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -540,7 +540,7 @@
       6
     ],
     "startTime": "11:00",
-    "price": "Free to enter · pay per dish",
+    "price": "Free to enter \u00b7 pay per dish",
     "tags": [
       "food hall",
       "restaurants",
@@ -561,7 +561,7 @@
     "title": "Urban Nature Preserve & Trails",
     "category": "Outdoor & Nature",
     "location": "2915 Island Home Ave, Knoxville",
-    "description": "275-acre urban wildlife sanctuary with 10 miles of trails, seasonal kayaking at Mead's Quarry Lake, rock climbing, and mountain biking. A green oasis 10 minutes from downtown — $5 parking.",
+    "description": "275-acre urban wildlife sanctuary with 10 miles of trails, seasonal kayaking at Mead's Quarry Lake, rock climbing, and mountain biking. A green oasis 10 minutes from downtown \u2014 $5 parking.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 3,
     "ageRestrictions": "All Ages",
@@ -569,7 +569,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🌿",
+    "emoji": "\ud83c\udf3f",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -580,7 +580,7 @@
       5,
       6
     ],
-    "price": "Free · $5 parking fee",
+    "price": "Free \u00b7 $5 parking fee",
     "tags": [
       "hiking",
       "nature",
@@ -612,7 +612,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🚶",
+    "emoji": "\ud83d\udeb6",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -641,7 +641,7 @@
     "title": "Sunsphere & World's Fair Park",
     "category": "Tours & Experiences",
     "location": "810 Clinch Ave, Knoxville",
-    "description": "Iconic gold globe from the 1982 World's Fair with a free observation deck and sweeping 360° city views. Surrounded by a beautiful park used for concerts, Knox Pride, and the Knoxville Marathon.",
+    "description": "Iconic gold globe from the 1982 World's Fair with a free observation deck and sweeping 360\u00b0 city views. Surrounded by a beautiful park used for concerts, Knox Pride, and the Knoxville Marathon.",
     "indoorOutdoor": "Both",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -649,7 +649,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🌐",
+    "emoji": "\ud83c\udf10",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -687,7 +687,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎨",
+    "emoji": "\ud83c\udfa8",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -724,7 +724,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🖼️",
+    "emoji": "\ud83d\uddbc\ufe0f",
     "eventType": "venue",
     "daysOfWeek": [
       2,
@@ -762,10 +762,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Afternoon",
     "costScale": "$",
-    "price": "$10 adults · Free Sundays",
+    "price": "$10 adults \u00b7 Free Sundays",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🏛️",
+    "emoji": "\ud83c\udfdb\ufe0f",
     "eventType": "venue",
     "daysOfWeek": [
       1,
@@ -796,16 +796,16 @@
     "title": "City Zoo & Wildlife",
     "category": "Outdoor & Nature",
     "location": "3500 Knoxville Zoo Dr, Knoxville",
-    "description": "Full-service accredited zoo in East Knoxville with large mammals, rare red pandas, reptiles, and birds. Seasonal events include Boo at the Zoo (October) and Holiday Lights. Open daily 9am–5pm.",
+    "description": "Full-service accredited zoo in East Knoxville with large mammals, rare red pandas, reptiles, and birds. Seasonal events include Boo at the Zoo (October) and Holiday Lights. Open daily 9am\u20135pm.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 4,
     "ageRestrictions": "All Ages",
     "timeOfDay": "Morning",
     "costScale": "$$",
-    "price": "$27 adults · $22 kids/seniors · Under 2 free",
+    "price": "$27 adults \u00b7 $22 kids/seniors \u00b7 Under 2 free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🦁",
+    "emoji": "\ud83e\udd81",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -838,16 +838,16 @@
     "title": "Big Ears Festival",
     "category": "Festivals & Events",
     "location": "Multiple Venues, Downtown Knoxville",
-    "description": "Nationally acclaimed experimental and avant-garde music festival across 20 downtown venues — Tennessee Theatre, Bijou, KMA, and more. ~250 performances over 4 days each March.",
+    "description": "Nationally acclaimed experimental and avant-garde music festival across 20 downtown venues \u2014 Tennessee Theatre, Bijou, KMA, and more. ~250 performances over 4 days each March.",
     "indoorOutdoor": "Both",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
     "timeOfDay": "Evening",
     "costScale": "$$$",
-    "price": "$350+ wristband · Single shows available",
+    "price": "$350+ wristband \u00b7 Single shows available",
     "season": "Spring",
     "underground": false,
-    "emoji": "👂",
+    "emoji": "\ud83d\udc42",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "annual",
@@ -888,7 +888,7 @@
     "costScale": "Free",
     "season": "Spring",
     "underground": false,
-    "emoji": "🌸",
+    "emoji": "\ud83c\udf38",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "annual",
@@ -925,10 +925,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Afternoon",
     "costScale": "$",
-    "price": "~$12–$15 admission · Rides extra",
+    "price": "~$12\u2013$15 admission \u00b7 Rides extra",
     "season": "Fall",
     "underground": false,
-    "emoji": "🎡",
+    "emoji": "\ud83c\udfa1",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "annual",
@@ -971,7 +971,7 @@
     "costScale": "Free",
     "season": "Summer",
     "underground": false,
-    "emoji": "🏳️‍🌈",
+    "emoji": "\ud83c\udff3\ufe0f\u200d\ud83c\udf08",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "annual",
@@ -1009,10 +1009,10 @@
     "ageRestrictions": "All Ages",
     "timeOfDay": "Morning",
     "costScale": "$$",
-    "price": "$50–$150 registration",
+    "price": "$50\u2013$150 registration",
     "season": "Spring",
     "underground": false,
-    "emoji": "🏃",
+    "emoji": "\ud83c\udfc3",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "annual",
@@ -1048,7 +1048,7 @@
     "costScale": "Free",
     "season": "Summer",
     "underground": false,
-    "emoji": "🎶",
+    "emoji": "\ud83c\udfb6",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -1090,7 +1090,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🤠",
+    "emoji": "\ud83e\udd20",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1106,7 +1106,7 @@
       6
     ],
     "startTime": "19:00",
-    "price": "$5–$20 · varies by night",
+    "price": "$5\u2013$20 \u00b7 varies by night",
     "tags": [
       "country",
       "dancing",
@@ -1136,7 +1136,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎵",
+    "emoji": "\ud83c\udfb5",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1152,7 +1152,7 @@
       6
     ],
     "startTime": "20:00",
-    "price": "Free–$20 · most shows under $10",
+    "price": "Free\u2013$20 \u00b7 most shows under $10",
     "tags": [
       "indie",
       "punk",
@@ -1174,7 +1174,7 @@
     "title": "Live Music Rooftop Bar",
     "category": "Live Music",
     "location": "28 Market Square, Knoxville",
-    "description": "Multi-story bar on Market Square with a rooftop patio and live music almost every night — jazz, blues, folk, and rock. One of the most distinctive spots in downtown Knoxville.",
+    "description": "Multi-story bar on Market Square with a rooftop patio and live music almost every night \u2014 jazz, blues, folk, and rock. One of the most distinctive spots in downtown Knoxville.",
     "indoorOutdoor": "Both",
     "distanceMiles": 1,
     "ageRestrictions": "21+",
@@ -1182,7 +1182,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎺",
+    "emoji": "\ud83c\udfba",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1200,7 +1200,7 @@
       6
     ],
     "startTime": "20:00",
-    "price": "Free–$5 · varies by night",
+    "price": "Free\u2013$5 \u00b7 varies by night",
     "tags": [
       "jazz",
       "blues",
@@ -1228,7 +1228,7 @@
     "costScale": "Free",
     "season": "Spring,Summer,Fall",
     "underground": false,
-    "emoji": "⛰️",
+    "emoji": "\u26f0\ufe0f",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -1256,7 +1256,7 @@
     "title": "Silent Disco",
     "category": "Dancing",
     "location": "28 Market Square, Knoxville",
-    "description": "Put on wireless headphones and choose your channel — three DJs, one dance floor, zero speakers. Wild, hilarious, and totally addictive.",
+    "description": "Put on wireless headphones and choose your channel \u2014 three DJs, one dance floor, zero speakers. Wild, hilarious, and totally addictive.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1,
     "ageRestrictions": "21+",
@@ -1264,7 +1264,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎧",
+    "emoji": "\ud83c\udfa7",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -1275,7 +1275,7 @@
       6
     ],
     "startTime": "22:00",
-    "price": "$12 early bird · $15 GA · 18+",
+    "price": "$12 early bird \u00b7 $15 GA \u00b7 18+",
     "tags": [
       "silent disco",
       "dancing",
@@ -1302,7 +1302,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🪗",
+    "emoji": "\ud83e\ude97",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1343,7 +1343,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎷",
+    "emoji": "\ud83c\udfb7",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -1354,7 +1354,7 @@
       3
     ],
     "startTime": "20:00",
-    "price": "No cover · food & drinks",
+    "price": "No cover \u00b7 food & drinks",
     "tags": [
       "jazz",
       "lounge",
@@ -1380,14 +1380,14 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": true,
-    "emoji": "🔊",
+    "emoji": "\ud83d\udd0a",
     "eventType": "venue",
     "daysOfWeek": [
       5,
       6
     ],
     "startTime": "22:00",
-    "price": "$5–$20 · varies by event",
+    "price": "$5\u2013$20 \u00b7 varies by event",
     "tags": [
       "rave",
       "EDM",
@@ -1415,7 +1415,7 @@
     "price": "$15",
     "season": "Spring,Summer,Fall",
     "underground": false,
-    "emoji": "🧘",
+    "emoji": "\ud83e\uddd8",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1452,7 +1452,7 @@
     "costScale": "Free",
     "season": "Spring,Summer,Fall",
     "underground": false,
-    "emoji": "🪕",
+    "emoji": "\ud83e\ude95",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1490,7 +1490,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "⛸️",
+    "emoji": "\u26f8\ufe0f",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -1501,7 +1501,7 @@
       6
     ],
     "startTime": "18:00",
-    "price": "$15 advance · $20 at door · $10 kids & seniors",
+    "price": "$15 advance \u00b7 $20 at door \u00b7 $10 kids & seniors",
     "tags": [
       "roller derby",
       "sports",
@@ -1527,7 +1527,7 @@
     "costScale": "Free",
     "season": "Spring,Summer,Fall",
     "underground": false,
-    "emoji": "🥁",
+    "emoji": "\ud83e\udd41",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -1570,7 +1570,7 @@
     "costScale": "Free",
     "season": "Summer",
     "underground": true,
-    "emoji": "🌙",
+    "emoji": "\ud83c\udf19",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -1615,7 +1615,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": true,
-    "emoji": "🎬",
+    "emoji": "\ud83c\udfac",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -1626,7 +1626,7 @@
       3
     ],
     "startTime": "20:00",
-    "price": "$10–$15 · location revealed to ticket holders",
+    "price": "$10\u2013$15 \u00b7 location revealed to ticket holders",
     "tags": [
       "film",
       "cinema",
@@ -1652,7 +1652,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎤",
+    "emoji": "\ud83c\udfa4",
     "eventType": "venue",
     "recurrenceRule": {
       "type": "weekly",
@@ -1674,7 +1674,7 @@
       6
     ],
     "startTime": "20:00",
-    "price": "Cover charge · check website for rates",
+    "price": "Cover charge \u00b7 check website for rates",
     "tags": [
       "karaoke",
       "bar",
@@ -1694,7 +1694,7 @@
     "title": "Springboard Open Mic Comedy",
     "category": "Comedy",
     "location": "32 Market Square, Knoxville",
-    "description": "Free weekly open mic comedy night hosted by True Grit Comedy. Sign-ups at 7:30 PM, show at 8 PM through midnight. 7-minute sets, any style. Beginners welcome — no experience needed.",
+    "description": "Free weekly open mic comedy night hosted by True Grit Comedy. Sign-ups at 7:30 PM, show at 8 PM through midnight. 7-minute sets, any style. Beginners welcome \u2014 no experience needed.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 0.3,
     "ageRestrictions": "21+",
@@ -1702,7 +1702,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎭",
+    "emoji": "\ud83c\udfad",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1735,7 +1735,7 @@
     "title": "Jazz on the Square",
     "category": "Live Music",
     "location": "Market Square, Knoxville",
-    "description": "Free outdoor jazz concerts on Market Square every Tuesday evening in May, June, and September (7–9 PM). Presented by Axle Logistics. Bring a lawn chair — all ages welcome.",
+    "description": "Free outdoor jazz concerts on Market Square every Tuesday evening in May, June, and September (7\u20139 PM). Presented by Axle Logistics. Bring a lawn chair \u2014 all ages welcome.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 0.3,
     "ageRestrictions": "All Ages",
@@ -1743,7 +1743,7 @@
     "costScale": "Free",
     "season": "Seasonal",
     "underground": false,
-    "emoji": "🎷",
+    "emoji": "\ud83c\udfb7",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -1788,7 +1788,7 @@
     "costScale": "$$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "👑",
+    "emoji": "\ud83d\udc51",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -1799,7 +1799,7 @@
       6
     ],
     "startTime": "11:00",
-    "price": "From $30 · tickets required in advance",
+    "price": "From $30 \u00b7 tickets required in advance",
     "tags": [
       "drag",
       "brunch",
@@ -1828,7 +1828,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎸",
+    "emoji": "\ud83c\udfb8",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1861,7 +1861,7 @@
     "title": "Tuesday Trivia",
     "category": "Trivia & Games",
     "location": "207 W Jackson Ave, Knoxville",
-    "description": "Free pub trivia every Tuesday 8–10 PM at this self-pour taproom with 68 rotating digital taps. Hosted by Timeless Entertainment — top 3 teams win gift cards, and players get 15% off their tab.",
+    "description": "Free pub trivia every Tuesday 8\u201310 PM at this self-pour taproom with 68 rotating digital taps. Hosted by Timeless Entertainment \u2014 top 3 teams win gift cards, and players get 15% off their tab.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 0.9,
     "ageRestrictions": "21+",
@@ -1869,7 +1869,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🧠",
+    "emoji": "\ud83e\udde0",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1910,7 +1910,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎵",
+    "emoji": "\ud83c\udfb5",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1942,7 +1942,7 @@
     "title": "Trivia Thursday",
     "category": "Trivia & Games",
     "location": "621 Lamar St, Knoxville",
-    "description": "Free Thursday trivia at this Old North cider and mead taproom, hosted by The Trivia Guys. All ages welcome. Also: open mic Mondays and Singo music bingo Tuesdays — free events every weeknight.",
+    "description": "Free Thursday trivia at this Old North cider and mead taproom, hosted by The Trivia Guys. All ages welcome. Also: open mic Mondays and Singo music bingo Tuesdays \u2014 free events every weeknight.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1.2,
     "ageRestrictions": "All Ages",
@@ -1950,7 +1950,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🧠",
+    "emoji": "\ud83e\udde0",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -1981,7 +1981,7 @@
     "title": "Trivia Monday",
     "category": "Trivia & Games",
     "location": "1105 Forest Ave, Knoxville",
-    "description": "Free weekly trivia every Monday at The Hill, a Fort Sanders institution since 2009 known for award-winning wings. Hosted by Challenge Entertainment — top teams win prizes.",
+    "description": "Free weekly trivia every Monday at The Hill, a Fort Sanders institution since 2009 known for award-winning wings. Hosted by Challenge Entertainment \u2014 top teams win prizes.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1.2,
     "ageRestrictions": "All Ages",
@@ -1989,7 +1989,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🧠",
+    "emoji": "\ud83e\udde0",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2029,7 +2029,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🧠",
+    "emoji": "\ud83e\udde0",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2061,7 +2061,7 @@
     "title": "Trivia Wednesday",
     "category": "Trivia & Games",
     "location": "2109 Cumberland Ave, Knoxville",
-    "description": "Free weekly trivia at 7 PM at the Cumberland Ave Mellow Mushroom — historic home of Knox Trivia Guys, founded here in 2002. Hosted by Challenge Entertainment. Great pizza + competitive quiz.",
+    "description": "Free weekly trivia at 7 PM at the Cumberland Ave Mellow Mushroom \u2014 historic home of Knox Trivia Guys, founded here in 2002. Hosted by Challenge Entertainment. Great pizza + competitive quiz.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1.8,
     "ageRestrictions": "All Ages",
@@ -2069,7 +2069,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🍕",
+    "emoji": "\ud83c\udf55",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2101,7 +2101,7 @@
     "title": "Divaz & Kingz Drag Show",
     "category": "Theater & Performance",
     "location": "1215 N Central St, Knoxville",
-    "description": "Weekly Thursday drag show at Knoxville's iconic LGBTQ+ club in Happy Holler. Happy hour 7–9 PM; drag shows at 11:30 PM and 1 AM. Free on Thursdays. Also performs Fridays and Saturdays.",
+    "description": "Weekly Thursday drag show at Knoxville's iconic LGBTQ+ club in Happy Holler. Happy hour 7\u20139 PM; drag shows at 11:30 PM and 1 AM. Free on Thursdays. Also performs Fridays and Saturdays.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1.3,
     "ageRestrictions": "21+",
@@ -2109,7 +2109,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "👑",
+    "emoji": "\ud83d\udc51",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2149,7 +2149,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🧠",
+    "emoji": "\ud83e\udde0",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2188,7 +2188,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "😂",
+    "emoji": "\ud83d\ude02",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2223,7 +2223,7 @@
     "title": "Family Movie Night",
     "category": "Film & Cinema",
     "location": "745 N Broadway, Knoxville",
-    "description": "Free Tuesday Family Movie Night 6–9 PM at Yee-Haw's expansive North Knox beer garden with an outdoor amphitheater, fire pits, and 62 taps. Prince's Hot Chicken kitchen on site. All ages welcome.",
+    "description": "Free Tuesday Family Movie Night 6\u20139 PM at Yee-Haw's expansive North Knox beer garden with an outdoor amphitheater, fire pits, and 62 taps. Prince's Hot Chicken kitchen on site. All ages welcome.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 2.3,
     "ageRestrictions": "All Ages",
@@ -2231,7 +2231,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎬",
+    "emoji": "\ud83c\udfac",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2265,7 +2265,7 @@
     "title": "Trivia, Bingo & Karaoke",
     "category": "Karaoke",
     "location": "4842 Harvest Mill Way, Knoxville",
-    "description": "Voted Best Bar in Knoxville — this 80s-themed cocktail bar packs in weekly events: trivia Wednesdays at 7 PM, music bingo Thursdays, and karaoke dance parties Friday and Saturday nights until midnight.",
+    "description": "Voted Best Bar in Knoxville \u2014 this 80s-themed cocktail bar packs in weekly events: trivia Wednesdays at 7 PM, music bingo Thursdays, and karaoke dance parties Friday and Saturday nights until midnight.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 5.5,
     "ageRestrictions": "21+",
@@ -2273,7 +2273,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🕹️",
+    "emoji": "\ud83d\udd79\ufe0f",
     "eventType": "venue",
     "recurrenceRule": {
       "type": "weekly",
@@ -2291,7 +2291,7 @@
       6
     ],
     "startTime": "19:00",
-    "price": "No cover · buy a drink",
+    "price": "No cover \u00b7 buy a drink",
     "tags": [
       "trivia",
       "karaoke",
@@ -2312,7 +2312,7 @@
     "title": "Trivia Monday",
     "category": "Trivia & Games",
     "location": "1120 Sevier Ave, Knoxville",
-    "description": "Free Monday trivia at 7 PM at this dog-friendly South Knox burger spot. Hosted by Challenge Entertainment — top teams win prizes. Craft beer, smash burgers, and competitive pub quiz vibes.",
+    "description": "Free Monday trivia at 7 PM at this dog-friendly South Knox burger spot. Hosted by Challenge Entertainment \u2014 top teams win prizes. Craft beer, smash burgers, and competitive pub quiz vibes.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1.5,
     "ageRestrictions": "All Ages",
@@ -2320,7 +2320,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🍔",
+    "emoji": "\ud83c\udf54",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2360,7 +2360,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎵",
+    "emoji": "\ud83c\udfb5",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2403,7 +2403,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🍺",
+    "emoji": "\ud83c\udf7a",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2435,7 +2435,7 @@
     "title": "Private Karaoke Rooms",
     "category": "Karaoke",
     "location": "1147 Sevier Ave, Knoxville",
-    "description": "South Knoxville's first private karaoke bar with bookable rooms for up to 20 people at $30/hour. Craft cocktails, Latin-inspired bites, and a patio with yard games. Reserve in advance on weekends. Thursday–Sunday.",
+    "description": "South Knoxville's first private karaoke bar with bookable rooms for up to 20 people at $30/hour. Craft cocktails, Latin-inspired bites, and a patio with yard games. Reserve in advance on weekends. Thursday\u2013Sunday.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1.5,
     "ageRestrictions": "21+",
@@ -2443,7 +2443,7 @@
     "costScale": "$$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎤",
+    "emoji": "\ud83c\udfa4",
     "eventType": "venue",
     "recurrenceRule": {
       "type": "weekly",
@@ -2462,7 +2462,7 @@
     ],
     "startTime": "17:00",
     "endTime": "23:00",
-    "price": "$30/hr per room · up to 20 people",
+    "price": "$30/hr per room \u00b7 up to 20 people",
     "tags": [
       "karaoke",
       "private rooms",
@@ -2491,7 +2491,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🧠",
+    "emoji": "\ud83e\udde0",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2522,7 +2522,7 @@
     "title": "Nightly Karaoke",
     "category": "Karaoke",
     "location": "10535 Kingston Pike, Knoxville",
-    "description": "West Knoxville's dedicated karaoke cafe with open-stage karaoke nightly Tuesday through Saturday starting at 8 PM. Full menu, casual atmosphere — just show up and sing.",
+    "description": "West Knoxville's dedicated karaoke cafe with open-stage karaoke nightly Tuesday through Saturday starting at 8 PM. Full menu, casual atmosphere \u2014 just show up and sing.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 8,
     "ageRestrictions": "21+",
@@ -2530,7 +2530,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎤",
+    "emoji": "\ud83c\udfa4",
     "eventType": "venue",
     "recurrenceRule": {
       "type": "weekly",
@@ -2550,7 +2550,7 @@
       6
     ],
     "startTime": "20:00",
-    "price": "No cover · 21+",
+    "price": "No cover \u00b7 21+",
     "tags": [
       "karaoke",
       "west knoxville",
@@ -2578,7 +2578,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "👑",
+    "emoji": "\ud83d\udc51",
     "eventType": "venue",
     "recurrenceRule": {
       "type": "weekly",
@@ -2596,7 +2596,7 @@
       6
     ],
     "startTime": "22:00",
-    "price": "Free–$10 · varies by show",
+    "price": "Free\u2013$10 \u00b7 varies by show",
     "tags": [
       "drag",
       "lgbtq",
@@ -2625,7 +2625,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎵",
+    "emoji": "\ud83c\udfb5",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2665,7 +2665,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🍺",
+    "emoji": "\ud83c\udf7a",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2697,7 +2697,7 @@
     "title": "Trivia & Singo",
     "category": "Trivia & Games",
     "location": "350 N Peters Rd, Knoxville",
-    "description": "Two free weekly events at this Northshore neighborhood bar: Tuesday trivia 7–9 PM and Sunday Singo music bingo at 7 PM. Thursday through Saturday: live acoustic and band performances.",
+    "description": "Two free weekly events at this Northshore neighborhood bar: Tuesday trivia 7\u20139 PM and Sunday Singo music bingo at 7 PM. Thursday through Saturday: live acoustic and band performances.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 6,
     "ageRestrictions": "All Ages",
@@ -2705,7 +2705,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🧠",
+    "emoji": "\ud83e\udde0",
     "eventType": "venue",
     "recurrenceRule": {
       "type": "weekly",
@@ -2748,7 +2748,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "😂",
+    "emoji": "\ud83d\ude02",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2787,7 +2787,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "😂",
+    "emoji": "\ud83d\ude02",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2827,7 +2827,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "😂",
+    "emoji": "\ud83d\ude02",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -2838,7 +2838,7 @@
       5
     ],
     "startTime": "20:00",
-    "price": "$5–$10 · check Pilot Light socials",
+    "price": "$5\u2013$10 \u00b7 check Pilot Light socials",
     "tags": [
       "comedy",
       "monthly",
@@ -2859,7 +2859,7 @@
     "title": "Wednesday Night Run Club",
     "category": "Fitness & Wellness",
     "location": "525 S Gay St, Knoxville",
-    "description": "Free weekly group run from the Gay Street store every Wednesday at 6 PM. Routes range 3–6 miles through downtown and the Riverwalk greenway. All paces welcome — post-run social on the patio.",
+    "description": "Free weekly group run from the Gay Street store every Wednesday at 6 PM. Routes range 3\u20136 miles through downtown and the Riverwalk greenway. All paces welcome \u2014 post-run social on the patio.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 0.5,
     "ageRestrictions": "All Ages",
@@ -2867,7 +2867,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🏃",
+    "emoji": "\ud83c\udfc3",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -2900,7 +2900,7 @@
     "title": "Open Climbing",
     "category": "Fitness & Wellness",
     "location": "1645 Downtown West Blvd, Knoxville",
-    "description": "Knoxville's dedicated indoor climbing gym with bouldering and top-rope walls. Day passes available — no membership required. Beginner-friendly with an on-site gear shop.",
+    "description": "Knoxville's dedicated indoor climbing gym with bouldering and top-rope walls. Day passes available \u2014 no membership required. Beginner-friendly with an on-site gear shop.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 3,
     "ageRestrictions": "All Ages",
@@ -2908,7 +2908,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🧗",
+    "emoji": "\ud83e\uddd7",
     "eventType": "venue",
     "daysOfWeek": [
       1,
@@ -2919,7 +2919,7 @@
       6,
       0
     ],
-    "price": "$15–$25 day pass",
+    "price": "$15\u2013$25 day pass",
     "tags": [
       "climbing",
       "bouldering",
@@ -2940,7 +2940,7 @@
     "title": "Drop-In Yoga Classes",
     "category": "Fitness & Wellness",
     "location": "4618 Kingston Pike, Knoxville",
-    "description": "Affordable drop-in yoga in Bearden — hatha, vinyasa, yin, and restorative. Weekday morning and evening classes plus weekend options. New-student specials available.",
+    "description": "Affordable drop-in yoga in Bearden \u2014 hatha, vinyasa, yin, and restorative. Weekday morning and evening classes plus weekend options. New-student specials available.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 4,
     "ageRestrictions": "All Ages",
@@ -2948,7 +2948,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🧘",
+    "emoji": "\ud83e\uddd8",
     "eventType": "venue",
     "daysOfWeek": [
       1,
@@ -2981,7 +2981,7 @@
     "title": "Saturday Morning Run",
     "category": "Fitness & Wellness",
     "location": "World's Fair Park, Knoxville",
-    "description": "One of Knoxville's longest-running free run clubs. Meets Saturday mornings at World's Fair Park — routes range 4–10 miles, all paces welcome. Visitors and tourists encouraged.",
+    "description": "One of Knoxville's longest-running free run clubs. Meets Saturday mornings at World's Fair Park \u2014 routes range 4\u201310 miles, all paces welcome. Visitors and tourists encouraged.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -2989,7 +2989,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🏃",
+    "emoji": "\ud83c\udfc3",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3020,7 +3020,7 @@
     "title": "Knoxville Ghost Tours",
     "category": "Tours & Experiences",
     "location": "Old City, Knoxville",
-    "description": "Lantern-lit walking tour through Knoxville's haunted Old City, exploring 200+ years of dark history at locations like the historic jail, old morgue, and Victorian mansions. Tours run Fri–Sat evenings; October adds Thursday tours.",
+    "description": "Lantern-lit walking tour through Knoxville's haunted Old City, exploring 200+ years of dark history at locations like the historic jail, old morgue, and Victorian mansions. Tours run Fri\u2013Sat evenings; October adds Thursday tours.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -3028,7 +3028,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "👻",
+    "emoji": "\ud83d\udc7b",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3042,7 +3042,7 @@
       6
     ],
     "startTime": "20:00",
-    "price": "$25 adults · $18 kids 6–12",
+    "price": "$25 adults \u00b7 $18 kids 6\u201312",
     "tags": [
       "ghost tour",
       "walking tour",
@@ -3071,7 +3071,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🍺",
+    "emoji": "\ud83c\udf7a",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3095,7 +3095,7 @@
     "neighborhood": "Old City",
     "lat": 35.9665,
     "lng": -83.913,
-    "venueName": "Schulz Bräu Brewing Co.",
+    "venueName": "Schulz Br\u00e4u Brewing Co.",
     "image": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F34%2FBijou-theater-lamar-house-tn1.jpg%2F800px-Bijou-theater-lamar-house-tn1.jpg&w=800&q=80"
   },
   {
@@ -3103,7 +3103,7 @@
     "title": "Historic Tours",
     "category": "Tours & Experiences",
     "location": "1220 W Governor John Sevier Hwy, Knoxville",
-    "description": "Free guided tours of Tennessee's last surviving 18th-century log house complex, home of Governor John Sevier. Open Saturdays April–December, 10 AM–5 PM. Costumed interpreters bring early Knoxville to life.",
+    "description": "Free guided tours of Tennessee's last surviving 18th-century log house complex, home of Governor John Sevier. Open Saturdays April\u2013December, 10 AM\u20135 PM. Costumed interpreters bring early Knoxville to life.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 5,
     "ageRestrictions": "All Ages",
@@ -3111,7 +3111,7 @@
     "costScale": "Free",
     "season": "Seasonal",
     "underground": false,
-    "emoji": "🏛️",
+    "emoji": "\ud83c\udfdb\ufe0f",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -3162,14 +3162,14 @@
     "costScale": "$",
     "season": "Seasonal",
     "underground": false,
-    "emoji": "🚣",
+    "emoji": "\ud83d\udea3",
     "eventType": "venue",
     "daysOfWeek": [
       5,
       6,
       0
     ],
-    "price": "$20/hr kayak · $25/hr paddleboard",
+    "price": "$20/hr kayak \u00b7 $25/hr paddleboard",
     "tags": [
       "kayak",
       "paddleboard",
@@ -3199,7 +3199,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎬",
+    "emoji": "\ud83c\udfac",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -3210,7 +3210,7 @@
       4
     ],
     "startTime": "19:30",
-    "price": "$5–$15 · check website",
+    "price": "$5\u2013$15 \u00b7 check website",
     "tags": [
       "classic film",
       "movie",
@@ -3232,7 +3232,7 @@
     "title": "Movies on Market Square",
     "category": "Film & Cinema",
     "location": "Market Square, Knoxville",
-    "description": "Free outdoor movies on the big screen at Market Square on select summer Friday evenings. Pre-show festivities start at 7:30 PM; film at dusk (~8:30 PM). Bring a blanket or lawn chair — all ages welcome.",
+    "description": "Free outdoor movies on the big screen at Market Square on select summer Friday evenings. Pre-show festivities start at 7:30 PM; film at dusk (~8:30 PM). Bring a blanket or lawn chair \u2014 all ages welcome.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 0.3,
     "ageRestrictions": "All Ages",
@@ -3240,7 +3240,7 @@
     "costScale": "Free",
     "season": "Seasonal",
     "underground": false,
-    "emoji": "🎬",
+    "emoji": "\ud83c\udfac",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -3284,7 +3284,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎬",
+    "emoji": "\ud83c\udfac",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -3316,7 +3316,7 @@
     "title": "Old City Farmers Market",
     "category": "Markets",
     "location": "Old City, Knoxville",
-    "description": "Saturday morning neighborhood market in Knoxville's historic Old City with local produce, baked goods, artisan crafts, and small-batch food vendors. Runs spring through fall — check socials for exact location and hours.",
+    "description": "Saturday morning neighborhood market in Knoxville's historic Old City with local produce, baked goods, artisan crafts, and small-batch food vendors. Runs spring through fall \u2014 check socials for exact location and hours.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 0.9,
     "ageRestrictions": "All Ages",
@@ -3324,7 +3324,7 @@
     "costScale": "Free",
     "season": "Seasonal",
     "underground": false,
-    "emoji": "🥦",
+    "emoji": "\ud83e\udd66",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -3374,7 +3374,7 @@
     "costScale": "Free",
     "season": "Seasonal",
     "underground": false,
-    "emoji": "🌻",
+    "emoji": "\ud83c\udf3b",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly-seasonal",
@@ -3413,7 +3413,7 @@
     "title": "Second Saturday Art Market",
     "category": "Markets",
     "location": "Old City, Knoxville",
-    "description": "Monthly pop-up art and maker market in the Old City every second Saturday. Local artists, jewelers, potters, printmakers, and vintage dealers. Free to browse — shop local and meet the makers.",
+    "description": "Monthly pop-up art and maker market in the Old City every second Saturday. Local artists, jewelers, potters, printmakers, and vintage dealers. Free to browse \u2014 shop local and meet the makers.",
     "indoorOutdoor": "Outdoor",
     "distanceMiles": 0.9,
     "ageRestrictions": "All Ages",
@@ -3421,7 +3421,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🛍",
+    "emoji": "\ud83d\udecd",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -3452,7 +3452,7 @@
     "title": "Open House Night",
     "category": "Community & Civic",
     "location": "1450 E Weisgarber Rd, Knoxville",
-    "description": "Knoxville's community makerspace hosts weekly open house nights — tour the facility, try tools, and meet the maker community. 3D printers, laser cutters, woodshop, electronics lab, and more. Free to visit.",
+    "description": "Knoxville's community makerspace hosts weekly open house nights \u2014 tour the facility, try tools, and meet the maker community. 3D printers, laser cutters, woodshop, electronics lab, and more. Free to visit.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 2.5,
     "ageRestrictions": "All Ages",
@@ -3460,7 +3460,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🔧",
+    "emoji": "\ud83d\udd27",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3501,7 +3501,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🌳",
+    "emoji": "\ud83c\udf33",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -3531,7 +3531,7 @@
     "title": "Monthly Mixer",
     "category": "Community & Civic",
     "location": "Rotating Venue, Knoxville",
-    "description": "Monthly networking mixer for Knoxville professionals in their 20s–40s. Rotating venues around downtown and midtown — follow KYP for the monthly location announcement.",
+    "description": "Monthly networking mixer for Knoxville professionals in their 20s\u201340s. Rotating venues around downtown and midtown \u2014 follow KYP for the monthly location announcement.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -3539,7 +3539,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🤝",
+    "emoji": "\ud83e\udd1d",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "monthly-weekday",
@@ -3569,7 +3569,7 @@
     "title": "Swing Dance Night",
     "category": "Dancing",
     "location": "Rotating Venue, Knoxville",
-    "description": "The Knoxville Swing Dance Society hosts regular swing dance nights for all skill levels — beginners welcome, no partner needed. A mix of lindy hop, east coast swing, and balboa. Check their Facebook for current venue and date.",
+    "description": "The Knoxville Swing Dance Society hosts regular swing dance nights for all skill levels \u2014 beginners welcome, no partner needed. A mix of lindy hop, east coast swing, and balboa. Check their Facebook for current venue and date.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 2,
     "ageRestrictions": "All Ages",
@@ -3577,7 +3577,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "💃",
+    "emoji": "\ud83d\udc83",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3589,7 +3589,7 @@
       5
     ],
     "startTime": "19:00",
-    "price": "$5 · includes beginner lesson",
+    "price": "$5 \u00b7 includes beginner lesson",
     "tags": [
       "swing dance",
       "lindy hop",
@@ -3616,7 +3616,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎤",
+    "emoji": "\ud83c\udfa4",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3661,7 +3661,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "⛰️",
+    "emoji": "\u26f0\ufe0f",
     "eventType": "venue",
     "daysOfWeek": [
       0,
@@ -3700,7 +3700,7 @@
     "costScale": "Free",
     "season": "Seasonal",
     "underground": false,
-    "emoji": "🎭",
+    "emoji": "\ud83c\udfad",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "annual",
@@ -3739,7 +3739,7 @@
     "costScale": "Free",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🎨",
+    "emoji": "\ud83c\udfa8",
     "eventType": "venue",
     "daysOfWeek": [
       2,
@@ -3769,7 +3769,7 @@
     "title": "Children's Science Museum",
     "category": "Arts & Museums",
     "location": "516 N Henley St, Knoxville",
-    "description": "Knoxville's hands-on children's museum with rotating STEAM exhibits, maker spaces, a planetarium, and outdoor garden. Best for families with kids ages 2–12. Admission required; members free.",
+    "description": "Knoxville's hands-on children's museum with rotating STEAM exhibits, maker spaces, a planetarium, and outdoor garden. Best for families with kids ages 2\u201312. Admission required; members free.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -3777,7 +3777,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🔬",
+    "emoji": "\ud83d\udd2c",
     "eventType": "venue",
     "daysOfWeek": [
       2,
@@ -3787,7 +3787,7 @@
       6,
       0
     ],
-    "price": "$12 adults · $6 seniors & military · Under 2 free",
+    "price": "$12 adults \u00b7 $6 seniors & military \u00b7 Under 2 free",
     "tags": [
       "children",
       "museum",
@@ -3813,7 +3813,7 @@
     "title": "$19 Bottomless Cidermosas",
     "category": "Happy Hour & Specials",
     "location": "621 Lamar St, Knoxville",
-    "description": "$19 bottomless cidermosas every Saturday and Sunday 11 AM–4 PM at this Old North Knox cider and mead taproom. Hard cider in place of wine makes these a uniquely Knoxville twist on the classic brunch drink.",
+    "description": "$19 bottomless cidermosas every Saturday and Sunday 11 AM\u20134 PM at this Old North Knox cider and mead taproom. Hard cider in place of wine makes these a uniquely Knoxville twist on the classic brunch drink.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1.2,
     "ageRestrictions": "21+",
@@ -3821,7 +3821,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🥂",
+    "emoji": "\ud83e\udd42",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3836,7 +3836,7 @@
     ],
     "startTime": "11:00",
     "endTime": "16:00",
-    "price": "$19 per person · Sat & Sun 11 AM–4 PM",
+    "price": "$19 per person \u00b7 Sat & Sun 11 AM\u20134 PM",
     "tags": [
       "cidermosas",
       "bottomless",
@@ -3862,7 +3862,7 @@
     "title": "$20 Bottomless Mimosas Brunch",
     "category": "Happy Hour & Specials",
     "location": "115 Mimosa Ave, Knoxville",
-    "description": "Bottomless mimosas ($20) every Saturday and Sunday during brunch at this South Knoxville neighborhood spot. Named for the street it sits on — one of Knoxville's dedicated brunch destinations.",
+    "description": "Bottomless mimosas ($20) every Saturday and Sunday during brunch at this South Knoxville neighborhood spot. Named for the street it sits on \u2014 one of Knoxville's dedicated brunch destinations.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 3,
     "ageRestrictions": "21+",
@@ -3870,7 +3870,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🥂",
+    "emoji": "\ud83e\udd42",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3884,7 +3884,7 @@
       6
     ],
     "startTime": "10:00",
-    "price": "$20 bottomless · Sat & Sun brunch",
+    "price": "$20 bottomless \u00b7 Sat & Sun brunch",
     "tags": [
       "bottomless mimosas",
       "brunch",
@@ -3905,7 +3905,7 @@
     "title": "$33 Sunday Seafood Brunch Buffet",
     "category": "Happy Hour & Specials",
     "location": "9630 Parkside Dr, Knoxville",
-    "description": "Sunday brunch buffet 10:30 AM–2:30 PM: $33 adults, $15 children 12 & under. Fresh seafood bar, bloody mary bar, brunch entrees, and raw bar. One of Knoxville's most indulgent weekend experiences. Reservations recommended.",
+    "description": "Sunday brunch buffet 10:30 AM\u20132:30 PM: $33 adults, $15 children 12 & under. Fresh seafood bar, bloody mary bar, brunch entrees, and raw bar. One of Knoxville's most indulgent weekend experiences. Reservations recommended.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 7,
     "ageRestrictions": "All Ages",
@@ -3913,7 +3913,7 @@
     "costScale": "$$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🦞",
+    "emoji": "\ud83e\udd9e",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3925,7 +3925,7 @@
       0
     ],
     "startTime": "10:30",
-    "price": "$33 adults · $15 kids 12 & under",
+    "price": "$33 adults \u00b7 $15 kids 12 & under",
     "tags": [
       "brunch buffet",
       "sunday",
@@ -3949,7 +3949,7 @@
     "title": "$1 Off All Drafts All Day Monday",
     "category": "Happy Hour & Specials",
     "location": "1317 Island Home Ave, Knoxville",
-    "description": "$1 off ALL drafts all day Monday — plus daily happy hour Tue–Fri 3–6 PM. South Knoxville's best craft beer bar with an enormous tap list and a neighborhood vibe that can't be beat.",
+    "description": "$1 off ALL drafts all day Monday \u2014 plus daily happy hour Tue\u2013Fri 3\u20136 PM. South Knoxville's best craft beer bar with an enormous tap list and a neighborhood vibe that can't be beat.",
     "indoorOutdoor": "Both",
     "distanceMiles": 3,
     "ageRestrictions": "21+",
@@ -3957,7 +3957,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🍺",
+    "emoji": "\ud83c\udf7a",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -3969,7 +3969,7 @@
       1
     ],
     "startTime": "11:00",
-    "price": "$1 off all drafts all day · Tue–Fri 3–6 PM too",
+    "price": "$1 off all drafts all day \u00b7 Tue\u2013Fri 3\u20136 PM too",
     "tags": [
       "happy hour",
       "all day",
@@ -3993,7 +3993,7 @@
     "title": "$1 Nigiri & Yakitori Specials",
     "category": "Happy Hour & Specials",
     "location": "122 S Central Ave, Knoxville",
-    "description": "Mon–Thu 3–5 PM: $1 nigiri and $1 yakitori small plates plus discounted sake, soju, and local brews. One of Knoxville's best-value happy hours — Japanese pub food at bar-snack prices in Old City.",
+    "description": "Mon\u2013Thu 3\u20135 PM: $1 nigiri and $1 yakitori small plates plus discounted sake, soju, and local brews. One of Knoxville's best-value happy hours \u2014 Japanese pub food at bar-snack prices in Old City.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 0.8,
     "ageRestrictions": "21+",
@@ -4001,7 +4001,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🍣",
+    "emoji": "\ud83c\udf63",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -4020,7 +4020,7 @@
     ],
     "startTime": "15:00",
     "endTime": "17:00",
-    "price": "$1 nigiri · $1 yakitori · Mon–Thu 3–5 PM",
+    "price": "$1 nigiri \u00b7 $1 yakitori \u00b7 Mon\u2013Thu 3\u20135 PM",
     "tags": [
       "happy hour",
       "nigiri",
@@ -4045,7 +4045,7 @@
     "title": "Half Off Apps & $5 Wells Daily",
     "category": "Happy Hour & Specials",
     "location": "1 Market Sq, Knoxville",
-    "description": "Mon–Fri 4–6 PM: ½ off appetizers, $2 off beers & wines, $5 well spirits. Plus daily drink specials: Tini Tuesdays ($3 cocktails), Wine Wednesdays (½ off bottles), Tequila Thursdays ($6 margaritas).",
+    "description": "Mon\u2013Fri 4\u20136 PM: \u00bd off appetizers, $2 off beers & wines, $5 well spirits. Plus daily drink specials: Tini Tuesdays ($3 cocktails), Wine Wednesdays (\u00bd off bottles), Tequila Thursdays ($6 margaritas).",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 0.3,
     "ageRestrictions": "All Ages",
@@ -4053,7 +4053,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🍹",
+    "emoji": "\ud83c\udf79",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -4074,7 +4074,7 @@
     ],
     "startTime": "16:00",
     "endTime": "18:00",
-    "price": "Half off apps · $5 wells · Mon–Fri 4–6 PM",
+    "price": "Half off apps \u00b7 $5 wells \u00b7 Mon\u2013Fri 4\u20136 PM",
     "tags": [
       "happy hour",
       "half price apps",
@@ -4096,7 +4096,7 @@
     "title": "$3 Beers & $1.50 Tacos Daily",
     "category": "Happy Hour & Specials",
     "location": "Standard St, Knoxville",
-    "description": "Mon–Fri 3–6:30 PM: $3 craft beers, $1.50 tacos & sliders, $3 chips & queso, $4 pimento & hummus plates. Knoxville's beloved craft brewery in a restored service station — happy hour food here is a steal.",
+    "description": "Mon\u2013Fri 3\u20136:30 PM: $3 craft beers, $1.50 tacos & sliders, $3 chips & queso, $4 pimento & hummus plates. Knoxville's beloved craft brewery in a restored service station \u2014 happy hour food here is a steal.",
     "indoorOutdoor": "Both",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -4104,7 +4104,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🍺",
+    "emoji": "\ud83c\udf7a",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -4125,7 +4125,7 @@
     ],
     "startTime": "15:00",
     "endTime": "18:30",
-    "price": "$3 craft beers · $1.50 tacos & sliders · Mon–Fri 3–6:30 PM",
+    "price": "$3 craft beers \u00b7 $1.50 tacos & sliders \u00b7 Mon\u2013Fri 3\u20136:30 PM",
     "tags": [
       "happy hour",
       "craft beer",
@@ -4150,7 +4150,7 @@
     "title": "$3 Drafts & Prosecco Happy Hour",
     "category": "Happy Hour & Specials",
     "location": "333 W Depot Ave, Knoxville",
-    "description": "Tue–Wed 5–7 PM, Thu–Fri 4–6 PM: $3 drafts, $3 prosecco, $5 house liquor. Knoxville's premier food hall with 11 restaurant concepts and a 40-seat bar — happy hour here means you can try multiple spots for the price of one.",
+    "description": "Tue\u2013Wed 5\u20137 PM, Thu\u2013Fri 4\u20136 PM: $3 drafts, $3 prosecco, $5 house liquor. Knoxville's premier food hall with 11 restaurant concepts and a 40-seat bar \u2014 happy hour here means you can try multiple spots for the price of one.",
     "indoorOutdoor": "Indoor",
     "distanceMiles": 1,
     "ageRestrictions": "All Ages",
@@ -4158,7 +4158,7 @@
     "costScale": "$",
     "season": "Year-round",
     "underground": false,
-    "emoji": "🍹",
+    "emoji": "\ud83c\udf79",
     "eventType": "recurring",
     "recurrenceRule": {
       "type": "weekly",
@@ -4177,7 +4177,7 @@
     ],
     "startTime": "16:00",
     "endTime": "19:00",
-    "price": "$3 drafts & prosecco · Tue–Wed 5–7 PM · Thu–Fri 4–6 PM",
+    "price": "$3 drafts & prosecco \u00b7 Tue\u2013Wed 5\u20137 PM \u00b7 Thu\u2013Fri 4\u20136 PM",
     "tags": [
       "happy hour",
       "food hall",
