@@ -103,6 +103,24 @@ def content_hash(text):
 
 # ── ID / dedup ─────────────────────────────────────────────────────────────────
 
+# Backstop: known-bad event IDs that must never be (re)added — e.g. out-of-town
+# events a source mislabeled as Knoxville. Even if a crawler regresses, these
+# are blocked at save time.
+BLOCKLIST_IDS = {
+    "crawled_dd5da89cba66", "crawled_ea17cc2aec4d",  # Don Toliver (LA)
+    "crawled_cdcb76316a32", "crawled_7aeba4c42c2d", "crawled_95fc1e685087",
+    "crawled_cb871f2fb139", "crawled_3904e64e42c9", "crawled_5e1df5dae9dc",
+    "crawled_c9dfe7f15fec", "crawled_9d8634feed1b",  # LA Sparks x8
+    "crawled_c0a73fa4bfcc",  # Diljit Dosanjh (LA)
+    "crawled_431d7764fdb0",  # Summer Walker (LA)
+    "crawled_1fdedd340a20",  # Kid Cudi (LA)
+    "crawled_df466ac50eab", "crawled_856b9c9e4ad2",  # Olivia Dean (LA)
+    "crawled_cbb2e482c330", "crawled_b3274658d6eb", "crawled_5958f8c3c3ef",  # Monster Jam (LA)
+    "crawled_d291eb2e919d", "crawled_7717152503af",  # Megan Moroney (LA)
+    "crawled_4dca891d2cfa",  # Benson Boone (LA)
+}
+
+
 def event_id(title, date_str=""):
     """Stable dedup ID: crawled_ + first 12 chars of MD5(title+date)."""
     raw = title.lower().strip() + date_str
@@ -116,6 +134,9 @@ def already_exists(eid):
 def save_event(evt):
     global _new_count
     eid = evt.get("id") or event_id(evt.get("title", ""), evt.get("eventDate", ""))
+    if eid in BLOCKLIST_IDS:
+        print(f"    skip (blocklisted): {evt.get('title', '')[:55]}")
+        return False
     if already_exists(eid):
         print(f"    skip (exists): {evt.get('title', '')[:55]}")
         return False
@@ -1337,15 +1358,27 @@ def crawl_scruffycity(page, state):
 
 
 # 15. ticketmaster.com — Thompson-Boling Arena
+# Knoxville-area TN cities considered "local" — an event whose real venue city
+# isn't in this set is rejected (prevents out-of-town events leaking in).
+KNOXVILLE_AREA_CITIES = {
+    "knoxville", "farragut", "alcoa", "maryville", "oak ridge", "powell",
+    "kodak", "sevierville", "pigeon forge", "clinton", "lenoir city",
+    "kingston", "halls", "hardin valley",
+}
+
+
 def crawl_ticketmaster_thompson_boling(state):
-    source = "ticketmaster.com/thompson-boling"
+    source = "ticketmaster.com/knoxville"
     print(f"\n── {source} ──")
-    # Ticketmaster Discovery API — free, no auth required for basic event search
+    # Ticketmaster Discovery API — query by city/state, NOT a hardcoded venueId.
+    # A venueId can collide across markets; city+stateCode keeps results local.
     url = (
         "https://app.ticketmaster.com/discovery/v2/events.json"
         "?apikey=TICKETMASTER_API_KEY"
-        "&venueId=KovZpZAEdntA"  # Thompson-Boling Arena venue ID
-        "&size=20"
+        "&city=Knoxville"
+        "&stateCode=TN"
+        "&countryCode=US"
+        "&size=50"
         "&sort=date,asc"
     )
     saved = 0
@@ -1368,6 +1401,28 @@ def crawl_ticketmaster_thompson_boling(state):
                 title = ev.get("name", "")
                 if not title:
                     continue
+
+                # Verify the event's REAL venue is in a Knoxville-area TN city
+                # before trusting/saving it. Skip anything that isn't local.
+                venues = ev.get("_embedded", {}).get("venues", [])
+                if not venues:
+                    print(f"    skip (no venue data): {title[:45]}")
+                    continue
+                v = venues[0]
+                v_city = (v.get("city", {}) or {}).get("name", "").strip()
+                v_state = (v.get("state", {}) or {}).get("stateCode", "").strip()
+                if v_city.lower() not in KNOXVILLE_AREA_CITIES or v_state.upper() != "TN":
+                    print(f"    skip (not Knoxville: {v_city}, {v_state}): {title[:45]}")
+                    continue
+
+                # Use the REAL venue name / address / coordinates from the API.
+                venue_name = v.get("name", "") or "Knoxville Venue"
+                addr = (v.get("address", {}) or {}).get("line1", "")
+                postal = v.get("postalCode", "")
+                location = ", ".join(p for p in [addr, f"{v_city}, {v_state} {postal}".strip()] if p)
+                loc = v.get("location", {}) or {}
+                lat = loc.get("latitude")
+                lng = loc.get("longitude")
 
                 dates = ev.get("dates", {}).get("start", {})
                 date_str = dates.get("localDate", "")
@@ -1400,11 +1455,16 @@ def crawl_ticketmaster_thompson_boling(state):
 
                 evt = build_event(
                     title=title, date_str=date_str,
-                    venue="Thompson-Boling Arena", location="1600 Stadium Dr, Knoxville, TN 37996",
+                    venue=venue_name, location=location or f"{v_city}, {v_state}",
                     source=source, source_url=url_detail, image=img,
                     price_text=price_text, time_str=time_str,
                 )
-                evt["neighborhood"] = "Fort Sanders"
+                if lat and lng:
+                    try:
+                        evt["lat"] = float(lat)
+                        evt["lng"] = float(lng)
+                    except (TypeError, ValueError):
+                        pass
                 if not img:
                     evt["image"] = CATEGORY_IMAGES.get(evt["category"], DEFAULT_IMAGE)
                 if save_event(evt):
