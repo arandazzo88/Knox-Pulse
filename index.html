@@ -2545,9 +2545,10 @@ const CUSTOM_LISTINGS_KEY = 'kp_custom_listings';
 let customListings = JSON.parse(localStorage.getItem(CUSTOM_LISTINGS_KEY)||'[]');
 
 function allListings(){
-  // LISTINGS (the static /data/listings.json file) is the single source of
-  // truth and wins on id collisions; customListings (admin) and
-  // communityEvents (Firestore) only contribute ids not already in the file.
+  // data/listings.json (LISTINGS) is THE single cloud catalog — built-in,
+  // crawled, and community events all live here and it wins on id collisions.
+  // communityEvents (Firestore) is now only a public-submission inbox awaiting
+  // approval; customListings is a legacy admin store. Both merge in read-only.
   const out=[], seen=new Set();
   for(const l of [...LISTINGS, ...customListings, ...communityEvents]){
     if(!l) continue;
@@ -2643,7 +2644,7 @@ function renderAdminListings(){
       <span style="font-size:.75rem;color:var(--muted);">${l.category}</span>
       <div class="alr-actions">
         <button class="btn-edit" onclick="adminEditListing('${l.id}')">Edit</button>
-        ${customListings.find(x=>x.id===l.id)?`<button class="btn-del" onclick="adminDeleteListing('${l.id}')">Delete</button>`:'<span style="font-size:.7rem;color:var(--muted);padding:4px 6px;">Built-in</span>'}
+        ${customListings.find(x=>x.id===l.id)?`<button class="btn-del" onclick="adminDeleteListing('${l.id}')">Delete</button>`:'<span style="font-size:.7rem;color:var(--muted);padding:4px 6px;" title="Lives in data/listings.json — edit via the weekly cloud task / repo commit">Catalog</span>'}
       </div>
     </div>`).join('');
 }
