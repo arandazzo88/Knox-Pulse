@@ -2847,10 +2847,20 @@ async function importData(){
   // Normalize (handles string daysOfWeek, 12h times, etc.)
   events=events.map(e=>{try{return normalizeEvent(e);}catch{return e;}});
 
-  // De-dup against existing communityEvents by id
-  const existingIds=new Set(communityEvents.map(e=>e.id).filter(Boolean));
-  const toAdd=events.filter(e=>!e.id||!existingIds.has(e.id));
-  if(!toAdd.length){ showToast('All events already imported.'); return; }
+  // De-dup against the ENTIRE catalog (built-ins + crawled + custom + community),
+  // by id AND by content key (venue|date|time|title). This closes the gap where
+  // an import could duplicate a standing listing that isn't in communityEvents.
+  const catalog=allListings();
+  const ckey=e=>[e.title,e.eventDate,e.startTime,e.venueName||e.location]
+    .map(s=>(s==null?'':String(s)).trim().toLowerCase()).join('|');
+  const existingIds=new Set(catalog.map(e=>e.id).filter(Boolean));
+  const existingKeys=new Set(catalog.map(ckey));
+  const toAdd=events.filter(e=>{
+    if(e.id&&existingIds.has(e.id)) return false;
+    if(existingKeys.has(ckey(e))) return false;
+    return true;
+  });
+  if(!toAdd.length){ showToast('All events already in the catalog — nothing to import.'); return; }
 
   if(!db){ showToast('Firestore not available.'); return; }
 
