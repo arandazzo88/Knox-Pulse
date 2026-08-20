@@ -2,12 +2,18 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Community-submitted events — publicly readable, writable (create/update/delete)
-    // TODO: lock down with Firebase Auth once auth is implemented
+    // communityEvents is now only a public-submission QUEUE, not the catalog.
+    // The site no longer displays it; data/listings.json is the source of truth.
+    // The public "Submit Event" form creates docs; the admin Community tab reads
+    // and clears them; approved events are committed into data/listings.json.
+    // update is closed (submissions aren't edited in place). read/create/delete
+    // stay open only because there is no Firebase Auth yet to scope them to the
+    // admin — that (or moving submissions to a serverless endpoint) is the
+    // remaining hardening step now that this is no longer a display source.
     match /communityEvents/{docId} {
       allow read: if true;
       allow create: if true;
-      allow update: if true;
+      allow update: if false;
       allow delete: if true;
     }
 
