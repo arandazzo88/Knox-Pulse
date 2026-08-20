@@ -2545,12 +2545,14 @@ const CUSTOM_LISTINGS_KEY = 'kp_custom_listings';
 let customListings = JSON.parse(localStorage.getItem(CUSTOM_LISTINGS_KEY)||'[]');
 
 function allListings(){
-  // data/listings.json (LISTINGS) is THE single cloud catalog — built-in,
-  // crawled, and community events all live here and it wins on id collisions.
-  // communityEvents (Firestore) is now only a public-submission inbox awaiting
-  // approval; customListings is a legacy admin store. Both merge in read-only.
+  // data/listings.json (LISTINGS) is THE catalog the site displays and that
+  // search engines see (via SSR). communityEvents (Firestore) is NO LONGER
+  // merged here — it is only a private public-submission queue reviewed in the
+  // admin Community tab; approved events are committed into data/listings.json.
+  // customListings is a legacy admin store (currently empty) kept for its
+  // approve flow.
   const out=[], seen=new Set();
-  for(const l of [...LISTINGS, ...customListings, ...communityEvents]){
+  for(const l of [...LISTINGS, ...customListings]){
     if(!l) continue;
     if(l.id){ if(seen.has(l.id)) continue; seen.add(l.id); }
     out.push(l);
@@ -2815,71 +2817,6 @@ function exportData(){
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
   a.download='knoxpulse-backup-'+new Date().toISOString().slice(0,10)+'.json';
   a.click();
-}
-
-function showImportReady(){
-  const file = document.getElementById('import-file').files[0];
-  document.getElementById('import-filename').textContent = file ? file.name : 'No file selected';
-  document.getElementById('import-btn').style.display = file ? 'block' : 'none';
-}
-
-async function importData(){
-  const file=document.getElementById('import-file').files[0]; if(!file) return;
-  const text=await file.text();
-  let events;
-  try{
-    const parsed=JSON.parse(text);
-    // Accept: plain array, {events:[...]}, {schemaVersion:1,...,events:[...]}
-    events=Array.isArray(parsed)?parsed:(parsed.events||parsed.communityEvents||parsed.customListings||[]);
-    if(!events.length) throw new Error('No events found');
-  } catch(err){ showToast('Invalid JSON file.'); return; }
-
-  // Map cowork field aliases → codebase field names
-  const aliasMap={venue:'venueName',address:'location',startDate:'eventDate',
-    endDate:'eventEndDate',coverPhoto:'image',latitude:'lat',longitude:'lng'};
-  events=events.map(raw=>{
-    const e={...raw};
-    for(const[from,to]of Object.entries(aliasMap)){
-      if(from in e && !(to in e)){ e[to]=e[from]; delete e[from]; }
-    }
-    return e;
-  });
-
-  // Normalize (handles string daysOfWeek, 12h times, etc.)
-  events=events.map(e=>{try{return normalizeEvent(e);}catch{return e;}});
-
-  // De-dup against the ENTIRE catalog (built-ins + crawled + custom + community),
-  // by id AND by content key (venue|date|time|title). This closes the gap where
-  // an import could duplicate a standing listing that isn't in communityEvents.
-  const catalog=allListings();
-  const ckey=e=>[e.title,e.eventDate,e.startTime,e.venueName||e.location]
-    .map(s=>(s==null?'':String(s)).trim().toLowerCase()).join('|');
-  const existingIds=new Set(catalog.map(e=>e.id).filter(Boolean));
-  const existingKeys=new Set(catalog.map(ckey));
-  const toAdd=events.filter(e=>{
-    if(e.id&&existingIds.has(e.id)) return false;
-    if(existingKeys.has(ckey(e))) return false;
-    return true;
-  });
-  if(!toAdd.length){ showToast('All events already in the catalog — nothing to import.'); return; }
-
-  if(!db){ showToast('Firestore not available.'); return; }
-
-  showToast(`Importing ${toAdd.length} event(s)…`);
-  let added=0, failed=0;
-  const ts=firebase.firestore.FieldValue.serverTimestamp();
-  for(const ev of toAdd){
-    try{
-      const ref=await db.collection('communityEvents').add({...ev, submittedAt:ts, source:'import'});
-      communityEvents.push({...ev, id:ref.id});
-      added++;
-    } catch(err){ console.warn('Import write failed:',err); failed++; }
-  }
-  applyFilters();
-  showToast(failed?`Imported ${added}, failed ${failed}.`:`Imported ${added} event(s)!`);
-  document.getElementById('import-file').value='';
-  document.getElementById('import-filename').textContent='No file selected';
-  document.getElementById('import-btn').style.display='none';
 }
 
 // Show admin FAB if ?admin in URL
@@ -3206,14 +3143,11 @@ setTimeout(function(){
               Export all custom listings as JSON (for backup).</p>
             <button class="admin-save" onclick="exportData()" style="background:#ffffff20;color:var(--text);">📤 Export Data</button>
             <hr style="border-color:#ffffff15;margin:20px 0;"/>
-            <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">
-              Import listings from a previously exported JSON file.</p>
-            <input type="file" id="import-file" accept=".json" style="display:none;" onchange="showImportReady()"/>
-            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
-              <button class="admin-save" style="background:#ffffff20;color:var(--text);" onclick="document.getElementById('import-file').click()">📂 Choose File</button>
-              <span id="import-filename" style="font-size:.8rem;color:var(--muted);">No file selected</span>
-            </div>
-            <button id="import-btn" class="admin-save" style="margin-top:10px;display:none;" onclick="importData()">📥 Import Now</button>
+            <p style="font-size:.8rem;color:var(--muted);margin-bottom:0;">
+              Events are now added by committing to <code>data/listings.json</code> (or dropping a
+              JSON file into <code>data/inbox/</code>, which the weekly crawler merges). The old
+              in-browser importer has been retired so everything lives in one place and is visible
+              to search engines.</p>
           </div>
         </div>
       </div><!-- /admin-content -->

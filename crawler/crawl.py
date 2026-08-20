@@ -13,6 +13,7 @@ Env: LISTINGS_FILE=/path/to/data/listings.json  (default: ../data/listings.json)
 
 import os
 import re
+import glob
 import json
 import hashlib
 import datetime
@@ -34,6 +35,14 @@ LISTINGS_FILE = os.environ.get(
     os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "listings.json"),
 )
 STATE_FILE = os.environ.get("STATE_FILE", "/tmp/scrape-state.json")
+
+# data/inbox/ is a drop folder for events that can't be scraped from CI
+# (Instagram, the Honky Tonk Google Calendar, etc.). The weekly Cowork task
+# writes JSON-array files here; the crawler merges and deletes them on each run.
+INBOX_DIR = os.environ.get(
+    "INBOX_DIR",
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "inbox"),
+)
 
 CATEGORY_IMAGES = {
     "Live Music": "https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb8%2FGuitar_1.jpg%2F800px-Guitar_1.jpg&w=800&q=80",
@@ -146,6 +155,49 @@ def save_event(evt):
     _new_count += 1
     print(f"    saved: {evt.get('title', '')[:60]}")
     return True
+
+
+# ── Inbox (hand-prepared events dropped in data/inbox/) ─────────────────────────
+
+def process_inbox():
+    """Merge any hand-prepared event files in data/inbox/ into the catalog, then
+    delete each merged file. Each file is a JSON array of listing records in the
+    same shape as data/listings.json. Dedup/state go through the same
+    already_exists()/save_event() helpers the crawlers use, so behavior is
+    consistent. Defensive: a file that isn't valid JSON or isn't a top-level
+    array is logged, left in place, and skipped — it never crashes the crawl.
+    Returns the number of records added."""
+    added = 0
+    files = sorted(glob.glob(os.path.join(INBOX_DIR, "*.json")))
+    if not files:
+        print("\n=== Inbox: no files to process ===")
+        return 0
+    print(f"\n=== Processing inbox ({len(files)} file(s)) ===")
+    for path in files:
+        name = os.path.basename(path)
+        try:
+            with open(path, encoding="utf-8") as f:
+                records = json.load(f)
+        except Exception as e:
+            print(f"  {name}: SKIP — invalid JSON ({e}); left in place")
+            continue
+        if not isinstance(records, list):
+            print(f"  {name}: SKIP — not a JSON array; left in place")
+            continue
+        file_added = 0
+        for rec in records:
+            if not isinstance(rec, dict):
+                print(f"  {name}: skip non-object record")
+                continue
+            if save_event(dict(rec)):
+                file_added += 1
+        added += file_added
+        try:
+            os.remove(path)
+            print(f"  {name}: merged {file_added}/{len(records)} record(s); file removed")
+        except OSError as e:
+            print(f"  {name}: merged {file_added} record(s) but could not remove file ({e})")
+    return added
 
 
 # ── Field-derivation helpers ───────────────────────────────────────────────────
@@ -1489,6 +1541,10 @@ def main():
     load_listings()
     state = load_state()
     total_saved = 0
+
+    # Merge hand-prepared events dropped in data/inbox/ FIRST, so they dedup
+    # against the existing catalog and against this run's freshly crawled events.
+    total_saved += process_inbox()
 
     # Playwright-based crawlers (JS-heavy sites)
     print("\n=== Starting Playwright crawlers ===")

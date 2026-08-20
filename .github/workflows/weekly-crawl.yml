@@ -36,10 +36,12 @@ jobs:
         run: |
           git config user.name "knox-pulse-bot"
           git config user.email "actions@users.noreply.github.com"
-          if git diff --quiet -- data/listings.json; then
+          # Stage the catalog and the inbox (so merged/removed inbox files are
+          # committed too), then commit only if anything actually changed.
+          git add -A data/listings.json data/inbox
+          if git diff --cached --quiet; then
             echo "No new events — nothing to commit."
           else
-            git add data/listings.json
             git commit -m "Weekly crawl: merge new events into listings.json"
             git push
           fi
